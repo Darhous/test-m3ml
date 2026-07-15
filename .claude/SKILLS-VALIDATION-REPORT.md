@@ -164,10 +164,7 @@ to avoid rewriting shared history.
 - **Working tree**: clean (after the commits below)
 - **Push**: successful to `origin/main`
 - **Setup commit**: `chore: set up architecture skills and project context`
-  — hash: `PENDING_COMMIT_HASH`
+  — hash: `4d10220`
 - **Report-update commit**: `docs: record skills setup validation details`
-  — hash: `PENDING_COMMIT_HASH`
-
-(These two placeholder hashes are filled in immediately after each commit is
-created — see the follow-up commit in this same task that records the final
-values.)
+  — hash of this current commit (see `git log` on `main` for the exact value;
+  this commit itself is that follow-up commit).
