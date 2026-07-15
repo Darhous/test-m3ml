@@ -152,6 +152,136 @@ cover.
 
 ---
 
-*This review is a self-review performed within the same task that authored the
-reviewed documents. It is not a substitute for an independent review by another
-session/person before treating any Open Risk (Section 4) as resolved.*
+# v2 Addendum — Enterprise Constitution Upgrade Review
+
+**Date:** 2026-07-15
+**Scope reviewed:** `docs/constitution/PROJECT-CONSTITUTION.md` Sections 48–62
+(new in v2). Sections 1–47 and `docs/adr/0001`–`0010` were **not modified** in
+this upgrade and are not re-reviewed here (see the v1 review above, still
+valid).
+
+**Method:** same skill set as the v1 review (`domain-driven-design`,
+`architecture-patterns`, `api-design-principles`, `stride-analysis-patterns`,
+`threat-mitigation-mapping`, `doc-coauthoring`, `mermaid-diagrams`), plus a
+full-text technology-name sweep and a numeric-value sweep specific to
+Section 51 (Non-Functional Budgets), since v2 introduces budget and
+governance content with a higher risk of silently invented numbers or
+technology choices than v1's rule-only content.
+
+## v2-1. Strengths
+
+- **Zero new architectural decisions.** Section 50 (Architecture Decision
+  Matrix) restates the existing 10 ADRs; no new row, no new ADR, no altered
+  Decision/Alternatives/Consequences text. Verified by diffing the matrix
+  content against each ADR file.
+- **No invented numbers.** Section 51 (Non-Functional Budgets) marks every
+  latency/availability/RTO/RPO/error-rate budget `Draft` with a specific,
+  named reason (usually a citation to an `open-questions.md` item); the only
+  "Set" values are three qualitative 100%-completeness gates (Observability,
+  Audit, Security Review Coverage), explicitly justified as binary
+  Definition-of-Done gates, not guessed SLA numbers.
+- **No technology/vendor names.** Full-text sweep of Sections 48–62 for
+  programming languages, frameworks, cloud providers, databases, message
+  brokers, and AI providers found none (the only matches were the literal
+  strings "DB" as a generic abbreviation, "go" as an English verb inside
+  regex false-positives, and "CLAUDE.md" — the project's own file name, not
+  the AI model). Section 54 (Architecture Radar) names only patterns/
+  practices, no products, per its own explicit constraint.
+- **Extension, not duplication, where v2 overlaps v1.** Section 48's
+  Versioning Policy, Section 56's Repository Governance, and Section 61's
+  ADR Governance each explicitly cross-reference the v1 section they extend
+  (15, 40–43, 39 respectively) rather than restating it — checked by
+  grep for "Restates Section" / "extends Section" anchors in each.
+- **Honest about current organizational reality.** Section 57 (Architecture
+  Review Board) and Section 56 (CODEOWNERS Strategy) explicitly state, as a
+  Fact, that the ARB/CODEOWNERS function is currently fulfilled by one
+  project owner rather than inventing a fictional team roster — consistent
+  with the No-Guessing Rule.
+
+## v2-2. Contradictions Found
+
+| # | Contradiction | Where |
+|---|---|---|
+| C4 | Section 59 introduces a second Draft/Review/Accepted/Deprecated/Archived vocabulary for documents, which superficially resembles the Decision Status vocabulary (Draft/Proposed/Accepted/Rejected/Superseded) that Section 40 says must not gain synonyms. | Section 59 vs. Section 40 |
+| C5 | Section 61 adds `Draft` and `Deprecated` states to the ADR lifecycle, extending Section 39's `Proposed → Accepted → Superseded (or Rejected)` — read in isolation, Section 39 could appear to conflict with Section 61's six-state list. | Section 39 vs. Section 61 |
+
+## v2-3. Contradictions Resolved
+
+- **C4 — Resolved by explicit scoping, stated directly in Section 59's
+  opening paragraph.** The Document Status vocabulary governs *documents as
+  files* (is this README ready to be read as authoritative); the Decision
+  Status vocabulary governs *architectural decisions* (is this rule binding).
+  A document can be `Review` status while accurately describing an
+  `Accepted` decision — the two answer different questions and are never
+  used interchangeably. Section 40's "no synonyms" rule is preserved because
+  it applies *within* a single vocabulary (no third variant of either list
+  may be introduced), not *across* the two deliberately distinct vocabularies.
+- **C5 — Resolved by explicit statement, in Section 61's own text.** Section
+  39 is unchanged and still governs the 10 existing ADRs, all of which
+  remain `Accepted` and skip `Draft` (they were authored and accepted in a
+  single-owner context where a `Draft` circulation step did not apply).
+  Section 61 states its two new states apply going forward for
+  collaboratively-written future ADRs, and that no existing ADR's status
+  changes as part of this addition. The lifecycle is additive
+  (`Proposed → Accepted → Superseded`/`Rejected` remains valid as a subset
+  path of the six-state list), not a replacement.
+
+## v2-4. Open Risks (new in v2, in addition to v1's R1–R5, still open)
+
+| # | Risk | Notes |
+|---|---|---|
+| R6 | Architecture Review Board (Section 57) and CODEOWNERS (Section 56) are both fulfilled by a single person today; no continuity/succession rule exists for what happens if that person is unavailable. | Newly identified while writing Section 57/58 (Knowledge Risk row references this same gap). Not fixed in v2 — recorded here since inventing a succession policy without real team structure would itself violate the No-Guessing Rule. |
+| R7 | Section 51's Non-Functional Budgets are entirely `Draft` — the platform currently has no numeric performance/availability target at all, which is correct given the No-Guessing Rule but means Section 52's "Performance Review" gate has nothing concrete to check against yet. | Will resolve naturally once `open-questions.md` #4 (expected scale) is answered and budgets move from Draft to Set — tracked, not blocking v2 acceptance. |
+| R8 | Section 57's Decision Types table assumes "once ARB has more than one member" as a trigger for collective approval, but no rule defines *when*/*how* the ARB is expected to grow beyond one person. | Organizational-growth question, out of this Constitution's scope (it governs architecture, not org design) — flagged for awareness, not an architecture gap. |
+
+v1's Open Risks R1 (no DoS/rate-limiting policy) and R2 (no incident-response
+process) remain **unaddressed in v2** — they were not part of this task's
+explicit scope (Engineering Principles' Integration Reliability Policy,
+Section 48, covers dependency-failure handling but still not abuse/attack
+handling) and are carried forward, not silently closed.
+
+## v2-5. Missing Decisions
+
+- Numeric Non-Functional Budgets (Section 51) — intentionally deferred, not
+  missing by oversight.
+- ARB cadence frequency (Section 57) — marked Draft for the same reason as
+  Section 51.
+- Rate-limiting/abuse-protection policy and incident-response process (v1
+  R1/R2) — still not addressed; the Engineering Principles chapter (Section
+  48) was scoped to reliability/data-integrity policies per the task
+  instructions, not security-abuse policies, so this gap persists by design
+  of the instructions given, not an omission within that scope.
+- Branch protection tooling/mechanism (Section 56) — the *rule* is stated
+  (required review before merge), the *implementation mechanism* is
+  correctly left to SAD/tooling level.
+
+## v2-6. Ambiguous Terms (new in v2)
+
+| Term | Where used | Ambiguity | Recommendation |
+|---|---|---|---|
+| "measured, sustained operational need" (recurring across Sections 48, 55, 57) | Evolution Strategy, Engineering Principles | Same underlying ambiguity as v1's R3 ("operationally justified") — no defined evidentiary threshold | Same recommendation as v1: define a minimum evidence bar in the SAD before first real use. |
+| "regular cadence" (Section 57, ARB Cadence) | Architecture Review Board | Frequency deliberately left Draft | Set once real operational rhythm exists — do not guess a number now. |
+| "whichever exists at the time" (Section 56, CODEOWNERS) | Repository Governance | Deliberately flexible to avoid inventing an org structure | Tighten once a real team structure exists; not a defect for a single-owner project today. |
+
+## v2-7. Validation Checklist (Sections 48–62 specific)
+
+| # | Check | Result |
+|---|---|---|
+| 1 | Every Rule/Policy in Section 48 has Rule/Rationale/Required/Forbidden/Exceptions/Verification | PASS — all 23 policies checked |
+| 2 | Every Fitness Function in Section 49 has Goal/Validation Method/Automated Checks/Manual Review/Failure Criteria | PASS — all 13 checked |
+| 3 | Architecture Decision Matrix (Section 50) content traces to the named ADR with no new claims | PASS — spot-checked all 10 rows against source ADRs |
+| 4 | No invented numeric Non-Functional Budget (Section 51) | PASS — see v2-1 |
+| 5 | No technology/vendor name in Sections 48–62 | PASS — see v2-1 |
+| 6 | Architecture Radar (Section 54) contains no products/vendors | PASS |
+| 7 | Evolution Strategy (Section 55) triggers are evidence-typed, not numerically guessed | PASS |
+| 8 | Every new Governance section (56–61) either extends a v1 section by reference or is genuinely new content, with no v1 section rewritten | PASS — diff-reviewed; Sections 1–47 byte-identical except the version header/footer (Section "Version Metadata") |
+| 9 | Self-Validation questions (Section 62) answered, matching this Addendum | PASS — cross-checked |
+| 10 | No new Module Catalog, Roadmap, Tasks, SAD content introduced | PASS |
+
+---
+
+*This v2 Addendum, like the v1 review above it, is a self-review performed
+within the same task that authored the reviewed documents. Open Risks R1,
+R2 (from v1) and R6–R8 (new in v2) remain open and should be revisited by
+an independent reviewer, or by this session, before or during the future
+Software Architecture Document task.*

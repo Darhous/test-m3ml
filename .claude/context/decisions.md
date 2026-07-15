@@ -81,9 +81,21 @@
 ## ملاحظة
 
 عشرة قرارات فقط أصبحت **Accepted** رسميًا حتى الآن (ADR 0001–0010)، وكلها موثقة في
-`docs/constitution/PROJECT-CONSTITUTION.md` v1. القرارات المتبقية (Event-Driven
+`docs/constitution/PROJECT-CONSTITUTION.md`. القرارات المتبقية (Event-Driven
 Notifications تحديدًا، Central Audit Trail كـADR مستقل، Configurable Workflow
 Engine، Module SDK/Template) تبقى **Proposed** ولم تُدرس بعد بصورة مستقلة — لا يجوز
 اعتبارها معتمدة ضمنًا لمجرد ارتباطها بمبدأ Accepted أعم. لا يُعدَّل أي قرار Accepted
 هنا دون ADR جديد يوثق التغيير (Superseded-by)، حسب القاعدة المذكورة أعلاه في هذا
 الملف.
+
+## ملاحظة v2 (2026-07-15 — Constitution Enterprise Upgrade)
+
+ترقية Constitution إلى v2 (Sections 48–62: Engineering Principles, Fitness
+Functions, Decision Matrix, Non-Functional Budgets, Quality Gates, Module
+Acceptance Checklist, Architecture Radar, Evolution Strategy, Repository/ADR/
+Documentation/Glossary Governance, Architecture Review Board, Risk Governance,
+Self Validation) **لم تُنتج أي قرار معماري جديد على مستوى ADR** — كل محتوى v2
+مبني على القرارات العشرة المعتمدة أعلاه (ADR 0001–0010) دون تغيير أي منها. لذلك
+لا صف جديد في جدول ADR Index أعلاه، ولا تغيير في حالة أي قرار Accepted/Proposed
+موجود. التفاصيل الكاملة: `docs/constitution/CHANGELOG.md` (قسم v2) و
+`docs/constitution/REVIEW-REPORT.md` (v2 Addendum).
