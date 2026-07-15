@@ -47,8 +47,23 @@
 | Audit Event | سجل حدث يُستخدم لأغراض التتبع والمساءلة (Auditability by Default) | Draft |
 | Human-in-the-Loop | مبدأ يستلزم مراجعة بشرية قبل اعتماد قرارات حساسة (خصوصًا الطبية) صادرة عن AI | Draft |
 
+## Accepted Definitions (من Constitution v1)
+
+المصطلحات التالية عرّفتها `docs/constitution/PROJECT-CONSTITUTION.md` v1 (Section
+47) صراحةً ولم تكن موجودة في القائمة الأصلية أعلاه. حالتها **Accepted** لأنها جزء من
+Constitution معتمدة، عدا "Core Domain" الذي يبقى Open حتى تُحدَّد جلسة DDD مخصصة.
+
+| Term | Definition | Status | Related ADR |
+|---|---|---|---|
+| Independent Component | مكوّن (Notification Service, Device Integration Gateway, AI Gateway, Analytics Platform, Search Service, File Processing Service, Public API Gateway, Background Workers) يُسمح له بأن يكون مستقلًا تشغيليًا من الإصدار الأول لسبب موثّق، دون أن يكون ذلك افتراضًا عامًا لصالح Microservices | Accepted | — (Constitution Section 11) |
+| Hybrid Tenant Isolation | نموذج عزل ثنائي المستوى: بنية تحتية مشتركة مع عزل منطقي صارم للمستأجرين الصغار/المتوسطين، وقاعدة بيانات أو نشر مخصص كخيار للمستأجرين الكبار/المنظَّمين | Accepted | [0005](../../docs/adr/0005-hybrid-tenant-isolation.md) |
+| Break-Glass Access | وصول طارئ استثنائي، محدود زمنيًا، مبرَّر، وخاضع للتدقيق الكامل، يتجاوز مسار التفويض الطبيعي | Accepted | [0008](../../docs/adr/0008-unified-login-and-policy-based-access.md) |
+| Anti-Corruption Layer | طبقة ترجمة تمنع تسرّب نموذج نظام خارجي (جهاز، مزوّد AI، نظام قديم) إلى النموذج الداخلي لأي Bounded Context | Accepted | [0006](../../docs/adr/0006-independent-device-gateway.md), [0007](../../docs/adr/0007-governed-ai-gateway.md) |
+| Core Domain | الـBounded Context (أو أكثر) الذي تكمن فيه القيمة التنافسية/المميِّزة للمنصة، ويستحق أعمق استثمار في النمذجة | **Open** — لم يُحدَّد بعد؛ يحتاج جلسة DDD مخصصة (انظر `open-questions.md` البند 14) | — |
+
 ## ملاحظة
 
 هذه تعريفات **أولية جدًا** ومبنية فقط على الوصف العام للمشروع؛ العديد منها يحتاج
 دقة إضافية (خصوصًا Tenant/Organization/Branch وعلاقتها بـMulti-Tenancy) بعد الإجابة
-على الأسئلة في `open-questions.md`.
+على الأسئلة في `open-questions.md`. قسم "Accepted Definitions" أعلاه هو الاستثناء
+الوحيد الحالي — تعريفات معتمدة رسميًا ضمن Constitution v1، ولا تُعدَّل دون ADR جديد.

@@ -38,7 +38,23 @@
 12. ما اللغات والعملات المطلوب دعمها؟
 13. هل توجد أنظمة حالية (Legacy Systems) يُطلب ترحيل بيانات منها؟
 
+## أسئلة جديدة أُضيفت أثناء إعداد Constitution v1 (2026-07-15)
+
+14. **ما هو الـCore Domain للمنصة؟** (Strategic Design/Distillation ضمن DDD — انظر
+    `docs/constitution/PROJECT-CONSTITUTION.md` Section 6 و46). لم يُحدَّد بعد؛
+    يحتاج جلسة DDD مخصصة عند بدء اكتشاف الـModules الفعلية. **لا** يُعتبر أي
+    Bounded Context "Core" ضمنيًا لمجرد ذكره في `module-catalog.md`.
+15. **ما التقنية الافتراضية الدقيقة لتقسيم البيانات في الطبقة المشتركة (Shared
+    tier)** ضمن Hybrid Tenant Isolation (ADR 0005) — مثل tenant ID column مقابل
+    schema منفصل؟ Constitution v1 حسم النموذج الثنائي (Shared/Dedicated) لكن ترك
+    التفصيل التقني للـSoftware Architecture Document لاحقًا.
+16. **ما مسار الترقية (Promotion Path)** لمستأجر ينتقل من الطبقة المشتركة إلى
+    الطبقة المخصصة ضمن Hybrid Tenant Isolation؟ لم يُحسم بعد.
+
 ## ملاحظة
 
 هذه القائمة أولية وستنمو مع تقدم النقاش. لا تُفترض إجابات لهذه الأسئلة ولا تُبنى
-عليها قرارات Accepted قبل توثيق الإجابة الفعلية.
+عليها قرارات Accepted قبل توثيق الإجابة الفعلية. الأسئلة 1–13 لم تُحذف ولم تُجَب
+أثناء إعداد Constitution v1 — Constitution v1 حسمت مبادئ حاكمة عليا (Modular
+Monolith, DDD, Tenancy shape, إلخ) دون الحاجة لإجابة كل سؤال هنا أولًا، لكنها لم
+تُجب فعليًا على أي من الأسئلة 1–13 نفسها.
