@@ -65,12 +65,14 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 *(Updated after every Module — see individual Module completion notes
 for the detailed count.)*
 
-- Modules fully researched: **7 of 28** (Platform Kernel + all 3
-  Independent Components + Analytics, 1st Cross-Cutting Service)
-- Features fully researched: **33 of 106** (32 independently researched;
-  `document-control` consolidated/deferred per the detected duplicate)
-- Repositories evaluated: **33** (adds Superset, Metabase, Lightdash,
-  Prophet), all logged in `MASTER_REPOSITORY_DATABASE.md`
+- Modules fully researched: **8 of 28** (Platform Kernel + all 3
+  Independent Components + both Cross-Cutting Services: Analytics,
+  Document Management)
+- Features fully researched: **36 of 106** (all independently researched
+  or resolved — the Module 3 `document-control` duplicate is now fully
+  Resolved, not just deferred)
+- Repositories evaluated: **37** (adds Alfresco, Nextcloud, Documenso,
+  OpenSign), all logged in `MASTER_REPOSITORY_DATABASE.md`
 - Estimated total effort-hours identified as reusable: **not numerically
   estimated** — no invented number, per the No-Guessing Rule; the
   qualitative conclusion (universal-dependency Feature, mature enterprise-
@@ -185,6 +187,18 @@ for the detailed count.)*
     lower-priority, matching Wave 3/10's own "speculative" classification
     of predictive/forecasting capabilities — research completeness, not
     urgency.
+
+17. **The Module 3 detected duplicate is now fully Resolved, not just
+    deferred.** Alfresco Community Edition's built-in Activiti workflow
+    engine serves both `document-storage-versioning` and
+    `document-control-workflow` — closing the loop the program opened
+    when it first caught this overlap, and proving the deferral
+    mechanism works end-to-end rather than becoming a dropped thread.
+18. **All Platform Kernel, Independent Component, and Cross-Cutting
+    Service Modules are now complete (8 of 28).** Remaining work is the
+    19 Business Modules plus 1 Commercial Module — each more
+    domain-specific and less likely to share Engines across Modules than
+    the infrastructure layer just finished.
 
 *(Per the user's 2026-07-16 instruction to continue through all
 remaining Modules without pausing, module summaries from this point stay

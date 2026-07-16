@@ -41,3 +41,7 @@ column). Populated incrementally as each Module completes; see
 | Metabase | Metabase Inc. | AGPL-3.0 (Community) | Active | Evaluated, not selected (paywalled white-label) — `bi-dashboards` | Analytics |
 | Lightdash | Lightdash | MIT | Active | Evaluated, not selected — `bi-dashboards` | Analytics |
 | Prophet (`facebook/prophet`) | Meta | MIT | Active | forecasting-engine | Analytics |
+| Alfresco Community Edition | Alfresco/Hyland | LGPL v3 (unverified this pass) | Active | document-storage-versioning, document-control-workflow (resolves Module 3's `document-control`) | Document Management |
+| Nextcloud Hub | Nextcloud GmbH | AGPL-3.0 | Active | Evaluated, not selected — `document-storage-versioning` | Document Management |
+| Documenso | Documenso | Unconfirmed this pass | Active | e-signature | Document Management |
+| OpenSign | OpenSign Labs | AGPL-3.0 | Active | Evaluated, credible free fallback — `e-signature` | Document Management |

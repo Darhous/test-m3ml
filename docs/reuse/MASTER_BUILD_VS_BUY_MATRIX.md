@@ -40,3 +40,7 @@ Feature's own `10-final-decision.md`; this is the roll-up index.
 | Analytics | embedded-analytics | ENGINE + ADAPTER (shared) | Apache Superset | High | Decided |
 | Analytics | reporting-engine | ENGINE + ADAPTER (composed) | Superset + Novu | Medium | Decided |
 | Analytics | forecasting-engine | LIBRARY | Prophet | Low-Medium (speculative capability) | Decided |
+| Document Management | document-storage-versioning | ENGINE + ADAPTER | Alfresco Community (license TBC) | High | Decided |
+| Document Management | document-control-workflow | ENGINE + ADAPTER (shared) | Alfresco Community | High — resolves Module 3's deferred duplicate | Decided |
+| Document Management | e-signature | ENGINE + ADAPTER | Documenso (license TBC) | Medium-High | Decided |
+| Audit and Compliance | document-control | *(superseded — see Document Management `document-control-workflow`)* | Alfresco Community | — | Resolved |

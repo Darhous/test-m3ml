@@ -42,3 +42,6 @@ the current-state index.
 | 31 | 2026-07-16 | Analytics | embedded-analytics | ENGINE + ADAPTER (shared Superset) | Embedding SDK was the decisive factor for bi-dashboards | — |
 | 32 | 2026-07-16 | Analytics | reporting-engine | ENGINE + ADAPTER (composed: Superset + Novu) | Native Alerts & Reports feature, delivered via already-selected Notification Service | — |
 | 33 | 2026-07-16 | Analytics | forecasting-engine | LIBRARY: Prophet | Robust starting choice for moderate/messy data; lower priority per Wave 3/10's speculative classification | — |
+| 34 | 2026-07-16 | Document Management | document-storage-versioning | ENGINE + ADAPTER: Alfresco Community (license TBC) | Built-in Activiti workflow engine solves 2 Features at once | — |
+| 35 | 2026-07-16 | Document Management | document-control-workflow | ENGINE + ADAPTER (shared Alfresco) | **Resolves Module 3's deferred `document-control` duplicate** | Supersedes deferred Decision (Module 3, row 17) |
+| 36 | 2026-07-16 | Document Management | e-signature | ENGINE + ADAPTER: Documenso (license TBC) | SOC 2 compliance work + funded backing outweigh OpenSign's zero cost for a Sensitive-Operation-adjacent Feature | — |

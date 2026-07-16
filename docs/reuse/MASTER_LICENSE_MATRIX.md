@@ -44,3 +44,7 @@ commercial model as currently understood.
 | Metabase (Community) | AGPL 3.0 | `AGPL-3.0` | Yes | Conditional | Not selected; white-label also paywalled regardless |
 | Lightdash | MIT | `MIT` | No | Clear | Not selected |
 | Prophet | MIT | `MIT` | No | Clear | |
+| Alfresco Community | LGPL v3 (unverified this pass) | `LGPL-3.0` (tentative) | No (LGPL) | Likely Clear, `Requires Legal Verification` | |
+| Nextcloud Hub | AGPL 3.0 | `AGPL-3.0` | Yes | Conditional | Not selected |
+| Documenso | Unconfirmed this pass | TBC | Unknown | `Requires Legal Verification` | |
+| OpenSign | AGPL 3.0 | `AGPL-3.0` | Yes | Conditional | Credible free fallback |
