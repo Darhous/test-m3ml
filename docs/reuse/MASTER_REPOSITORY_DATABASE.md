@@ -25,3 +25,8 @@ column). Populated incrementally as each Module completes; see
 | Eramba (`eramba/community`) | Eramba | GPL-3.0 (unverified this pass) | Active | compliance-tracking (low-confidence, flagged for reconsideration) | Audit and Compliance |
 | CISO Assistant (`intuitem/ciso-assistant-community`) | intuitem | AGPL-3.0 | Active | Evaluated, close second — `compliance-tracking` alternative | Audit and Compliance |
 | GovReady-Q (`GovReady/govready-q`) | GovReady | GPL-3.0 (unverified this pass) | Active | Evaluated, not selected — `compliance-tracking` alternative | Audit and Compliance |
+| Mirth Connect 4.5.2 (last OSS) | NextGen (frozen) | MPL 2.0 | **Frozen since March 2025** (4.6+ commercial-only) | hl7-integration-engine, astm-integration (tentative) | Device Integration Gateway |
+| Apache Camel | ASF | Apache-2.0 | Active | Evaluated, credible fallback — `hl7-integration-engine` alternative | Device Integration Gateway |
+| RabbitMQ (`rabbitmq/rabbitmq-server`) | Broadcom/VMware | MPL 2.0 | Active, mature | message-broker-queueing | Device Integration Gateway |
+| Apache Kafka | ASF | Apache-2.0 | Active | Evaluated, not selected (scale mismatch) — `message-broker-queueing` alternative | Device Integration Gateway |
+| NATS + JetStream | CNCF | Apache-2.0 | Active | Evaluated, not selected — `message-broker-queueing` alternative | Device Integration Gateway |

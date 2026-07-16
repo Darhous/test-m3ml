@@ -14,3 +14,5 @@ decision.
 | Audit and Compliance | immutable-audit-trail | immudb | A custom cryptographic append-only log implementation | Audit and Compliance Module's own write path only |
 | Audit and Compliance | policy-engine | Open Policy Agent (reused) | A second, separate policy engine | Same OPA instance as Identity and Access, separately namespaced bundles |
 | Audit and Compliance | compliance-tracking (tentative) | Eramba Community | A custom internal GRC tool | Standalone internal tool, no runtime Module dependency |
+| Device Integration Gateway | hl7-integration-engine, astm-integration | Mirth Connect 4.5.2 (frozen, tentative) or Apache Camel | A full custom HL7/ASTM parsing and channel-routing engine | Independent Component (ADR 0006); frozen-OSS risk explicitly flagged |
+| Device Integration Gateway | message-broker-queueing | RabbitMQ | A custom durable-queue implementation | Platform-wide Shared Technical Service, not per-Module |

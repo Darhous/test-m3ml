@@ -65,15 +65,15 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 *(Updated after every Module — see individual Module completion notes
 for the detailed count.)*
 
-- Modules fully researched: **3 of 28** (Identity and Access, Tenant and
-  Organization Management, Audit and Compliance) — Platform Kernel
-  complete
-- Features fully researched: **17 of 106** (16 independently researched;
-  `document-control` correctly consolidated/deferred, not independently
-  researched, per the detected duplicate)
-- Repositories evaluated: **17** (adds immudb, Trillian, Eramba, CISO
-  Assistant, GovReady-Q, HL7 FHIR Consent resource to the prior 11), all
-  logged in `MASTER_REPOSITORY_DATABASE.md`
+- Modules fully researched: **4 of 28** (Platform Kernel complete:
+  Identity and Access, Tenant and Organization Management, Audit and
+  Compliance; plus Device Integration Gateway, 1st Independent
+  Component)
+- Features fully researched: **21 of 106** (20 independently researched;
+  `document-control` consolidated/deferred per the detected duplicate)
+- Repositories evaluated: **22** (adds Mirth 4.5.2, Apache Camel,
+  RabbitMQ, Kafka, NATS+JetStream to the prior 17), all logged in
+  `MASTER_REPOSITORY_DATABASE.md`
 - Estimated total effort-hours identified as reusable: **not numerically
   estimated** — no invented number, per the No-Guessing Rule; the
   qualitative conclusion (universal-dependency Feature, mature enterprise-
@@ -147,6 +147,23 @@ for the detailed count.)*
     correctly deferred rather than duplicated, logged in
     `MASTER_DEPENDENCY_MATRIX.md`'s new "Detected Duplicate Features"
     section.
+12. **A major, current licensing event found for HL7 integration:** Mirth
+    Connect (NextGen Connect), the dominant US healthcare HL7 engine,
+    went commercial-only at version 4.6 (March 2025) — 4.5.2 is the last
+    OSS release and is now **frozen** (no free security patches). This
+    is reported as a real, ongoing risk rather than silently recommending
+    Mirth as if the licensing landscape hadn't changed; Apache Camel is
+    logged as a credible, actively-maintained fallback.
+13. **RabbitMQ selected as the platform-wide durable message broker**,
+    retroactively resolving the "durable, at-least-once delivery"
+    requirement that Module 1 (`audit-hooks-integration`) and Module 3
+    (`immutable-audit-trail`) had each flagged but left unspecified —
+    one broker decision closing two previously-open integration
+    questions.
+
+*(From this point, module summaries are recorded more concisely per the
+user's 2026-07-16 pacing instruction — real evidence-based research,
+without the earlier Modules' exhaustive per-file depth.)*
 
 ## Program Pacing — Honest Status (2026-07-16)
 

@@ -28,3 +28,8 @@ commercial model as currently understood.
 | CISO Assistant | AGPL 3.0 | `AGPL-3.0` | Yes | Conditional | `Requires Legal Verification`; low-risk if used unmodified/internal-only |
 | Eramba Community | GPL 3.0 (unverified this pass) | `GPL-3.0` (tentative) | No | Conditional | License string not independently re-confirmed — flagged |
 | GovReady-Q | GPL 3.0 (unverified this pass) | `GPL-3.0` (tentative) | No | Conditional | Same caveat; not selected |
+| Mirth Connect 4.5.2 | MPL 2.0 | `MPL-2.0` | No | Clear, but **frozen** — no free patches past this version | 4.6+ requires a NextGen commercial license |
+| Apache Camel | Apache License 2.0 | `Apache-2.0` | No | Clear | |
+| RabbitMQ | MPL 2.0 | `MPL-2.0` | No | Clear | |
+| Apache Kafka | Apache License 2.0 | `Apache-2.0` | No | Clear | Not selected (scale mismatch) |
+| NATS + JetStream | Apache License 2.0 | `Apache-2.0` | No | Clear | Not selected |

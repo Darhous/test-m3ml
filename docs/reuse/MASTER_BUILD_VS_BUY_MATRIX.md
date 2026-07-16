@@ -24,3 +24,7 @@ Feature's own `10-final-decision.md`; this is the roll-up index.
 | Audit and Compliance | policy-engine | ENGINE + ADAPTER (shared) | OPA (shared with Identity and Access) | Medium — avoids a 2nd policy engine | Decided |
 | Audit and Compliance | compliance-tracking | ENGINE + ADAPTER (low confidence) | Eramba Community (tentative) | Low-Medium — flagged for reconsideration | Decided (tentative) |
 | Audit and Compliance | document-control | CONSOLIDATED — see Document Management | Deferred | TBD | Deferred to Module 8 |
+| Device Integration Gateway | hl7-integration-engine | ENGINE + ADAPTER (caveated) | Mirth 4.5.2 (frozen OSS) or Apache Camel fallback | Medium-High, offset by frozen-security risk | Decided (tentative) |
+| Device Integration Gateway | astm-integration | ENGINE + ADAPTER (shared) + BUILD (parsing) | Same as hl7-integration-engine | Medium | Decided |
+| Device Integration Gateway | device-protocol-adapters | BUILD (per-vendor, on shared engine) | N/A | Low per-adapter | Decided |
+| Device Integration Gateway | message-broker-queueing | ENGINE + ADAPTER | RabbitMQ | High — resolves 2 prior Modules' deferred durability requirement | Decided |

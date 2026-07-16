@@ -26,3 +26,7 @@ the current-state index.
 | 15 | 2026-07-16 | Audit and Compliance | policy-engine | ENGINE + ADAPTER (shared OPA) | Same engine as Identity and Access `authorization-rbac-abac`, 2nd consuming Module | — |
 | 16 | 2026-07-16 | Audit and Compliance | compliance-tracking | ENGINE + ADAPTER: Eramba Community (tentative, low confidence) | Weakest-evidence decision in the program so far; explicitly flagged for SAD-level reconsideration | — |
 | 17 | 2026-07-16 | Audit and Compliance | document-control | CONSOLIDATED — deferred to Document Management | Detected duplicate of Document Management's `document-control-workflow`; avoids duplicate research | — |
+| 18 | 2026-07-16 | Device Integration Gateway | hl7-integration-engine | ENGINE + ADAPTER (tentative): Mirth 4.5.2, Camel fallback | Best healthcare-purpose fit, but frozen since NextGen's March 2025 licensing change — explicitly flagged | — |
+| 19 | 2026-07-16 | Device Integration Gateway | astm-integration | ENGINE + ADAPTER (shared) + BUILD | Follows hl7-integration-engine; weak native ASTM tooling on both candidates | — |
+| 20 | 2026-07-16 | Device Integration Gateway | device-protocol-adapters | BUILD | No product exists per-vendor by definition | — |
+| 21 | 2026-07-16 | Device Integration Gateway | message-broker-queueing | ENGINE + ADAPTER: RabbitMQ | Durable, moderate-scale fit; resolves 2 prior Modules' deferred delivery-guarantee questions | — |
