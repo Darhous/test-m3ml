@@ -69,6 +69,15 @@
     `docs/discovery/artifacts/04-subdomain-map.md` للأدلة والمنطق. يبقى
     البند **Open** حتى تجتاز Phase 11 (Validation) وتُصادَق عليه في Phase 12
     عبر ADR.
+    **[Gap Closure Wave 7]** أُعيد تقييم الإجابة المقترحة مقابل 6 بدائل
+    (Diagnostic Operations, Patient-to-Result Orchestration, Laboratory
+    Execution, Healthcare Operations Orchestration, Clinical Diagnostic
+    Network, Platform Tenant Operations). التوصية الجديدة (Recommended,
+    غير معتمدة): **"Patient-to-Result Orchestration"** تحل محل الصياغة
+    الأضيق — انظر `docs/discovery/artifacts/
+    W7-domain-classification-reevaluation.md` للـDecision Matrix الكامل.
+    القرار النهائي (Retain/Amend/Supersede/Reject لـADR-0011) يُحسم في
+    Wave 14.
 15. **ما التقنية الافتراضية الدقيقة لتقسيم البيانات في الطبقة المشتركة (Shared
     tier)** ضمن Hybrid Tenant Isolation (ADR 0005) — مثل tenant ID column مقابل
     schema منفصل؟ Constitution v1 حسم النموذج الثنائي (Shared/Dedicated) لكن ترك

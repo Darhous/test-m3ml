@@ -89,6 +89,17 @@ No file deleted or superseded in Wave 5. No diagram produced this Wave
 
 No file deleted or superseded in Wave 6.
 
+## Wave 7 — Domain Discovery and Classification Re-evaluation
+
+| Path | Disposition | Reason | Replacement | Commit |
+|---|---|---|---|---|
+| `docs/discovery/artifacts/W7-domain-classification-reevaluation.md` | Created | 6-alternative Core Domain Decision Matrix, required Wave 7 deliverable | N/A | *(this Wave's commit)* |
+| `.claude/context/open-questions.md` | Expanded (append-only) | Item 14 annotated with re-evaluation | N/A — history preserved | *(this Wave's commit)* |
+| `docs/discovery/reports/GAP-CLOSURE-07-DOMAIN-CLASSIFICATION.md` | Created | Required Wave 7 report | N/A | *(this Wave's commit)* |
+
+No file deleted or superseded in Wave 7. ADR 0011 itself not yet modified
+— disposition decided at Wave 14.
+
 ---
 
 *(Subsequent Waves append their own dated sections below this line.)*

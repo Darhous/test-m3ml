@@ -73,6 +73,15 @@ Found a second Sensitive-Operation-grade rule (Payroll dual-control) and a
 candidate broader "Elevated Audit" tier. See
 `reports/GAP-CLOSURE-06-BUSINESS-RULES.md`.
 
+## Wave 7 — Domain Discovery and Classification Re-evaluation (2026-07-16)
+
+Re-classified all domains Core/Supporting/Generic/Platform. Built a
+6-alternative Core Domain Decision Matrix without assuming Test Processing
+is final. Recommends (not decides) reframing ADR 0011 toward
+"Patient-to-Result Orchestration." Rejected "Clinical Diagnostic Network"
+(no evidence) and reasoned out "Platform Tenant Operations" as Platform,
+not Core. See `reports/GAP-CLOSURE-07-DOMAIN-CLASSIFICATION.md`.
+
 **Note on ordering:** Wave 1's entry appears above Wave 0's in this file
 due to an editing-order artifact, not a re-sequencing of the actual
 program — Wave 0 ran first chronologically, as confirmed by
