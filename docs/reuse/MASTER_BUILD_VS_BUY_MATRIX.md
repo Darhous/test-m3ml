@@ -44,3 +44,7 @@ Feature's own `10-final-decision.md`; this is the roll-up index.
 | Document Management | document-control-workflow | ENGINE + ADAPTER (shared) | Alfresco Community | High — resolves Module 3's deferred duplicate | Decided |
 | Document Management | e-signature | ENGINE + ADAPTER | Documenso (license TBC) | Medium-High | Decided |
 | Audit and Compliance | document-control | *(superseded — see Document Management `document-control-workflow`)* | Alfresco Community | — | Resolved |
+| Patient Management | patient-registry-mpi | REFERENCE (FHIR) + BUILD | N/A — OpenMRS explicitly rejected | High — avoids displacing the Core Domain | Decided |
+| Patient Management | patient-history-timeline | BUILD | N/A | — | Decided |
+| Patient Management | patient-portal-ui | BUILD | N/A | — | Decided |
+| Patient Management | consent-linkage | REFERENCE + BUILD (shared Module 3) | N/A | Medium | Decided |

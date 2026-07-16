@@ -65,14 +65,11 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 *(Updated after every Module — see individual Module completion notes
 for the detailed count.)*
 
-- Modules fully researched: **8 of 28** (Platform Kernel + all 3
-  Independent Components + both Cross-Cutting Services: Analytics,
-  Document Management)
-- Features fully researched: **36 of 106** (all independently researched
-  or resolved — the Module 3 `document-control` duplicate is now fully
-  Resolved, not just deferred)
-- Repositories evaluated: **37** (adds Alfresco, Nextcloud, Documenso,
-  OpenSign), all logged in `MASTER_REPOSITORY_DATABASE.md`
+- Modules fully researched: **9 of 28** (all Platform layers complete;
+  1st Business Module: Patient Management, Core-Domain-adjacent)
+- Features fully researched: **40 of 106**
+- Repositories evaluated: **40** (adds FHIR Patient resource, OpenCR,
+  OpenMRS), all logged in `MASTER_REPOSITORY_DATABASE.md`
 - Estimated total effort-hours identified as reusable: **not numerically
   estimated** — no invented number, per the No-Guessing Rule; the
   qualitative conclusion (universal-dependency Feature, mature enterprise-
@@ -199,6 +196,17 @@ for the detailed count.)*
     19 Business Modules plus 1 Commercial Module — each more
     domain-specific and less likely to share Engines across Modules than
     the infrastructure layer just finished.
+
+19. **The program's most consequential "reject a whole-system reuse
+    candidate" finding:** OpenMRS (a full, mature, widely-adopted
+    open-source EMR) was evaluated and explicitly **not** adopted for
+    Patient Management, because doing so would displace this platform's
+    own Amended Core Domain (ADR-0011, "Patient-to-Result
+    Orchestration") — the single case in the program where the
+    "obviously mature and free" option was correctly rejected on
+    architectural-strategy grounds, not maturity or license grounds.
+    FHIR's `Patient` resource is reused as a data-model Reference
+    instead, preserving both reuse value and Core Domain ownership.
 
 *(Per the user's 2026-07-16 instruction to continue through all
 remaining Modules without pausing, module summaries from this point stay

@@ -45,3 +45,7 @@ the current-state index.
 | 34 | 2026-07-16 | Document Management | document-storage-versioning | ENGINE + ADAPTER: Alfresco Community (license TBC) | Built-in Activiti workflow engine solves 2 Features at once | — |
 | 35 | 2026-07-16 | Document Management | document-control-workflow | ENGINE + ADAPTER (shared Alfresco) | **Resolves Module 3's deferred `document-control` duplicate** | Supersedes deferred Decision (Module 3, row 17) |
 | 36 | 2026-07-16 | Document Management | e-signature | ENGINE + ADAPTER: Documenso (license TBC) | SOC 2 compliance work + funded backing outweigh OpenSign's zero cost for a Sensitive-Operation-adjacent Feature | — |
+| 37 | 2026-07-16 | Patient Management | patient-registry-mpi | REFERENCE (FHIR Patient) + BUILD | **OpenMRS explicitly evaluated and rejected** as a whole-system adoption -- would displace ADR-0011's Amended Core Domain; OpenCR logged as the future MPI upgrade path | — |
+| 38 | 2026-07-16 | Patient Management | patient-history-timeline | BUILD | Core-Domain-adjacent read-model, no product category exists | — |
+| 39 | 2026-07-16 | Patient Management | patient-portal-ui | BUILD | White-Label branding rules out a generic portal product | — |
+| 40 | 2026-07-16 | Patient Management | consent-linkage | REFERENCE + BUILD (shared Module 3) | Reference-only linkage to the already-selected Consent Aggregate | — |

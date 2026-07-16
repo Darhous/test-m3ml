@@ -45,3 +45,6 @@ column). Populated incrementally as each Module completes; see
 | Nextcloud Hub | Nextcloud GmbH | AGPL-3.0 | Active | Evaluated, not selected — `document-storage-versioning` | Document Management |
 | Documenso | Documenso | Unconfirmed this pass | Active | e-signature | Document Management |
 | OpenSign | OpenSign Labs | AGPL-3.0 | Active | Evaluated, credible free fallback — `e-signature` | Document Management |
+| HL7 FHIR `Patient` resource | HL7 International | HL7 FHIR License | Active | patient-registry-mpi (Reference) | Patient Management |
+| OpenCR | Jembi/OpenHIE | Apache-2.0 | Active | Evaluated, identified future upgrade path — `patient-registry-mpi` | Patient Management |
+| OpenMRS | OpenMRS community | MPL 2.0 | Active | Evaluated, explicitly not selected (would displace Core Domain) — `patient-registry-mpi` | Patient Management |
