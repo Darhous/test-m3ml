@@ -47,6 +47,32 @@
   - **AI-Ready**
   - **Integration-Ready**
 
+## Expanded Vision — Healthcare Operations Platform (Confirmed, User-Directed, 2026-07-16)
+
+المستخدم وسّع الرؤية صراحةً ضمن "Discovery Gap Closure & Healthcare
+Operations Platform Expansion" (راجع `docs/discovery/artifacts/
+W1-vision-scope-operating-model.md` للتفاصيل الكاملة). هذا القسم **Confirmed**
+لأنه منقول حرفيًا من تعليمات المستخدم الصريحة، وليس Inferred:
+
+- المنتج المستهدف ليس LIMS أو Laboratory Management System أو Patient
+  Results Portal أو Billing System فقط — بل **Healthcare Operations
+  Platform**: منصة SaaS Multi-Tenant تدير تشغيل المؤسسات الصحية
+  والتشخيصية.
+- السوق الأول: **مصر**، مع جاهزية معمارية لأسواق إضافية لاحقًا.
+- أنواع العملاء المستهدفة (Confirmed): معمل مستقل، سلسلة معامل، مستشفى،
+  مركز طبي، عيادة، مجموعة طبية، Corporate Healthcare Provider، جهة
+  تشخيصية متعددة الفروع، Partner/API Client خارجي.
+- 32 مجال أعمال (Business Domains) يجب أن تغطيها Discovery الكاملة — القائمة
+  الكاملة في `docs/discovery/artifacts/W1-vision-scope-operating-model.md`.
+  الـBaseline Discovery (Phases 02–12) غطّت بعمق حقيقي 4 مجالات فقط من أصل
+  32؛ الباقي مستهدف عبر Waves 3–12 من برنامج Gap Closure.
+- التزامات تشغيلية جديدة Confirmed: White Label، Plans and Subscriptions،
+  Usage/Entitlement Tracking، SaaS billing readiness — لا تتعارض مع أي
+  قرار Accepted سابق (تم التحقق).
+- لا يُفترض بناء ERP مالي كامل بالضرورة في الإصدار الأول (تعليمات مستخدم
+  صريحة) — الحدود بين Native/Integration/Deferred للنطاق المالي تُكتشف في
+  Wave 3/10 من Gap Closure، وليست مفترضة هنا.
+
 ## Open items
 
 راجع `open-questions.md` للأسئلة التي يجب الإجابة عليها قبل ترسيخ هذه الرؤية.

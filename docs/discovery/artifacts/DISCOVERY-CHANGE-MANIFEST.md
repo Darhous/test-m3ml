@@ -29,7 +29,16 @@ rows, not edits to earlier rows).
 **No file deleted in Wave 0.** No file marked Superseded in Wave 0 (that
 begins at Wave 14 for `DISCOVERY-BOOK.md`).
 
+## Wave 1 — Vision, Scope, Operating Model Expansion
+
+| Path | Disposition | Reason | Replacement | Commit |
+|---|---|---|---|---|
+| `docs/discovery/artifacts/W1-vision-scope-operating-model.md` | Created | Required Wave 1 deliverable | N/A | *(this Wave's commit)* |
+| `.claude/context/vision.md` | Expanded (append-only) | Confirmed vision expansion, per user's explicit direction | N/A — history preserved | *(this Wave's commit)* |
+| `docs/discovery/reports/GAP-CLOSURE-01-VISION-SCOPE.md` | Created | Required Wave 1 report | N/A | *(this Wave's commit)* |
+
+No file deleted or superseded in Wave 1.
+
 ---
 
-*(Subsequent Waves append their own dated sections below this line —
-placeholder for Wave 1 onward.)*
+*(Subsequent Waves append their own dated sections below this line.)*

@@ -7,6 +7,17 @@ Discovery's own history, see `docs/discovery/artifacts/
 00-master-execution-log.md` (unaffected by this program except where
 explicitly noted).
 
+## Wave 1 — Vision, Scope, and Operating Model Expansion (2026-07-16)
+
+Expanded the platform vision from Laboratory Operations System to
+Healthcare Operations Platform, per the user's Confirmed Strategic
+Direction: Egypt-first market scope with future-market readiness, 9
+customer types, 32 business domains (28 net-new/shallow relative to the
+Baseline), and new operating-model commitments (White Label, Plans/
+Subscriptions, Usage/Entitlement Tracking, SaaS billing readiness). No
+contradiction found against Constitution/ADRs. `vision.md` expanded,
+history preserved. See `reports/GAP-CLOSURE-01-VISION-SCOPE.md`.
+
 ## Wave 0 — Baseline Audit and Repair (2026-07-16)
 
 Audited the 12-phase Baseline Discovery for internal contradictions and
