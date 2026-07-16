@@ -56,6 +56,14 @@ actors/domains/bottleneck); 2 mapped to already-traced Baseline streams.
 Confirmed Wave 3's evidence-gap finding independently. See
 `reports/GAP-CLOSURE-04-VALUE-STREAMS.md`.
 
+## Wave 5 — Event Storming Gap Closure (2026-07-16)
+
+Storm-walked 29 previously-missing domains into 10 clusters, producing
+~84 new Domain Events (total catalog now ~114). Modeled Patient/Doctor as
+owned domains for the first time, closing Baseline Risk #7. Found a second
+Sensitive-Operation-grade pattern (Payroll dual-control). See
+`reports/GAP-CLOSURE-05-EVENT-STORMING.md`.
+
 **Note on ordering:** Wave 1's entry appears above Wave 0's in this file
 due to an editing-order artifact, not a re-sequencing of the actual
 program — Wave 0 ran first chronologically, as confirmed by

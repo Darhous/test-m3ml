@@ -69,6 +69,16 @@ No file deleted or superseded in Wave 3.
 
 No file deleted or superseded in Wave 4.
 
+## Wave 5 — Event Storming Gap Closure
+
+| Path | Disposition | Reason | Replacement | Commit |
+|---|---|---|---|---|
+| `docs/discovery/artifacts/W5-event-storming-gap-closure.md` | Created | ~84 new Domain Events across 10 clusters, required Wave 5 deliverable | N/A | *(this Wave's commit)* |
+| `docs/discovery/reports/GAP-CLOSURE-05-EVENT-STORMING.md` | Created | Required Wave 5 report | N/A | *(this Wave's commit)* |
+
+No file deleted or superseded in Wave 5. No diagram produced this Wave
+(deliberate — see report, "Findings").
+
 ---
 
 *(Subsequent Waves append their own dated sections below this line.)*
