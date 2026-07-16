@@ -25,3 +25,15 @@ specific and feeds candidates into that framework, it does not replace it).
 *(Populated as Discovery proceeds. Severity is qualitative — High/Medium/
 Low with stated reasoning — per the No-Guessing Rule; no numeric risk
 scoring is invented without a real basis.)*
+
+## Gap Closure Wave 12 — Security, Privacy, Clinical Safety Register
+
+**Not merged into the numbered table above yet, deliberately** — Wave 12
+produced a dedicated, larger register
+(`docs/discovery/artifacts/W12-security-privacy-clinical-safety-register.md`,
+12 distinct risks: 5 carried-forward Constitution-level Open Risks, 7
+newly surfaced) with fuller fields (Cause/Detection/Escalation/Residual)
+than this file's schema supports. Full consolidation (deduplicated, single
+numbering) happens at Wave 13 (Validation) — merging now, before Wave 13's
+completeness pass, risks re-introducing the exact count-drift problem
+Wave 0 fixed. This file's 13 existing entries (#1–13) are unchanged.

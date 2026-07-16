@@ -142,6 +142,16 @@ No file deleted or superseded in Wave 10.
 
 No file deleted or superseded in Wave 11.
 
+## Wave 12 — Security, Privacy, Clinical Safety Review
+
+| Path | Disposition | Reason | Replacement | Commit |
+|---|---|---|---|---|
+| `docs/discovery/artifacts/W12-security-privacy-clinical-safety-register.md` | Created | 12-risk register, required Wave 12 deliverable | N/A | *(this Wave's commit)* |
+| `docs/discovery/artifacts/RISK-REGISTER.md` | Expanded (pointer, not merged) | Full merge deferred to Wave 13 to avoid re-introducing Wave 0's count-drift issue | N/A — existing 13 entries unchanged | *(this Wave's commit)* |
+| `docs/discovery/reports/GAP-CLOSURE-12-SECURITY-SAFETY.md` | Created | Required Wave 12 report | N/A | *(this Wave's commit)* |
+
+No file deleted or superseded in Wave 12.
+
 ---
 
 *(Subsequent Waves append their own dated sections below this line.)*

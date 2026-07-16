@@ -117,6 +117,15 @@ considerations, explicitly typed by evidentiary category. Zero compliance
 claims — every regulatory item `Requires Legal Verification`. See
 `reports/GAP-CLOSURE-11-EGYPT-MARKET.md`.
 
+## Wave 12 — Security, Privacy, and Clinical Safety Review (2026-07-16)
+
+Produced a 12-risk register (5 carried-forward Constitution-level Open
+Risks, none closed; 7 newly surfaced across Device/Verification/Financial/
+Payroll/Inventory/Supplier/Audit domains). 3 Highest-severity risks all
+tie to foundational trust guarantees (tenant isolation, audit immutability,
+clinical authorization). Full merge into `RISK-REGISTER.md` deferred to
+Wave 13 by design. See `reports/GAP-CLOSURE-12-SECURITY-SAFETY.md`.
+
 **Note on ordering:** Wave 1's entry appears above Wave 0's in this file
 due to an editing-order artifact, not a re-sequencing of the actual
 program — Wave 0 ran first chronologically, as confirmed by
