@@ -29,14 +29,28 @@
 3. هل الاستضافة Cloud أم On-Premise أم Hybrid؟
 4. ما حجم الاستخدام المتوقع (عدد المستخدمين، المعاملات، المعامل)؟
 5. ما أنواع أجهزة المعامل المطلوب دعمها (Device Integration)؟
+   **[Discovery Phase 08]** فئات بروتوكول مرشّحة (غير مؤكدة): HL7 v2, ASTM,
+   Vendor API — مبنية على قائمة الجاهزية المعتمدة في Constitution Section
+   24، وليست تأكيدًا لجهاز فعلي. انظر
+   `docs/discovery/artifacts/08-integration-inventory.md`.
 6. هل يوجد Offline Mode مطلوب؟
+   **[Discovery Phase 08]** اقتُرح نمط تصميم "Local-first capture + eventual
+   sync" لجهاز الجمع المنزلي المحمول، **كحل تصميمي محتمل فقط إن تأكدت
+   الحاجة** — لا يُجيب هذا على أصل السؤال (هل Offline Mode مطلوب أصلًا).
 7. ما استراتيجية Multi-Tenancy المطلوبة (Tenant per DB, Shared DB with Tenant ID, ...)؟
 8. ما نوع عزل البيانات المطلوب بين المؤسسات (Organizations)؟
 9. هل سيتم دعم المستشفيات والعيادات من النسخة الأولى، أم المعامل فقط في البداية؟
 10. ما قنوات الإشعارات المطلوبة (SMS, Email, Push, WhatsApp...)؟
+    **[Discovery Phase 08]** رُشِّحت قنوات محتملة (SMS، Push، Email،
+    إشعار داخل الـPortal، WhatsApp) بناءً على احتياجات أصحاب المصلحة
+    المستنتجة (Phase 02) — **لا تزال غير مؤكدة**. انظر
+    `docs/discovery/artifacts/08-integration-inventory.md`.
 11. ما حدود استخدام AI (خصوصًا فيما يخص القرارات الطبية والـHuman-in-the-Loop)؟
 12. ما اللغات والعملات المطلوب دعمها؟
 13. هل توجد أنظمة حالية (Legacy Systems) يُطلب ترحيل بيانات منها؟
+    **[Discovery Phase 08]** لا يوجد أي أساس (مؤكد أو مُستنتج) للإجابة —
+    لم يُخترع أي ملف تعريف لنظام قديم؛ يبقى فارغًا تمامًا حتى تتوفر مدخلات
+    حقيقية.
 
 ## أسئلة جديدة أُضيفت أثناء إعداد Constitution v1 (2026-07-15)
 
