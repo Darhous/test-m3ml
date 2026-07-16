@@ -40,6 +40,8 @@ Section 59):**
 | 13 | Candidate Aggregates for Subdomains 1, 2, 3, 5, 7 (TestOrder, Specimen, TestResult, Invoice/Claim, DeviceImportRecord) | Inferred — DDD tactical patterns applied to Phase 03 events | `domain-driven-design` skill, Entity/Value Object tests | 05 | Medium |
 | 14 | Subdomains 9–11 have NO candidate Aggregates (explicit gap, not fabricated) | N/A — explicit gap | Zero Event Storming evidence | 05 | N/A |
 | 15 | `ResultCorrected` and `ClaimDenied`/`ClaimRejected` identified as missing events | Inferred — Extrapolated from DDD event-immutability practice + Constitution Section 12's own example | Standard event-sourcing/DDD practice | 05 | Medium-High (well-established pattern, but existence in this platform unconfirmed) |
+| 16 | All invariants, state machines, and cross-Aggregate Policies in `07-business-rules-catalog.md` | Inferred — Industry Reference + DDD/Constitution rule application | Standard LIS business rules + direct application of Constitution Section 21/23/25/26 | 07 | Medium (rule *shape* well-grounded in Constitution; specific *thresholds/criteria* explicitly Open, not assumed) |
+| 17 | Result Verifier Role established as a distinct authorization gate for `ResultVerified`/`ResultCorrected` | Inferred — direct application of Constitution Section 21 (Sensitive Operations require elevated controls) | Constitution Section 21 (Accepted) | 07 | High for the *rule shape* (directly derived from an Accepted Constitution rule); Low for the *eligibility detail* (fully Open, #19) |
 
 *(Populated as Discovery proceeds — see phase reports for entries added
 each phase; this table is the consolidated index, kept in sync at the end

@@ -21,6 +21,11 @@ assumption; genuine answers only come from the user.
 | 8 | Escalation policy for repeated specimen rejections (H7) | 03 | Business Rules (Phase 07) | Open | new |
 | 9 | Missing event: claim denial/rejection (H9) | 03 | Business Rules (Phase 07) | Open | new |
 | 10 | Missing event: post-release result correction (`ResultCorrected`) | 05 | Business Rules (Phase 07) | Open | new — related to Constitution Section 12's own illustrative example |
-| 11 | Chain-of-custody record detail (`ChainOfCustodyRecord` Value Object shape) still undesigned | 05 | Business Rules (Phase 07), Integrations (Phase 08) | Open | relates to H5 |
+| 11 | Chain-of-custody record detail (`ChainOfCustodyRecord` Value Object shape) still undesigned | 05 | Business Rules (Phase 07), Integrations (Phase 08) | Open — deferred to Phase 08 | relates to H5 |
+| 12 | Order expiry window duration | 07 | Phase 12 finalization | Open | `.claude/context/open-questions.md` #18 |
+| 13 | Result Verifier Role eligibility criteria (HIGH PRIORITY — clinical safety) | 07 | Phase 09/11/12 | Open | `.claude/context/open-questions.md` #19 |
+| 14 | Repeated-rejection escalation threshold N | 07 | Phase 12 finalization | Open | `.claude/context/open-questions.md` #20 |
+| 15 | Processing/equipment failure recovery policy | 07 | Phase 08 (Integrations, device failure handling) | Open | `.claude/context/open-questions.md` #21 |
+| 16 | Home-visit failure retry policy | 07 | Phase 08 | Open | `.claude/context/open-questions.md` #22 |
 
 *(Populated as Discovery proceeds.)*
