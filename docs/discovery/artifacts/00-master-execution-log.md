@@ -23,7 +23,7 @@ an interruption.
 | 02 | Business Discovery | complete | 2026-07-16 | 2026-07-16 | Y | Resolved — see note | User approved "Assumption-Driven Autonomous Run" (AskUserQuestion). Business Capability Map (20 capabilities), 4 Value Streams, 15 stakeholder needs refined — all Inferred content tagged and logged in `ASSUMPTION-REGISTER.md`. Reader Test and No-Guessing Gate both passed. |
 | 03 | Event Storming | complete | 2026-07-16 | 2026-07-16 | Y | none | 26 events, 5 candidate Pivotal Events, 10 Hotspots across VS1–VS4. 4 missing-event gaps identified, not fabricated. |
 | 04 | Domain Discovery | complete | 2026-07-16 | 2026-07-16 | Y | none | 11 candidate Subdomains classified; proposed Core Domain answer to open-questions.md #14 (Test Processing and Result Verification), with competing alternative explicitly flagged, not resolved. |
-| 05 | Domain Modeling | not started | — | — | — | — | Blocked on 04. |
+| 05 | Domain Modeling | complete | 2026-07-16 | 2026-07-16 | Y | none | Candidate Aggregates for 5 evidenced Subdomains; Specimen/Test-Processing boundary flagged as key Phase 06 question; 2 new missing-event gaps identified. |
 | 06 | Bounded Contexts | not started | — | — | — | — | Blocked on 05. |
 | 07 | Business Rules | not started | — | — | — | — | Blocked on 06. |
 | 08 | Integrations | not started | — | — | — | — | Blocked on 06, 07. |

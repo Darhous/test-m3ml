@@ -20,5 +20,7 @@ assumption; genuine answers only come from the user.
 | 7 | Missing event: chain-of-custody handoff during transport (H5) | 03 | Business Rules (Phase 07), Device/Integration design (Phase 08) | Open | new |
 | 8 | Escalation policy for repeated specimen rejections (H7) | 03 | Business Rules (Phase 07) | Open | new |
 | 9 | Missing event: claim denial/rejection (H9) | 03 | Business Rules (Phase 07) | Open | new |
+| 10 | Missing event: post-release result correction (`ResultCorrected`) | 05 | Business Rules (Phase 07) | Open | new — related to Constitution Section 12's own illustrative example |
+| 11 | Chain-of-custody record detail (`ChainOfCustodyRecord` Value Object shape) still undesigned | 05 | Business Rules (Phase 07), Integrations (Phase 08) | Open | relates to H5 |
 
 *(Populated as Discovery proceeds.)*

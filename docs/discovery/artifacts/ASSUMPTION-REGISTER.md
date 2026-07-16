@@ -37,6 +37,9 @@ Section 59):**
 | 10 | 11 candidate Subdomains and their Core/Supporting/Generic classification | Inferred — DDD Strategic Design applied to Assumptions #1/#6 | `domain-driven-design` skill Strategic Design method | 04 | Medium for Subdomains #1–8; **Low** for #9–11 (no Event Storming evidence) |
 | 11 | Core Domain proposed as "Test Processing and Result Verification" | Inferred — Extrapolated (Domain Vision Statement reasoning) | Constitution Section 4 Core Value ("Human accountability"), Section 21/23 Sensitive-Operation weight | 04 | Medium — genuinely competing hypothesis (Specimen Management / Home Collection) explicitly noted, pending real business-strategy input |
 | 12 | `module-catalog.md`'s "Laboratory Modules" category likely splits into 3 finer Subdomains; "Insurance Modules" folded into "Billing and Claims" | Inferred — derived from event clustering | Phase 04 clustering exercise | 04 | Medium |
+| 13 | Candidate Aggregates for Subdomains 1, 2, 3, 5, 7 (TestOrder, Specimen, TestResult, Invoice/Claim, DeviceImportRecord) | Inferred — DDD tactical patterns applied to Phase 03 events | `domain-driven-design` skill, Entity/Value Object tests | 05 | Medium |
+| 14 | Subdomains 9–11 have NO candidate Aggregates (explicit gap, not fabricated) | N/A — explicit gap | Zero Event Storming evidence | 05 | N/A |
+| 15 | `ResultCorrected` and `ClaimDenied`/`ClaimRejected` identified as missing events | Inferred — Extrapolated from DDD event-immutability practice + Constitution Section 12's own example | Standard event-sourcing/DDD practice | 05 | Medium-High (well-established pattern, but existence in this platform unconfirmed) |
 
 *(Populated as Discovery proceeds — see phase reports for entries added
 each phase; this table is the consolidated index, kept in sync at the end
