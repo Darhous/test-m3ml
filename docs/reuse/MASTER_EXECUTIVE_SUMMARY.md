@@ -65,10 +65,11 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 *(Updated after every Module — see individual Module completion notes
 for the detailed count.)*
 
-- Modules fully researched: **17 of 28**
-- Features fully researched: **70 of 106** (69 decided, 1 explicitly
+- Modules fully researched: **18 of 28**
+- Features fully researched: **75 of 106** (74 decided, 1 explicitly
   blocked — `home-collection-logistics`)
-- Repositories evaluated: **55** (adds Atlas CMMS and openMAINT)
+- Repositories evaluated: **58** (adds OpenBoxes, Odoo Inventory,
+  ERPNext)
 - Estimated total effort-hours identified as reusable: **not numerically
   estimated** — no invented number, per the No-Guessing Rule; the
   qualitative conclusion (universal-dependency Feature, mature enterprise-
@@ -325,6 +326,27 @@ for the detailed count.)*
     `MASTER_DEPENDENCY_MATRIX.md`, to be resolved once Module 18 is
     researched — the same discipline that successfully resolved the
     Module 3/8 `document-control` duplicate.
+
+31. **Inventory's OpenBoxes adoption is the cleanest-licensed whole-
+    system Engine decision in the program (Eclipse Public License 1.0,
+    weak copyleft, no AGPL-class network-use concern) and the 2nd
+    healthcare-purpose-built product found** (after OpenELIS Global) —
+    built by Partners In Health specifically for medical-supply
+    inventory (FEFO, lot/expiry, multi-facility, cold-chain-relevant
+    storage), directly matching this Module's 5 Features with minimal
+    adaptation.
+32. **Module 17's Detected Duplicate is now formally Resolved, not just
+    flagged.** OpenBoxes becomes the platform's single stock-management
+    Adoption Point; Atlas CMMS's tentative Parts-module decision
+    (`spare-parts-tracking`) is superseded — Atlas CMMS integrates with
+    OpenBoxes via API rather than maintaining a parallel stock ledger,
+    closing the 2nd Detected Duplicate resolved in this program (after
+    Module 3/8's `document-control`).
+33. **A second "searched, found only personal/student projects, correctly
+    rejected" outcome** (`cold-chain-tracking`'s IoT sensor-telemetry
+    layer) — reported honestly as BUILD rather than adopting an unvetted
+    hobbyist repository under the pressure to find *something* to reuse,
+    the same discipline as Module 16's QDMS name-collision finding.
 
 *(Per the user's 2026-07-16 instruction to continue through all
 remaining Modules without pausing, module summaries from this point stay

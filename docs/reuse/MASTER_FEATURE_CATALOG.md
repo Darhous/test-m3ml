@@ -187,11 +187,11 @@ in the program's own instructions (`inventory/` → `stock/`, `barcode/`,
 
 | Feature | Source Capabilities | Status |
 |---|---|---|
-| `stock-management` | Inventory, Receiving, Stock Transfers | Pending |
-| `warehouse-management` | Warehousing | Pending |
-| `expiry-batch-tracking` | Expiry, Waste | Pending |
-| `barcode-scanning` | (derived — Reagents/Consumption) | Pending |
-| `cold-chain-tracking` | Cold Chain (Egypt-relevant, Wave 11) | Pending |
+| `stock-management` | Inventory, Receiving, Stock Transfers | Researched |
+| `warehouse-management` | Warehousing | Researched |
+| `expiry-batch-tracking` | Expiry, Waste | Researched |
+| `barcode-scanning` | (derived — Reagents/Consumption) | Researched |
+| `cold-chain-tracking` | Cold Chain (Egypt-relevant, Wave 11) | Researched |
 
 ## 19. Procurement (Business Module)
 

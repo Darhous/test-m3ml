@@ -79,3 +79,8 @@ the current-state index.
 | 68 | 2026-07-16 | Asset and Maintenance | preventive-maintenance-scheduling | ENGINE + ADAPTER (shared Atlas CMMS) | Native PM module | — |
 | 69 | 2026-07-16 | Asset and Maintenance | calibration-management | ENGINE + ADAPTER (shared Atlas CMMS) | Native PM-task-type; explicitly not a duplicate of Module 14's analyzer-tied calibration-tracking | — |
 | 70 | 2026-07-16 | Asset and Maintenance | spare-parts-tracking | ENGINE + ADAPTER (shared Atlas CMMS), TENTATIVE | Native Parts module; flagged as a potential Detected Duplicate against Module 18 (Inventory), pending reconciliation | — |
+| 71 | 2026-07-16 | Inventory | stock-management | ENGINE + ADAPTER: OpenBoxes (EPL-1.0) | Healthcare-purpose-built (Partners In Health), cleanest license in program; **supersedes row 70** — resolves Module 17's spare-parts-tracking duplicate | Supersedes row 70 |
+| 72 | 2026-07-16 | Inventory | warehouse-management | ENGINE + ADAPTER (shared OpenBoxes) | Native Facility/Location hierarchy | — |
+| 73 | 2026-07-16 | Inventory | expiry-batch-tracking | ENGINE + ADAPTER (shared OpenBoxes) | FEFO/lot/expiry was the primary decision driver for OpenBoxes | — |
+| 74 | 2026-07-16 | Inventory | barcode-scanning | LIBRARY (shared ZXing) + ENGINE + ADAPTER (shared OpenBoxes) + BUILD | Composes 2 already-decided capabilities, no new search needed | — |
+| 75 | 2026-07-16 | Inventory | cold-chain-tracking | ENGINE + ADAPTER (shared OpenBoxes) + BUILD (sensor telemetry) | No credible open-source cold-chain IoT platform survived verification (only personal/student projects found); correctly rejected, not force-fit | — |

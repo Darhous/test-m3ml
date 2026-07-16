@@ -64,3 +64,6 @@ column). Populated incrementally as each Module completes; see
 | HL7 FHIR `DiagnosticReport` resource | HL7 International | HL7 FHIR License | Active | result-review-verification-workflow, clinical-report-generation, result-amendment-workflow (Reference) | Result Verification and Reporting |
 | Atlas CMMS | Grashjs / INTELLOOP | AGPL-3.0 (dual, commercial available) | Active | asset-registry, preventive-maintenance-scheduling, calibration-management, spare-parts-tracking (tentative) | Asset and Maintenance |
 | openMAINT | Tecnoteca Srl | AGPL | Active | Evaluated, credible fallback — `asset-registry` | Asset and Maintenance |
+| OpenBoxes | Partners In Health / community | Eclipse Public License 1.0 | Active | stock-management, warehouse-management, expiry-batch-tracking, barcode-scanning, cold-chain-tracking | Inventory |
+| Odoo Inventory (Community) | Odoo S.A. | LGPL-3.0 | Active | Evaluated, credible fallback — `stock-management` | Inventory |
+| ERPNext | Frappe | GPL-3.0 | Active | Evaluated, credible fallback — `stock-management` | Inventory |

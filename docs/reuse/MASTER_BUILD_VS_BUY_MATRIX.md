@@ -77,4 +77,9 @@ Feature's own `10-final-decision.md`; this is the roll-up index.
 | Asset and Maintenance | asset-registry | ENGINE + ADAPTER | Atlas CMMS | High — 1st non-Core-Domain whole-system Engine adoption in Business Modules | Decided |
 | Asset and Maintenance | preventive-maintenance-scheduling | ENGINE + ADAPTER (shared Atlas CMMS) | Atlas CMMS | Medium | Decided |
 | Asset and Maintenance | calibration-management | ENGINE + ADAPTER (shared Atlas CMMS) | Atlas CMMS | Medium | Decided |
-| Asset and Maintenance | spare-parts-tracking | ENGINE + ADAPTER (shared Atlas CMMS) | Atlas CMMS | Medium | Decided (tentative, pending Module 18) |
+| Asset and Maintenance | spare-parts-tracking | **SUPERSEDED** — see Inventory `stock-management` | OpenBoxes (via Atlas CMMS integration) | Medium | Resolved |
+| Inventory | stock-management | ENGINE + ADAPTER | OpenBoxes | High — cleanest license in program, resolves Module 17 duplicate | Decided |
+| Inventory | warehouse-management | ENGINE + ADAPTER (shared OpenBoxes) | OpenBoxes | Medium | Decided |
+| Inventory | expiry-batch-tracking | ENGINE + ADAPTER (shared OpenBoxes) | OpenBoxes | High — primary decision driver | Decided |
+| Inventory | barcode-scanning | LIBRARY (shared ZXing) + ENGINE + ADAPTER (shared OpenBoxes) + BUILD | ZXing, OpenBoxes | Medium | Decided |
+| Inventory | cold-chain-tracking | ENGINE + ADAPTER (shared OpenBoxes) + BUILD (sensor telemetry) | OpenBoxes | Medium — Egypt-relevant (Wave 11) | Decided |

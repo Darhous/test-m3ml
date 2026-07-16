@@ -57,3 +57,6 @@ commercial model as currently understood.
 | OpenELIS Global | AGPL 3.0 | `AGPL-3.0-only` | Yes (network-use-triggered) | Conditional, `Requires Legal Verification` | Not selected wholesale — Reference source only; would be a materially larger question if ever adopted as a whole-system Engine |
 | Atlas CMMS | AGPL 3.0 (dual, commercial available) | `AGPL-3.0-only` | Yes (network-use-triggered) | Conditional, `Requires Legal Verification` | Selected as whole-system Engine (Asset and Maintenance); commercial license is a documented escape hatch |
 | openMAINT | AGPL | `AGPL-3.0-only` | Yes (network-use-triggered) | Conditional, `Requires Legal Verification` | Not selected — credible fallback only |
+| OpenBoxes | Eclipse Public License 1.0 | `EPL-1.0` | Weak — file-level, not network-use | Clear | Selected as whole-system Engine; cleanest license of any Engine adoption in the program |
+| Odoo Inventory (Community) | LGPL 3.0 | `LGPL-3.0-only` | Weak — library-level | Clear | Not selected — credible fallback only |
+| ERPNext | GPL 3.0 | `GPL-3.0-only` | Strong — distribution-triggered | Clear (self-hosted) | Not selected — credible fallback only |
