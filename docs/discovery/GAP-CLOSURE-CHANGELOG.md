@@ -28,3 +28,19 @@ Classified every existing Discovery artifact's disposition
 of narrow/incomplete context to close in Waves 1–12. No file deleted, no
 file superseded yet. See `reports/GAP-CLOSURE-00-BASELINE-AUDIT.md` for
 full detail.
+
+## Wave 2 — Stakeholders, Actors, and Personas Expansion (2026-07-16)
+
+Expanded from 15 stakeholder categories / 4 personas to 39 named personas
+across 8 categories, closing Financial, Workforce, Supply Chain, Platform/
+SaaS, and Governance persona gaps entirely absent from the Baseline. Found
+a genuine open architectural tension (Platform Operator/Support
+cross-tenant visibility vs. isolation) flagged for Wave 12, not resolved
+here. `stakeholders.md` expanded, history preserved. See
+`reports/GAP-CLOSURE-02-STAKEHOLDERS.md`.
+
+**Note on ordering:** Wave 1's entry appears above Wave 0's in this file
+due to an editing-order artifact, not a re-sequencing of the actual
+program — Wave 0 ran first chronologically, as confirmed by
+`artifacts/DISCOVERY-CHANGE-MANIFEST.md` and git history. Left as-is
+rather than reordered, to avoid non-substantive churn.

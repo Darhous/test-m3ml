@@ -39,6 +39,16 @@ begins at Wave 14 for `DISCOVERY-BOOK.md`).
 
 No file deleted or superseded in Wave 1.
 
+## Wave 2 — Stakeholders, Actors, Personas Expansion
+
+| Path | Disposition | Reason | Replacement | Commit |
+|---|---|---|---|---|
+| `docs/discovery/artifacts/W2-persona-catalog.md` | Created | 39-persona expansion, required Wave 2 deliverable | N/A | *(this Wave's commit)* |
+| `.claude/context/stakeholders.md` | Expanded (append-only) | Wave 2 summary pointer added | N/A — history preserved | *(this Wave's commit)* |
+| `docs/discovery/reports/GAP-CLOSURE-02-STAKEHOLDERS.md` | Created | Required Wave 2 report | N/A | *(this Wave's commit)* |
+
+No file deleted or superseded in Wave 2.
+
 ---
 
 *(Subsequent Waves append their own dated sections below this line.)*
