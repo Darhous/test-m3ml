@@ -47,3 +47,35 @@
 
 هذه تصنيفات **مبدئية غير نهائية**، ولا تمثل التزامًا بعدد أو حدود الـModules
 الفعلية. القائمة النهائية للـModules تتطلب جلسة تصميم DDD مخصصة.
+
+## Candidate Contexts from Discovery (Phase 06, Assumption-Driven Run)
+
+**تنبيه صريح: هذه مرشّحات من Discovery (`docs/discovery/artifacts/
+06-bounded-contexts.md`)، وليست القائمة النهائية.** جلسة DDD الفعلية
+المذكورة أعلاه هي بالضبط Discovery Phase 04–06 التي نُفِّذت، لكن بأسلوب
+Assumption-Driven (بدون مدخلات فعلية من أصحاب مصلحة حقيقيين) — لذلك تبقى
+هذه مرشّحات تحتاج مراجعة، لا اعتمادًا نهائيًا.
+
+| # | Discovery Candidate Context | يقابل تصنيف(ات) | ملاحظة |
+|---|---|---|---|
+| 1 | Order Management | جزء من #6 Laboratory Modules | تقسيم أدق |
+| 2 | Specimen Management | جزء من #6 Laboratory Modules | تقسيم أدق |
+| 3 | Test Processing and Result Verification (**Core Domain مرشّح**) | جزء من #6 Laboratory Modules | تقسيم أدق؛ أقوى مرشّح لـ Core Domain |
+| 4 | Notification and Communication | #9 Notification and Communication Modules | تطابق مباشر |
+| 5 | Billing and Claims | #10 Billing and Finance Modules + #11 Insurance Modules | دمج التصنيفين #10 و#11 |
+| 6 | Device and Equipment Integration | #7 Device Integration Modules | تطابق مباشر |
+| 7 | Core Platform — Identity and Access | #1 Core Platform Modules + #2 Identity and Access Modules | دمج التصنيفين |
+| 8 | Core Platform — Organization and Branch | #3 Organization Modules | تطابق مباشر |
+
+**تصنيفات لم تُغطَّ بعد بدليل حقيقي:** #4 Patient Modules، #5 Doctor and
+Clinic Modules (لا يوجد Bounded Context مستقل بعد — Patient/Doctor ما زالا
+Actors فقط)، #8 Workflow Modules (سلوك عابر ضمن Specimen/Test Processing،
+وليس Context مستقل)، #12 Inventory and Procurement، #13 AI and Analytics
+(مهمة Phase 10)، #14 Integration Modules (يتداخل مع #6 أعلاه + نتائج Phase
+08)، #15 Security and Compliance (يتوزع بين #7 أعلاه والحوكمة على مستوى
+Constitution)، #16 Support and Operations — **لا دليل Event Storming كافٍ
+بعد** (انظر `docs/discovery/artifacts/04-subdomain-map.md`).
+
+**لا يزال هذا الملف غير نهائي** — القائمة النهائية تنتظر Phase 11
+(Validation) وPhase 12 (Final Discovery Book)، وحتى بعدها تبقى "مرشّحة" لا
+نهائية إلا بموافقة صريحة من المستخدم، حسب Constitution Section 2/46.
