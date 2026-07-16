@@ -39,6 +39,16 @@ cross-tenant visibility vs. isolation) flagged for Wave 12, not resolved
 here. `stakeholders.md` expanded, history preserved. See
 `reports/GAP-CLOSURE-02-STAKEHOLDERS.md`.
 
+## Wave 3 — Enterprise Capability Map (2026-07-16)
+
+Rebuilt the Capability Map from 20 (Laboratory-only) to 100 across 10
+categories (Clinical, Laboratory Operations, Workforce, Financial, Supply
+Chain, Asset/Device, Customer Operations, SaaS/Platform, Governance, Data/
+Intelligence). Drew the Financial Native/Integration/Deferred boundary
+explicitly per the user's "no full ERP assumed" instruction. Flagged 2
+terminology collisions (Calibration, Reporting) for Wave 8. See
+`reports/GAP-CLOSURE-03-CAPABILITIES.md`.
+
 **Note on ordering:** Wave 1's entry appears above Wave 0's in this file
 due to an editing-order artifact, not a re-sequencing of the actual
 program — Wave 0 ran first chronologically, as confirmed by

@@ -79,3 +79,14 @@ Constitution)، #16 Support and Operations — **لا دليل Event Storming ك
 **لا يزال هذا الملف غير نهائي** — القائمة النهائية تنتظر Phase 11
 (Validation) وPhase 12 (Final Discovery Book)، وحتى بعدها تبقى "مرشّحة" لا
 نهائية إلا بموافقة صريحة من المستخدم، حسب Constitution Section 2/46.
+
+## Gap Closure Wave 3 — Enterprise Capability Map (2026-07-16)
+
+الجدول أعلاه (8 Contexts، من Laboratory-only Discovery) يُعاد تقييمه الآن
+ضمن خريطة قدرات مؤسسية كاملة: **100 Capability** عبر 10 فئات (Clinical,
+Laboratory Operations, Workforce, Financial, Supply Chain, Asset/Device,
+Customer Operations, SaaS/Platform, Governance, Data/Intelligence) —
+التفاصيل الكاملة في `docs/discovery/artifacts/W3-enterprise-capability-map.md`.
+هذا **لا يُلغي** التصنيفات الثمانية أعلاه؛ Wave 9 من برنامج Gap Closure
+تعيد بناء Context Map الكاملة بناءً على هذه القدرات الموسّعة. لا يزال
+الملف Candidate غير نهائي.

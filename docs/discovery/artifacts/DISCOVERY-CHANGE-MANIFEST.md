@@ -49,6 +49,17 @@ No file deleted or superseded in Wave 1.
 
 No file deleted or superseded in Wave 2.
 
+## Wave 3 — Enterprise Capability Map
+
+| Path | Disposition | Reason | Replacement | Commit |
+|---|---|---|---|---|
+| `docs/discovery/artifacts/W3-enterprise-capability-map.md` | Created | 100-capability enterprise map, required Wave 3 deliverable | N/A | *(this Wave's commit)* |
+| `docs/discovery/diagrams/W3-capability-map-categories.md` | Created | Category-level diagram (100-node diagram would be decorative, not useful) | N/A | *(this Wave's commit)* |
+| `.claude/context/module-catalog.md` | Expanded (append-only) | Wave 3 pointer added | N/A — 8-context table preserved | *(this Wave's commit)* |
+| `docs/discovery/reports/GAP-CLOSURE-03-CAPABILITIES.md` | Created | Required Wave 3 report | N/A | *(this Wave's commit)* |
+
+No file deleted or superseded in Wave 3.
+
 ---
 
 *(Subsequent Waves append their own dated sections below this line.)*
