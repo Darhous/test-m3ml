@@ -123,7 +123,8 @@ threshold.
 ## 6. No Unresolved Critical Issues
 
 Cross-checked against Phase 11's findings and every phase's own Risk
-Register entries (`artifacts/RISK-REGISTER.md`, 14 entries): none are
+Register entries (`artifacts/RISK-REGISTER.md`, 13 entries — corrected
+2026-07-16, Gap Closure Wave 0; previously miscounted as 14): none are
 rated a blocking "Critical" severity — the highest-severity items
 (Result Verifier eligibility, Medium-High; Use Case #8's practical gap,
 Medium-High) are real and important but do not block Discovery's own

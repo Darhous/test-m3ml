@@ -1,8 +1,11 @@
 # reports/
 
-**Status: empty.** Discovery has not been executed yet.
+**Status: populated.** *(Updated 2026-07-16, Gap Closure Wave 0 — was
+"empty," now stale.)* Holds the narrative reports produced by each executed
+Discovery playbook, plus the Gap Closure program's `GAP-CLOSURE-NN-*.md`
+reports (see `../GAP-CLOSURE-CHANGELOG.md`).
 
-This folder will hold the narrative reports produced by each Discovery
+This folder holds the narrative reports produced by each Discovery
 playbook: findings, open items raised, conflicts raised and their
 resolution, and (for Playbook 11) the full cross-phase Validation Report
 and STRIDE + mitigation-mapping record, and (for Playbook 12) the Discovery

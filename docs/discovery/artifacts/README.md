@@ -1,13 +1,15 @@
 # artifacts/
 
-**Status: empty.** Discovery has not been executed yet.
-
-This folder will hold the structured working outputs of each Discovery
-playbook once `EXECUTE-DISCOVERY.md` is run: the Playbook 01 execution
+**Status: populated.** *(Updated 2026-07-16, Gap Closure Wave 0 — this file
+previously said "empty," which is stale.)* Holds the structured working
+outputs of every executed Discovery playbook: the Playbook 01 execution
 ledger, Business Capability Map, Event Storming board, Subdomain map,
 candidate Aggregates, Bounded Contexts/Context Map, Business Rules catalog,
-Integration inventory, tenancy/localization analysis, and the AI use-case
-catalog. See each playbook under `../prompts/` for its exact "Produced
+Integration inventory, tenancy/localization analysis, AI use-case catalog,
+plus the 3 living registers (`ASSUMPTION-REGISTER.md`,
+`OPEN-QUESTIONS-REGISTER.md`, `RISK-REGISTER.md`) and, from the Gap Closure
+program, `DISCOVERY-CHANGE-MANIFEST.md` and expanded enterprise-wide
+artifacts. See each playbook under `../prompts/` for its exact "Produced
 Artifacts" list and expected filename.
 
 Naming convention: `<phase-number>-<short-name>.md` (e.g.,

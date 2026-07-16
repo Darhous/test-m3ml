@@ -167,8 +167,9 @@ in the Completion Report, not resolved unilaterally by Discovery).
 3 contradictions found, all resolved (2 correctly identified as
 non-violations, 1 as a genuine Constitution coverage gap correctly
 escalated rather than patched). 0 duplications. DDD Consistency: 6 PASS, 1
-Partial (expected). Full STRIDE: 32 threats across 4 integration surfaces +
-2 AI patterns, all mitigated or explicitly accepted-with-owner (2 accepted
+Partial (expected). Full STRIDE: 29 threats across 4 integration surfaces +
+2 AI patterns (corrected 2026-07-16, Gap Closure Wave 0; previously
+miscounted as 32), all mitigated or explicitly accepted-with-owner (2 accepted
 risks tie to the pre-existing Denial-of-Service policy gap already logged
 in `docs/constitution/REVIEW-REPORT.md` Open Risk R1 — not a new gap).
 27/27 diagrams pass syntax validation. 11/11 touched Open Questions

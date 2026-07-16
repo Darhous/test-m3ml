@@ -2,13 +2,22 @@
 
 ## Status
 
-**Framework only. Discovery has not been executed.** This directory
-currently contains the *methodology* for running Discovery
-(`DISCOVERY-FRAMEWORK.md`, `EXECUTION-GUIDE.md`, `EXECUTE-DISCOVERY.md`, and
-12 playbooks under `prompts/`), not any actual business/domain findings.
-`artifacts/`, `reports/`, and `diagrams/` are currently empty (each has its
-own placeholder README explaining what will populate it once Discovery
-runs).
+**Baseline Complete — Stakeholder Validation Pending.** *(Updated
+2026-07-16, Gap Closure Wave 0 — this line previously read "Framework
+only, Discovery has not been executed," which became stale once the
+12-phase Baseline Discovery ran; see `GAP-CLOSURE-CHANGELOG.md`.)* This
+directory contains the Discovery methodology (`DISCOVERY-FRAMEWORK.md`,
+`EXECUTION-GUIDE.md`, `EXECUTE-DISCOVERY.md`, 12 playbooks under
+`prompts/`) **and** its executed output: a Laboratory-Operations-focused
+Baseline Discovery (Phases 02–12), now being expanded under the Discovery
+Gap Closure & Healthcare Operations Platform Expansion program into a full
+Healthcare Operations Platform Discovery. See
+`docs/discovery/HEALTHCARE-OPERATIONS-DISCOVERY-BOOK.md` (once Wave 14
+completes) for the current authoritative Discovery Book;
+`docs/discovery/DISCOVERY-BOOK.md` is the original Laboratory-Operations
+baseline, retained and marked Superseded, not deleted.
+`artifacts/`, `reports/`, and `diagrams/` are now populated with real
+Discovery output rather than empty placeholders.
 
 ## What This Directory Is
 
