@@ -70,3 +70,7 @@ Feature's own `10-final-decision.md`; this is the roll-up index.
 | Result Verification and Reporting | clinical-report-generation | LIBRARY (candidate deferred to implementation time) + BUILD | N/A (stack-dependent) | Low-Medium | Decided (deliberately deferred candidate) |
 | Result Verification and Reporting | critical-result-escalation | ENGINE + ADAPTER (shared Novu) + BUILD | N/A | High — patient-safety-critical | Decided |
 | Result Verification and Reporting | result-amendment-workflow | REFERENCE (FHIR) + ENGINE + ADAPTER (shared OPA) + BUILD | N/A | Medium | Decided |
+| Quality Management | capa-management | BUILD | N/A — no credible OSS candidate survived verification | Medium | Decided |
+| Quality Management | complaint-management | BUILD | N/A | Medium | Decided |
+| Quality Management | nonconformance-tracking | BUILD | N/A | Medium | Decided |
+| Quality Management | accreditation-tracking | BUILD | N/A | Low-Medium | Decided |

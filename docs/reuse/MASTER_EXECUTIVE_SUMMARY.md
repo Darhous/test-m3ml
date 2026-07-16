@@ -65,13 +65,12 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 *(Updated after every Module — see individual Module completion notes
 for the detailed count.)*
 
-- Modules fully researched: **15 of 28**
-- Features fully researched: **62 of 106** (61 decided, 1 explicitly
+- Modules fully researched: **16 of 28**
+- Features fully researched: **66 of 106** (65 decided, 1 explicitly
   blocked — `home-collection-logistics`)
-- Repositories evaluated: **53** (adds the FHIR DiagnosticReport
-  resource; `clinical-report-generation`'s specific PDF/templating
-  library deliberately deferred to implementation time, not counted as
-  an evaluated candidate)
+- Repositories evaluated: **53** (unchanged — Quality Management's 4
+  Features found no verified candidate to add; a name-collision
+  false-positive was caught and excluded, not counted)
 - Estimated total effort-hours identified as reusable: **not numerically
   estimated** — no invented number, per the No-Guessing Rule; the
   qualitative conclusion (universal-dependency Feature, mature enterprise-
@@ -294,6 +293,22 @@ for the detailed count.)*
     a different honesty pattern than `home-collection-logistics`'s
     Open-Question block (Module 13) — here nothing external blocks the
     research, the decision is just genuinely premature.
+
+28. **The program's first fully-BUILD Module, and a caught false-positive
+    that validates the program's own verification discipline.** All 4
+    Quality Management Features (CAPA, complaint, nonconformance,
+    accreditation tracking) resolve to BUILD — no verified open-source
+    laboratory-QMS product exists distinct from closed-source/SaaS
+    eQMS platforms (QT9, Propel, Qualityze, Greenlight Guru) or the
+    already-evaluated whole-LIMS/GRC tools (SENAITE, Eramba). Notably, a
+    secondary-source aggregator article named "QDMS" as an open-source
+    QMS candidate; a direct follow-up search on its actual GitHub
+    repository revealed it to be an unrelated **financial data
+    management system** — a name collision, not a real candidate. This
+    is reported transparently as a caution about aggregator-blog "open-
+    source X" lists, and as a concrete demonstration of why this program
+    verifies repositories directly rather than trusting list articles at
+    face value.
 
 *(Per the user's 2026-07-16 instruction to continue through all
 remaining Modules without pausing, module summaries from this point stay

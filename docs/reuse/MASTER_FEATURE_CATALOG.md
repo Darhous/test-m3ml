@@ -169,10 +169,10 @@ in the program's own instructions (`inventory/` → `stock/`, `barcode/`,
 
 | Feature | Source Capabilities | Status |
 |---|---|---|
-| `capa-management` | (derived — Complaints → CAPA link) | Pending |
-| `complaint-management` | Complaints | Pending |
-| `nonconformance-tracking` | Exceptions | Pending |
-| `accreditation-tracking` | Quality Control (compliance) | Pending |
+| `capa-management` | (derived — Complaints → CAPA link) | Researched |
+| `complaint-management` | Complaints | Researched |
+| `nonconformance-tracking` | Exceptions | Researched |
+| `accreditation-tracking` | Quality Control (compliance) | Researched |
 
 ## 17. Asset and Maintenance (Business Module)
 

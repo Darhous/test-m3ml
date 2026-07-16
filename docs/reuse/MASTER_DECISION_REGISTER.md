@@ -71,3 +71,7 @@ the current-state index.
 | 60 | 2026-07-16 | Result Verification and Reporting | clinical-report-generation | LIBRARY (candidate deferred) + BUILD | No dedicated clinical-report-renderer product found; specific PDF/templating library correctly deferred to implementation time (stack-dependent), not guessed | — |
 | 61 | 2026-07-16 | Result Verification and Reporting | critical-result-escalation | ENGINE + ADAPTER (shared Novu) + BUILD | 3rd confirmed Novu reuse; threshold rules and escalation state machine are platform-owned patient-safety logic | — |
 | 62 | 2026-07-16 | Result Verification and Reporting | result-amendment-workflow | REFERENCE (FHIR DiagnosticReport) + ENGINE + ADAPTER (shared OPA) + BUILD | 6th confirmed OPA reuse; versioned-amendment workflow is Core Domain, no product exists outside a whole LIMS | — |
+| 63 | 2026-07-16 | Quality Management | capa-management | BUILD | No credible open-source CAPA product survives verification; a named candidate (QDMS) was found to be a name collision with an unrelated financial-data project | — |
+| 64 | 2026-07-16 | Quality Management | complaint-management | BUILD | Same evidence base as capa-management; generic helpdesk tools are a category mismatch | — |
+| 65 | 2026-07-16 | Quality Management | nonconformance-tracking | BUILD | Same evidence base; integrates directly with Module 14's execution Aggregates | — |
+| 66 | 2026-07-16 | Quality Management | accreditation-tracking | BUILD | Eramba (Module 3) considered and rejected as a category mismatch (infosec GRC, not lab accreditation) | — |
