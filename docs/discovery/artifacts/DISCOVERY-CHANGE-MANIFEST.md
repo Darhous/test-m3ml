@@ -152,6 +152,19 @@ No file deleted or superseded in Wave 11.
 
 No file deleted or superseded in Wave 12.
 
+## Wave 13 — Validation and Recursive Repair
+
+| Path | Disposition | Reason | Replacement | Commit |
+|---|---|---|---|---|
+| `docs/discovery/artifacts/RISK-REGISTER.md` | Expanded (merge) | Wave 12's 12 risks merged into canonical numbered table (13 → 25 rows), deferred from Wave 12 by design | N/A — existing rows unchanged, new rows appended | *(this Wave's commit)* |
+| `docs/discovery/artifacts/ASSUMPTION-REGISTER.md` | Expanded (consolidation) | Waves 1–12's deferred assumptions consolidated (26 → 36 rows) | N/A — existing rows unchanged, new rows appended | *(this Wave's commit)* |
+| `docs/discovery/artifacts/OPEN-QUESTIONS-REGISTER.md` | Expanded (reconciliation) | Reconciled against `.claude/context/open-questions.md` (16 → 24 rows) | N/A — existing rows unchanged, new rows appended | *(this Wave's commit)* |
+| `docs/discovery/artifacts/W13-validation-and-recursive-repair.md` | Created | 20-dimension completeness check + multi-axis Readiness assessment, required Wave 13 deliverable | N/A | *(this Wave's commit)* |
+| `docs/discovery/reports/GAP-CLOSURE-13-VALIDATION.md` | Created | Required Wave 13 report | N/A | *(this Wave's commit)* |
+
+No file deleted or superseded in Wave 13. No check produced a Fail result,
+so no prior Wave's artifact required a return-and-repair edit.
+
 ---
 
 *(Subsequent Waves append their own dated sections below this line.)*

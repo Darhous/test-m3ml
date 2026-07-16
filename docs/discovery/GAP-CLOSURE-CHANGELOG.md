@@ -126,6 +126,19 @@ tie to foundational trust guarantees (tenant isolation, audit immutability,
 clinical authorization). Full merge into `RISK-REGISTER.md` deferred to
 Wave 13 by design. See `reports/GAP-CLOSURE-12-SECURITY-SAFETY.md`.
 
+## Wave 13 — Validation and Recursive Repair (2026-07-16)
+
+Merged Wave 12's 12 risks into the canonical `RISK-REGISTER.md` (13 → 25
+rows), consolidated Waves 1–12's deferred assumptions into
+`ASSUMPTION-REGISTER.md` (26 → 36 rows), and reconciled
+`OPEN-QUESTIONS-REGISTER.md` against the canonical `.claude/context/
+open-questions.md` (16 → 24 rows). Ran all 20 user-specified completeness
+checks: 18 Pass, 2 Partial with 2 honestly named residual gaps (Egypt
+legal-gated event coverage; Customer Operations/Analytics security
+coverage) — no Fail, no recursive repair loop triggered. Produced a
+7-axis Readiness assessment, deliberately not blended into one score. See
+`reports/GAP-CLOSURE-13-VALIDATION.md`.
+
 **Note on ordering:** Wave 1's entry appears above Wave 0's in this file
 due to an editing-order artifact, not a re-sequencing of the actual
 program — Wave 0 ran first chronologically, as confirmed by

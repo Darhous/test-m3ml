@@ -27,5 +27,29 @@ assumption; genuine answers only come from the user.
 | 14 | Repeated-rejection escalation threshold N | 07 | Phase 12 finalization | Open | `.claude/context/open-questions.md` #20 |
 | 15 | Processing/equipment failure recovery policy | 07 | Phase 08 (Integrations, device failure handling) | Open | `.claude/context/open-questions.md` #21 |
 | 16 | Home-visit failure retry policy | 07 | Phase 08 | Open | `.claude/context/open-questions.md` #22 |
+| 17 | Core Domain identity — re-evaluated against 6 alternatives; Recommended (not decided) reframe to "Patient-to-Result Orchestration" | Gap Closure Wave 7 | ADR-0011 disposition (Wave 14) | Open | `.claude/context/open-questions.md` #14 |
+| 18 | Shared-tier partitioning technical detail (tenant-identifier column vs. schema-per-tenant) | 09 (reaffirmed as SEC-04, Gap Closure Wave 12) | Wave 14 escalation note / future Software Architecture Document | Open | `.claude/context/open-questions.md` #15 |
+| 19 | Tenant promotion-path trigger type (shared tier → dedicated tier) | 09 | Future Software Architecture Document | Open | `.claude/context/open-questions.md` #16 |
+| 20 | Configurable Result Verification Policy Model's actual axis values (org type, analysis type, risk, specialty, approval level, branch/country policy) | Gap Closure Wave 6 | **Highest priority** — directly compounds item #13 above | Open | `.claude/context/open-questions.md` #23 |
+| 21 | Whether a second, broader "Elevated Audit" tier is required (Refund, Expiry-block, Break-Glass, Tenant Configuration) | Gap Closure Wave 6 | Wave 14 governance disposition | Open | `.claude/context/open-questions.md` #24 |
+| 22 | PDPL 151/2020 cross-border data transfer provisions — not deeply reviewed this round | Gap Closure Wave 11 | `Requires Legal Verification` — future dedicated legal research pass | Open | `.claude/context/open-questions.md` #25 |
+| 23 | Egyptian Labor Law / Social Insurance requirements affecting Payroll — not researched this round (explicit research gap, not an assumption) | Gap Closure Wave 11 | `Requires Legal Verification` — future dedicated legal research pass | Open | `.claude/context/open-questions.md` #26 |
+| 24 | Whether National ID should be a mandatory Patient Management field | Gap Closure Wave 11 | Requires research into Egyptian health-identity linkage practice | Open | `.claude/context/open-questions.md` #27 |
 
-*(Populated as Discovery proceeds.)*
+**Items #1–13 not otherwise reconciled above:** cross-checked against
+`.claude/context/open-questions.md` items #1–13 (target markets beyond
+Egypt-first scoping, legal requirements broadly, hosting model, usage
+scale, device types, currencies/languages, legacy systems). None were
+specifically raised or advanced by a Gap Closure Wave — Wave 1 scoped
+Egypt as first market (Confirmed by the user, not answering the broader
+context #1), and Wave 11 researched 4 specific regulatory topics (not the
+whole of context #2). No row is fabricated here for them; they remain
+Open exactly as the canonical Context Store file already states, and
+hosting model (context #3) is explicitly out of this program's scope
+(Strict Prohibitions — no Technology/Cloud Selection).
+
+*(Populated as Discovery proceeds. Reconciled against
+`.claude/context/open-questions.md` at Gap Closure Wave 13 — Discovery-
+local register now covers 24 items; canonical Context Store file remains
+the authoritative 27-item source, cross-referenced above rather than
+duplicated in full.)*

@@ -55,3 +55,32 @@ Section 59):**
 *(Populated as Discovery proceeds — see phase reports for entries added
 each phase; this table is the consolidated index, kept in sync at the end
 of every phase.)*
+
+## Gap Closure Wave 13 — Consolidated Entries (Waves 1–12)
+
+Waves 1–12 each deliberately deferred logging their own new assumptions
+individually here, to avoid the register becoming unusable (Wave 3 alone
+would have added ~84 near-identical rows for its capability entries) —
+each Wave report explicitly stated "consolidated at Wave 13." This section
+fulfills that deferral with one consolidated row per Wave (or per distinct
+assumption category within a Wave), rather than one row per individual
+capability/event/rule/context. Full per-item detail remains in each Wave's
+own artifact; nothing here overrides an individual item's status if that
+item is more precisely typed in its source artifact.
+
+| # | Assumption | Status | Source / Basis | Wave Introduced | Confidence |
+|---|---|---|---|---|---|
+| 27 | 3-cluster Organization Model grouping (Single-Facility / Multi-Facility-Chain / Ecosystem-External) — added structure beyond the user's literal customer-type list | Recommended | Wave 1 reasoning applied to the 9 Confirmed customer types | 1 | Medium |
+| 28 | All 39 persona Goals/Pain Points/KPIs | Inferred — Industry Reference | Standard healthcare/lab/financial/workforce stakeholder-needs patterns | 2 | Low-Medium (per-category confirmation still needed, consistent with Baseline Assumption #4) |
+| 29 | 84 of 100 Enterprise Capability Map entries (`Inferred` or `Confirmed-scope/Inferred-detail`) | Inferred — Industry Reference | Standard healthcare-operations capability patterns applied to the 32 Confirmed business domains | 3 | Medium (scope Confirmed by the user; internal detail Inferred) |
+| 30 | 18 newly traced Value Streams (of 20 total) | Inferred — Industry Reference | Standard healthcare-operations workflow patterns | 4 | Medium |
+| 31 | ~84 newly modeled Domain Events across 10 clusters | Inferred — Industry Reference | Event Storming method applied to Wave 3/4 findings | 5 | Medium |
+| 32 | 26-rule Business Rules catalog + Configurable Result Verification Policy Model's illustrative axis values | Inferred — Industry Reference | Standard healthcare business-rule patterns + Constitution Section 21/23/25/26 applied to Wave 5 events | 6 | Medium (rule *shape* well-grounded in Constitution; specific thresholds explicitly Open per `open-questions.md` #23) |
+| 33 | 6-alternative Core Domain Decision Matrix, including the "Patient-to-Result Orchestration" recommendation | Inferred — Extrapolated | Wave 3/4/5 findings reasoned against DDD Core Domain criteria | 7 | Medium — explicitly a Recommendation, not a decision; ADR-0011 disposition deferred to Wave 14 |
+| 34 | 19 "Recognized" (as opposed to "Modeled") Bounded Context justifications in the 28-context remap | Inferred — Industry Reference | DDD Context Mapping patterns applied to Wave 3/5 findings; the 9 "Modeled" contexts inherit Evidenced status already established in the Baseline/Wave 5, not a new assumption | 9 | Low-Medium for Recognized tier (explicitly lower-confidence by design); Medium-High for Modeled tier |
+| 35 | 7 industry-practice/product-recommendation Egypt market items (considerations #6, #7, #14, #16-partial, #18, #19, #20, #21) not covered by this round's live regulatory research | Inferred — Industry Reference / Recommended | Wave 11 explicit distinction from the 4 researched regulatory items (which are `Requires Legal Verification`, not assumptions) | 11 | Low-Medium |
+| 36 | 7 newly surfaced Wave 12 security/privacy/clinical-safety risks (SEC-06, 07, 09, 10, 11, 12, 13) | Inferred | Industry-standard threat-modeling reasoning (STRIDE) applied to Waves 3–10's own findings, not independently researched | 12 | Medium |
+
+*(Wave 8's Ubiquitous Language expansion and Wave 10's Candidate Modules
+introduced no new assumption category — both explicitly inherit
+Evidence/Assumption status from prior Waves, per their own reports.)*
