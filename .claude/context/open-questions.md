@@ -67,8 +67,15 @@
     tier)** ضمن Hybrid Tenant Isolation (ADR 0005) — مثل tenant ID column مقابل
     schema منفصل؟ Constitution v1 حسم النموذج الثنائي (Shared/Dedicated) لكن ترك
     التفصيل التقني للـSoftware Architecture Document لاحقًا.
+    **[Discovery Phase 09]** ضِيق الخيار إلى فئتين مرشّحتين (Tenant-identifier
+    column، أو Schema-per-tenant داخل نفس قاعدة البيانات المشتركة)، مع توضيح
+    أن هذا محور مستقل عن Schema per Module (ADR 0003). لم يُحسم أي منهما.
+    انظر `docs/discovery/artifacts/09-tenancy-analysis.md`.
 16. **ما مسار الترقية (Promotion Path)** لمستأجر ينتقل من الطبقة المشتركة إلى
     الطبقة المخصصة ضمن Hybrid Tenant Isolation؟ لم يُحسم بعد.
+    **[Discovery Phase 09]** اقتُرح نوع المُحفِّز (Trigger Type) دون رقم محدد:
+    استهلاك موارد مُقاس ومستدام، أو متطلب تعاقدي/تنظيمي — يتوافق مع أسلوب
+    Constitution Section 55 (Evolution Strategy). لا رقم أو عتبة مُخترعة.
 
 ## أسئلة جديدة أُضيفت أثناء Discovery Phase 02 (Business Discovery)
 

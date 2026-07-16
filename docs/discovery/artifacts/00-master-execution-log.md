@@ -27,7 +27,7 @@ an interruption.
 | 06 | Bounded Contexts | complete | 2026-07-16 | 2026-07-16 | Y | none | 8 Bounded Contexts formalized, 11 labeled relationships, acyclic dependency graph confirmed, Shared Kernel considered and rejected. |
 | 07 | Business Rules | complete | 2026-07-16 | 2026-07-16 | Y | none | Invariants + 4 state machines; 3 Sensitive Operations flagged (all in Core context); 5 new Open Questions (items 18-22); 6 Hotspots resolved at modeling level, all business-level facts left Open. |
 | 08 | Integrations | complete | 2026-07-16 | 2026-07-16 | Y | none | 2 device integrations, 1 external payer integration, empty Legacy System placeholder (no basis to invent), 5 candidate notification channels. First-pass STRIDE on all 4 integration surfaces. |
-| 09 | SaaS Platform | not started | — | — | — | — | Blocked on 06, 07. |
+| 09 | SaaS Platform | complete | 2026-07-16 | 2026-07-16 | Y | none | Tenant-scoping gap found across all 6 Aggregates (flagged for SAD); 2 localization gaps found and design-proposed fixes given; open-questions.md #15/#16 narrowed with categories/trigger-type, not numbers. |
 | 10 | AI Discovery | not started | — | — | — | — | Blocked on 06, 07, 08. |
 | 11 | Validation | not started | — | — | — | — | Blocked on 02–10. |
 | 12 | Final Discovery Book | not started | — | — | — | — | Blocked on 11. |

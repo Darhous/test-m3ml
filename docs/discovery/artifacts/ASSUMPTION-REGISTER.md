@@ -46,6 +46,9 @@ Section 59):**
 | 19 | Insurance/Payer integration pattern (Anti-Corruption Layer + Conformist) | Inferred — Extrapolated from standard payer-integration DDD practice | `domain-driven-design` skill Context Mapping patterns | 08 | Medium |
 | 20 | Chain-of-custody record design (handoff sequence with timestamp/actor/confirmation) | Inferred — Extrapolated, design proposal only | Standard logistics chain-of-custody practice | 08 | Low-Medium — explicitly a proposal, not a requirement confirmation |
 | 21 | Legacy system integration profile — explicitly NOT invented | N/A — explicit gap | Zero basis found anywhere in context | 08 | N/A |
+| 22 | Every Phase 05 Aggregate is missing explicit Tenant-scoping fields (Gap, not a design choice) | N/A — explicit gap found via review | Constitution Section 18 requirement applied to Phase 05 structures | 09 | N/A (gap, not assumption) |
+| 23 | Two candidate categories for shared-tier data partitioning (tenant-ID-column, schema-per-tenant) | Inferred — Extrapolated from ADR 0005 + `architecture-patterns` skill | ADR 0005 (Accepted) | 09 | Medium |
+| 24 | Money and dual-timestamp Value Object patterns proposed for Invoice/DeviceImportRecord | Inferred — Extrapolated, standard localization-safe modeling pattern | Constitution Section 32 (Accepted) applied to Phase 05 gaps | 09 | Medium-High (well-established pattern; specific field shape unconfirmed) |
 
 *(Populated as Discovery proceeds — see phase reports for entries added
 each phase; this table is the consolidated index, kept in sync at the end
