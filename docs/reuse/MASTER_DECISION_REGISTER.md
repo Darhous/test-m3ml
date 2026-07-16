@@ -84,3 +84,6 @@ the current-state index.
 | 73 | 2026-07-16 | Inventory | expiry-batch-tracking | ENGINE + ADAPTER (shared OpenBoxes) | FEFO/lot/expiry was the primary decision driver for OpenBoxes | — |
 | 74 | 2026-07-16 | Inventory | barcode-scanning | LIBRARY (shared ZXing) + ENGINE + ADAPTER (shared OpenBoxes) + BUILD | Composes 2 already-decided capabilities, no new search needed | — |
 | 75 | 2026-07-16 | Inventory | cold-chain-tracking | ENGINE + ADAPTER (shared OpenBoxes) + BUILD (sensor telemetry) | No credible open-source cold-chain IoT platform survived verification (only personal/student projects found); correctly rejected, not force-fit | — |
+| 76 | 2026-07-16 | Procurement | purchase-requisition-order | ENGINE + ADAPTER: ERPNext (GPL-3.0) | Purpose-built requisition→RFQ→PO→approval chain; OpenProcurement rejected as government-tender-scale mismatch | — |
+| 77 | 2026-07-16 | Procurement | supplier-rfq | ENGINE + ADAPTER (shared ERPNext) | Native RFQ-to-Supplier-Portal flow | — |
+| 78 | 2026-07-16 | Procurement | receiving-goods | ENGINE + ADAPTER (composed: ERPNext + OpenBoxes) | ERPNext handles PO/receipt matching, OpenBoxes handles the actual stock increase — a proactively-designed avoidance of a 3rd Detected Duplicate | — |

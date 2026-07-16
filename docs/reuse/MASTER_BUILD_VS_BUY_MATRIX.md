@@ -83,3 +83,6 @@ Feature's own `10-final-decision.md`; this is the roll-up index.
 | Inventory | expiry-batch-tracking | ENGINE + ADAPTER (shared OpenBoxes) | OpenBoxes | High — primary decision driver | Decided |
 | Inventory | barcode-scanning | LIBRARY (shared ZXing) + ENGINE + ADAPTER (shared OpenBoxes) + BUILD | ZXing, OpenBoxes | Medium | Decided |
 | Inventory | cold-chain-tracking | ENGINE + ADAPTER (shared OpenBoxes) + BUILD (sensor telemetry) | OpenBoxes | Medium — Egypt-relevant (Wave 11) | Decided |
+| Procurement | purchase-requisition-order | ENGINE + ADAPTER | ERPNext (Buying module) | Medium | Decided |
+| Procurement | supplier-rfq | ENGINE + ADAPTER (shared ERPNext) | ERPNext | Medium | Decided |
+| Procurement | receiving-goods | ENGINE + ADAPTER (composed: ERPNext + OpenBoxes) | ERPNext, OpenBoxes | Medium — proactive duplicate avoidance | Decided |

@@ -65,11 +65,11 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 *(Updated after every Module — see individual Module completion notes
 for the detailed count.)*
 
-- Modules fully researched: **18 of 28**
-- Features fully researched: **75 of 106** (74 decided, 1 explicitly
+- Modules fully researched: **19 of 28**
+- Features fully researched: **78 of 106** (77 decided, 1 explicitly
   blocked — `home-collection-logistics`)
-- Repositories evaluated: **58** (adds OpenBoxes, Odoo Inventory,
-  ERPNext)
+- Repositories evaluated: **59** (adds OpenProcurement; ERPNext was
+  already logged in Module 18)
 - Estimated total effort-hours identified as reusable: **not numerically
   estimated** — no invented number, per the No-Guessing Rule; the
   qualitative conclusion (universal-dependency Feature, mature enterprise-
@@ -347,6 +347,17 @@ for the detailed count.)*
     layer) — reported honestly as BUILD rather than adopting an unvetted
     hobbyist repository under the pressure to find *something* to reuse,
     the same discipline as Module 16's QDMS name-collision finding.
+
+34. **Procurement is the program's first proactive duplicate avoidance**,
+    not a reactive resolution. `receiving-goods` deliberately routes its
+    stock-increase step to OpenBoxes (Module 18) rather than ERPNext's
+    own competing stock module — designed correctly the first time,
+    rather than caught and fixed later as with Module 3/8's
+    `document-control` or Module 17/18's `spare-parts-tracking`. ERPNext
+    (GPL-3.0, Frappe) resolves all 3 Features as a single Engine adoption
+    for the requisition→RFQ→PO→receipt chain; OpenProcurement (ProZorro-
+    derived) was correctly rejected as a government/public-tender-scale
+    mismatch rather than force-fit.
 
 *(Per the user's 2026-07-16 instruction to continue through all
 remaining Modules without pausing, module summaries from this point stay

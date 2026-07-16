@@ -197,9 +197,9 @@ in the program's own instructions (`inventory/` → `stock/`, `barcode/`,
 
 | Feature | Source Capabilities | Status |
 |---|---|---|
-| `purchase-requisition-order` | Procurement | Pending |
-| `supplier-rfq` | Procurement (derived) | Pending |
-| `receiving-goods` | Receiving ↔ Procurement | Pending |
+| `purchase-requisition-order` | Procurement | Researched |
+| `supplier-rfq` | Procurement (derived) | Researched |
+| `receiving-goods` | Receiving ↔ Procurement | Researched |
 
 ## 20. Supplier Management (Business Module)
 

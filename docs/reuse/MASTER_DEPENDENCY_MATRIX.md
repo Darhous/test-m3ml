@@ -25,6 +25,8 @@ entries pointing back to it.
 | Atlas CMMS | asset-registry, preventive-maintenance-scheduling, calibration-management | Asset and Maintenance | `asset-registry` (Module 17) — 3 Features (spare-parts-tracking superseded, see OpenBoxes row below) |
 | OpenBoxes | stock-management, warehouse-management, expiry-batch-tracking, barcode-scanning (shared), cold-chain-tracking, spare-parts-tracking (supersedes Atlas CMMS's tentative Parts module) | Inventory, Asset and Maintenance | `stock-management` (Module 18) — single Adoption Point for all platform stock/consumable tracking |
 | ZXing | barcode-labeling (Specimen Operations), barcode-scanning (Inventory) | Specimen Operations, Inventory | `barcode-labeling` (Module 13) — 2nd Module now reuses this library |
+| ERPNext | purchase-requisition-order, supplier-rfq, receiving-goods (composed with OpenBoxes) | Procurement | `purchase-requisition-order` (Module 19) |
+| OpenBoxes | stock-management, warehouse-management, expiry-batch-tracking, barcode-scanning, cold-chain-tracking (Inventory), spare-parts-tracking (Asset and Maintenance), receiving-goods stock-increase step (Procurement) | Inventory, Asset and Maintenance, Procurement | `stock-management` (Module 18) — 3rd Module now reuses this Engine |
 
 ## Detected Duplicate Features (Consolidation Opportunities)
 
@@ -32,3 +34,4 @@ entries pointing back to it.
 |---|---|---|---|
 | Audit and Compliance `document-control` | Document Management `document-control-workflow` | Same underlying capability (versioned, approval-gated document lifecycle), described from two angles (Governance/SOP vs. general-purpose) | **Resolved at Module 8** — Alfresco Community Edition (Activiti workflow engine) selected once, serving both Feature framings. See `document-management/document-control-workflow/10-final-decision.md`. |
 | Asset and Maintenance `spare-parts-tracking` (Atlas CMMS Parts module) | Inventory `stock-management` (OpenBoxes) | Both may need to own maintenance/general stock levels — potential overlap | **Resolved at Module 18** — OpenBoxes is the platform's single stock-management Adoption Point; Atlas CMMS integrates with it via API for parts consumption rather than maintaining a parallel ledger. See `inventory/stock-management/09-integration-options.md`. |
+| Procurement `receiving-goods` (ERPNext's native stock module) | Inventory `stock-management` (OpenBoxes) | ERPNext ships its own stock module, which could compete with OpenBoxes as system-of-record | **Avoided proactively at Module 19** — ERPNext handles only PO/receipt matching; the stock-increase call goes to OpenBoxes, never touching ERPNext's own stock module. See `procurement/receiving-goods/09-integration-options.md`. |

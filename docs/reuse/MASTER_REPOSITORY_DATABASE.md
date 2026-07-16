@@ -66,4 +66,5 @@ column). Populated incrementally as each Module completes; see
 | openMAINT | Tecnoteca Srl | AGPL | Active | Evaluated, credible fallback — `asset-registry` | Asset and Maintenance |
 | OpenBoxes | Partners In Health / community | Eclipse Public License 1.0 | Active | stock-management, warehouse-management, expiry-batch-tracking, barcode-scanning, cold-chain-tracking | Inventory |
 | Odoo Inventory (Community) | Odoo S.A. | LGPL-3.0 | Active | Evaluated, credible fallback — `stock-management` | Inventory |
-| ERPNext | Frappe | GPL-3.0 | Active | Evaluated, credible fallback — `stock-management` | Inventory |
+| ERPNext | Frappe | GPL-3.0 | Active | purchase-requisition-order, supplier-rfq, receiving-goods (composed with OpenBoxes) | Procurement |
+| OpenProcurement | ProZorro / community | Apache-2.0 | Active | Evaluated, not selected — government/public-tender scale mismatch | Procurement |
