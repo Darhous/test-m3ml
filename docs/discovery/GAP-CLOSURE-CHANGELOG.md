@@ -64,6 +64,15 @@ owned domains for the first time, closing Baseline Risk #7. Found a second
 Sensitive-Operation-grade pattern (Payroll dual-control). See
 `reports/GAP-CLOSURE-05-EVENT-STORMING.md`.
 
+## Wave 6 — Business Rules and Policy Discovery (2026-07-16)
+
+Delivered the Configurable Result Verification Policy Model (8 context
+dimensions, refines rather than contradicts the Baseline's Result Verifier
+Role gate) plus a 26-rule catalog across all 24 requested categories.
+Found a second Sensitive-Operation-grade rule (Payroll dual-control) and a
+candidate broader "Elevated Audit" tier. See
+`reports/GAP-CLOSURE-06-BUSINESS-RULES.md`.
+
 **Note on ordering:** Wave 1's entry appears above Wave 0's in this file
 due to an editing-order artifact, not a re-sequencing of the actual
 program — Wave 0 ran first chronologically, as confirmed by

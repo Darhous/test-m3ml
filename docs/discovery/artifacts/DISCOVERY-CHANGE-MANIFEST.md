@@ -79,6 +79,16 @@ No file deleted or superseded in Wave 4.
 No file deleted or superseded in Wave 5. No diagram produced this Wave
 (deliberate — see report, "Findings").
 
+## Wave 6 — Business Rules and Policy Discovery
+
+| Path | Disposition | Reason | Replacement | Commit |
+|---|---|---|---|---|
+| `docs/discovery/artifacts/W6-business-rules-and-policy-catalog.md` | Created | Configurable Result Verification Policy Model + 26-rule catalog, required Wave 6 deliverable | N/A | *(this Wave's commit)* |
+| `.claude/context/open-questions.md` | Expanded (append-only) | Items 23–24 added | N/A — history preserved | *(this Wave's commit)* |
+| `docs/discovery/reports/GAP-CLOSURE-06-BUSINESS-RULES.md` | Created | Required Wave 6 report | N/A | *(this Wave's commit)* |
+
+No file deleted or superseded in Wave 6.
+
 ---
 
 *(Subsequent Waves append their own dated sections below this line.)*
