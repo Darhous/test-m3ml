@@ -44,6 +44,11 @@
     `docs/constitution/PROJECT-CONSTITUTION.md` Section 6 و46). لم يُحدَّد بعد؛
     يحتاج جلسة DDD مخصصة عند بدء اكتشاف الـModules الفعلية. **لا** يُعتبر أي
     Bounded Context "Core" ضمنيًا لمجرد ذكره في `module-catalog.md`.
+    **Proposed answer (Discovery Phase 04, Assumption-Driven، غير معتمد):**
+    "Test Processing and Result Verification" — انظر
+    `docs/discovery/artifacts/04-subdomain-map.md` للأدلة والمنطق. يبقى
+    البند **Open** حتى تجتاز Phase 11 (Validation) وتُصادَق عليه في Phase 12
+    عبر ADR.
 15. **ما التقنية الافتراضية الدقيقة لتقسيم البيانات في الطبقة المشتركة (Shared
     tier)** ضمن Hybrid Tenant Isolation (ADR 0005) — مثل tenant ID column مقابل
     schema منفصل؟ Constitution v1 حسم النموذج الثنائي (Shared/Dedicated) لكن ترك

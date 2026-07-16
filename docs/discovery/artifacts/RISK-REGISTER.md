@@ -12,6 +12,8 @@ specific and feeds candidates into that framework, it does not replace it).
 | 2 | Insurance/billing model unknown while VS4 was fully traced around it | Business | 02 | Low-Medium | VS4 intentionally shallow; see open-questions.md #17. |
 | 3 | No event modeled for mid-processing equipment failure (H2) — a real gap in failure-mode coverage, not yet a business rule | Operational | 03 | Medium | Directly relevant to Constitution Section 24 (device failure must not corrupt core data) — must be closed by Phase 07/08, not left open into Phase 12. |
 | 4 | Result-verification authority (H1) is unresolved while `ResultVerified` is already flagged a candidate Sensitive Operation | Governance/Clinical | 03 | Medium-High | Ties directly to Constitution Section 21 (elevated controls for sensitive operations) — a wrong authority model here has real clinical-safety implications; prioritize for Phase 07. |
+| 5 | 3 Subdomains (Inventory, QC/Accreditation, Staff/Operations) classified on capability-list evidence alone, no Event Storming evidence | Domain-Modeling | 04 | Medium | If Phase 06 draws Bounded Context boundaries around these without better evidence, the boundaries may need rework once real business input arrives. |
+| 6 | Core Domain proposal has a credible competing alternative (Specimen Management/Home Collection) not resolved by evidence available in this session | Business/Strategic | 04 | Medium | Directly affects where the "deepest modeling investment" should go later — must be confirmed by the user, not decided by Discovery alone. |
 
 *(Populated as Discovery proceeds. Severity is qualitative — High/Medium/
 Low with stated reasoning — per the No-Guessing Rule; no numeric risk

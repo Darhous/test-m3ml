@@ -34,6 +34,9 @@ Section 59):**
 | 7 | Rejection reason taxonomy (Insufficient Volume, Hemolyzed, Clotted, Mislabeled, Wrong Container, Contaminated) | Inferred — Industry Reference | Standard specimen-QC practice | 03 | Medium-High (very standard in lab QC, but exact taxonomy for this platform unconfirmed) |
 | 8 | 5 candidate Pivotal Events (`ResultVerified`, `ResultReleased`, `SpecimenAccessioned`, `SpecimenRejected`, `ClaimAdjudicated`) | Inferred — derived from Assumption #6 via handoff analysis | Event Storming method applied to Assumption #6 | 03 | Medium |
 | 9 | 4 candidate missing events (equipment-failure event, failed-home-visit event, chain-of-custody handoff event, claim-denial event) were identified as gaps, not fabricated | N/A — explicit gap, logged as Hotspots H2/H4/H5/H9 | Deliberately left as gaps | 03 | N/A |
+| 10 | 11 candidate Subdomains and their Core/Supporting/Generic classification | Inferred — DDD Strategic Design applied to Assumptions #1/#6 | `domain-driven-design` skill Strategic Design method | 04 | Medium for Subdomains #1–8; **Low** for #9–11 (no Event Storming evidence) |
+| 11 | Core Domain proposed as "Test Processing and Result Verification" | Inferred — Extrapolated (Domain Vision Statement reasoning) | Constitution Section 4 Core Value ("Human accountability"), Section 21/23 Sensitive-Operation weight | 04 | Medium — genuinely competing hypothesis (Specimen Management / Home Collection) explicitly noted, pending real business-strategy input |
+| 12 | `module-catalog.md`'s "Laboratory Modules" category likely splits into 3 finer Subdomains; "Insurance Modules" folded into "Billing and Claims" | Inferred — derived from event clustering | Phase 04 clustering exercise | 04 | Medium |
 
 *(Populated as Discovery proceeds — see phase reports for entries added
 each phase; this table is the consolidated index, kept in sync at the end
