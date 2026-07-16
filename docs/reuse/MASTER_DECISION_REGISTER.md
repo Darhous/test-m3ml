@@ -38,3 +38,7 @@ the current-state index.
 | 27 | 2026-07-16 | AI Operations Gateway | prompt-audit-logging | ENGINE + ADAPTER (composed: Portkey + immudb) | Reuses Module 3's immutable store | — |
 | 28 | 2026-07-16 | AI Operations Gateway | ai-use-case-governance | ENGINE + ADAPTER (composed: Portkey + OPA) | OPA's 4th confirmed reuse across 3 Modules | — |
 | 29 | 2026-07-16 | AI Operations Gateway | semantic-search | REFERENCE/LIBRARY: pgvector | Reuses existing PostgreSQL; no measured need for a dedicated vector DB | — |
+| 30 | 2026-07-16 | Analytics | bi-dashboards | ENGINE + ADAPTER: Apache Superset | Decisive White-Label fit (Confirmed Wave 1); Metabase's OSS tier paywalls embedding | — |
+| 31 | 2026-07-16 | Analytics | embedded-analytics | ENGINE + ADAPTER (shared Superset) | Embedding SDK was the decisive factor for bi-dashboards | — |
+| 32 | 2026-07-16 | Analytics | reporting-engine | ENGINE + ADAPTER (composed: Superset + Novu) | Native Alerts & Reports feature, delivered via already-selected Notification Service | — |
+| 33 | 2026-07-16 | Analytics | forecasting-engine | LIBRARY: Prophet | Robust starting choice for moderate/messy data; lower priority per Wave 3/10's speculative classification | — |

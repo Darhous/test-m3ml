@@ -37,3 +37,7 @@ column). Populated incrementally as each Module completes; see
 | pgvector (`pgvector/pgvector`) | PostgreSQL community | PostgreSQL License | Active | semantic-search | AI Operations Gateway |
 | Qdrant | Qdrant | Apache-2.0 | Active | Evaluated, identified upgrade path — `semantic-search` | AI Operations Gateway |
 | Weaviate | Weaviate | BSD-3-Clause | Active | Evaluated, not selected — `semantic-search` | AI Operations Gateway |
+| Apache Superset | ASF | Apache-2.0 | Active | bi-dashboards, embedded-analytics, reporting-engine | Analytics |
+| Metabase | Metabase Inc. | AGPL-3.0 (Community) | Active | Evaluated, not selected (paywalled white-label) — `bi-dashboards` | Analytics |
+| Lightdash | Lightdash | MIT | Active | Evaluated, not selected — `bi-dashboards` | Analytics |
+| Prophet (`facebook/prophet`) | Meta | MIT | Active | forecasting-engine | Analytics |

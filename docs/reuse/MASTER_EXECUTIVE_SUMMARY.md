@@ -65,14 +65,12 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 *(Updated after every Module — see individual Module completion notes
 for the detailed count.)*
 
-- Modules fully researched: **6 of 28** (Platform Kernel + all 3
-  Independent Components: Device Integration Gateway, Notification
-  Service, AI Operations Gateway)
-- Features fully researched: **29 of 106** (28 independently researched;
+- Modules fully researched: **7 of 28** (Platform Kernel + all 3
+  Independent Components + Analytics, 1st Cross-Cutting Service)
+- Features fully researched: **33 of 106** (32 independently researched;
   `document-control` consolidated/deferred per the detected duplicate)
-- Repositories evaluated: **29** (adds Portkey, LiteLLM, Langfuse,
-  pgvector, Qdrant, Weaviate), all logged in
-  `MASTER_REPOSITORY_DATABASE.md`
+- Repositories evaluated: **33** (adds Superset, Metabase, Lightdash,
+  Prophet), all logged in `MASTER_REPOSITORY_DATABASE.md`
 - Estimated total effort-hours identified as reusable: **not numerically
   estimated** — no invented number, per the No-Guessing Rule; the
   qualitative conclusion (universal-dependency Feature, mature enterprise-
@@ -176,6 +174,17 @@ for the detailed count.)*
     dedicated vector database — the clearest "you already have this"
     finding in the program, directly applying Constitution Section 55's
     evidence-based-trigger discipline to a brand-new technology category.
+
+16. **Apache Superset selected decisively for all 3 BI-related Features**
+    (bi-dashboards, embedded-analytics, reporting-engine) specifically
+    because its OSS tier supports true white-label embedding — Metabase,
+    despite being easier for internal self-service, paywalls exactly the
+    capability this platform's Confirmed White-Label requirement (Wave 1)
+    needs, making this one of the least ambiguous decisions in the
+    program. `forecasting-engine` (Prophet) is explicitly logged as
+    lower-priority, matching Wave 3/10's own "speculative" classification
+    of predictive/forecasting capabilities — research completeness, not
+    urgency.
 
 *(Per the user's 2026-07-16 instruction to continue through all
 remaining Modules without pausing, module summaries from this point stay

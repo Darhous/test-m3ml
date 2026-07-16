@@ -40,3 +40,7 @@ commercial model as currently understood.
 | pgvector | PostgreSQL License | `PostgreSQL` | No | Clear | |
 | Qdrant | Apache License 2.0 | `Apache-2.0` | No | Clear | Not selected (no measured scale trigger) |
 | Weaviate | BSD 3-Clause | `BSD-3-Clause` | No | Clear | Not selected |
+| Apache Superset | Apache License 2.0 | `Apache-2.0` | No | Clear | ASF-governed |
+| Metabase (Community) | AGPL 3.0 | `AGPL-3.0` | Yes | Conditional | Not selected; white-label also paywalled regardless |
+| Lightdash | MIT | `MIT` | No | Clear | Not selected |
+| Prophet | MIT | `MIT` | No | Clear | |

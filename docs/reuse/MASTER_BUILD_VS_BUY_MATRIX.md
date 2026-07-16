@@ -36,3 +36,7 @@ Feature's own `10-final-decision.md`; this is the roll-up index.
 | AI Operations Gateway | prompt-audit-logging | ENGINE + ADAPTER (composed) | Portkey + immudb | Medium | Decided |
 | AI Operations Gateway | ai-use-case-governance | ENGINE + ADAPTER (composed) | Portkey + OPA | High — clinical-safety-adjacent | Decided |
 | AI Operations Gateway | semantic-search | REFERENCE/LIBRARY | pgvector | High — avoids a dedicated vector DB service | Decided |
+| Analytics | bi-dashboards | ENGINE + ADAPTER | Apache Superset | High — decisive White-Label fit | Decided |
+| Analytics | embedded-analytics | ENGINE + ADAPTER (shared) | Apache Superset | High | Decided |
+| Analytics | reporting-engine | ENGINE + ADAPTER (composed) | Superset + Novu | Medium | Decided |
+| Analytics | forecasting-engine | LIBRARY | Prophet | Low-Medium (speculative capability) | Decided |
