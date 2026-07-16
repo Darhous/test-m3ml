@@ -123,6 +123,19 @@
     Refund، Expiry-block، Break-Glass، Tenant Configuration)؟ Recommendation
     مطروحة، غير معتمدة.
 
+## أسئلة جديدة أُضيفت أثناء Gap Closure Wave 11 (Egypt Market Gap Analysis)
+
+25. **ما أحكام النقل عبر الحدود (Cross-Border Transfer) الفعلية ضمن قانون
+    حماية البيانات الشخصية المصري (151/2020)؟** لم تُراجَع النصوص الأولية
+    بعمق — `Requires Legal Verification`. انظر
+    `docs/discovery/artifacts/EGYPT-REGULATORY-RESEARCH-REGISTER.md` #2.
+26. **ما متطلبات قانون العمل/التأمينات الاجتماعية المصري المؤثرة على
+    Payroll؟** لم يُبحث هذا الجانب في هذه الجولة إطلاقًا —
+    `Requires Legal Verification`، فجوة بحثية صريحة.
+27. **هل يجب أن يكون الرقم القومي (National ID) حقلًا أساسيًا في Patient
+    Management؟** Recommendation مطروحة، غير مؤكدة — تحتاج بحثًا عن قواعد
+    ربط الهوية الصحية المصرية.
+
 ## ملاحظة
 
 هذه القائمة أولية وستنمو مع تقدم النقاش. لا تُفترض إجابات لهذه الأسئلة ولا تُبنى

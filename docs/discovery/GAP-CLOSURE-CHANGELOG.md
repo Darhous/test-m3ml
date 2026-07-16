@@ -107,6 +107,16 @@ Accounting as most extraction-ready by default; confirmed Result
 Verification and Reporting (Core) is least likely to extract. See
 `reports/GAP-CLOSURE-10-MODULE-CANDIDATES.md`.
 
+## Wave 11 — Egypt Market Gap Analysis (2026-07-16)
+
+Researched 4 real, dated Egyptian regulations via live web search
+(e-invoicing/e-receipt ETA mandate, PDPL 151/2020, EDA device/reagent
+registration, Universal Health Insurance Law 2/2018), logged in new
+`EGYPT-REGULATORY-RESEARCH-REGISTER.md`. Addressed all 21 requested
+considerations, explicitly typed by evidentiary category. Zero compliance
+claims — every regulatory item `Requires Legal Verification`. See
+`reports/GAP-CLOSURE-11-EGYPT-MARKET.md`.
+
 **Note on ordering:** Wave 1's entry appears above Wave 0's in this file
 due to an editing-order artifact, not a re-sequencing of the actual
 program — Wave 0 ran first chronologically, as confirmed by

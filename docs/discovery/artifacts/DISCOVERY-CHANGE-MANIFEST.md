@@ -131,6 +131,17 @@ No file deleted or superseded in Wave 9. ADR 0012 itself not yet modified
 
 No file deleted or superseded in Wave 10.
 
+## Wave 11 — Egypt Market Gap Analysis
+
+| Path | Disposition | Reason | Replacement | Commit |
+|---|---|---|---|---|
+| `docs/discovery/artifacts/EGYPT-REGULATORY-RESEARCH-REGISTER.md` | Created | Required by the program's Research Rules | N/A | *(this Wave's commit)* |
+| `docs/discovery/artifacts/W11-egypt-market-gap-analysis.md` | Created | 21-consideration analysis, required Wave 11 deliverable | N/A | *(this Wave's commit)* |
+| `.claude/context/open-questions.md` | Expanded (append-only) | Items 25–27 added | N/A — history preserved | *(this Wave's commit)* |
+| `docs/discovery/reports/GAP-CLOSURE-11-EGYPT-MARKET.md` | Created | Required Wave 11 report | N/A | *(this Wave's commit)* |
+
+No file deleted or superseded in Wave 11.
+
 ---
 
 *(Subsequent Waves append their own dated sections below this line.)*
