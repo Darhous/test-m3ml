@@ -98,6 +98,15 @@ rejected a 29th candidate (Integration Hub) on evidence grounds. Built a
 maturity-tiered Hybrid over full uniform adoption. Acyclic graph property
 re-verified. See `reports/GAP-CLOSURE-09-BOUNDED-CONTEXTS.md`.
 
+## Wave 10 — Candidate Modules and Platform Services (2026-07-16)
+
+Derived 28 candidate modules strictly from Wave 9's Bounded Contexts.
+Classified into Core Platform Services, Independent Gateways, Shared
+Technical Services, Business Modules, Commercial Modules. Flagged
+Accounting as most extraction-ready by default; confirmed Result
+Verification and Reporting (Core) is least likely to extract. See
+`reports/GAP-CLOSURE-10-MODULE-CANDIDATES.md`.
+
 **Note on ordering:** Wave 1's entry appears above Wave 0's in this file
 due to an editing-order artifact, not a re-sequencing of the actual
 program — Wave 0 ran first chronologically, as confirmed by

@@ -122,6 +122,15 @@ No file deleted or superseded in Wave 8.
 No file deleted or superseded in Wave 9. ADR 0012 itself not yet modified
 — disposition decided at Wave 14.
 
+## Wave 10 — Candidate Modules and Platform Services
+
+| Path | Disposition | Reason | Replacement | Commit |
+|---|---|---|---|---|
+| `docs/discovery/artifacts/W10-candidate-modules-platform-services.md` | Created | 28-module catalog derived from Wave 9 contexts, required Wave 10 deliverable | N/A | *(this Wave's commit)* |
+| `docs/discovery/reports/GAP-CLOSURE-10-MODULE-CANDIDATES.md` | Created | Required Wave 10 report | N/A | *(this Wave's commit)* |
+
+No file deleted or superseded in Wave 10.
+
 ---
 
 *(Subsequent Waves append their own dated sections below this line.)*
