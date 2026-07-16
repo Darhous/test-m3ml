@@ -2,10 +2,53 @@
 
 ## Status
 
-**Proposed** — *not* Accepted, for the same reason as ADR 0011 (this
-Discovery run was Assumption-Driven; see that ADR's "Why Proposed, Not
-Accepted" section, which applies identically here and is not repeated in
-full).
+**Proposed — Amended (Gap Closure Wave 14, 2026-07-16).** Still *not*
+Accepted, for the same reason as ADR 0011 (this Discovery run was
+Assumption-Driven; see that ADR's "Why Proposed, Not Accepted" section,
+which applies identically here and is not repeated in full). See the
+"Amendment — Gap Closure Wave 14" section below for the current form of
+this proposal.
+
+## Amendment — Gap Closure Wave 14 (2026-07-16)
+
+**Disposition: Amend** (of the 5 governance-allowed outcomes — Retain-as-
+Proposed / Amend / Supersede / Reject / Split). Not Retain-as-Proposed,
+because Gap Closure Wave 9 produced a materially larger evidence base (29
+previously-missing domains stormed in Wave 5, 100 capabilities in Wave 3)
+that the original 8-context map did not have access to. Not Supersede,
+because all 8 original contexts survive into the amended map unchanged in
+substance — this is a genuine expansion, not a replacement of the
+original reasoning. Not Reject, because Wave 9 found no defect in the
+original 8; it found them incomplete relative to the now much larger
+evidence base. Not Split, because the amended proposal is presented as one
+coherent, internally-tiered map, not two independent decisions.
+
+**Amended proposal: a Hybrid Modeled/Recognized 28-context map**, per
+`docs/discovery/artifacts/W9-bounded-context-remapping.md`'s 3-option
+Decision Matrix (full uniform adoption of all 28 vs. keep the original 8
+vs. this Hybrid). The original 8 contexts (renamed/refined where Wave 8's
+Ubiquitous Language work required it) plus 1 additional context justified
+by direct Event Storming evidence (Wave 5) form the **Modeled tier (9
+contexts)** — carrying the same Evidenced confidence as the original ADR.
+The remaining **19 contexts are Recognized-tier** — named and boundary-
+sketched from the Wave 3/5 capability and event evidence, but explicitly
+lower-confidence (`Inferred`, not `Evidenced`) and not yet subjected to
+the same depth of tactical modeling (Aggregates, invariants) the original
+8 received in Phase 05. A 29th candidate (Integration Hub) was considered
+and rejected on evidence grounds (no distinct event chain or capability
+cluster justifies it as separate from Device and Equipment Integration).
+The acyclic Module Dependency graph property is re-verified as holding
+across all 28 contexts, not just the original 8. Full per-context
+justification is in the Wave 9 artifact, not repeated here.
+
+**This remains a Recommendation, not a Decision** — both tiers rest on
+evidence gathered under the same Assumption-Driven Autonomous Run mode as
+the original ADR; the Recognized tier in particular should not be read as
+equivalent in confidence to the Modeled tier or to the original 8. The
+Patient/Doctor context gap (original ADR's Negative Consequences, Risk
+#7) is closed by this amendment — Wave 5 modeled both as owned domains,
+and Wave 9 gives each a dedicated Recognized-tier context — but that
+closure is itself `Inferred`, not stakeholder-confirmed.
 
 ## Context
 
@@ -108,3 +151,14 @@ Catalog").
   chronology materially.
 - Phase 07's flagged Patient/Doctor context gap (Risk #7) proves to need
   its own Bounded Context once real workflow detail exists.
+
+## Revisit Triggers — Added by Gap Closure Wave 14 Amendment
+
+- User confirms, narrows, or rejects the Hybrid Modeled/Recognized tiering
+  specifically, or any individual Recognized-tier context.
+- Any Recognized-tier context receives real Event Storming evidence
+  (moving it toward Modeled-tier confidence) or is found to have no
+  distinct justification on closer review (candidate for merge/removal).
+- ADR-0011's Core Domain amendment ("Patient-to-Result Orchestration")
+  is confirmed or rejected by the user — a rejection could change which
+  context(s) this map treats as Core.

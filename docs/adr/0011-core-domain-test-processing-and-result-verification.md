@@ -2,10 +2,55 @@
 
 ## Status
 
-**Proposed** — *not* Accepted. See "Why Proposed, Not Accepted" below. This
-deliberately deviates from `docs/discovery/prompts/12_FINAL_DISCOVERY_BOOK.md`'s
-default instruction to mark a Phase-11-validated finding `Accepted`; the
-deviation is intentional and explained, not an oversight.
+**Proposed — Amended (Gap Closure Wave 14, 2026-07-16).** Still *not*
+Accepted. See "Why Proposed, Not Accepted" below, and the "Amendment —
+Gap Closure Wave 14" section immediately below for the current form of
+this proposal. This deliberately deviates from `docs/discovery/prompts/
+12_FINAL_DISCOVERY_BOOK.md`'s default instruction to mark a Phase-11-
+validated finding `Accepted`; the deviation is intentional and explained,
+not an oversight.
+
+## Amendment — Gap Closure Wave 14 (2026-07-16)
+
+**Disposition: Amend** (of the 5 governance-allowed outcomes — Retain-as-
+Proposed / Amend / Supersede / Reject / Split — per the Gap Closure
+program's ADR Rules). Not Retain-as-Proposed, because Gap Closure Wave 7
+produced materially new evidence (a 6-alternative Core Domain Decision
+Matrix, `docs/discovery/artifacts/W7-domain-classification-reevaluation.md`)
+that the original Decision below did not have access to. Not Supersede,
+because the underlying evidence trail (Phase 04's Subdomain clustering)
+remains valid and directly feeds the amended proposal rather than being
+replaced by an unrelated one. Not Reject, because Wave 7 did not find the
+original proposal wrong, only narrower than the evidence now supports.
+Not Split, because the amended proposal is still a single coherent Core
+Domain claim, not two independent decisions.
+
+**Amended proposed Core Domain: "Patient-to-Result Orchestration"** —
+broadens the original "Test Processing and Result Verification" framing
+to explicitly include the Patient and Doctor domains that Gap Closure
+Wave 5 modeled as owned domains for the first time (closing Baseline Risk
+#7), while still centering the same `TestProcessingStarted →
+TestResultCaptured → ResultVerified → ResultReleased` event chain and the
+same `TestResult` Aggregate as the original proposal's core. Wave 7's
+Decision Matrix compared 6 alternatives (the original framing, this
+amendment, Laboratory Execution, Healthcare Operations Orchestration,
+Clinical Diagnostic Network, and Platform Tenant Operations) and found
+this framing the best fit: broad enough to include Patient/Doctor as
+first-class participants in the differentiating value chain (not just
+cross-cutting Actors, per Baseline Risk #7), but explicitly narrower than
+"Healthcare Operations Orchestration," which Wave 7 rejected as premature
+given Wave 3's own evidence-imbalance finding (most of the 32-domain
+expansion is `Inferred`, not evidenced to Core-Domain-defining depth).
+"Clinical Diagnostic Network" was rejected outright for having no
+supporting evidence anywhere in the program.
+
+**This remains a Recommendation, not a Decision** — the same Assumption-
+Driven evidentiary limits described in "Why Proposed, Not Accepted" below
+apply identically to this amendment; Wave 7's Decision Matrix itself is
+built on `Inferred — Industry Reference` evidence, not stakeholder
+confirmation. The Specimen Management alternative documented in the
+original "Alternatives Considered" section below remains a live,
+unresolved competing hypothesis and is not superseded by this amendment.
 
 ## Context
 
@@ -124,3 +169,12 @@ resolves the Specimen Management alternative) and explicitly promotes it.
   Subdomain map from Phase 04's Inferred version.
 - The Specimen Management alternative gains stronger evidence than this
   proposal.
+
+## Revisit Triggers — Added by Gap Closure Wave 14 Amendment
+
+- User confirms, narrows, or rejects the "Patient-to-Result Orchestration"
+  reframing specifically (independent of the original Test Processing and
+  Result Verification framing it broadens).
+- Real workflow evidence for Patient/Doctor domains (currently `Inferred`,
+  Gap Closure Wave 5) materially changes their relationship to the
+  differentiating event chain.

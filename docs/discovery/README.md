@@ -12,10 +12,11 @@ directory contains the Discovery methodology (`DISCOVERY-FRAMEWORK.md`,
 Baseline Discovery (Phases 02–12), now being expanded under the Discovery
 Gap Closure & Healthcare Operations Platform Expansion program into a full
 Healthcare Operations Platform Discovery. See
-`docs/discovery/HEALTHCARE-OPERATIONS-DISCOVERY-BOOK.md` (once Wave 14
-completes) for the current authoritative Discovery Book;
-`docs/discovery/DISCOVERY-BOOK.md` is the original Laboratory-Operations
-baseline, retained and marked Superseded, not deleted.
+`docs/discovery/HEALTHCARE-OPERATIONS-DISCOVERY-BOOK.md` *(updated
+2026-07-16, Gap Closure Wave 14 — now complete)* for the current
+authoritative Discovery Book; `docs/discovery/DISCOVERY-BOOK.md` is the
+original Laboratory-Operations baseline, retained and marked Superseded,
+not deleted.
 `artifacts/`, `reports/`, and `diagrams/` are now populated with real
 Discovery output rather than empty placeholders.
 

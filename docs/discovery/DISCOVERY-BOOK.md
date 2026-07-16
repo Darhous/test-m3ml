@@ -1,8 +1,22 @@
 # Discovery Book — Digital Healthcare Platform (Laboratory Management)
 
-**Status:** Discovery Complete (Assumption-Driven Autonomous Run) —
-Candidate/Proposed content throughout, pending user review. **This is not
-a Software Architecture Document** and does not authorize starting one.
+**Status: SUPERSEDED (2026-07-16, Gap Closure Wave 14).** Superseded by
+`docs/discovery/HEALTHCARE-OPERATIONS-DISCOVERY-BOOK.md`, which expands
+this book's Laboratory-Operations scope to the full Healthcare Operations
+Platform per the user's Confirmed Strategic Direction, and formally
+dispositions ADRs 0011/0012 (Amend, not silently promoted). **Not
+deleted** — every finding below remains valid within its original
+Laboratory-Operations scope; see the new book's Section 41 ("Superseded
+Content and Change History") for exactly where each part of this book now
+lives. Kept in place as historical record of the original 12-phase
+Baseline Discovery, not for continued use as the current baseline.
+
+---
+
+**Original status line (preserved for history):** Discovery Complete
+(Assumption-Driven Autonomous Run) — Candidate/Proposed content
+throughout, pending user review. **This is not a Software Architecture
+Document** and does not authorize starting one.
 **Execution mode note (read first):** this entire Discovery Program ran
 without live stakeholder access, under a user-approved
 "Assumption-Driven Autonomous Run" (see `reports/

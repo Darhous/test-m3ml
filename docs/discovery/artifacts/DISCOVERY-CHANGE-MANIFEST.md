@@ -165,6 +165,21 @@ No file deleted or superseded in Wave 12.
 No file deleted or superseded in Wave 13. No check produced a Fail result,
 so no prior Wave's artifact required a return-and-repair edit.
 
+## Wave 14 — Final Discovery Baseline
+
+| Path | Disposition | Reason | Replacement | Commit |
+|---|---|---|---|---|
+| `docs/discovery/HEALTHCARE-OPERATIONS-DISCOVERY-BOOK.md` | Created | 42-section final Discovery baseline, required Wave 14 deliverable | N/A | *(this Wave's commit)* |
+| `docs/discovery/DISCOVERY-BOOK.md` | Superseded | Replaced as current baseline by the Healthcare Operations Discovery Book | `docs/discovery/HEALTHCARE-OPERATIONS-DISCOVERY-BOOK.md` | *(this Wave's commit)* |
+| `docs/discovery/README.md` | Expanded (inline correction) | "once Wave 14 completes" caveat resolved now that it has | N/A — same file, corrected | *(this Wave's commit)* |
+| `docs/adr/0011-core-domain-test-processing-and-result-verification.md` | Amended | Wave 7's "Patient-to-Result Orchestration" recommendation formally dispositioned as Amend; Status updated to Proposed — Amended | N/A — original content preserved, Amendment section added | *(this Wave's commit)* |
+| `docs/adr/0012-candidate-bounded-context-map.md` | Amended | Wave 9's Hybrid Modeled/Recognized 28-context recommendation formally dispositioned as Amend; Status updated to Proposed — Amended | N/A — original content preserved, Amendment section added | *(this Wave's commit)* |
+| `docs/discovery/reports/GAP-CLOSURE-14-COMPLETION.md` | Created | Required Wave 14 report | N/A | *(this Wave's commit)* |
+
+**1 file marked Superseded in Wave 14** (`DISCOVERY-BOOK.md`, not
+deleted). **2 ADRs Amended** (0011, 0012) — neither promoted to Accepted.
+This is the final Wave of the Gap Closure program.
+
 ---
 
 *(Subsequent Waves append their own dated sections below this line.)*

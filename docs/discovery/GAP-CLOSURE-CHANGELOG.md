@@ -139,6 +139,18 @@ coverage) — no Fail, no recursive repair loop triggered. Produced a
 7-axis Readiness assessment, deliberately not blended into one score. See
 `reports/GAP-CLOSURE-13-VALIDATION.md`.
 
+## Wave 14 — Final Discovery Baseline (2026-07-16)
+
+Created `HEALTHCARE-OPERATIONS-DISCOVERY-BOOK.md` (42 sections),
+synthesizing the 12-phase Baseline and 15-Wave Gap Closure program into
+the current Discovery baseline. Marked the original `DISCOVERY-BOOK.md`
+explicitly Superseded, not deleted, with a full section-by-section
+forward-mapping. Formally dispositioned ADR-0011 (Amend → "Patient-to-
+Result Orchestration") and ADR-0012 (Amend → Hybrid Modeled(9)/
+Recognized(19) 28-context map) — both remain Proposed, neither silently
+promoted to Accepted. This is the final Wave of the Gap Closure program.
+See `reports/GAP-CLOSURE-14-COMPLETION.md`.
+
 **Note on ordering:** Wave 1's entry appears above Wave 0's in this file
 due to an editing-order artifact, not a re-sequencing of the actual
 program — Wave 0 ran first chronologically, as confirmed by
