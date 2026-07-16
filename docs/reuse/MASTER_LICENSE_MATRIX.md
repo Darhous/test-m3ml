@@ -53,3 +53,5 @@ commercial model as currently understood.
 | FullCalendar | MIT (core) | `MIT` | No | Clear | Premium plugins separately licensed |
 | HL7 FHIR `Specimen` resource | HL7 FHIR License | `HL7-FHIR` (specification license, not code copyleft) | No | Clear | Same license class as other FHIR resources already logged |
 | ZXing | Apache License 2.0 | `Apache-2.0` | No | Clear | General-knowledge basis, `Requires Legal Verification`-style re-confirmation before implementation |
+| SENAITE | GPL 2.0 | `GPL-2.0-only` | Yes (distribution-triggered) | Clear | Not selected wholesale — Reference source only |
+| OpenELIS Global | AGPL 3.0 | `AGPL-3.0-only` | Yes (network-use-triggered) | Conditional, `Requires Legal Verification` | Not selected wholesale — Reference source only; would be a materially larger question if ever adopted as a whole-system Engine |

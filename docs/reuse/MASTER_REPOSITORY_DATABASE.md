@@ -58,3 +58,6 @@ column). Populated incrementally as each Module completes; see
 | HL7 FHIR `Specimen` resource | HL7 International | HL7 FHIR License | Active | specimen-accessioning (Reference) | Specimen Operations |
 | ZXing (or equivalent barcode library) | ZXing community | Apache-2.0 | Active (general knowledge, not re-searched this pass) | barcode-labeling | Specimen Operations |
 | immudb (reused) | Codenotary | Business Source License / Apache-2.0 components | Active | chain-of-custody (integrity store, shared with Module 3) | Specimen Operations |
+| SENAITE (senaite.core/senaite.lims) | SENAITE community | GPL-2.0 | Active | Evaluated, not selected wholesale (Core Domain) — Reference source for QC module design | Laboratory Execution |
+| OpenELIS Global | Open ELIS Foundation / DIGI-UW | AGPL-3.0 | Active | Evaluated, not selected wholesale (Core Domain) — primary Reference source (FHIR-native) | Laboratory Execution |
+| Westgard rules methodology | Westgard QC (public methodology) | Public statistical methodology, not licensed software | N/A | quality-control-tracking, calibration-tracking (Reference) | Laboratory Execution |

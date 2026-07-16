@@ -65,12 +65,12 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 *(Updated after every Module — see individual Module completion notes
 for the detailed count.)*
 
-- Modules fully researched: **13 of 28**
-- Features fully researched: **54 of 106** (53 decided, 1 explicitly
+- Modules fully researched: **14 of 28**
+- Features fully researched: **58 of 106** (57 decided, 1 explicitly
   blocked — `home-collection-logistics`)
-- Repositories evaluated: **50** (adds the FHIR Specimen resource, ZXing,
-  and immudb's 2nd reuse; `home-collection-logistics` itself contributed
-  no new candidate, by design)
+- Repositories evaluated: **52** (adds SENAITE, OpenELIS Global — both
+  genuinely researched via live WebSearch this Module, not carried
+  forward as shorthand — and the Westgard rules public methodology)
 - Estimated total effort-hours identified as reusable: **not numerically
   estimated** — no invented number, per the No-Guessing Rule; the
   qualitative conclusion (universal-dependency Feature, mature enterprise-
@@ -246,11 +246,42 @@ for the detailed count.)*
     upstream Discovery has not yet settled a prerequisite question, not a
     gap in this program's own research.
 
+24. **The program's most architecturally consequential decision is now
+    resolved, not deferred a 3rd time.** `worklist-management` (Laboratory
+    Execution) sits at the exact center of ADR-0011 Amended's Core Domain
+    ("Patient-to-Result Orchestration") — the point where wholesale
+    adoption of a mature LIMS engine would save the most engineering
+    hours of any Feature in the program, and simultaneously where doing
+    so would most directly displace the platform's own differentiation.
+    Both SENAITE (GPL-2.0, Plone/Zope) and OpenELIS Global (AGPL-3.0,
+    FHIR-native, national-scale production use) were freshly researched
+    via live WebSearch and genuinely weighed as ENGINE + ADAPTER
+    candidates, not dismissed by pattern-reuse shorthand — and
+    **wholesale adoption was still not selected**, for the same Core
+    Domain reason applied 4 times previously (Modules 9, 12, 13), now
+    confirmed at the case argued to be the strongest for reuse. OpenELIS
+    Global is retained as the primary Reference source (its FHIR-native
+    data shapes match the platform's own established convention);
+    SENAITE is retained as a secondary Reference specifically for its
+    mature Westgard-rules QC module design.
+25. **Laboratory Execution's other 3 Features cleanly resolve via 2
+    already-established mechanisms**, demonstrating the program's own
+    reuse principles compound as it progresses: `analyzer-middleware-
+    integration` is a pure Cross-Feature Dependency on Module 4's HL7/
+    ASTM engine (no new research needed); `quality-control-tracking` and
+    `calibration-tracking` resolve to REFERENCE (Westgard rules — a
+    public statistical methodology, confirmed via WebSearch to have no
+    standalone open-source implementation independent of a whole LIMS) +
+    BUILD, reusing Module 5's Novu for alerting rather than introducing
+    anything new.
+
 *(Per the user's 2026-07-16 instruction to continue through all
 remaining Modules without pausing, module summaries from this point stay
 concise — real evidence-based research, without the earliest Modules'
 exhaustive per-file depth — until the full 28-Module program is
-complete.)*
+complete. Laboratory Execution was a deliberate, flagged exception given
+to full research depth for its `worklist-management` Feature, since it
+carried the program's most consequential deferred decision.)*
 
 ## Program Pacing — Honest Status (2026-07-16)
 

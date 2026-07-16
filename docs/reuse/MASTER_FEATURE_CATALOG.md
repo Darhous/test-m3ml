@@ -151,10 +151,10 @@ in the program's own instructions (`inventory/` → `stock/`, `barcode/`,
 
 | Feature | Source Capabilities | Status |
 |---|---|---|
-| `worklist-management` | Worklists, Benches | Pending |
-| `analyzer-middleware-integration` | Analyzer Operations | Pending |
-| `quality-control-tracking` | Quality Control | Pending |
-| `calibration-tracking` | Calibration | Pending |
+| `worklist-management` | Worklists, Benches | Researched |
+| `analyzer-middleware-integration` | Analyzer Operations | Researched |
+| `quality-control-tracking` | Quality Control | Researched |
+| `calibration-tracking` | Calibration | Researched |
 
 ## 15. Result Verification and Reporting (Business Module — **Core Domain**)
 

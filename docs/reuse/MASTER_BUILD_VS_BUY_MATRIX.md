@@ -62,3 +62,7 @@ Feature's own `10-final-decision.md`; this is the roll-up index.
 | Specimen Operations | barcode-labeling | LIBRARY (ZXing or equivalent) | ZXing | Medium | Decided (general-knowledge basis, flag for re-confirmation) |
 | Specimen Operations | chain-of-custody | BUILD (event-chain, feeds immudb) | N/A | Medium | Decided |
 | Specimen Operations | home-collection-logistics | **DEFERRED** — blocked on `open-questions.md` #6 | N/A | Unknown | Blocked |
+| Laboratory Execution | worklist-management | REFERENCE (OpenELIS primary, SENAITE secondary) + BUILD | N/A — wholesale adoption of both evaluated and rejected (Core Domain) | High — resolves Modules 12-13's deferred decision | Decided |
+| Laboratory Execution | analyzer-middleware-integration | ENGINE + ADAPTER (shared Mirth/Camel, Module 4) + BUILD | Mirth Connect / Apache Camel | Medium — Cross-Feature Dependency | Decided |
+| Laboratory Execution | quality-control-tracking | REFERENCE (Westgard rules + SENAITE module design) + BUILD | N/A | Medium | Decided |
+| Laboratory Execution | calibration-tracking | BUILD | N/A | — | Decided |
