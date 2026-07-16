@@ -16,3 +16,12 @@ Populated per Module as research completes.
 
 | Module | Feature | Candidate | Weighted Score | Recommendation |
 |---|---|---|---|---|
+| Identity and Access | authentication | Keycloak | 4.6 | **Selected** |
+| Identity and Access | authentication | Authentik | 3.5 | Not selected |
+| Identity and Access | authentication | Ory | 3.5 | Not selected |
+| Identity and Access | authentication | Zitadel | 3.3 | Not selected (AGPL) |
+| Identity and Access | authentication | Build In-House | ~1.5 | Rejected |
+| Identity and Access | authorization-rbac-abac | OPA | 4.7 | **Selected** |
+| Identity and Access | authorization-rbac-abac | Casbin | 4.1 | Not selected (close second) |
+| Identity and Access | authorization-rbac-abac | Keycloak Authorization Services | 3.6 | Not selected |
+| Identity and Access | authorization-rbac-abac | Build In-House | ~1.6 | Rejected |

@@ -65,13 +65,50 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 *(Updated after every Module — see individual Module completion notes
 for the detailed count.)*
 
-- Modules fully researched: 0 of 28
-- Features fully researched: 0 of 106
-- Repositories evaluated: 0
-- Estimated total effort-hours identified as reusable: TBD — no invented
-  number until real candidates are scored per Feature.
+- Modules fully researched: **1 of 28** (Identity and Access)
+- Features fully researched: **7 of 106**
+- Repositories evaluated: **6** (Keycloak, OPA, Zitadel, Authentik, Ory
+  Kratos+Hydra, Casbin), all logged in `MASTER_REPOSITORY_DATABASE.md`
+- Estimated total effort-hours identified as reusable: **not numerically
+  estimated** — no invented number, per the No-Guessing Rule; the
+  qualitative conclusion (universal-dependency Feature, mature enterprise-
+  adopted Engine, lowest-scoring alternative was Build In-House on nearly
+  every dimension) is the evidence-based basis for the decision instead.
 
 ## Key Findings So Far
 
-*(Populated as research completes — intentionally empty at program
-start.)*
+1. **Identity and Access is almost entirely a single-Engine decision.**
+   6 of the Module's 7 Features are solved by one repository (Keycloak),
+   demonstrating the program's own Cross-Feature Dependency Map principle
+   directly — most of this Module's research effort front-loaded into the
+   `authentication` Feature, with the remaining 5 Keycloak-solved
+   Features requiring only differential analysis.
+2. **One genuine second-engine case found:** the Configurable Result
+   Verification Policy Model's 8-dimension, Sensitive-Operation-grade
+   requirement (Discovery Wave 6) is architecturally too demanding for
+   Keycloak's built-in RBAC — Open Policy Agent (CNCF Graduated) is the
+   evidence-based answer, integrated narrowly (only the Result
+   Verification and Reporting Module calls it), not platform-wide.
+3. **License due diligence changed a ranking**, not just a footnote:
+   Zitadel scored competitively on architecture but Keycloak was
+   preferred partly because Zitadel's 2025 shift to AGPL 3.0 introduces a
+   real (if manageable) licensing complication for a White-Label
+   multi-tenant commercial SaaS product — exactly the kind of finding
+   this program exists to surface before the SAD, not after.
+4. **This Module's adoption does not resolve Discovery's Highest-severity
+   open risk** (Risk Register #17/SEC-04, shared-tier tenant partitioning,
+   `open-questions.md` #15) — Keycloak's Organizations feature is
+   compatible with either resolution but does not itself decide it. Named
+   explicitly so a future reader does not mistake tooling adoption for
+   architectural decision-making.
+
+## Program Pacing — Honest Status (2026-07-16)
+
+One Module (7 Features, 91 files, 6 repositories genuinely researched via
+live WebSearch) took a substantial share of a single working session at
+full depth. At this measured pace, exhaustively completing all 28 Modules
+/ 106 Features / ~1,378 files to the same evidentiary depth is a
+multi-session program lasting well beyond this session — consistent with
+the pacing note already logged in `MASTER_FEATURE_CATALOG.md`. This is
+reported here transparently rather than silently thinning out research
+quality in later Modules to appear faster.

@@ -12,3 +12,9 @@ commercial model as currently understood.
 
 | Repository | License | SPDX ID | SaaS/AGPL Network Clause? | Compatibility | Note |
 |---|---|---|---|---|---|
+| Keycloak | Apache License 2.0 | `Apache-2.0` | No | Clear | |
+| Open Policy Agent | Apache License 2.0 | `Apache-2.0` | No | Clear | |
+| Zitadel | AGPL 3.0 (core, since 2025) | `AGPL-3.0` | **Yes** | Conditional | Commercial license available to remove obligation; not selected as primary for this reason among others |
+| Authentik | MIT (core) + Enterprise commercial tier | `MIT` (core) | No (core) | Clear (core) / Conditional (Enterprise features) | Must track feature-by-feature if any Enterprise-tier capability is used |
+| Ory (Kratos + Hydra) | Apache License 2.0 | `Apache-2.0` | No | Clear | |
+| Casbin | Apache License 2.0 | `Apache-2.0` | No | Clear | |
