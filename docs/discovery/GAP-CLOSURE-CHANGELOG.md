@@ -90,6 +90,14 @@ canonical terms. Surfaced 1 domain gap (Department) and 1 unexercised
 naming decision (Batch vs. Lot). See
 `reports/GAP-CLOSURE-08-UBIQUITOUS-LANGUAGE.md`.
 
+## Wave 9 — Bounded Context Remapping (2026-07-16)
+
+Remapped from 8 to 28 Bounded Contexts, each justified individually;
+rejected a 29th candidate (Integration Hub) on evidence grounds. Built a
+3-option ADR-0012 Decision Matrix, recommends a Modeled/Recognized
+maturity-tiered Hybrid over full uniform adoption. Acyclic graph property
+re-verified. See `reports/GAP-CLOSURE-09-BOUNDED-CONTEXTS.md`.
+
 **Note on ordering:** Wave 1's entry appears above Wave 0's in this file
 due to an editing-order artifact, not a re-sequencing of the actual
 program — Wave 0 ran first chronologically, as confirmed by

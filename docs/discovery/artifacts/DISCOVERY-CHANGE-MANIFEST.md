@@ -110,6 +110,18 @@ No file deleted or superseded in Wave 7. ADR 0011 itself not yet modified
 
 No file deleted or superseded in Wave 8.
 
+## Wave 9 — Bounded Context Remapping
+
+| Path | Disposition | Reason | Replacement | Commit |
+|---|---|---|---|---|
+| `docs/discovery/artifacts/W9-bounded-context-remapping.md` | Created | 28-context remap + ADR-0012 Decision Matrix, required Wave 9 deliverable | N/A | *(this Wave's commit)* |
+| `docs/discovery/diagrams/W9-context-map-enterprise.md` | Created | Tiered Context Map diagram | N/A | *(this Wave's commit)* |
+| `.claude/context/module-catalog.md` | Expanded (append-only) | Wave 9 pointer added | N/A — history preserved | *(this Wave's commit)* |
+| `docs/discovery/reports/GAP-CLOSURE-09-BOUNDED-CONTEXTS.md` | Created | Required Wave 9 report | N/A | *(this Wave's commit)* |
+
+No file deleted or superseded in Wave 9. ADR 0012 itself not yet modified
+— disposition decided at Wave 14.
+
 ---
 
 *(Subsequent Waves append their own dated sections below this line.)*

@@ -90,3 +90,13 @@ Customer Operations, SaaS/Platform, Governance, Data/Intelligence) —
 هذا **لا يُلغي** التصنيفات الثمانية أعلاه؛ Wave 9 من برنامج Gap Closure
 تعيد بناء Context Map الكاملة بناءً على هذه القدرات الموسّعة. لا يزال
 الملف Candidate غير نهائي.
+
+## Gap Closure Wave 9 — Enterprise Bounded Context Remapping (2026-07-16)
+
+أُعيد بناء Context Map من 8 Contexts إلى **28**، مقسّمة إلى فئتين حسب
+النضج: **Modeled** (9 contexts، أدلة حقيقية من Baseline/Wave 5) و
+**Recognized** (19 context، أسماء محجوزة بدون عمق تكتيكي كافٍ بعد). تفاصيل
+كاملة + Decision Matrix لإعادة تقييم ADR-0012 في `docs/discovery/artifacts/
+W9-bounded-context-remapping.md`. التوصية (Recommended، غير معتمدة): تبني
+النموذج الهجين (Hybrid) بدلًا من الاستبدال الكامل أو الإبقاء على 8 فقط.
+القرار النهائي يُحسم في Wave 14.
