@@ -34,3 +34,7 @@ the current-state index.
 | 23 | 2026-07-16 | Notification Service | templating | ENGINE + ADAPTER (shared Novu) | Built-in per-channel template editor | — |
 | 24 | 2026-07-16 | Notification Service | delivery-tracking | ENGINE + ADAPTER (shared Novu) | Built-in delivery-status tracking | — |
 | 25 | 2026-07-16 | Notification Service | whatsapp-integration | ENGINE + ADAPTER (shared Novu) + SDK (BSP, vendor TBD) | Native WhatsApp provider; BSP is a commercial decision, not software Build-vs-Buy | — |
+| 26 | 2026-07-16 | AI Operations Gateway | llm-gateway-orchestration | ENGINE + ADAPTER: Portkey | March-2026 full-OSS release with native guardrails matching Constitution Section 28; LiteLLM credible fallback | — |
+| 27 | 2026-07-16 | AI Operations Gateway | prompt-audit-logging | ENGINE + ADAPTER (composed: Portkey + immudb) | Reuses Module 3's immutable store | — |
+| 28 | 2026-07-16 | AI Operations Gateway | ai-use-case-governance | ENGINE + ADAPTER (composed: Portkey + OPA) | OPA's 4th confirmed reuse across 3 Modules | — |
+| 29 | 2026-07-16 | AI Operations Gateway | semantic-search | REFERENCE/LIBRARY: pgvector | Reuses existing PostgreSQL; no measured need for a dedicated vector DB | — |

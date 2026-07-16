@@ -34,3 +34,9 @@ commercial model as currently understood.
 | Apache Kafka | Apache License 2.0 | `Apache-2.0` | No | Clear | Not selected (scale mismatch) |
 | NATS + JetStream | Apache License 2.0 | `Apache-2.0` | No | Clear | Not selected |
 | Novu | Permissive-leaning (unverified this pass) | TBC | Unknown | `Requires Legal Verification` | Same honesty caveat as Eramba/GovReady-Q |
+| Portkey Gateway | Apache License 2.0 (since March 2026) | `Apache-2.0` | No | Clear | Recent full-OSS status, worth a quick re-check at implementation time |
+| LiteLLM | MIT | `MIT` | No | Clear | Not selected (close alternative) |
+| Langfuse | MIT (core) | `MIT` | No | Clear | Some Enterprise features gated |
+| pgvector | PostgreSQL License | `PostgreSQL` | No | Clear | |
+| Qdrant | Apache License 2.0 | `Apache-2.0` | No | Clear | Not selected (no measured scale trigger) |
+| Weaviate | BSD 3-Clause | `BSD-3-Clause` | No | Clear | Not selected |

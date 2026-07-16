@@ -32,3 +32,7 @@ Feature's own `10-final-decision.md`; this is the roll-up index.
 | Notification Service | templating | ENGINE + ADAPTER (shared) | Novu | Medium | Decided |
 | Notification Service | delivery-tracking | ENGINE + ADAPTER (shared) | Novu | Medium | Decided |
 | Notification Service | whatsapp-integration | ENGINE + ADAPTER (shared) + SDK (BSP, vendor TBD) | Novu + BSP | Medium | Decided |
+| AI Operations Gateway | llm-gateway-orchestration | ENGINE + ADAPTER | Portkey | High | Decided |
+| AI Operations Gateway | prompt-audit-logging | ENGINE + ADAPTER (composed) | Portkey + immudb | Medium | Decided |
+| AI Operations Gateway | ai-use-case-governance | ENGINE + ADAPTER (composed) | Portkey + OPA | High — clinical-safety-adjacent | Decided |
+| AI Operations Gateway | semantic-search | REFERENCE/LIBRARY | pgvector | High — avoids a dedicated vector DB service | Decided |

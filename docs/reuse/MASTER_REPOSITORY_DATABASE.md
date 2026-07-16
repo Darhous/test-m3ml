@@ -31,3 +31,9 @@ column). Populated incrementally as each Module completes; see
 | Apache Kafka | ASF | Apache-2.0 | Active | Evaluated, not selected (scale mismatch) — `message-broker-queueing` alternative | Device Integration Gateway |
 | NATS + JetStream | CNCF | Apache-2.0 | Active | Evaluated, not selected — `message-broker-queueing` alternative | Device Integration Gateway |
 | Novu (`novuhq/novu`) | Novu Inc. | Permissive-leaning (unverified this pass) | Active | multi-channel-notification-engine, templating, delivery-tracking, whatsapp-integration | Notification Service |
+| Portkey Gateway (`Portkey-AI/gateway`) | Portkey | Apache-2.0 (since March 2026) | Active | llm-gateway-orchestration, prompt-audit-logging, ai-use-case-governance | AI Operations Gateway |
+| LiteLLM (`BerriAI/litellm`) | BerriAI | MIT | Active | Evaluated, close alternative — `llm-gateway-orchestration` | AI Operations Gateway |
+| Langfuse (`langfuse/langfuse`) | Langfuse | MIT core | Active | Evaluated, complementary observability layer | AI Operations Gateway |
+| pgvector (`pgvector/pgvector`) | PostgreSQL community | PostgreSQL License | Active | semantic-search | AI Operations Gateway |
+| Qdrant | Qdrant | Apache-2.0 | Active | Evaluated, identified upgrade path — `semantic-search` | AI Operations Gateway |
+| Weaviate | Weaviate | BSD-3-Clause | Active | Evaluated, not selected — `semantic-search` | AI Operations Gateway |
