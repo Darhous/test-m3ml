@@ -86,3 +86,5 @@ Feature's own `10-final-decision.md`; this is the roll-up index.
 | Procurement | purchase-requisition-order | ENGINE + ADAPTER | ERPNext (Buying module) | Medium | Decided |
 | Procurement | supplier-rfq | ENGINE + ADAPTER (shared ERPNext) | ERPNext | Medium | Decided |
 | Procurement | receiving-goods | ENGINE + ADAPTER (composed: ERPNext + OpenBoxes) | ERPNext, OpenBoxes | Medium — proactive duplicate avoidance | Decided |
+| Supplier Management | supplier-registry-evaluation | ENGINE + ADAPTER (shared ERPNext) | ERPNext | Medium — crosses Module 19 boundary | Decided |
+| Supplier Management | contract-management | ENGINE + ADAPTER (shared ERPNext) | ERPNext | Low-Medium | Decided |

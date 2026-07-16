@@ -25,7 +25,7 @@ entries pointing back to it.
 | Atlas CMMS | asset-registry, preventive-maintenance-scheduling, calibration-management | Asset and Maintenance | `asset-registry` (Module 17) — 3 Features (spare-parts-tracking superseded, see OpenBoxes row below) |
 | OpenBoxes | stock-management, warehouse-management, expiry-batch-tracking, barcode-scanning (shared), cold-chain-tracking, spare-parts-tracking (supersedes Atlas CMMS's tentative Parts module) | Inventory, Asset and Maintenance | `stock-management` (Module 18) — single Adoption Point for all platform stock/consumable tracking |
 | ZXing | barcode-labeling (Specimen Operations), barcode-scanning (Inventory) | Specimen Operations, Inventory | `barcode-labeling` (Module 13) — 2nd Module now reuses this library |
-| ERPNext | purchase-requisition-order, supplier-rfq, receiving-goods (composed with OpenBoxes) | Procurement | `purchase-requisition-order` (Module 19) |
+| ERPNext | purchase-requisition-order, supplier-rfq, receiving-goods (composed with OpenBoxes) (Procurement), supplier-registry-evaluation, contract-management (Supplier Management) | Procurement, Supplier Management | `purchase-requisition-order` (Module 19) — spans a Module boundary, the strongest cross-Module Cross-Feature Dependency since Keycloak (Module 1) |
 | OpenBoxes | stock-management, warehouse-management, expiry-batch-tracking, barcode-scanning, cold-chain-tracking (Inventory), spare-parts-tracking (Asset and Maintenance), receiving-goods stock-increase step (Procurement) | Inventory, Asset and Maintenance, Procurement | `stock-management` (Module 18) — 3rd Module now reuses this Engine |
 
 ## Detected Duplicate Features (Consolidation Opportunities)

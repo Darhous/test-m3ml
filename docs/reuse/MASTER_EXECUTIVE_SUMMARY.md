@@ -65,11 +65,11 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 *(Updated after every Module — see individual Module completion notes
 for the detailed count.)*
 
-- Modules fully researched: **19 of 28**
-- Features fully researched: **78 of 106** (77 decided, 1 explicitly
+- Modules fully researched: **20 of 28**
+- Features fully researched: **80 of 106** (79 decided, 1 explicitly
   blocked — `home-collection-logistics`)
-- Repositories evaluated: **59** (adds OpenProcurement; ERPNext was
-  already logged in Module 18)
+- Repositories evaluated: **59** (unchanged — Module 20 fully reused
+  Module 19's ERPNext)
 - Estimated total effort-hours identified as reusable: **not numerically
   estimated** — no invented number, per the No-Guessing Rule; the
   qualitative conclusion (universal-dependency Feature, mature enterprise-
@@ -358,6 +358,13 @@ for the detailed count.)*
     for the requisition→RFQ→PO→receipt chain; OpenProcurement (ProZorro-
     derived) was correctly rejected as a government/public-tender-scale
     mismatch rather than force-fit.
+
+35. **Supplier Management resolves entirely through Module 19's already-
+    adopted ERPNext**, requiring zero new product research — ERPNext's
+    native Supplier Scorecard and Contract doctype directly cover both
+    Features, the strongest cross-Module Cross-Feature Dependency in the
+    program since Keycloak (Module 1) spanned Identity and Access's 6
+    Features.
 
 *(Per the user's 2026-07-16 instruction to continue through all
 remaining Modules without pausing, module summaries from this point stay

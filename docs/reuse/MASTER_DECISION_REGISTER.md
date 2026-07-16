@@ -87,3 +87,5 @@ the current-state index.
 | 76 | 2026-07-16 | Procurement | purchase-requisition-order | ENGINE + ADAPTER: ERPNext (GPL-3.0) | Purpose-built requisition→RFQ→PO→approval chain; OpenProcurement rejected as government-tender-scale mismatch | — |
 | 77 | 2026-07-16 | Procurement | supplier-rfq | ENGINE + ADAPTER (shared ERPNext) | Native RFQ-to-Supplier-Portal flow | — |
 | 78 | 2026-07-16 | Procurement | receiving-goods | ENGINE + ADAPTER (composed: ERPNext + OpenBoxes) | ERPNext handles PO/receipt matching, OpenBoxes handles the actual stock increase — a proactively-designed avoidance of a 3rd Detected Duplicate | — |
+| 79 | 2026-07-16 | Supplier Management | supplier-registry-evaluation | ENGINE + ADAPTER (shared ERPNext) | Native Supplier Scorecard, confirmed via search; gates Module 19's RFQ/PO eligibility directly | — |
+| 80 | 2026-07-16 | Supplier Management | contract-management | ENGINE + ADAPTER (shared ERPNext) | Native Contract doctype; alerting routed through Novu (Module 5) rather than ERPNext's own email alerts | — |

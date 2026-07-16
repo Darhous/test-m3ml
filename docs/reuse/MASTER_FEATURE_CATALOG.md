@@ -205,8 +205,8 @@ in the program's own instructions (`inventory/` → `stock/`, `barcode/`,
 
 | Feature | Source Capabilities | Status |
 |---|---|---|
-| `supplier-registry-evaluation` | Supplier Management | Pending |
-| `contract-management` | Service Contracts (derived) | Pending |
+| `supplier-registry-evaluation` | Supplier Management | Researched |
+| `contract-management` | Service Contracts (derived) | Researched |
 
 ## 21. Billing (Business Module)
 
