@@ -22,9 +22,11 @@ entries pointing back to it.
 | Mirth Connect / Apache Camel | hl7-integration-engine, astm-integration (Device Integration Gateway), analyzer-middleware-integration (Laboratory Execution) | Device Integration Gateway, Laboratory Execution | `hl7-integration-engine` (Module 4) — 2nd Module now reuses this engine for analyzer-specific traffic |
 | Open Policy Agent | authorization-rbac-abac (Identity and Access), policy-engine, consent-management enforcement (Audit and Compliance), ai-use-case-governance (AI Operations Gateway), result-review-verification-workflow, result-amendment-workflow (Result Verification and Reporting) | Identity and Access, Audit and Compliance, AI Operations Gateway, Result Verification and Reporting | `authorization-rbac-abac` (Module 1) — 6th confirmed reuse, the strongest Cross-Feature Dependency case in the program |
 | Novu | multi-channel-notification-engine, templating, delivery-tracking, whatsapp-integration (Notification Service), reminders-integration (Scheduling and Encounters), critical-result-escalation (Result Verification and Reporting) | Notification Service, Scheduling and Encounters, Result Verification and Reporting | `multi-channel-notification-engine` (Module 5) — 3rd Module now reuses this engine |
+| Atlas CMMS | asset-registry, preventive-maintenance-scheduling, calibration-management, spare-parts-tracking (tentative) | Asset and Maintenance | `asset-registry` (Module 17) — single Engine solving all 4 Features in the Module, the program's clearest Cross-Feature Dependency case in the Business Modules |
 
 ## Detected Duplicate Features (Consolidation Opportunities)
 
-| Feature A | Feature B | Finding | Resolution |
+| Feature A | Feature B | Finding | Status / Resolution |
 |---|---|---|---|
 | Audit and Compliance `document-control` | Document Management `document-control-workflow` | Same underlying capability (versioned, approval-gated document lifecycle), described from two angles (Governance/SOP vs. general-purpose) | **Resolved at Module 8** — Alfresco Community Edition (Activiti workflow engine) selected once, serving both Feature framings. See `document-management/document-control-workflow/10-final-decision.md`. |
+| Asset and Maintenance `spare-parts-tracking` (Atlas CMMS Parts module) | Inventory Module (not yet researched) | Both may need to own maintenance/general stock levels — potential overlap, not yet confirmed | **Open — deferred to Module 18**, same discipline as the resolved row above |

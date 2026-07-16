@@ -178,10 +178,10 @@ in the program's own instructions (`inventory/` → `stock/`, `barcode/`,
 
 | Feature | Source Capabilities | Status |
 |---|---|---|
-| `asset-registry` | Asset Registry | Pending |
-| `preventive-maintenance-scheduling` | Maintenance, Downtime | Pending |
-| `calibration-management` | Calibration (asset-level) | Pending |
-| `spare-parts-tracking` | Spare Parts, Service Contracts | Pending |
+| `asset-registry` | Asset Registry | Researched |
+| `preventive-maintenance-scheduling` | Maintenance, Downtime | Researched |
+| `calibration-management` | Calibration (asset-level) | Researched |
+| `spare-parts-tracking` | Spare Parts, Service Contracts | Researched (tentative, pending Module 18 reconciliation) |
 
 ## 18. Inventory (Business Module)
 

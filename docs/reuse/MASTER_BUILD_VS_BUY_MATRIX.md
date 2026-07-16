@@ -74,3 +74,7 @@ Feature's own `10-final-decision.md`; this is the roll-up index.
 | Quality Management | complaint-management | BUILD | N/A | Medium | Decided |
 | Quality Management | nonconformance-tracking | BUILD | N/A | Medium | Decided |
 | Quality Management | accreditation-tracking | BUILD | N/A | Low-Medium | Decided |
+| Asset and Maintenance | asset-registry | ENGINE + ADAPTER | Atlas CMMS | High — 1st non-Core-Domain whole-system Engine adoption in Business Modules | Decided |
+| Asset and Maintenance | preventive-maintenance-scheduling | ENGINE + ADAPTER (shared Atlas CMMS) | Atlas CMMS | Medium | Decided |
+| Asset and Maintenance | calibration-management | ENGINE + ADAPTER (shared Atlas CMMS) | Atlas CMMS | Medium | Decided |
+| Asset and Maintenance | spare-parts-tracking | ENGINE + ADAPTER (shared Atlas CMMS) | Atlas CMMS | Medium | Decided (tentative, pending Module 18) |

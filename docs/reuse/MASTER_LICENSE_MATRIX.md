@@ -55,3 +55,5 @@ commercial model as currently understood.
 | ZXing | Apache License 2.0 | `Apache-2.0` | No | Clear | General-knowledge basis, `Requires Legal Verification`-style re-confirmation before implementation |
 | SENAITE | GPL 2.0 | `GPL-2.0-only` | Yes (distribution-triggered) | Clear | Not selected wholesale — Reference source only |
 | OpenELIS Global | AGPL 3.0 | `AGPL-3.0-only` | Yes (network-use-triggered) | Conditional, `Requires Legal Verification` | Not selected wholesale — Reference source only; would be a materially larger question if ever adopted as a whole-system Engine |
+| Atlas CMMS | AGPL 3.0 (dual, commercial available) | `AGPL-3.0-only` | Yes (network-use-triggered) | Conditional, `Requires Legal Verification` | Selected as whole-system Engine (Asset and Maintenance); commercial license is a documented escape hatch |
+| openMAINT | AGPL | `AGPL-3.0-only` | Yes (network-use-triggered) | Conditional, `Requires Legal Verification` | Not selected — credible fallback only |

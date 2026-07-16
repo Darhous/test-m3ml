@@ -65,12 +65,10 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 *(Updated after every Module — see individual Module completion notes
 for the detailed count.)*
 
-- Modules fully researched: **16 of 28**
-- Features fully researched: **66 of 106** (65 decided, 1 explicitly
+- Modules fully researched: **17 of 28**
+- Features fully researched: **70 of 106** (69 decided, 1 explicitly
   blocked — `home-collection-logistics`)
-- Repositories evaluated: **53** (unchanged — Quality Management's 4
-  Features found no verified candidate to add; a name-collision
-  false-positive was caught and excluded, not counted)
+- Repositories evaluated: **55** (adds Atlas CMMS and openMAINT)
 - Estimated total effort-hours identified as reusable: **not numerically
   estimated** — no invented number, per the No-Guessing Rule; the
   qualitative conclusion (universal-dependency Feature, mature enterprise-
@@ -309,6 +307,24 @@ for the detailed count.)*
     source X" lists, and as a concrete demonstration of why this program
     verifies repositories directly rather than trusting list articles at
     face value.
+
+29. **Asset and Maintenance is the program's first genuine whole-system
+    Engine adoption outside the Core Domain and Platform Kernel
+    clusters.** Atlas CMMS (AGPL-3.0/commercial dual-license, modern
+    Docker-based CMMS) was freshly researched via WebSearch and adopted
+    for all 4 Features in the Module — the clearest Cross-Feature
+    Dependency case found in the Business Modules so far, since asset/
+    maintenance tracking carries none of the Core Domain risk that
+    correctly blocked wholesale adoption in Modules 9-16. openMAINT
+    (Tecnoteca, AGPL) is logged as a credible fallback.
+30. **A new Detected Duplicate Feature was caught and correctly
+    deferred, not resolved prematurely:** `spare-parts-tracking`'s
+    Atlas CMMS Parts module may overlap with Module 18's (Inventory)
+    eventual stock-management system. Rather than guessing whether they
+    should merge, this is logged as tentative and open in
+    `MASTER_DEPENDENCY_MATRIX.md`, to be resolved once Module 18 is
+    researched — the same discipline that successfully resolved the
+    Module 3/8 `document-control` duplicate.
 
 *(Per the user's 2026-07-16 instruction to continue through all
 remaining Modules without pausing, module summaries from this point stay

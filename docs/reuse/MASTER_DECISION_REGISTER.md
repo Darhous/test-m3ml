@@ -75,3 +75,7 @@ the current-state index.
 | 64 | 2026-07-16 | Quality Management | complaint-management | BUILD | Same evidence base as capa-management; generic helpdesk tools are a category mismatch | — |
 | 65 | 2026-07-16 | Quality Management | nonconformance-tracking | BUILD | Same evidence base; integrates directly with Module 14's execution Aggregates | — |
 | 66 | 2026-07-16 | Quality Management | accreditation-tracking | BUILD | Eramba (Module 3) considered and rejected as a category mismatch (infosec GRC, not lab accreditation) | — |
+| 67 | 2026-07-16 | Asset and Maintenance | asset-registry | ENGINE + ADAPTER: Atlas CMMS | 1st genuine whole-system Engine adoption outside the Core Domain cluster — not Core-Domain-adjacent, so no ADR-0011 conflict; openMAINT credible fallback | — |
+| 68 | 2026-07-16 | Asset and Maintenance | preventive-maintenance-scheduling | ENGINE + ADAPTER (shared Atlas CMMS) | Native PM module | — |
+| 69 | 2026-07-16 | Asset and Maintenance | calibration-management | ENGINE + ADAPTER (shared Atlas CMMS) | Native PM-task-type; explicitly not a duplicate of Module 14's analyzer-tied calibration-tracking | — |
+| 70 | 2026-07-16 | Asset and Maintenance | spare-parts-tracking | ENGINE + ADAPTER (shared Atlas CMMS), TENTATIVE | Native Parts module; flagged as a potential Detected Duplicate against Module 18 (Inventory), pending reconciliation | — |
