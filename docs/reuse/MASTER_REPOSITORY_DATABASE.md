@@ -51,3 +51,7 @@ column). Populated incrementally as each Module completes; see
 | Cal.com | Cal.com Inc. | AGPL-3.0 (core) | Active | appointment-scheduling-engine | Scheduling and Encounters |
 | Cal.diy | Community fork | MIT | Active | Evaluated, credible fallback — `appointment-scheduling-engine` | Scheduling and Encounters |
 | FullCalendar | FullCalendar | MIT (core) | Active | resource-calendar | Scheduling and Encounters |
+| FHIR ServiceRequest/Task orchestration pattern | HL7/OpenHIE | HL7 FHIR License | Active | order-entry-cpoe, order-status-tracking | Diagnostic Ordering |
+| OpenELIS Global | Open ELIS Foundation | MPL 2.0 | Active | Evaluated, not selected wholesale (Core Domain) — revisited at Module 14 | Diagnostic Ordering |
+| Bahmni | Bahmni community (OpenMRS-based) | AGPL-3.0/MPL-2.0 (mixed) | Active | Evaluated, not selected — `order-entry-cpoe` | Diagnostic Ordering |
+| LOINC | Regenstrief Institute | Regenstrief free-use license | Active | order-catalog-pricing | Diagnostic Ordering |

@@ -55,3 +55,6 @@ Feature's own `10-final-decision.md`; this is the roll-up index.
 | Scheduling and Encounters | resource-calendar | LIBRARY | FullCalendar | Medium-High | Decided |
 | Scheduling and Encounters | encounter-tracking | REFERENCE (FHIR) + BUILD | N/A | Medium | Decided |
 | Scheduling and Encounters | reminders-integration | ENGINE + ADAPTER (shared Novu) | Novu | Medium | Decided |
+| Diagnostic Ordering | order-entry-cpoe | REFERENCE (FHIR ServiceRequest/Task) + BUILD | N/A | High — cross-validated pattern | Decided |
+| Diagnostic Ordering | order-catalog-pricing | REFERENCE (LOINC) + BUILD | N/A | Medium | Decided |
+| Diagnostic Ordering | order-status-tracking | REFERENCE (FHIR Task) + BUILD (shared) | N/A | Medium | Decided |

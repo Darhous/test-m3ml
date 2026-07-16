@@ -56,3 +56,6 @@ the current-state index.
 | 45 | 2026-07-16 | Scheduling and Encounters | resource-calendar | LIBRARY: FullCalendar | Decade-mature calendar-rendering library, distinct category from booking logic | — |
 | 46 | 2026-07-16 | Scheduling and Encounters | encounter-tracking | REFERENCE (FHIR Encounter) + BUILD | Core-Domain-preserving, same pattern as Modules 9-10 | — |
 | 47 | 2026-07-16 | Scheduling and Encounters | reminders-integration | ENGINE + ADAPTER (shared Novu) | Avoids a 2nd notification engine specific to scheduling | — |
+| 48 | 2026-07-16 | Diagnostic Ordering | order-entry-cpoe | REFERENCE (FHIR ServiceRequest/Task) + BUILD | Cross-validated by 2 independent production LIS/EMR ecosystems (OpenELIS, Bahmni); OpenELIS/Bahmni themselves not adopted wholesale | — |
+| 49 | 2026-07-16 | Diagnostic Ordering | order-catalog-pricing | REFERENCE (LOINC) + BUILD | Tenant-specific pricing correctly platform-owned; LOINC gives standardized naming for free | — |
+| 50 | 2026-07-16 | Diagnostic Ordering | order-status-tracking | REFERENCE (FHIR Task) + BUILD (shared) | Read-model over the same Task-state pattern | — |

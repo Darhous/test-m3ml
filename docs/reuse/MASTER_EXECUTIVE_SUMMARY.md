@@ -65,9 +65,10 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 *(Updated after every Module — see individual Module completion notes
 for the detailed count.)*
 
-- Modules fully researched: **11 of 28**
-- Features fully researched: **47 of 106**
-- Repositories evaluated: **43** (adds Cal.com, Cal.diy, FullCalendar)
+- Modules fully researched: **12 of 28**
+- Features fully researched: **50 of 106**
+- Repositories evaluated: **47** (adds the FHIR ServiceRequest/Task
+  pattern, OpenELIS Global, Bahmni, LOINC)
 - Estimated total effort-hours identified as reusable: **not numerically
   estimated** — no invented number, per the No-Guessing Rule; the
   qualitative conclusion (universal-dependency Feature, mature enterprise-
@@ -212,6 +213,17 @@ for the detailed count.)*
     demonstrating the Cross-Feature Dependency principle extends across
     Modules, not just within one, once a pattern is genuinely
     established with evidence.
+
+21. **Diagnostic Ordering reuses a cross-validated architecture, not just
+    a single resource's data shape:** the FHIR ServiceRequest/Task
+    order-orchestration pattern is proven in production by 2 independent
+    open-source ecosystems (OpenELIS Global, Bahmni) — stronger evidence
+    than a typical single-source Reference decision. Both source systems
+    were themselves evaluated and not adopted wholesale, maintaining
+    Core Domain ownership. This sets up Module 14 (Laboratory Execution)
+    as the point where the "adopt SENAITE/OpenELIS wholesale vs. reuse
+    only their patterns" tension will be addressed most directly, since
+    that Module sits closest to the Core Domain's deepest investment.
 
 *(Per the user's 2026-07-16 instruction to continue through all
 remaining Modules without pausing, module summaries from this point stay
