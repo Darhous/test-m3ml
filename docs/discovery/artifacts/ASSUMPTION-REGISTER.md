@@ -30,6 +30,10 @@ Section 59):**
 | 3 | Four traced Value Streams (VS1–VS4) and their step outlines | Inferred — Industry Reference | Standard LIS + billing workflow pattern | 02 | Medium |
 | 4 | 15 stakeholder categories' "Candidate Primary Needs" (see `.claude/context/stakeholders.md`, Discovery Phase 02 section) | Inferred — Industry Reference | Standard healthcare/lab stakeholder needs pattern | 02 | Low-Medium (needs real confirmation per category; explicitly flagged in the file itself) |
 | 5 | A supplier/procurement value stream was NOT traced (gap, not an assumption) | N/A — explicit gap | Deliberately left untraced pending real input | 02 | N/A |
+| 6 | Full event/command/actor chain for VS1–VS4 (26 events total) | Inferred — Industry Reference | Standard LIS event flow | 03 | Medium |
+| 7 | Rejection reason taxonomy (Insufficient Volume, Hemolyzed, Clotted, Mislabeled, Wrong Container, Contaminated) | Inferred — Industry Reference | Standard specimen-QC practice | 03 | Medium-High (very standard in lab QC, but exact taxonomy for this platform unconfirmed) |
+| 8 | 5 candidate Pivotal Events (`ResultVerified`, `ResultReleased`, `SpecimenAccessioned`, `SpecimenRejected`, `ClaimAdjudicated`) | Inferred — derived from Assumption #6 via handoff analysis | Event Storming method applied to Assumption #6 | 03 | Medium |
+| 9 | 4 candidate missing events (equipment-failure event, failed-home-visit event, chain-of-custody handoff event, claim-denial event) were identified as gaps, not fabricated | N/A — explicit gap, logged as Hotspots H2/H4/H5/H9 | Deliberately left as gaps | 03 | N/A |
 
 *(Populated as Discovery proceeds — see phase reports for entries added
 each phase; this table is the consolidated index, kept in sync at the end
