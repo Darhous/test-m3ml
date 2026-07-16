@@ -49,6 +49,8 @@ Section 59):**
 | 22 | Every Phase 05 Aggregate is missing explicit Tenant-scoping fields (Gap, not a design choice) | N/A — explicit gap found via review | Constitution Section 18 requirement applied to Phase 05 structures | 09 | N/A (gap, not assumption) |
 | 23 | Two candidate categories for shared-tier data partitioning (tenant-ID-column, schema-per-tenant) | Inferred — Extrapolated from ADR 0005 + `architecture-patterns` skill | ADR 0005 (Accepted) | 09 | Medium |
 | 24 | Money and dual-timestamp Value Object patterns proposed for Invoice/DeviceImportRecord | Inferred — Extrapolated, standard localization-safe modeling pattern | Constitution Section 32 (Accepted) applied to Phase 05 gaps | 09 | Medium-High (well-established pattern; specific field shape unconfirmed) |
+| 25 | 7 candidate AI use cases across 5 Bounded Contexts | Inferred — Industry Reference, derived from Phase 03/07 events/rules within Constitution Section 28's Permitted list | Constitution Section 28 (Accepted) applied to Phase 03/07 findings | 10 | Medium |
+| 26 | AI Gateway contract shape (input/output/audit fields) | Inferred — Extrapolated from Constitution Section 23/28 requirements + `api-design-principles` skill | Constitution Section 23/28 (Accepted) | 10 | Medium |
 
 *(Populated as Discovery proceeds — see phase reports for entries added
 each phase; this table is the consolidated index, kept in sync at the end
