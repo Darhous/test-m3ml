@@ -48,3 +48,6 @@ column). Populated incrementally as each Module completes; see
 | HL7 FHIR `Patient` resource | HL7 International | HL7 FHIR License | Active | patient-registry-mpi (Reference) | Patient Management |
 | OpenCR | Jembi/OpenHIE | Apache-2.0 | Active | Evaluated, identified future upgrade path — `patient-registry-mpi` | Patient Management |
 | OpenMRS | OpenMRS community | MPL 2.0 | Active | Evaluated, explicitly not selected (would displace Core Domain) — `patient-registry-mpi` | Patient Management |
+| Cal.com | Cal.com Inc. | AGPL-3.0 (core) | Active | appointment-scheduling-engine | Scheduling and Encounters |
+| Cal.diy | Community fork | MIT | Active | Evaluated, credible fallback — `appointment-scheduling-engine` | Scheduling and Encounters |
+| FullCalendar | FullCalendar | MIT (core) | Active | resource-calendar | Scheduling and Encounters |

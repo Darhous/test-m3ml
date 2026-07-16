@@ -65,11 +65,9 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 *(Updated after every Module — see individual Module completion notes
 for the detailed count.)*
 
-- Modules fully researched: **10 of 28**
-- Features fully researched: **43 of 106**
-- Repositories evaluated: **40** (Practitioner and Clinic Management
-  reused FHIR resources already logged under Patient Management, no new
-  repositories)
+- Modules fully researched: **11 of 28**
+- Features fully researched: **47 of 106**
+- Repositories evaluated: **43** (adds Cal.com, Cal.diy, FullCalendar)
 - Estimated total effort-hours identified as reusable: **not numerically
   estimated** — no invented number, per the No-Guessing Rule; the
   qualitative conclusion (universal-dependency Feature, mature enterprise-

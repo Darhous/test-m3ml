@@ -51,3 +51,7 @@ Feature's own `10-final-decision.md`; this is the roll-up index.
 | Practitioner and Clinic Management | practitioner-registry-credentialing | REFERENCE (FHIR) + BUILD | N/A | Medium | Decided |
 | Practitioner and Clinic Management | clinic-facility-directory | BUILD | N/A | — | Decided |
 | Practitioner and Clinic Management | referral-management | REFERENCE (FHIR) + BUILD | N/A | Medium | Decided |
+| Scheduling and Encounters | appointment-scheduling-engine | ENGINE + ADAPTER (license TBC) | Cal.com | High | Decided |
+| Scheduling and Encounters | resource-calendar | LIBRARY | FullCalendar | Medium-High | Decided |
+| Scheduling and Encounters | encounter-tracking | REFERENCE (FHIR) + BUILD | N/A | Medium | Decided |
+| Scheduling and Encounters | reminders-integration | ENGINE + ADAPTER (shared Novu) | Novu | Medium | Decided |

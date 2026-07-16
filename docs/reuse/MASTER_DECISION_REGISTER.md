@@ -52,3 +52,7 @@ the current-state index.
 | 41 | 2026-07-16 | Practitioner and Clinic Management | practitioner-registry-credentialing | REFERENCE (FHIR Practitioner) + BUILD | Same Core-Domain-preservation rationale as Patient Management | — |
 | 42 | 2026-07-16 | Practitioner and Clinic Management | clinic-facility-directory | BUILD | Join structure over 2 already-modeled Aggregates | — |
 | 43 | 2026-07-16 | Practitioner and Clinic Management | referral-management | REFERENCE (FHIR ServiceRequest) + BUILD | Platform-owned workflow, FHIR-shaped data model | — |
+| 44 | 2026-07-16 | Scheduling and Encounters | appointment-scheduling-engine | ENGINE + ADAPTER: Cal.com (license TBC) | Explicit, current healthcare scheduling use cases (SOC 2, HIPAA-friendly); Cal.diy MIT fork as fallback | — |
+| 45 | 2026-07-16 | Scheduling and Encounters | resource-calendar | LIBRARY: FullCalendar | Decade-mature calendar-rendering library, distinct category from booking logic | — |
+| 46 | 2026-07-16 | Scheduling and Encounters | encounter-tracking | REFERENCE (FHIR Encounter) + BUILD | Core-Domain-preserving, same pattern as Modules 9-10 | — |
+| 47 | 2026-07-16 | Scheduling and Encounters | reminders-integration | ENGINE + ADAPTER (shared Novu) | Avoids a 2nd notification engine specific to scheduling | — |

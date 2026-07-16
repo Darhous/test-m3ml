@@ -48,3 +48,6 @@ commercial model as currently understood.
 | Nextcloud Hub | AGPL 3.0 | `AGPL-3.0` | Yes | Conditional | Not selected |
 | Documenso | Unconfirmed this pass | TBC | Unknown | `Requires Legal Verification` | |
 | OpenSign | AGPL 3.0 | `AGPL-3.0` | Yes | Conditional | Credible free fallback |
+| Cal.com | AGPL 3.0 (core) | `AGPL-3.0` | Yes | Conditional | `Requires Legal Verification`; commercial license available |
+| Cal.diy | MIT | `MIT` | No | Clear | Credible fallback, feature parity unconfirmed |
+| FullCalendar | MIT (core) | `MIT` | No | Clear | Premium plugins separately licensed |
