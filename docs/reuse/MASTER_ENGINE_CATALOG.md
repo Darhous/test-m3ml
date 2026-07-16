@@ -10,3 +10,4 @@ decision.
 |---|---|---|---|---|
 | Identity and Access | authentication, sso-oidc-oauth, multi-factor-auth, session-management, user-group-management | Keycloak | A full custom-built IAM system (credential storage, OIDC/OAuth2/SAML provider, MFA, session store, admin console) | Anti-Corruption Layer inside the Identity and Access Bounded Context — OIDC/OAuth2 + Admin REST API only |
 | Identity and Access | authorization-rbac-abac | Open Policy Agent | A custom rules engine for the 8-dimension Configurable Result Verification Policy Model | Called only by the Result Verification and Reporting Module |
+| Tenant and Organization Management | feature-flags, tenant-configuration | Unleash (via OpenFeature) | Custom-built flag/config service, custom rollout-approval workflow | Platform code calls the OpenFeature SDK, not Unleash's proprietary SDK |

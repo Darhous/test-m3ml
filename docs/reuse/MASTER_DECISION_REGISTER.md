@@ -16,3 +16,8 @@ the current-state index.
 | 5 | 2026-07-16 | Identity and Access | user-group-management | ENGINE + ADAPTER: Keycloak (same Engine) | Cross-Feature Dependency — same repo | — |
 | 6 | 2026-07-16 | Identity and Access | authorization-rbac-abac | ENGINE + ADAPTER (dual): Keycloak RBAC + OPA ABAC | 8-dimension Policy Model exceeds general-purpose IAM RBAC; OPA is CNCF Graduated and purpose-built | — |
 | 7 | 2026-07-16 | Identity and Access | audit-hooks-integration | LIBRARY: thin adapter over Keycloak Event Listener SPI | Integration glue, not an independent Engine decision | — |
+| 8 | 2026-07-16 | Tenant and Organization Management | tenant-provisioning | BUILD: orchestration Saga over Keycloak + PostgreSQL | Platform-specific workflow, no product fits | — |
+| 9 | 2026-07-16 | Tenant and Organization Management | organization-branch-hierarchy | BUILD: platform-owned business-data schema | Core domain modeling, not infrastructure | — |
+| 10 | 2026-07-16 | Tenant and Organization Management | multi-tenancy-isolation | REFERENCE: PostgreSQL Row-Level Security pattern | Industry-consensus default; database-native, no product to adopt; evidence for `open-questions.md` #15, not a resolution | — |
+| 11 | 2026-07-16 | Tenant and Organization Management | feature-flags | ENGINE + ADAPTER: Unleash via OpenFeature | Governance/audit features fit Sensitive-Operation-adjacent gating; regulated-sector adoption evidence | — |
+| 12 | 2026-07-16 | Tenant and Organization Management | tenant-configuration | ENGINE + ADAPTER (shared Unleash) + BUILD (complex config) | Avoids a second flag/config engine (Flagsmith rejected for this reason specifically) | — |

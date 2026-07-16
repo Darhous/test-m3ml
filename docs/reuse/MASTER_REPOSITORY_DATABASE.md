@@ -14,3 +14,8 @@ column). Populated incrementally as each Module completes; see
 | Authentik (`goauthentik/authentik`) | Authentik Security | MIT (core) + Enterprise commercial tier | Active | Evaluated, not selected — `authentication`/`sso-oidc-oauth` alternative | Identity and Access |
 | Ory Kratos + Hydra (`ory/kratos`, `ory/hydra`) | Ory Corp | Apache-2.0 | Active — Hydra OIDF-certified | Evaluated, not selected — `authentication`/`sso-oidc-oauth` alternative | Identity and Access |
 | Casbin (`casbin/casbin`) | Community | Apache-2.0 | Active | Evaluated, not selected (close second) — `authorization-rbac-abac` alternative | Identity and Access |
+| PostgreSQL (Row-Level Security) | PostgreSQL Global Development Group | PostgreSQL License | Active, mature | multi-tenancy-isolation (Reference pattern) | Tenant and Organization Management |
+| Citus (`citusdata/citus`) | Microsoft/Citus Data | AGPL-3.0 (community) | Active | Evaluated, not selected (no measured sharding need) — `multi-tenancy-isolation` alternative | Tenant and Organization Management |
+| Unleash (`Unleash/unleash`) | Unleash AS | Apache-2.0 (OSS edition) | Active — weekly releases | feature-flags, tenant-configuration (partial) | Tenant and Organization Management |
+| Flagsmith (`Flagsmith/flagsmith`) | Flagsmith | BSD-3-Clause | Active | Evaluated, not selected (avoided as a second flag engine) — `feature-flags`/`tenant-configuration` alternative | Tenant and Organization Management |
+| OpenFeature (`open-feature/spec`) | CNCF | Apache-2.0 | Active | Vendor-neutral adapter layer for `feature-flags`/`tenant-configuration` | Tenant and Organization Management |

@@ -25,3 +25,6 @@ Populated per Module as research completes.
 | Identity and Access | authorization-rbac-abac | Casbin | 4.1 | Not selected (close second) |
 | Identity and Access | authorization-rbac-abac | Keycloak Authorization Services | 3.6 | Not selected |
 | Identity and Access | authorization-rbac-abac | Build In-House | ~1.6 | Rejected |
+| Tenant and Organization Management | feature-flags | Unleash | 4.5 | **Selected** |
+| Tenant and Organization Management | feature-flags | Flagsmith | 4.0 | Not selected (close second) |
+| Tenant and Organization Management | feature-flags | Build In-House | ~1.7 | Rejected |

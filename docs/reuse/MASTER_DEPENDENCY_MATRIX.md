@@ -12,3 +12,5 @@ entries pointing back to it.
 |---|---|---|---|
 | Keycloak | authentication, sso-oidc-oauth, multi-factor-auth, session-management, user-group-management, authorization-rbac-abac (coarse RBAC layer), audit-hooks-integration (adapter target) | Identity and Access | `authentication` (`identity-and-access/authentication/10-final-decision.md`) — all other Features cross-reference this decision rather than re-deriving it |
 | Open Policy Agent | authorization-rbac-abac (fine-grained ABAC layer) | Identity and Access | `authorization-rbac-abac` |
+| PostgreSQL RLS | multi-tenancy-isolation | Tenant and Organization Management | `multi-tenancy-isolation` |
+| Unleash | feature-flags, tenant-configuration (simple values) | Tenant and Organization Management | `feature-flags` |

@@ -65,10 +65,12 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 *(Updated after every Module — see individual Module completion notes
 for the detailed count.)*
 
-- Modules fully researched: **1 of 28** (Identity and Access)
-- Features fully researched: **7 of 106**
-- Repositories evaluated: **6** (Keycloak, OPA, Zitadel, Authentik, Ory
-  Kratos+Hydra, Casbin), all logged in `MASTER_REPOSITORY_DATABASE.md`
+- Modules fully researched: **2 of 28** (Identity and Access, Tenant and
+  Organization Management)
+- Features fully researched: **12 of 106**
+- Repositories evaluated: **11** (Keycloak, OPA, Zitadel, Authentik, Ory
+  Kratos+Hydra, Casbin, PostgreSQL RLS, Citus, Unleash, Flagsmith,
+  OpenFeature), all logged in `MASTER_REPOSITORY_DATABASE.md`
 - Estimated total effort-hours identified as reusable: **not numerically
   estimated** — no invented number, per the No-Guessing Rule; the
   qualitative conclusion (universal-dependency Feature, mature enterprise-
@@ -101,6 +103,25 @@ for the detailed count.)*
    compatible with either resolution but does not itself decide it. Named
    explicitly so a future reader does not mistake tooling adoption for
    architectural decision-making.
+5. **Module 2 (Tenant and Organization Management) directly informs
+   `open-questions.md` #15** with real evidence: 2026 industry consensus
+   independently converges on the same "tenant-ID-column + Row-Level
+   Security" option Discovery Phase 09 had already narrowed to — offered
+   as evidence for the eventual SAD decision, explicitly not this
+   program silently resolving a Discovery-tracked Open Question on its
+   own authority.
+6. **Not every Feature resolves to "adopt Product X."** Multi-tenancy
+   isolation resolved to REFERENCE (a database-native pattern, not a
+   product) and 2 of 5 Features in Module 2 (tenant-provisioning,
+   organization-branch-hierarchy) correctly resolved to BUILD — reported
+   honestly rather than forcing a product-shaped answer onto every
+   Feature.
+7. **A second flag/config engine (Flagsmith) was deliberately rejected**
+   for the `tenant-configuration` Feature specifically to avoid running
+   two flag platforms, even though Flagsmith's own design arguably fits
+   that Feature's description slightly better in isolation — a direct,
+   evidence-based application of the program's duplicate-elimination
+   objective over a locally "better fit."
 
 ## Program Pacing — Honest Status (2026-07-16)
 

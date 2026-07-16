@@ -18,3 +18,8 @@ commercial model as currently understood.
 | Authentik | MIT (core) + Enterprise commercial tier | `MIT` (core) | No (core) | Clear (core) / Conditional (Enterprise features) | Must track feature-by-feature if any Enterprise-tier capability is used |
 | Ory (Kratos + Hydra) | Apache License 2.0 | `Apache-2.0` | No | Clear | |
 | Casbin | Apache License 2.0 | `Apache-2.0` | No | Clear | |
+| PostgreSQL | PostgreSQL License | `PostgreSQL` | No | Clear | Permissive, MIT/BSD-like |
+| Citus | AGPL 3.0 (community edition) | `AGPL-3.0` | Yes | Conditional | Not selected — no measured sharding need |
+| Unleash (OSS edition) | Apache License 2.0 | `Apache-2.0` | No | Clear | Enterprise-tier features under separate commercial license |
+| Flagsmith | BSD 3-Clause | `BSD-3-Clause` | No | Clear | Not selected as primary (avoided as second flag engine) |
+| OpenFeature | Apache License 2.0 | `Apache-2.0` | No | Clear | |
