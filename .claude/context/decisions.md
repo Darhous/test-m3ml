@@ -38,6 +38,14 @@
 | 0008 | Unified Login and Policy-Based Access | Accepted | `docs/adr/0008-unified-login-and-policy-based-access.md` |
 | 0009 | SaaS First, On-Premise Ready, and Hybrid Ready | Accepted | `docs/adr/0009-saas-first-on-premise-and-hybrid-ready.md` |
 | 0010 | Arabic/English and Localization First | Accepted | `docs/adr/0010-arabic-english-and-localization-first.md` |
+| 0011 | Core Domain — Test Processing and Result Verification | **Proposed** (Discovery Phase 12, Assumption-Driven — ينتظر مراجعة المستخدم، ليس Accepted) | `docs/adr/0011-core-domain-test-processing-and-result-verification.md` |
+| 0012 | Candidate Bounded Context Map (8 Contexts) | **Proposed** (Discovery Phase 12, Assumption-Driven — ينتظر مراجعة المستخدم، ليس Accepted) | `docs/adr/0012-candidate-bounded-context-map.md` |
+
+**ملاحظة حول ADR 0011/0012:** خلافًا لبقية جدول ADR Index (كلها Accepted)،
+هذان الاثنان **Proposed** عمدًا وليس خطأً — ناتجان عن Discovery نُفِّذ بأسلوب
+Assumption-Driven Autonomous Run (بدون مدخلات فعلية من أصحاب مصلحة حقيقيين)،
+ولا يجوز اعتبارهما Accepted حتى يراجعهما المستخدم صراحةً. انظر قسم "Why
+Proposed, Not Accepted" داخل كل ADR للتفاصيل الكاملة.
 
 ## Accepted Decisions (منقولة من Proposed بعد ADR رسمي)
 
