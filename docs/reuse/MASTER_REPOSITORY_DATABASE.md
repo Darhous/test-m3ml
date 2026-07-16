@@ -55,3 +55,6 @@ column). Populated incrementally as each Module completes; see
 | OpenELIS Global | Open ELIS Foundation | MPL 2.0 | Active | Evaluated, not selected wholesale (Core Domain) — revisited at Module 14 | Diagnostic Ordering |
 | Bahmni | Bahmni community (OpenMRS-based) | AGPL-3.0/MPL-2.0 (mixed) | Active | Evaluated, not selected — `order-entry-cpoe` | Diagnostic Ordering |
 | LOINC | Regenstrief Institute | Regenstrief free-use license | Active | order-catalog-pricing | Diagnostic Ordering |
+| HL7 FHIR `Specimen` resource | HL7 International | HL7 FHIR License | Active | specimen-accessioning (Reference) | Specimen Operations |
+| ZXing (or equivalent barcode library) | ZXing community | Apache-2.0 | Active (general knowledge, not re-searched this pass) | barcode-labeling | Specimen Operations |
+| immudb (reused) | Codenotary | Business Source License / Apache-2.0 components | Active | chain-of-custody (integrity store, shared with Module 3) | Specimen Operations |

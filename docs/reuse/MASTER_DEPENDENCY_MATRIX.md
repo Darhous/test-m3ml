@@ -17,6 +17,8 @@ entries pointing back to it.
 | Open Policy Agent | authorization-rbac-abac (Identity and Access), policy-engine (Audit and Compliance) | Identity and Access, Audit and Compliance | `authorization-rbac-abac` (Module 1) — 2nd Module now reuses this engine, no re-decision |
 | immudb | immutable-audit-trail | Audit and Compliance | `immutable-audit-trail` |
 | Alfresco Community | document-storage-versioning, document-control-workflow (resolves Module 3's deferred `document-control`) | Document Management | `document-storage-versioning` |
+| immudb | immutable-audit-trail (Audit and Compliance), chain-of-custody (Specimen Operations) | Audit and Compliance, Specimen Operations | `immutable-audit-trail` (Module 3) — 2nd Module now reuses this integrity store |
+| HL7 FHIR resource patterns (Patient/Practitioner/ServiceRequest-Task/Encounter/Specimen) | patient-registry-mpi, practitioner-registry-credentialing, referral-management, encounter-tracking, order-entry-cpoe, order-status-tracking, specimen-accessioning | Patient Management, Practitioner and Clinic Management, Scheduling and Encounters, Diagnostic Ordering, Specimen Operations | `patient-registry-mpi` (Module 9) — establishes the Core-Domain-preserving REFERENCE+BUILD pattern reused across 5 subsequent Modules |
 
 ## Detected Duplicate Features (Consolidation Opportunities)
 

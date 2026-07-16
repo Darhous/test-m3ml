@@ -65,10 +65,12 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 *(Updated after every Module — see individual Module completion notes
 for the detailed count.)*
 
-- Modules fully researched: **12 of 28**
-- Features fully researched: **50 of 106**
-- Repositories evaluated: **47** (adds the FHIR ServiceRequest/Task
-  pattern, OpenELIS Global, Bahmni, LOINC)
+- Modules fully researched: **13 of 28**
+- Features fully researched: **54 of 106** (53 decided, 1 explicitly
+  blocked — `home-collection-logistics`)
+- Repositories evaluated: **50** (adds the FHIR Specimen resource, ZXing,
+  and immudb's 2nd reuse; `home-collection-logistics` itself contributed
+  no new candidate, by design)
 - Estimated total effort-hours identified as reusable: **not numerically
   estimated** — no invented number, per the No-Guessing Rule; the
   qualitative conclusion (universal-dependency Feature, mature enterprise-
@@ -224,6 +226,25 @@ for the detailed count.)*
     as the point where the "adopt SENAITE/OpenELIS wholesale vs. reuse
     only their patterns" tension will be addressed most directly, since
     that Module sits closest to the Core Domain's deepest investment.
+
+22. **Specimen Operations completes the Diagnostic-to-Sample Core Domain
+    chain.** `specimen-accessioning` continues the FHIR-Reference +
+    platform-owned-BUILD pattern (now its 6th consecutive Module),
+    explicitly flagged "pending Module 14 reconciliation" since the real
+    whole-system SENAITE/OpenELIS-vs-BUILD decision is deliberately held
+    for Module 14, the Module architecturally closest to the Core
+    Domain's deepest investment. `chain-of-custody` is the program's 2nd
+    confirmed reuse of immudb (Module 3), extending tamper-evident
+    integrity from the audit trail to physical sample custody events.
+23. **The program's first fully-transparent "blocked, not decided"
+    Feature:** `home-collection-logistics` cannot be classified —
+    BUILD/BUY/etc. — because it is genuinely gated on
+    `open-questions.md` #6 (whether Offline Mode is required at all). No
+    Final Decision is asserted; the No-Guessing Rule is applied literally
+    rather than manufacturing a plausible-sounding answer to avoid an
+    incomplete-looking Feature folder. This is the correct outcome when
+    upstream Discovery has not yet settled a prerequisite question, not a
+    gap in this program's own research.
 
 *(Per the user's 2026-07-16 instruction to continue through all
 remaining Modules without pausing, module summaries from this point stay

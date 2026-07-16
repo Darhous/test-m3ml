@@ -142,10 +142,10 @@ in the program's own instructions (`inventory/` → `stock/`, `barcode/`,
 
 | Feature | Source Capabilities | Status |
 |---|---|---|
-| `specimen-accessioning` | Samples | Pending |
-| `barcode-labeling` | Samples (derived) | Pending |
-| `chain-of-custody` | Samples, Outsourced Tests | Pending |
-| `home-collection-logistics` | Home Visits | Pending |
+| `specimen-accessioning` | Samples | Researched |
+| `barcode-labeling` | Samples (derived) | Researched |
+| `chain-of-custody` | Samples, Outsourced Tests | Researched |
+| `home-collection-logistics` | Home Visits | Researched (blocked — see `10-final-decision.md`) |
 
 ## 14. Laboratory Execution (Business Module — Core)
 

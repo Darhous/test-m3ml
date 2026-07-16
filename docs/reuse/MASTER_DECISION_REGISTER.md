@@ -59,3 +59,7 @@ the current-state index.
 | 48 | 2026-07-16 | Diagnostic Ordering | order-entry-cpoe | REFERENCE (FHIR ServiceRequest/Task) + BUILD | Cross-validated by 2 independent production LIS/EMR ecosystems (OpenELIS, Bahmni); OpenELIS/Bahmni themselves not adopted wholesale | — |
 | 49 | 2026-07-16 | Diagnostic Ordering | order-catalog-pricing | REFERENCE (LOINC) + BUILD | Tenant-specific pricing correctly platform-owned; LOINC gives standardized naming for free | — |
 | 50 | 2026-07-16 | Diagnostic Ordering | order-status-tracking | REFERENCE (FHIR Task) + BUILD (shared) | Read-model over the same Task-state pattern | — |
+| 51 | 2026-07-16 | Specimen Operations | specimen-accessioning | REFERENCE (FHIR Specimen) + BUILD | Same Core-Domain-preservation pattern as Modules 9-12; whole-system SENAITE/OpenELIS question deliberately deferred to Module 14 | — |
+| 52 | 2026-07-16 | Specimen Operations | barcode-labeling | LIBRARY: ZXing (or equivalent) | Mature, standard barcode-decoding library category; disclosed as general-knowledge-based, not freshly searched this pass | — |
+| 53 | 2026-07-16 | Specimen Operations | chain-of-custody | BUILD (event-chain feeding immudb) | Platform-specific custody-event workflow, no product fits; reuses Module 3's tamper-evident store | — |
+| 54 | 2026-07-16 | Specimen Operations | home-collection-logistics | **DEFERRED — blocked on `open-questions.md` #6** | Cannot honestly classify until Offline Mode requirement is resolved; No-Guessing Rule applies | — |

@@ -58,3 +58,7 @@ Feature's own `10-final-decision.md`; this is the roll-up index.
 | Diagnostic Ordering | order-entry-cpoe | REFERENCE (FHIR ServiceRequest/Task) + BUILD | N/A | High — cross-validated pattern | Decided |
 | Diagnostic Ordering | order-catalog-pricing | REFERENCE (LOINC) + BUILD | N/A | Medium | Decided |
 | Diagnostic Ordering | order-status-tracking | REFERENCE (FHIR Task) + BUILD (shared) | N/A | Medium | Decided |
+| Specimen Operations | specimen-accessioning | REFERENCE (FHIR Specimen) + BUILD | N/A | Medium — pending Module 14 reconciliation | Decided |
+| Specimen Operations | barcode-labeling | LIBRARY (ZXing or equivalent) | ZXing | Medium | Decided (general-knowledge basis, flag for re-confirmation) |
+| Specimen Operations | chain-of-custody | BUILD (event-chain, feeds immudb) | N/A | Medium | Decided |
+| Specimen Operations | home-collection-logistics | **DEFERRED** — blocked on `open-questions.md` #6 | N/A | Unknown | Blocked |

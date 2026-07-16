@@ -51,3 +51,5 @@ commercial model as currently understood.
 | Cal.com | AGPL 3.0 (core) | `AGPL-3.0` | Yes | Conditional | `Requires Legal Verification`; commercial license available |
 | Cal.diy | MIT | `MIT` | No | Clear | Credible fallback, feature parity unconfirmed |
 | FullCalendar | MIT (core) | `MIT` | No | Clear | Premium plugins separately licensed |
+| HL7 FHIR `Specimen` resource | HL7 FHIR License | `HL7-FHIR` (specification license, not code copyleft) | No | Clear | Same license class as other FHIR resources already logged |
+| ZXing | Apache License 2.0 | `Apache-2.0` | No | Clear | General-knowledge basis, `Requires Legal Verification`-style re-confirmation before implementation |
