@@ -100,6 +100,16 @@ No file deleted or superseded in Wave 6.
 No file deleted or superseded in Wave 7. ADR 0011 itself not yet modified
 — disposition decided at Wave 14.
 
+## Wave 8 — Ubiquitous Language Expansion
+
+| Path | Disposition | Reason | Replacement | Commit |
+|---|---|---|---|---|
+| `docs/discovery/artifacts/W8-ubiquitous-language-expansion.md` | Created | 37-term disambiguation, required Wave 8 deliverable | N/A | *(this Wave's commit)* |
+| `.claude/context/glossary.md` | Expanded (append-only) | Wave 8 pointer added | N/A — existing terms preserved | *(this Wave's commit)* |
+| `docs/discovery/reports/GAP-CLOSURE-08-UBIQUITOUS-LANGUAGE.md` | Created | Required Wave 8 report | N/A | *(this Wave's commit)* |
+
+No file deleted or superseded in Wave 8.
+
 ---
 
 *(Subsequent Waves append their own dated sections below this line.)*

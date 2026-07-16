@@ -82,6 +82,14 @@ is final. Recommends (not decides) reframing ADR 0011 toward
 (no evidence) and reasoned out "Platform Tenant Operations" as Platform,
 not Core. See `reports/GAP-CLOSURE-07-DOMAIN-CLASSIFICATION.md`.
 
+## Wave 8 — Ubiquitous Language Expansion (2026-07-16)
+
+Disambiguated 37 conflict-prone terms, each pinned to its owning Bounded
+Context with explicit Forbidden Synonyms. 6 terms rejected as standalone
+canonical terms. Surfaced 1 domain gap (Department) and 1 unexercised
+naming decision (Batch vs. Lot). See
+`reports/GAP-CLOSURE-08-UBIQUITOUS-LANGUAGE.md`.
+
 **Note on ordering:** Wave 1's entry appears above Wave 0's in this file
 due to an editing-order artifact, not a re-sequencing of the actual
 program — Wave 0 ran first chronologically, as confirmed by
