@@ -49,6 +49,13 @@ explicitly per the user's "no full ERP assumed" instruction. Flagged 2
 terminology collisions (Calibration, Reporting) for Wave 8. See
 `reports/GAP-CLOSURE-03-CAPABILITIES.md`.
 
+## Wave 4 — Value Streams and Customer Journeys Expansion (2026-07-16)
+
+Expanded from 4 to 20 Value Streams. 18 newly traced (trigger/outcome/
+actors/domains/bottleneck); 2 mapped to already-traced Baseline streams.
+Confirmed Wave 3's evidence-gap finding independently. See
+`reports/GAP-CLOSURE-04-VALUE-STREAMS.md`.
+
 **Note on ordering:** Wave 1's entry appears above Wave 0's in this file
 due to an editing-order artifact, not a re-sequencing of the actual
 program — Wave 0 ran first chronologically, as confirmed by

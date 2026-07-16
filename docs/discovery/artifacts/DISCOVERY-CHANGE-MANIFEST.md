@@ -60,6 +60,15 @@ No file deleted or superseded in Wave 2.
 
 No file deleted or superseded in Wave 3.
 
+## Wave 4 — Value Streams and Customer Journeys Expansion
+
+| Path | Disposition | Reason | Replacement | Commit |
+|---|---|---|---|---|
+| `docs/discovery/artifacts/W4-value-streams-expanded.md` | Created | 20-stream expansion, required Wave 4 deliverable | N/A | *(this Wave's commit)* |
+| `docs/discovery/reports/GAP-CLOSURE-04-VALUE-STREAMS.md` | Created | Required Wave 4 report | N/A | *(this Wave's commit)* |
+
+No file deleted or superseded in Wave 4.
+
 ---
 
 *(Subsequent Waves append their own dated sections below this line.)*
