@@ -66,3 +66,7 @@ Feature's own `10-final-decision.md`; this is the roll-up index.
 | Laboratory Execution | analyzer-middleware-integration | ENGINE + ADAPTER (shared Mirth/Camel, Module 4) + BUILD | Mirth Connect / Apache Camel | Medium — Cross-Feature Dependency | Decided |
 | Laboratory Execution | quality-control-tracking | REFERENCE (Westgard rules + SENAITE module design) + BUILD | N/A | Medium | Decided |
 | Laboratory Execution | calibration-tracking | BUILD | N/A | — | Decided |
+| Result Verification and Reporting | result-review-verification-workflow | ENGINE + ADAPTER (shared OPA) + BUILD | N/A | High — Core Domain, 8-dimension Policy Model | Decided |
+| Result Verification and Reporting | clinical-report-generation | LIBRARY (candidate deferred to implementation time) + BUILD | N/A (stack-dependent) | Low-Medium | Decided (deliberately deferred candidate) |
+| Result Verification and Reporting | critical-result-escalation | ENGINE + ADAPTER (shared Novu) + BUILD | N/A | High — patient-safety-critical | Decided |
+| Result Verification and Reporting | result-amendment-workflow | REFERENCE (FHIR) + ENGINE + ADAPTER (shared OPA) + BUILD | N/A | Medium | Decided |

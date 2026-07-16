@@ -61,3 +61,4 @@ column). Populated incrementally as each Module completes; see
 | SENAITE (senaite.core/senaite.lims) | SENAITE community | GPL-2.0 | Active | Evaluated, not selected wholesale (Core Domain) — Reference source for QC module design | Laboratory Execution |
 | OpenELIS Global | Open ELIS Foundation / DIGI-UW | AGPL-3.0 | Active | Evaluated, not selected wholesale (Core Domain) — primary Reference source (FHIR-native) | Laboratory Execution |
 | Westgard rules methodology | Westgard QC (public methodology) | Public statistical methodology, not licensed software | N/A | quality-control-tracking, calibration-tracking (Reference) | Laboratory Execution |
+| HL7 FHIR `DiagnosticReport` resource | HL7 International | HL7 FHIR License | Active | result-review-verification-workflow, clinical-report-generation, result-amendment-workflow (Reference) | Result Verification and Reporting |

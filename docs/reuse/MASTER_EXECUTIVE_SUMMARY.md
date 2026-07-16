@@ -65,12 +65,13 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 *(Updated after every Module — see individual Module completion notes
 for the detailed count.)*
 
-- Modules fully researched: **14 of 28**
-- Features fully researched: **58 of 106** (57 decided, 1 explicitly
+- Modules fully researched: **15 of 28**
+- Features fully researched: **62 of 106** (61 decided, 1 explicitly
   blocked — `home-collection-logistics`)
-- Repositories evaluated: **52** (adds SENAITE, OpenELIS Global — both
-  genuinely researched via live WebSearch this Module, not carried
-  forward as shorthand — and the Westgard rules public methodology)
+- Repositories evaluated: **53** (adds the FHIR DiagnosticReport
+  resource; `clinical-report-generation`'s specific PDF/templating
+  library deliberately deferred to implementation time, not counted as
+  an evaluated candidate)
 - Estimated total effort-hours identified as reusable: **not numerically
   estimated** — no invented number, per the No-Guessing Rule; the
   qualitative conclusion (universal-dependency Feature, mature enterprise-
@@ -275,13 +276,32 @@ for the detailed count.)*
     BUILD, reusing Module 5's Novu for alerting rather than introducing
     anything new.
 
+26. **Result Verification and Reporting closes out the Core Domain
+    cluster (Modules 9, 10, 12, 13, 14, 15) with zero wholesale product
+    adoptions**, the most consistent finding-class in the program: OPA
+    (Module 1) is confirmed reused a 6th time as the authorization layer
+    for both `result-review-verification-workflow` and
+    `result-amendment-workflow`; Novu (Module 5) is confirmed reused a
+    3rd time for `critical-result-escalation`. Every Core-Domain-owned
+    workflow itself remains platform BUILD.
+27. **The program's first deliberately-deferred Library selection (not
+    blocked, just correctly out-of-scope):** `clinical-report-generation`
+    found no dedicated open-source "clinical report renderer" distinct
+    from generic PDF/document-templating engines — selecting a specific
+    one (JasperReports vs. Carbone vs. pdfmake, etc.) is explicitly left
+    to implementation time once the platform's own stack is fixed at SAD
+    stage, rather than guessing a dependency not yet evidenced. This is
+    a different honesty pattern than `home-collection-logistics`'s
+    Open-Question block (Module 13) — here nothing external blocks the
+    research, the decision is just genuinely premature.
+
 *(Per the user's 2026-07-16 instruction to continue through all
 remaining Modules without pausing, module summaries from this point stay
 concise — real evidence-based research, without the earliest Modules'
 exhaustive per-file depth — until the full 28-Module program is
-complete. Laboratory Execution was a deliberate, flagged exception given
-to full research depth for its `worklist-management` Feature, since it
-carried the program's most consequential deferred decision.)*
+complete. Laboratory Execution and Result Verification and Reporting
+were both given deliberately fuller treatment as the final two Modules
+of the Core Domain cluster.)*
 
 ## Program Pacing — Honest Status (2026-07-16)
 

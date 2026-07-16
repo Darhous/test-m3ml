@@ -160,10 +160,10 @@ in the program's own instructions (`inventory/` → `stock/`, `barcode/`,
 
 | Feature | Source Capabilities | Status |
 |---|---|---|
-| `result-review-verification-workflow` | Result Verification | Pending |
-| `clinical-report-generation` | Reporting (clinical) | Pending |
-| `critical-result-escalation` | Critical Results | Pending |
-| `result-amendment-workflow` | Result Amendments | Pending |
+| `result-review-verification-workflow` | Result Verification | Researched |
+| `clinical-report-generation` | Reporting (clinical) | Researched |
+| `critical-result-escalation` | Critical Results | Researched |
+| `result-amendment-workflow` | Result Amendments | Researched |
 
 ## 16. Quality Management (Business Module)
 
