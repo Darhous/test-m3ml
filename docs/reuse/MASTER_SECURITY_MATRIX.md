@@ -14,3 +14,5 @@ implementation time).
 | Open Policy Agent | No major pattern surfaced this Wave | CNCF Graduated — includes a formal security-audit history as part of graduation | Not independently audited in this pass | Lower external scrutiny than Keycloak historically, treated as neutral (not a point in its favor) |
 | Zitadel | Less history surfaced (newer, smaller install base) | Company-led | Not independently audited | Lower visibility ≠ better security — treated as neutral evidence |
 | Authentik | Same caveat as Zitadel | Company-led | Not independently audited | Same caveat |
+| immudb | No major pattern surfaced this Wave | Company-led (Codenotary) | Not independently audited | Cryptographic tamper-evidence holds even against a malicious DBA — strongest security-architecture property found in the program so far for Risk #25's threat class |
+| Eramba / CISO Assistant / GovReady-Q | No major pattern surfaced this Wave | Company/community-led | Not independently audited | Internal governance tools, lower exposure profile than customer-facing components |

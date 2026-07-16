@@ -19,3 +19,8 @@ Feature's own `10-final-decision.md`; this is the roll-up index.
 | Tenant and Organization Management | multi-tenancy-isolation | REFERENCE (PostgreSQL RLS pattern) | PostgreSQL (built-in) | High — avoids building custom row-filtering logic; evidence for `open-questions.md` #15 | Decided |
 | Tenant and Organization Management | feature-flags | ENGINE + ADAPTER | Unleash (via OpenFeature) | Medium-High | Decided |
 | Tenant and Organization Management | tenant-configuration | ENGINE + ADAPTER (shared) + BUILD (complex config) | Unleash (shared with feature-flags) | Medium | Decided |
+| Audit and Compliance | immutable-audit-trail | ENGINE + ADAPTER | immudb | High — cryptographic tamper-evidence vs. Risk #25 | Decided |
+| Audit and Compliance | consent-management | REFERENCE (FHIR) + BUILD (enforcement via OPA) | N/A — no engine exists for this exact scope | Medium | Decided |
+| Audit and Compliance | policy-engine | ENGINE + ADAPTER (shared) | OPA (shared with Identity and Access) | Medium — avoids a 2nd policy engine | Decided |
+| Audit and Compliance | compliance-tracking | ENGINE + ADAPTER (low confidence) | Eramba Community (tentative) | Low-Medium — flagged for reconsideration | Decided (tentative) |
+| Audit and Compliance | document-control | CONSOLIDATED — see Document Management | Deferred | TBD | Deferred to Module 8 |

@@ -20,3 +20,5 @@ Detail lives in each Feature's `11-reusable-assets.md`.
 | Tenant and Organization Management | feature-flags | API Design | OpenFeature evaluation API | Vendor-neutral internal flag-evaluation contract |
 | Tenant and Organization Management | feature-flags | Workflow | 4-eyes change-approval flow | Template for candidate "Elevated Audit" governance tier |
 | Tenant and Organization Management | tenant-provisioning | Workflow | Saga with compensation | Reusable pattern for other multi-step cross-Module workflows |
+| Audit and Compliance | immutable-audit-trail | Data Model | immudb cryptographically-linked record structure | Informs the platform's own Audit Event schema |
+| Audit and Compliance | consent-management | Data Model | FHIR `Consent` resource shape | Directly reusable as the Consent Aggregate structure |

@@ -13,3 +13,6 @@ distinction.
 | Platform Kernel | Fine-Grained Policy Engine (Identity and Access Module) | Open Policy Agent | ENGINE + ADAPTER | Scoped to Sensitive-Operation-grade decisions |
 | Platform Kernel | Multi-Tenant Data Isolation (Tenant and Organization Management Module) | PostgreSQL Row-Level Security | REFERENCE | Evidence toward `open-questions.md` #15, not a resolution of it |
 | Platform Kernel | Feature Flags / Tenant Configuration (Tenant and Organization Management Module) | Unleash + OpenFeature | ENGINE + ADAPTER | Shared engine across 2 Features |
+| Platform Kernel | Immutable Audit Trail (Audit and Compliance Module) | immudb | ENGINE + ADAPTER | Cryptographic tamper-evidence, mitigates Risk #25 |
+| Platform Kernel | Governance Policy Engine (Audit and Compliance Module) | OPA (reused from Identity and Access) | ENGINE + ADAPTER | 2nd Module reusing the same engine |
+| Platform Kernel | Compliance Tracking (Audit and Compliance Module) | Eramba Community (tentative) | ENGINE + ADAPTER (low confidence) | Flagged for reconsideration at SAD time |

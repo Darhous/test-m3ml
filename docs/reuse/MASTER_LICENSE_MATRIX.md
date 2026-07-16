@@ -23,3 +23,8 @@ commercial model as currently understood.
 | Unleash (OSS edition) | Apache License 2.0 | `Apache-2.0` | No | Clear | Enterprise-tier features under separate commercial license |
 | Flagsmith | BSD 3-Clause | `BSD-3-Clause` | No | Clear | Not selected as primary (avoided as second flag engine) |
 | OpenFeature | Apache License 2.0 | `Apache-2.0` | No | Clear | |
+| immudb | Apache License 2.0 | `Apache-2.0` | No | Clear | |
+| Trillian | Apache License 2.0 | `Apache-2.0` | No | Clear | Not selected |
+| CISO Assistant | AGPL 3.0 | `AGPL-3.0` | Yes | Conditional | `Requires Legal Verification`; low-risk if used unmodified/internal-only |
+| Eramba Community | GPL 3.0 (unverified this pass) | `GPL-3.0` (tentative) | No | Conditional | License string not independently re-confirmed — flagged |
+| GovReady-Q | GPL 3.0 (unverified this pass) | `GPL-3.0` (tentative) | No | Conditional | Same caveat; not selected |

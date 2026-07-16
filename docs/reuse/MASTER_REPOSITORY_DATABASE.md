@@ -19,3 +19,9 @@ column). Populated incrementally as each Module completes; see
 | Unleash (`Unleash/unleash`) | Unleash AS | Apache-2.0 (OSS edition) | Active — weekly releases | feature-flags, tenant-configuration (partial) | Tenant and Organization Management |
 | Flagsmith (`Flagsmith/flagsmith`) | Flagsmith | BSD-3-Clause | Active | Evaluated, not selected (avoided as a second flag engine) — `feature-flags`/`tenant-configuration` alternative | Tenant and Organization Management |
 | OpenFeature (`open-feature/spec`) | CNCF | Apache-2.0 | Active | Vendor-neutral adapter layer for `feature-flags`/`tenant-configuration` | Tenant and Organization Management |
+| immudb (`codenotary/immudb`) | Codenotary | Apache-2.0 | Active — 1.11, May 2026 | immutable-audit-trail | Audit and Compliance |
+| Trillian (`google/trillian`) | Google | Apache-2.0 | Active | Evaluated, not selected — `immutable-audit-trail` alternative | Audit and Compliance |
+| Open Policy Agent (reused) | CNCF Graduated | Apache-2.0 | Active | policy-engine (2nd consuming Module — see MASTER_DEPENDENCY_MATRIX.md) | Audit and Compliance |
+| Eramba (`eramba/community`) | Eramba | GPL-3.0 (unverified this pass) | Active | compliance-tracking (low-confidence, flagged for reconsideration) | Audit and Compliance |
+| CISO Assistant (`intuitem/ciso-assistant-community`) | intuitem | AGPL-3.0 | Active | Evaluated, close second — `compliance-tracking` alternative | Audit and Compliance |
+| GovReady-Q (`GovReady/govready-q`) | GovReady | GPL-3.0 (unverified this pass) | Active | Evaluated, not selected — `compliance-tracking` alternative | Audit and Compliance |

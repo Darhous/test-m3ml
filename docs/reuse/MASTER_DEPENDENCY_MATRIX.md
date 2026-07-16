@@ -14,3 +14,11 @@ entries pointing back to it.
 | Open Policy Agent | authorization-rbac-abac (fine-grained ABAC layer) | Identity and Access | `authorization-rbac-abac` |
 | PostgreSQL RLS | multi-tenancy-isolation | Tenant and Organization Management | `multi-tenancy-isolation` |
 | Unleash | feature-flags, tenant-configuration (simple values) | Tenant and Organization Management | `feature-flags` |
+| Open Policy Agent | authorization-rbac-abac (Identity and Access), policy-engine (Audit and Compliance) | Identity and Access, Audit and Compliance | `authorization-rbac-abac` (Module 1) — 2nd Module now reuses this engine, no re-decision |
+| immudb | immutable-audit-trail | Audit and Compliance | `immutable-audit-trail` |
+
+## Detected Duplicate Features (Consolidation Opportunities)
+
+| Feature A | Feature B | Finding | Resolution |
+|---|---|---|---|
+| Audit and Compliance `document-control` | Document Management `document-control-workflow` | Same underlying capability (versioned, approval-gated document lifecycle), described from two angles (Governance/SOP vs. general-purpose) | Full research deferred to Document Management Module; Audit and Compliance's own Feature files are a pointer, not independent research — logged here so the duplicate is not silently re-researched later |

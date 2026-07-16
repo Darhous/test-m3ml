@@ -28,3 +28,10 @@ Populated per Module as research completes.
 | Tenant and Organization Management | feature-flags | Unleash | 4.5 | **Selected** |
 | Tenant and Organization Management | feature-flags | Flagsmith | 4.0 | Not selected (close second) |
 | Tenant and Organization Management | feature-flags | Build In-House | ~1.7 | Rejected |
+| Audit and Compliance | immutable-audit-trail | immudb | 4.5 | **Selected** |
+| Audit and Compliance | immutable-audit-trail | Trillian | 3.9 | Not selected |
+| Audit and Compliance | immutable-audit-trail | Build (Postgres append-only) | ~2.2 | Rejected |
+| Audit and Compliance | compliance-tracking | Eramba | 3.6 | **Selected (tentative)** |
+| Audit and Compliance | compliance-tracking | CISO Assistant | 3.4 | Close second |
+| Audit and Compliance | compliance-tracking | GovReady-Q | 3.1 | Not selected |
+| Audit and Compliance | compliance-tracking | Build In-House | ~1.8 | Rejected |

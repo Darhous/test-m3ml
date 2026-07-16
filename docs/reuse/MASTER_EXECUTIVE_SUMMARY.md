@@ -65,12 +65,15 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 *(Updated after every Module — see individual Module completion notes
 for the detailed count.)*
 
-- Modules fully researched: **2 of 28** (Identity and Access, Tenant and
-  Organization Management)
-- Features fully researched: **12 of 106**
-- Repositories evaluated: **11** (Keycloak, OPA, Zitadel, Authentik, Ory
-  Kratos+Hydra, Casbin, PostgreSQL RLS, Citus, Unleash, Flagsmith,
-  OpenFeature), all logged in `MASTER_REPOSITORY_DATABASE.md`
+- Modules fully researched: **3 of 28** (Identity and Access, Tenant and
+  Organization Management, Audit and Compliance) — Platform Kernel
+  complete
+- Features fully researched: **17 of 106** (16 independently researched;
+  `document-control` correctly consolidated/deferred, not independently
+  researched, per the detected duplicate)
+- Repositories evaluated: **17** (adds immudb, Trillian, Eramba, CISO
+  Assistant, GovReady-Q, HL7 FHIR Consent resource to the prior 11), all
+  logged in `MASTER_REPOSITORY_DATABASE.md`
 - Estimated total effort-hours identified as reusable: **not numerically
   estimated** — no invented number, per the No-Guessing Rule; the
   qualitative conclusion (universal-dependency Feature, mature enterprise-
@@ -122,6 +125,28 @@ for the detailed count.)*
    that Feature's description slightly better in isolation — a direct,
    evidence-based application of the program's duplicate-elimination
    objective over a locally "better fit."
+8. **Platform Kernel now complete (Modules 1–3 of 28).** OPA (Module 1)
+   is now confirmed reused across 3 distinct Features in 2 Modules
+   (Result Verification authorization, Governance policy-engine, Consent
+   enforcement) — the strongest Cross-Feature Dependency case in the
+   program so far.
+9. **The program's first genuine category-mismatch finding:**
+   `consent-management` searched for a "consent management platform" and
+   found only website/cookie-consent tools (Klaro-class) — explicitly
+   the wrong category for clinical patient consent. Reported honestly
+   (REFERENCE the FHIR data model + BUILD enforcement) rather than
+   force-fitting an ill-suited product to manufacture a "Buy" answer.
+10. **The program's first low-confidence recommendation:**
+    `compliance-tracking` (Eramba, tentative) is explicitly flagged as
+    needing SAD-level reconsideration — no general-purpose GRC tool is
+    healthcare-specific, and licenses need `Requires Legal Verification`.
+    Reported as weak evidence rather than dressed up as equally solid.
+11. **First detected duplicate Feature across Modules:** Audit and
+    Compliance's `document-control` and Document Management's
+    `document-control-workflow` are the same capability — research
+    correctly deferred rather than duplicated, logged in
+    `MASTER_DEPENDENCY_MATRIX.md`'s new "Detected Duplicate Features"
+    section.
 
 ## Program Pacing — Honest Status (2026-07-16)
 
