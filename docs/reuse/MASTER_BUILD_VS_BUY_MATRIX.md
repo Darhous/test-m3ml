@@ -48,3 +48,6 @@ Feature's own `10-final-decision.md`; this is the roll-up index.
 | Patient Management | patient-history-timeline | BUILD | N/A | — | Decided |
 | Patient Management | patient-portal-ui | BUILD | N/A | — | Decided |
 | Patient Management | consent-linkage | REFERENCE + BUILD (shared Module 3) | N/A | Medium | Decided |
+| Practitioner and Clinic Management | practitioner-registry-credentialing | REFERENCE (FHIR) + BUILD | N/A | Medium | Decided |
+| Practitioner and Clinic Management | clinic-facility-directory | BUILD | N/A | — | Decided |
+| Practitioner and Clinic Management | referral-management | REFERENCE (FHIR) + BUILD | N/A | Medium | Decided |

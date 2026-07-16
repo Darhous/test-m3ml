@@ -65,11 +65,11 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 *(Updated after every Module — see individual Module completion notes
 for the detailed count.)*
 
-- Modules fully researched: **9 of 28** (all Platform layers complete;
-  1st Business Module: Patient Management, Core-Domain-adjacent)
-- Features fully researched: **40 of 106**
-- Repositories evaluated: **40** (adds FHIR Patient resource, OpenCR,
-  OpenMRS), all logged in `MASTER_REPOSITORY_DATABASE.md`
+- Modules fully researched: **10 of 28**
+- Features fully researched: **43 of 106**
+- Repositories evaluated: **40** (Practitioner and Clinic Management
+  reused FHIR resources already logged under Patient Management, no new
+  repositories)
 - Estimated total effort-hours identified as reusable: **not numerically
   estimated** — no invented number, per the No-Guessing Rule; the
   qualitative conclusion (universal-dependency Feature, mature enterprise-
@@ -207,6 +207,13 @@ for the detailed count.)*
     architectural-strategy grounds, not maturity or license grounds.
     FHIR's `Patient` resource is reused as a data-model Reference
     instead, preserving both reuse value and Core Domain ownership.
+
+20. **Practitioner and Clinic Management directly reuses Module 9's
+    established pattern** (FHIR data-model Reference + platform-owned
+    BUILD, Core Domain preserved) without a new search round —
+    demonstrating the Cross-Feature Dependency principle extends across
+    Modules, not just within one, once a pattern is genuinely
+    established with evidence.
 
 *(Per the user's 2026-07-16 instruction to continue through all
 remaining Modules without pausing, module summaries from this point stay

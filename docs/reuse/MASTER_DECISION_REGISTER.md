@@ -49,3 +49,6 @@ the current-state index.
 | 38 | 2026-07-16 | Patient Management | patient-history-timeline | BUILD | Core-Domain-adjacent read-model, no product category exists | — |
 | 39 | 2026-07-16 | Patient Management | patient-portal-ui | BUILD | White-Label branding rules out a generic portal product | — |
 | 40 | 2026-07-16 | Patient Management | consent-linkage | REFERENCE + BUILD (shared Module 3) | Reference-only linkage to the already-selected Consent Aggregate | — |
+| 41 | 2026-07-16 | Practitioner and Clinic Management | practitioner-registry-credentialing | REFERENCE (FHIR Practitioner) + BUILD | Same Core-Domain-preservation rationale as Patient Management | — |
+| 42 | 2026-07-16 | Practitioner and Clinic Management | clinic-facility-directory | BUILD | Join structure over 2 already-modeled Aggregates | — |
+| 43 | 2026-07-16 | Practitioner and Clinic Management | referral-management | REFERENCE (FHIR ServiceRequest) + BUILD | Platform-owned workflow, FHIR-shaped data model | — |
