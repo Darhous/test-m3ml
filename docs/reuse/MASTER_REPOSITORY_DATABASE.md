@@ -30,3 +30,4 @@ column). Populated incrementally as each Module completes; see
 | RabbitMQ (`rabbitmq/rabbitmq-server`) | Broadcom/VMware | MPL 2.0 | Active, mature | message-broker-queueing | Device Integration Gateway |
 | Apache Kafka | ASF | Apache-2.0 | Active | Evaluated, not selected (scale mismatch) — `message-broker-queueing` alternative | Device Integration Gateway |
 | NATS + JetStream | CNCF | Apache-2.0 | Active | Evaluated, not selected — `message-broker-queueing` alternative | Device Integration Gateway |
+| Novu (`novuhq/novu`) | Novu Inc. | Permissive-leaning (unverified this pass) | Active | multi-channel-notification-engine, templating, delivery-tracking, whatsapp-integration | Notification Service |

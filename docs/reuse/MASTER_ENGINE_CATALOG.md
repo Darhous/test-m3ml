@@ -16,3 +16,4 @@ decision.
 | Audit and Compliance | compliance-tracking (tentative) | Eramba Community | A custom internal GRC tool | Standalone internal tool, no runtime Module dependency |
 | Device Integration Gateway | hl7-integration-engine, astm-integration | Mirth Connect 4.5.2 (frozen, tentative) or Apache Camel | A full custom HL7/ASTM parsing and channel-routing engine | Independent Component (ADR 0006); frozen-OSS risk explicitly flagged |
 | Device Integration Gateway | message-broker-queueing | RabbitMQ | A custom durable-queue implementation | Platform-wide Shared Technical Service, not per-Module |
+| Notification Service | multi-channel-notification-engine, templating, delivery-tracking, whatsapp-integration | Novu | N separate vendor SDK integrations (Email/SMS/Push/WhatsApp) built and maintained individually | Independent Component (Constitution Section 11); license `Requires Legal Verification` |

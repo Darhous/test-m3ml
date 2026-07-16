@@ -33,3 +33,4 @@ commercial model as currently understood.
 | RabbitMQ | MPL 2.0 | `MPL-2.0` | No | Clear | |
 | Apache Kafka | Apache License 2.0 | `Apache-2.0` | No | Clear | Not selected (scale mismatch) |
 | NATS + JetStream | Apache License 2.0 | `Apache-2.0` | No | Clear | Not selected |
+| Novu | Permissive-leaning (unverified this pass) | TBC | Unknown | `Requires Legal Verification` | Same honesty caveat as Eramba/GovReady-Q |

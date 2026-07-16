@@ -30,3 +30,7 @@ the current-state index.
 | 19 | 2026-07-16 | Device Integration Gateway | astm-integration | ENGINE + ADAPTER (shared) + BUILD | Follows hl7-integration-engine; weak native ASTM tooling on both candidates | — |
 | 20 | 2026-07-16 | Device Integration Gateway | device-protocol-adapters | BUILD | No product exists per-vendor by definition | — |
 | 21 | 2026-07-16 | Device Integration Gateway | message-broker-queueing | ENGINE + ADAPTER: RabbitMQ | Durable, moderate-scale fit; resolves 2 prior Modules' deferred delivery-guarantee questions | — |
+| 22 | 2026-07-16 | Notification Service | multi-channel-notification-engine | ENGINE + ADAPTER: Novu (license TBC) | Only credible self-hostable OSS multi-channel engine found; Courier/Knock/SuprSend are SaaS-first | — |
+| 23 | 2026-07-16 | Notification Service | templating | ENGINE + ADAPTER (shared Novu) | Built-in per-channel template editor | — |
+| 24 | 2026-07-16 | Notification Service | delivery-tracking | ENGINE + ADAPTER (shared Novu) | Built-in delivery-status tracking | — |
+| 25 | 2026-07-16 | Notification Service | whatsapp-integration | ENGINE + ADAPTER (shared Novu) + SDK (BSP, vendor TBD) | Native WhatsApp provider; BSP is a commercial decision, not software Build-vs-Buy | — |

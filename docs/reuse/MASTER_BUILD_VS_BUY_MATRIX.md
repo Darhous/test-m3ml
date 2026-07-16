@@ -28,3 +28,7 @@ Feature's own `10-final-decision.md`; this is the roll-up index.
 | Device Integration Gateway | astm-integration | ENGINE + ADAPTER (shared) + BUILD (parsing) | Same as hl7-integration-engine | Medium | Decided |
 | Device Integration Gateway | device-protocol-adapters | BUILD (per-vendor, on shared engine) | N/A | Low per-adapter | Decided |
 | Device Integration Gateway | message-broker-queueing | ENGINE + ADAPTER | RabbitMQ | High — resolves 2 prior Modules' deferred durability requirement | Decided |
+| Notification Service | multi-channel-notification-engine | ENGINE + ADAPTER (license pending) | Novu | High — avoids N vendor SDK integrations | Decided (license TBC) |
+| Notification Service | templating | ENGINE + ADAPTER (shared) | Novu | Medium | Decided |
+| Notification Service | delivery-tracking | ENGINE + ADAPTER (shared) | Novu | Medium | Decided |
+| Notification Service | whatsapp-integration | ENGINE + ADAPTER (shared) + SDK (BSP, vendor TBD) | Novu + BSP | Medium | Decided |

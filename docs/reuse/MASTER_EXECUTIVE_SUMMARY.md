@@ -65,14 +65,12 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 *(Updated after every Module — see individual Module completion notes
 for the detailed count.)*
 
-- Modules fully researched: **4 of 28** (Platform Kernel complete:
-  Identity and Access, Tenant and Organization Management, Audit and
-  Compliance; plus Device Integration Gateway, 1st Independent
-  Component)
-- Features fully researched: **21 of 106** (20 independently researched;
+- Modules fully researched: **5 of 28** (Platform Kernel + 2 of 3
+  Independent Components: Device Integration Gateway, Notification
+  Service)
+- Features fully researched: **25 of 106** (24 independently researched;
   `document-control` consolidated/deferred per the detected duplicate)
-- Repositories evaluated: **22** (adds Mirth 4.5.2, Apache Camel,
-  RabbitMQ, Kafka, NATS+JetStream to the prior 17), all logged in
+- Repositories evaluated: **23** (adds Novu), all logged in
   `MASTER_REPOSITORY_DATABASE.md`
 - Estimated total effort-hours identified as reusable: **not numerically
   estimated** — no invented number, per the No-Guessing Rule; the
@@ -160,6 +158,14 @@ for the detailed count.)*
     (`immutable-audit-trail`) had each flagged but left unspecified —
     one broker decision closing two previously-open integration
     questions.
+
+14. **Notification Service: Novu selected as the only credible
+    self-hostable open-source multi-channel engine** (Email/SMS/Push/
+    In-App/WhatsApp/Slack/Teams) — Courier, Knock, and SuprSend are all
+    SaaS-first and not carried forward, consistent with this platform's
+    potential Egypt data-residency needs (Wave 11). License text is
+    flagged `Requires Legal Verification`, the second such caveat after
+    the compliance-tracking Module.
 
 *(From this point, module summaries are recorded more concisely per the
 user's 2026-07-16 pacing instruction — real evidence-based research,
