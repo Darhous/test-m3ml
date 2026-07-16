@@ -20,7 +20,7 @@ an interruption.
 | Phase | Playbook | Status | Started | Completed | Exit Criteria Met | Stop Conditions Hit | Notes |
 |---|---|---|---|---|---|---|---|
 | 01 | Master Orchestrator | complete | 2026-07-16 | 2026-07-16 | Y | none | Ledger initialized; preconditions verified. |
-| 02 | Business Discovery | blocked | 2026-07-16 | — | — | Yes — see note | Playbook 02 Execution Step 2 requires eliciting real stakeholder business needs "from the user — never invent." No real stakeholder is present in this conversation beyond the high-level Confirmed facts already in `vision.md`/`stakeholders.md`/`constraints.md`. This is a genuine fork requiring an explicit user decision on how to proceed (see Discovery Program Status Report), not a Discovery-level judgment call. Run paused here pending that decision, per `EXECUTION-GUIDE.md` Section 4 ("When to Stop") and Section 10 (Conflicts/forks requiring escalation). |
+| 02 | Business Discovery | complete | 2026-07-16 | 2026-07-16 | Y | Resolved — see note | User approved "Assumption-Driven Autonomous Run" (AskUserQuestion). Business Capability Map (20 capabilities), 4 Value Streams, 15 stakeholder needs refined — all Inferred content tagged and logged in `ASSUMPTION-REGISTER.md`. Reader Test and No-Guessing Gate both passed. |
 | 03 | Event Storming | not started | — | — | — | — | Blocked on 02. |
 | 04 | Domain Discovery | not started | — | — | — | — | Blocked on 03. |
 | 05 | Domain Modeling | not started | — | — | — | — | Blocked on 04. |

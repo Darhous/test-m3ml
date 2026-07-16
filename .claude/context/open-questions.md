@@ -51,6 +51,13 @@
 16. **ما مسار الترقية (Promotion Path)** لمستأجر ينتقل من الطبقة المشتركة إلى
     الطبقة المخصصة ضمن Hybrid Tenant Isolation؟ لم يُحسم بعد.
 
+## أسئلة جديدة أُضيفت أثناء Discovery Phase 02 (Business Discovery)
+
+17. **ما نموذج الفوترة/التأمين الفعلي؟** (Direct billing مقابل Reimbursement
+    مقابل Capitation، إلخ) — ظهر أثناء تتبع Value Stream 4 (Insurance Claim
+    Billing Cycle، `docs/discovery/artifacts/02-value-streams.md`)، ولا
+    توجد إجابة مؤكدة. لم يُفترض نموذج معين.
+
 ## ملاحظة
 
 هذه القائمة أولية وستنمو مع تقدم النقاش. لا تُفترض إجابات لهذه الأسئلة ولا تُبنى
