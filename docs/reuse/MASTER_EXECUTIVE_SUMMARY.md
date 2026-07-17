@@ -65,10 +65,10 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 *(Updated after every Module — see individual Module completion notes
 for the detailed count.)*
 
-- Modules fully researched: **20 of 28**
-- Features fully researched: **80 of 106** (79 decided, 1 explicitly
+- Modules fully researched: **21 of 28**
+- Features fully researched: **83 of 106** (82 decided, 1 explicitly
   blocked — `home-collection-logistics`)
-- Repositories evaluated: **59** (unchanged — Module 20 fully reused
+- Repositories evaluated: **59** (unchanged — Module 21 fully reused
   Module 19's ERPNext)
 - Estimated total effort-hours identified as reusable: **not numerically
   estimated** — no invented number, per the No-Guessing Rule; the
@@ -365,6 +365,16 @@ for the detailed count.)*
     Features, the strongest cross-Module Cross-Feature Dependency in the
     program since Keycloak (Module 1) spanned Identity and Access's 6
     Features.
+
+36. **Billing extends ERPNext into a 3rd Module**, now the broadest
+    single-Engine footprint in the program after Keycloak (6 Modules:
+    Identity and Access alone). All 3 Features (invoicing-engine,
+    pricing-price-lists, collections-dunning) resolve through ERPNext's
+    native Accounts Receivable, Pricing Rule, and Dunning modules.
+    `pricing-price-lists` is a 2nd proactive duplicate avoidance
+    (after Module 19's `receiving-goods`): explicitly layered on top of
+    Module 12's platform-owned catalog pricing rather than competing
+    with it, documented before any confusion could arise.
 
 *(Per the user's 2026-07-16 instruction to continue through all
 remaining Modules without pausing, module summaries from this point stay

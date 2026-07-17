@@ -212,9 +212,9 @@ in the program's own instructions (`inventory/` → `stock/`, `barcode/`,
 
 | Feature | Source Capabilities | Status |
 |---|---|---|
-| `invoicing-engine` | Billing | Pending |
-| `pricing-price-lists` | Pricing | Pending |
-| `collections-dunning` | Collections | Pending |
+| `invoicing-engine` | Billing | Researched |
+| `pricing-price-lists` | Pricing | Researched |
+| `collections-dunning` | Collections | Researched |
 
 ## 22. Payments and Treasury (Business Module)
 

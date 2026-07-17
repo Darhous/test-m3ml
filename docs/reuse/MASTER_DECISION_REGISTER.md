@@ -89,3 +89,6 @@ the current-state index.
 | 78 | 2026-07-16 | Procurement | receiving-goods | ENGINE + ADAPTER (composed: ERPNext + OpenBoxes) | ERPNext handles PO/receipt matching, OpenBoxes handles the actual stock increase — a proactively-designed avoidance of a 3rd Detected Duplicate | — |
 | 79 | 2026-07-16 | Supplier Management | supplier-registry-evaluation | ENGINE + ADAPTER (shared ERPNext) | Native Supplier Scorecard, confirmed via search; gates Module 19's RFQ/PO eligibility directly | — |
 | 80 | 2026-07-16 | Supplier Management | contract-management | ENGINE + ADAPTER (shared ERPNext) | Native Contract doctype; alerting routed through Novu (Module 5) rather than ERPNext's own email alerts | — |
+| 81 | 2026-07-16 | Billing | invoicing-engine | ENGINE + ADAPTER (shared ERPNext) | Native Quotation→SO→Delivery Note→Sales Invoice chain, confirmed via search; extends ERPNext into a 3rd Module | — |
+| 82 | 2026-07-16 | Billing | pricing-price-lists | ENGINE + ADAPTER (shared ERPNext) | Native Pricing Rule engine, explicitly layered on top of (not duplicating) Module 12's platform-owned catalog pricing | — |
+| 83 | 2026-07-16 | Billing | collections-dunning | ENGINE + ADAPTER (shared ERPNext) + Novu | Native Dunning doctype; reminder delivery routed through Novu (Module 5) instead of ERPNext's own email | — |
