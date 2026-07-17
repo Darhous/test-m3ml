@@ -253,8 +253,8 @@ in the program's own instructions (`inventory/` → `stock/`, `barcode/`,
 
 | Feature | Source Capabilities | Status |
 |---|---|---|
-| `payroll-calculation-engine` | Payroll | Pending |
-| `payroll-approval-dual-control` | Payroll (Sensitive-Operation-grade, Wave 6) | Pending |
+| `payroll-calculation-engine` | Payroll | Researched |
+| `payroll-approval-dual-control` | Payroll (Sensitive-Operation-grade, Wave 6) | Researched |
 
 ## 27. CRM and Support (Business Module — Generic)
 

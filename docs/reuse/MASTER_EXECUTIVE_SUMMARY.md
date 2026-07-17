@@ -65,10 +65,11 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 *(Updated after every Module — see individual Module completion notes
 for the detailed count.)*
 
-- Modules fully researched: **25 of 28**
-- Features fully researched: **96 of 106** (95 decided, 1 explicitly
+- Modules fully researched: **26 of 28**
+- Features fully researched: **98 of 106** (97 decided, 1 explicitly
   blocked — `home-collection-logistics`)
-- Repositories evaluated: **65** (adds Frappe HR)
+- Repositories evaluated: **65** (unchanged — Module 26 fully reused
+  Frappe HR and OPA)
 - Estimated total effort-hours identified as reusable: **not numerically
   estimated** — no invented number, per the No-Guessing Rule; the
   qualitative conclusion (universal-dependency Feature, mature enterprise-
@@ -419,6 +420,14 @@ for the detailed count.)*
     development vs. clinical practice authorization) — bringing the
     program's total proactive-avoidance count to 5, alongside its 2
     reactive duplicate resolutions (Module 3/8, Module 17/18).
+
+41. **Payroll requires zero new research**, its 2 Features splitting
+    cleanly between the program's 2 most-reused Engines: Frappe HR
+    (Module 25's sibling adoption) for calculation, and OPA (Module 1,
+    now confirmed reused a 7th time — the program's strongest
+    Cross-Feature Dependency case) for the Wave-6-flagged Sensitive-
+    Operation dual-control approval gate, directly reusing Module 2's
+    4-eyes change-approval pattern.
 
 *(Per the user's 2026-07-16 instruction to continue through all
 remaining Modules without pausing, module summaries from this point stay

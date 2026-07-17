@@ -105,3 +105,5 @@ the current-state index.
 | 94 | 2026-07-16 | Workforce Management | attendance-time-tracking | ENGINE + ADAPTER (shared Frappe HR) | Native check-in/check-out with geolocation, leave-balance tracking | — |
 | 95 | 2026-07-16 | Workforce Management | staff-scheduling-shifts | ENGINE + ADAPTER (shared Frappe HR) | Native Roster module; explicitly distinct from Module 11's Cal.com (internal staff vs. external patient scheduling) | — |
 | 96 | 2026-07-16 | Workforce Management | training-competency | ENGINE + ADAPTER (shared Frappe HR) | Native Performance/Training modules; explicitly distinct from Module 10's clinical credentialing | — |
+| 97 | 2026-07-16 | Payroll | payroll-calculation-engine | ENGINE + ADAPTER (shared Frappe HR) | Native Payroll/Taxation module, confirmed during Module 25's search; posts to ERPNext General Ledger | — |
+| 98 | 2026-07-16 | Payroll | payroll-approval-dual-control | ENGINE + ADAPTER (shared OPA) + BUILD | 7th confirmed OPA reuse, the strongest Cross-Feature Dependency case in the program; reuses Module 2's 4-eyes approval pattern | — |

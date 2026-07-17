@@ -104,3 +104,5 @@ Feature's own `10-final-decision.md`; this is the roll-up index.
 | Workforce Management | attendance-time-tracking | ENGINE + ADAPTER (shared Frappe HR) | Frappe HR | Low-Medium | Decided |
 | Workforce Management | staff-scheduling-shifts | ENGINE + ADAPTER (shared Frappe HR) | Frappe HR | Low-Medium — distinct from Module 11's Cal.com | Decided |
 | Workforce Management | training-competency | ENGINE + ADAPTER (shared Frappe HR) | Frappe HR | Low-Medium — distinct from Module 10's clinical credentialing | Decided |
+| Payroll | payroll-calculation-engine | ENGINE + ADAPTER (shared Frappe HR) | Frappe HR | Medium — high sensitivity | Decided |
+| Payroll | payroll-approval-dual-control | ENGINE + ADAPTER (shared OPA) + BUILD | OPA | High — Sensitive Operation, Wave 6 | Decided |
