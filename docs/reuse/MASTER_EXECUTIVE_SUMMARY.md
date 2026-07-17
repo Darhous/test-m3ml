@@ -65,11 +65,10 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 *(Updated after every Module — see individual Module completion notes
 for the detailed count.)*
 
-- Modules fully researched: **24 of 28**
-- Features fully researched: **92 of 106** (91 decided, 1 explicitly
+- Modules fully researched: **25 of 28**
+- Features fully researched: **96 of 106** (95 decided, 1 explicitly
   blocked — `home-collection-logistics`)
-- Repositories evaluated: **64** (unchanged — Module 24 fully reused
-  ERPNext)
+- Repositories evaluated: **65** (adds Frappe HR)
 - Estimated total effort-hours identified as reusable: **not numerically
   estimated** — no invented number, per the No-Guessing Rule; the
   qualitative conclusion (universal-dependency Feature, mature enterprise-
@@ -408,6 +407,18 @@ for the detailed count.)*
     after Keycloak. This is a direct, named instance of the program
     closing a Discovery-era open question with concrete evidence, the
     kind of finding `open-questions.md`/`decisions.md` should absorb.
+
+40. **Workforce Management adopts Frappe HR**, a same-vendor-family
+    sibling Engine to ERPNext (same Frappe Framework, same license
+    posture) — the lowest-friction Engine adoption in the program given
+    the existing 5-Module ERPNext investment. 2 proactive duplicate
+    avoidances in a single Module: `staff-scheduling-shifts` explicitly
+    distinguished from Module 11's Cal.com (internal staff vs. external
+    patient scheduling), and `training-competency` explicitly
+    distinguished from Module 10's clinical credentialing (general HR
+    development vs. clinical practice authorization) — bringing the
+    program's total proactive-avoidance count to 5, alongside its 2
+    reactive duplicate resolutions (Module 3/8, Module 17/18).
 
 *(Per the user's 2026-07-16 instruction to continue through all
 remaining Modules without pausing, module summaries from this point stay

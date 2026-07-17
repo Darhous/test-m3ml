@@ -100,3 +100,7 @@ Feature's own `10-final-decision.md`; this is the roll-up index.
 | Accounting | general-ledger | ENGINE + ADAPTER (shared ERPNext) | ERPNext | High — resolves Wave 3's Native/Integration/Deferred question | Decided |
 | Accounting | expense-tracking | ENGINE + ADAPTER (shared ERPNext) | ERPNext | Low-Medium | Decided |
 | Accounting | external-erp-integration | INTEGRATION (with ERPNext) | ERPNext | High — this Feature IS the boundary decision, now answered | Decided |
+| Workforce Management | employee-records-hr | ENGINE + ADAPTER | Frappe HR | Medium — same-vendor-family as ERPNext | Decided |
+| Workforce Management | attendance-time-tracking | ENGINE + ADAPTER (shared Frappe HR) | Frappe HR | Low-Medium | Decided |
+| Workforce Management | staff-scheduling-shifts | ENGINE + ADAPTER (shared Frappe HR) | Frappe HR | Low-Medium — distinct from Module 11's Cal.com | Decided |
+| Workforce Management | training-competency | ENGINE + ADAPTER (shared Frappe HR) | Frappe HR | Low-Medium — distinct from Module 10's clinical credentialing | Decided |

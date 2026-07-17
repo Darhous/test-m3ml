@@ -244,10 +244,10 @@ in the program's own instructions (`inventory/` → `stock/`, `barcode/`,
 
 | Feature | Source Capabilities | Status |
 |---|---|---|
-| `employee-records-hr` | HR (Employee Records) | Pending |
-| `attendance-time-tracking` | Attendance | Pending |
-| `staff-scheduling-shifts` | Scheduling (staff) | Pending |
-| `training-competency` | Training, Competency, Credentials, Performance | Pending |
+| `employee-records-hr` | HR (Employee Records) | Researched |
+| `attendance-time-tracking` | Attendance | Researched |
+| `staff-scheduling-shifts` | Scheduling (staff) | Researched |
+| `training-competency` | Training, Competency, Credentials, Performance | Researched |
 
 ## 26. Payroll (Business Module — Generic, high sensitivity)
 

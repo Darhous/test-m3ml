@@ -73,3 +73,4 @@ column). Populated incrementally as each Module completes; see
 | Fawry, Paymob | Commercial vendors | Proprietary (not OSS) | Active | Vendor/commercial decision, not a Build-vs-Buy software candidate — `payment-gateway-abstraction` | Payments and Treasury |
 | openIMIS | ILO / Swiss Development Cooperation origin, now independent | AGPL-3.0 | Active | eligibility-verification, claims-management, corporate-contract-rates | Insurance and Corporate Contracts |
 | HL7 FHIR `Claim`/`ClaimResponse`/`Coverage`/`EligibilityRequest`/`EligibilityResponse` resources | HL7 International | HL7 FHIR License | Active | Reference data shapes across all 3 Features | Insurance and Corporate Contracts |
+| Frappe HR | Frappe | GPL-3.0 | Active | employee-records-hr, attendance-time-tracking, staff-scheduling-shifts, training-competency | Workforce Management |

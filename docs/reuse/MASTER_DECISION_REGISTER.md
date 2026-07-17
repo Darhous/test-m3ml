@@ -101,3 +101,7 @@ the current-state index.
 | 90 | 2026-07-16 | Accounting | general-ledger | ENGINE + ADAPTER (shared ERPNext) | Directly confirms Wave 3's "Integration-leaning" classification; ERPNext's General Ledger auto-posts from all 5 prior Modules | — |
 | 91 | 2026-07-16 | Accounting | expense-tracking | ENGINE + ADAPTER (shared ERPNext) | Native Expense Claim doctype, posts to General Ledger | — |
 | 92 | 2026-07-16 | Accounting | external-erp-integration | INTEGRATION (with ERPNext) | This Feature's own definition (the Native/Integration/Deferred boundary) is answered concretely by this program's evidence: Integration, specifically to ERPNext, not left abstract | — |
+| 93 | 2026-07-16 | Workforce Management | employee-records-hr | ENGINE + ADAPTER: Frappe HR (GPL-3.0) | Same-vendor-family sibling Engine to ERPNext, shares Frappe Framework and license posture — lowest-friction adoption in the program | — |
+| 94 | 2026-07-16 | Workforce Management | attendance-time-tracking | ENGINE + ADAPTER (shared Frappe HR) | Native check-in/check-out with geolocation, leave-balance tracking | — |
+| 95 | 2026-07-16 | Workforce Management | staff-scheduling-shifts | ENGINE + ADAPTER (shared Frappe HR) | Native Roster module; explicitly distinct from Module 11's Cal.com (internal staff vs. external patient scheduling) | — |
+| 96 | 2026-07-16 | Workforce Management | training-competency | ENGINE + ADAPTER (shared Frappe HR) | Native Performance/Training modules; explicitly distinct from Module 10's clinical credentialing | — |
