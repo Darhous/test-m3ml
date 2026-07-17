@@ -106,3 +106,7 @@ Feature's own `10-final-decision.md`; this is the roll-up index.
 | Workforce Management | training-competency | ENGINE + ADAPTER (shared Frappe HR) | Frappe HR | Low-Medium — distinct from Module 10's clinical credentialing | Decided |
 | Payroll | payroll-calculation-engine | ENGINE + ADAPTER (shared Frappe HR) | Frappe HR | Medium — high sensitivity | Decided |
 | Payroll | payroll-approval-dual-control | ENGINE + ADAPTER (shared OPA) + BUILD | OPA | High — Sensitive Operation, Wave 6 | Decided |
+| CRM and Support | helpdesk-ticketing | ENGINE + ADAPTER | Frappe Helpdesk | Medium — AGPL-3.0 license-drift finding | Decided |
+| CRM and Support | call-center-crm | ENGINE + ADAPTER (composed) | Frappe CRM, Frappe Helpdesk | Medium | Decided |
+| CRM and Support | complaint-feedback-management | ENGINE + ADAPTER (shared Frappe Helpdesk) | Frappe Helpdesk | Low-Medium — distinct from Module 16 | Decided |
+| CRM and Support | campaign-management | BUILD + ENGINE + ADAPTER (composed) | Frappe CRM, Novu | Low-Medium | Decided |

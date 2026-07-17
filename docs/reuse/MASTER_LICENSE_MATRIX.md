@@ -64,3 +64,6 @@ commercial model as currently understood.
 | Omnipay | MIT | `MIT` | No | Clear | Architecture Reference only, not a code dependency |
 | Nafezly/payments | MIT | `MIT` | No | Clear | Not selected — confidence, not license |
 | openIMIS | AGPL 3.0 | `AGPL-3.0-only` | Yes (network-use-triggered) | Conditional, `Requires Legal Verification` | Selected as whole-system Engine (module-level adoption) |
+| Frappe HR | GPL 3.0 | `GPL-3.0-only` | Yes (distribution-triggered) | Clear for self-hosted use | Same posture as ERPNext |
+| Frappe Helpdesk | AGPL 3.0 | `AGPL-3.0-only` | Yes (network-use-triggered) | Conditional, `Requires Legal Verification` | **License-drift finding**: distinct from ERPNext/Frappe HR (GPL-3.0) despite same vendor — not inherited clearance |
+| Frappe CRM | AGPL 3.0 | `AGPL-3.0-only` | Yes (network-use-triggered) | Conditional, `Requires Legal Verification` | Same license-drift caveat as Frappe Helpdesk |

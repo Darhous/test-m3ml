@@ -65,11 +65,10 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 *(Updated after every Module — see individual Module completion notes
 for the detailed count.)*
 
-- Modules fully researched: **26 of 28**
-- Features fully researched: **98 of 106** (97 decided, 1 explicitly
+- Modules fully researched: **27 of 28**
+- Features fully researched: **102 of 106** (101 decided, 1 explicitly
   blocked — `home-collection-logistics`)
-- Repositories evaluated: **65** (unchanged — Module 26 fully reused
-  Frappe HR and OPA)
+- Repositories evaluated: **67** (adds Frappe Helpdesk and Frappe CRM)
 - Estimated total effort-hours identified as reusable: **not numerically
   estimated** — no invented number, per the No-Guessing Rule; the
   qualitative conclusion (universal-dependency Feature, mature enterprise-
@@ -428,6 +427,22 @@ for the detailed count.)*
     Cross-Feature Dependency case) for the Wave-6-flagged Sensitive-
     Operation dual-control approval gate, directly reusing Module 2's
     4-eyes change-approval pattern.
+
+42. **CRM and Support surfaces the program's clearest license-drift
+    finding.** Frappe Helpdesk and Frappe CRM are same-vendor-family
+    products to ERPNext and Frappe HR (already adopted across 6
+    Modules), but ship under AGPL-3.0 rather than ERPNext/HR's GPL-3.0
+    — explicitly flagged as `Requires Legal Verification` rather than
+    silently inheriting the earlier GPL-3.0 clearance, demonstrating why
+    this program verifies every repository's license individually even
+    within a single vendor's product family. `campaign-management` found
+    no dedicated marketing-automation product and correctly composed 2
+    already-adopted Engines (Frappe CRM + Novu, 4th confirmed reuse)
+    instead of introducing an unverified new dependency.
+    `complaint-feedback-management` is the program's 6th proactive
+    duplicate avoidance, explicitly distinguished from Module 16's
+    clinical-quality-linked complaint handling with a designed
+    escalation path between the two.
 
 *(Per the user's 2026-07-16 instruction to continue through all
 remaining Modules without pausing, module summaries from this point stay

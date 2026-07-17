@@ -260,10 +260,10 @@ in the program's own instructions (`inventory/` → `stock/`, `barcode/`,
 
 | Feature | Source Capabilities | Status |
 |---|---|---|
-| `helpdesk-ticketing` | Support | Pending |
-| `call-center-crm` | CRM, Call Center | Pending |
-| `complaint-feedback-management` | Complaints, Feedback | Pending |
-| `campaign-management` | Campaigns, Retention | Pending |
+| `helpdesk-ticketing` | Support | Researched |
+| `call-center-crm` | CRM, Call Center | Researched |
+| `complaint-feedback-management` | Complaints, Feedback | Researched |
+| `campaign-management` | Campaigns, Retention | Researched |
 
 ## 28. SaaS Commercial Operations (Commercial Module)
 
