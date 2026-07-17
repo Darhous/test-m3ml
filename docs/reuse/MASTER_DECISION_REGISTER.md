@@ -111,3 +111,9 @@ the current-state index.
 | 100 | 2026-07-16 | CRM and Support | call-center-crm | ENGINE + ADAPTER (composed: Frappe CRM + Frappe Helpdesk telephony) | Same license caveat as row 99 | — |
 | 101 | 2026-07-16 | CRM and Support | complaint-feedback-management | ENGINE + ADAPTER (shared Frappe Helpdesk) | Explicitly distinct scope from Module 16's complaint-management/capa-management (general customer service vs. clinical quality), with a designed escalation path | — |
 | 102 | 2026-07-16 | CRM and Support | campaign-management | BUILD (campaign logic) + ENGINE + ADAPTER (composed: Frappe CRM + Novu) | No dedicated marketing-automation product verified; composes 2 already-adopted Engines rather than introducing an unverified new one | — |
+| 103 | 2026-07-16 | SaaS Commercial Operations | subscription-plan-management | ENGINE + ADAPTER: Kill Bill (Apache-2.0) | Battle-tested 10+ years, explicit multi-tenant/white-label track record, cleanest license of any Engine adoption alongside OpenBoxes; Lago (AGPL-3.0) logged as modern fallback | — |
+| 104 | 2026-07-16 | SaaS Commercial Operations | usage-metering-entitlements | ENGINE + ADAPTER (shared Kill Bill + shared OPA) | 8th confirmed OPA reuse; Kill Bill usage state feeds OPA entitlement decisions | — |
+| 105 | 2026-07-16 | SaaS Commercial Operations | white-label-branding | BUILD + REFERENCE (consolidation, no new research) | Capability already distributed across Modules 1 (Keycloak), 2 (tenant-configuration), 7 (Superset), 8 (Documenso/Alfresco) — this Feature names and centralizes it | — |
+| 106 | 2026-07-16 | SaaS Commercial Operations | saas-billing | ENGINE + ADAPTER (shared Kill Bill) | Final Feature of the 28-Module program; explicitly distinct from Module 21's ERPNext invoicing-engine (platform SaaS revenue vs. lab service revenue) | — |
+
+**Program complete — 106 decisions logged (rows 1-106).**

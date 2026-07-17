@@ -76,3 +76,5 @@ column). Populated incrementally as each Module completes; see
 | Frappe HR | Frappe | GPL-3.0 | Active | employee-records-hr, attendance-time-tracking, staff-scheduling-shifts, training-competency (Workforce Management), payroll-calculation-engine (Payroll) | Workforce Management, Payroll |
 | Frappe Helpdesk | Frappe | AGPL-3.0 | Active | helpdesk-ticketing, complaint-feedback-management, call-center-crm (telephony) | CRM and Support |
 | Frappe CRM | Frappe | AGPL-3.0 | Active | call-center-crm, campaign-management (segment data) | CRM and Support |
+| Kill Bill | Kill Bill community | Apache-2.0 | Active | subscription-plan-management, usage-metering-entitlements, saas-billing | SaaS Commercial Operations |
+| Lago | getlago | AGPL-3.0 | Active | Evaluated, credible fallback — `subscription-plan-management`, `usage-metering-entitlements` | SaaS Commercial Operations |

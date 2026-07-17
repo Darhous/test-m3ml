@@ -65,10 +65,11 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 *(Updated after every Module — see individual Module completion notes
 for the detailed count.)*
 
-- Modules fully researched: **27 of 28**
-- Features fully researched: **102 of 106** (101 decided, 1 explicitly
-  blocked — `home-collection-logistics`)
-- Repositories evaluated: **67** (adds Frappe Helpdesk and Frappe CRM)
+- Modules fully researched: **28 of 28 — PROGRAM COMPLETE**
+- Features fully researched: **106 of 106** (105 decided, 1 explicitly
+  blocked — `home-collection-logistics`, Module 13, pending
+  `open-questions.md` #6)
+- Repositories evaluated: **69** (adds Kill Bill and Lago)
 - Estimated total effort-hours identified as reusable: **not numerically
   estimated** — no invented number, per the No-Guessing Rule; the
   qualitative conclusion (universal-dependency Feature, mature enterprise-
@@ -444,13 +445,37 @@ for the detailed count.)*
     clinical-quality-linked complaint handling with a designed
     escalation path between the two.
 
-*(Per the user's 2026-07-16 instruction to continue through all
-remaining Modules without pausing, module summaries from this point stay
-concise — real evidence-based research, without the earliest Modules'
-exhaustive per-file depth — until the full 28-Module program is
-complete. Laboratory Execution and Result Verification and Reporting
-were both given deliberately fuller treatment as the final two Modules
-of the Core Domain cluster.)*
+43. **The program's final Module resolves cleanly and closes the
+    program.** Kill Bill (Apache-2.0, 10+ years battle-tested,
+    explicit multi-tenant/white-label track record) resolves 3 of
+    SaaS Commercial Operations' 4 Features, explicitly distinguished
+    from Module 21's ERPNext-based patient/client billing (2 separate
+    revenue domains, the program's 7th and final proactive duplicate
+    avoidance). `white-label-branding` required zero new research,
+    consolidating capability already distributed across Modules 1, 2,
+    7, and 8 — a fitting closing finding: not every Feature needs new
+    reuse research once enough of the platform's Engine landscape is
+    already mapped. OPA (Module 1) is confirmed reused an 8th and
+    final time.
+
+## Program Completion
+
+**All 28 Modules and 106 Features have been researched, classified, and
+decided.** Of 106 Features: 105 carry a Final Decision (BUILD,
+CONTROLLED FORK, ENGINE + ADAPTER, SDK, LIBRARY, REFERENCE, or a
+composition of these); 1 (`home-collection-logistics`, Module 13) is
+explicitly and honestly left undecided, genuinely blocked on
+`open-questions.md` #6 (Offline Mode requirement), per the No-Guessing
+Rule — not a gap in this program's effort, but the correct outcome when
+a prerequisite Discovery-level question remains open.
+
+See `MASTER_DECISION_REGISTER.md` (106 rows), `MASTER_DEPENDENCY_MATRIX.md`
+(9 Detected Duplicate Features, all resolved or proactively avoided),
+`MASTER_BUILD_VS_BUY_MATRIX.md`, and `MASTER_LICENSE_MATRIX.md` (the
+`Requires Legal Verification` list, the SAD's starting point for formal
+legal review) for the complete evidentiary record. This document's
+running totals are now final; no further Module summaries will be
+appended unless the program is explicitly reopened.
 
 ## Program Pacing — Honest Status (2026-07-16)
 

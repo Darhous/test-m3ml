@@ -269,10 +269,12 @@ in the program's own instructions (`inventory/` → `stock/`, `barcode/`,
 
 | Feature | Source Capabilities | Status |
 |---|---|---|
-| `subscription-plan-management` | Plans, Subscriptions | Pending |
-| `usage-metering-entitlements` | Entitlements, Metering, Usage | Pending |
-| `white-label-branding` | White Label | Pending |
-| `saas-billing` | SaaS Billing | Pending |
+| `subscription-plan-management` | Plans, Subscriptions | Researched |
+| `usage-metering-entitlements` | Entitlements, Metering, Usage | Researched |
+| `white-label-branding` | White Label | Researched |
+| `saas-billing` | SaaS Billing | Researched |
+
+**All 28 Modules / 106 Features researched — program complete.**
 
 ## Out-of-Scope-for-Now (Wave 10's "Optional Add-ons")
 

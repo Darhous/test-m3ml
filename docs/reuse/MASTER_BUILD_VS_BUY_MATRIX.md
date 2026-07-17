@@ -110,3 +110,11 @@ Feature's own `10-final-decision.md`; this is the roll-up index.
 | CRM and Support | call-center-crm | ENGINE + ADAPTER (composed) | Frappe CRM, Frappe Helpdesk | Medium | Decided |
 | CRM and Support | complaint-feedback-management | ENGINE + ADAPTER (shared Frappe Helpdesk) | Frappe Helpdesk | Low-Medium — distinct from Module 16 | Decided |
 | CRM and Support | campaign-management | BUILD + ENGINE + ADAPTER (composed) | Frappe CRM, Novu | Low-Medium | Decided |
+| SaaS Commercial Operations | subscription-plan-management | ENGINE + ADAPTER | Kill Bill | High — clean Apache-2.0 license | Decided |
+| SaaS Commercial Operations | usage-metering-entitlements | ENGINE + ADAPTER (shared Kill Bill + OPA) | Kill Bill, OPA | Medium | Decided |
+| SaaS Commercial Operations | white-label-branding | BUILD + REFERENCE (consolidation) | N/A (4 prior Engines) | Low — no new research needed | Decided |
+| SaaS Commercial Operations | saas-billing | ENGINE + ADAPTER (shared Kill Bill) | Kill Bill | Medium — distinct from Module 21 | Decided |
+
+**Program complete: 106 of 106 Features decided** (105 Final Decisions +
+1 explicitly blocked — `home-collection-logistics`, Module 13, pending
+`open-questions.md` #6).

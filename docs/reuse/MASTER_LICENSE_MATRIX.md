@@ -67,3 +67,13 @@ commercial model as currently understood.
 | Frappe HR | GPL 3.0 | `GPL-3.0-only` | Yes (distribution-triggered) | Clear for self-hosted use | Same posture as ERPNext |
 | Frappe Helpdesk | AGPL 3.0 | `AGPL-3.0-only` | Yes (network-use-triggered) | Conditional, `Requires Legal Verification` | **License-drift finding**: distinct from ERPNext/Frappe HR (GPL-3.0) despite same vendor — not inherited clearance |
 | Frappe CRM | AGPL 3.0 | `AGPL-3.0-only` | Yes (network-use-triggered) | Conditional, `Requires Legal Verification` | Same license-drift caveat as Frappe Helpdesk |
+| Kill Bill | Apache License 2.0 | `Apache-2.0` | No | Clear | Selected as whole-system Engine; cleanest license of any Engine in the program alongside OpenBoxes |
+| Lago | AGPL 3.0 | `AGPL-3.0-only` | Yes (network-use-triggered) | Conditional, `Requires Legal Verification` | Not selected — credible modern fallback |
+
+**Program complete.** `Requires Legal Verification` recurs for: Novu,
+Cal.com, Zitadel (not selected), OpenELIS Global (Reference only),
+Alfresco, Documenso, OpenSign (not selected), Atlas CMMS, openMAINT (not
+selected), OpenBoxes uses the cleaner EPL-1.0, ERPNext/Frappe HR use
+GPL-3.0 (clear for self-hosted), Frappe Helpdesk/CRM, openIMIS, Lago —
+this list should be the starting point for the SAD's formal legal
+review pass, not re-derived from scratch.
