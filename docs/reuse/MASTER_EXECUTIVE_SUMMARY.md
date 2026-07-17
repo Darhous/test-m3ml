@@ -65,11 +65,11 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 *(Updated after every Module — see individual Module completion notes
 for the detailed count.)*
 
-- Modules fully researched: **21 of 28**
-- Features fully researched: **83 of 106** (82 decided, 1 explicitly
+- Modules fully researched: **22 of 28**
+- Features fully researched: **86 of 106** (85 decided, 1 explicitly
   blocked — `home-collection-logistics`)
-- Repositories evaluated: **59** (unchanged — Module 21 fully reused
-  Module 19's ERPNext)
+- Repositories evaluated: **62** (adds Omnipay, Nafezly/payments, and
+  Fawry/Paymob logged as Vendor-decision entries, not OSS)
 - Estimated total effort-hours identified as reusable: **not numerically
   estimated** — no invented number, per the No-Guessing Rule; the
   qualitative conclusion (universal-dependency Feature, mature enterprise-
@@ -375,6 +375,17 @@ for the detailed count.)*
     (after Module 19's `receiving-goods`): explicitly layered on top of
     Module 12's platform-owned catalog pricing rather than competing
     with it, documented before any confusion could arise.
+
+37. **Payments and Treasury introduces the program's first "Vendor
+    decision, not a Build-vs-Buy software decision" finding.**
+    `payment-gateway-abstraction` needs Fawry and Paymob (Egypt's
+    dominant payment gateways, per Wave 11) — both commercial SaaS
+    providers, not open-source software. The actual software decision is
+    the per-gateway adapter layer, correctly resolved as BUILD (same
+    reasoning as Module 4's `device-protocol-adapters`) with Omnipay's
+    architecture logged as a Reference pattern, not a dependency. ERPNext
+    extends into a 4th Module (`cashbox-treasury-management`), now the
+    broadest single-Engine footprint in the program after Keycloak.
 
 *(Per the user's 2026-07-16 instruction to continue through all
 remaining Modules without pausing, module summaries from this point stay

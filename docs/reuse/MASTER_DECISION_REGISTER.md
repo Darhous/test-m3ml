@@ -92,3 +92,6 @@ the current-state index.
 | 81 | 2026-07-16 | Billing | invoicing-engine | ENGINE + ADAPTER (shared ERPNext) | Native Quotation→SO→Delivery Note→Sales Invoice chain, confirmed via search; extends ERPNext into a 3rd Module | — |
 | 82 | 2026-07-16 | Billing | pricing-price-lists | ENGINE + ADAPTER (shared ERPNext) | Native Pricing Rule engine, explicitly layered on top of (not duplicating) Module 12's platform-owned catalog pricing | — |
 | 83 | 2026-07-16 | Billing | collections-dunning | ENGINE + ADAPTER (shared ERPNext) + Novu | Native Dunning doctype; reminder delivery routed through Novu (Module 5) instead of ERPNext's own email | — |
+| 84 | 2026-07-16 | Payments and Treasury | payment-gateway-abstraction | BUILD (per-gateway adapters) + REFERENCE (Omnipay pattern) | No stack-neutral OSS product exists; Fawry/Paymob are Vendor decisions, not OSS; same reasoning as Module 4's device-protocol-adapters | — |
+| 85 | 2026-07-16 | Payments and Treasury | cashbox-treasury-management | ENGINE + ADAPTER (shared ERPNext) | Native Bank/Cash Account + reconciliation; extends ERPNext into its 4th Module | — |
+| 86 | 2026-07-16 | Payments and Treasury | refund-processing | BUILD (thin composition) + ENGINE + ADAPTER (shared) | Composes payment-gateway-abstraction's refund calls with ERPNext's Credit Note reversal | — |

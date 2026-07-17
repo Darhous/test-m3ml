@@ -68,3 +68,6 @@ column). Populated incrementally as each Module completes; see
 | Odoo Inventory (Community) | Odoo S.A. | LGPL-3.0 | Active | Evaluated, credible fallback — `stock-management` | Inventory |
 | ERPNext | Frappe | GPL-3.0 | Active | purchase-requisition-order, supplier-rfq, receiving-goods (composed with OpenBoxes) | Procurement |
 | OpenProcurement | ProZorro / community | Apache-2.0 | Active | Evaluated, not selected — government/public-tender scale mismatch | Procurement |
+| Omnipay | thephpleague | MIT | Active | Evaluated, architecture Reference only — `payment-gateway-abstraction` | Payments and Treasury |
+| Nafezly/payments | Individual maintainer | MIT | Active | Evaluated, not selected — single-maintainer confidence concern | Payments and Treasury |
+| Fawry, Paymob | Commercial vendors | Proprietary (not OSS) | Active | Vendor/commercial decision, not a Build-vs-Buy software candidate — `payment-gateway-abstraction` | Payments and Treasury |

@@ -220,9 +220,9 @@ in the program's own instructions (`inventory/` → `stock/`, `barcode/`,
 
 | Feature | Source Capabilities | Status |
 |---|---|---|
-| `payment-gateway-abstraction` | Payments | Pending |
-| `cashbox-treasury-management` | Treasury | Pending |
-| `refund-processing` | Refunds | Pending |
+| `payment-gateway-abstraction` | Payments | Researched |
+| `cashbox-treasury-management` | Treasury | Researched |
+| `refund-processing` | Refunds | Researched |
 
 ## 23. Insurance and Corporate Contracts (Business Module)
 

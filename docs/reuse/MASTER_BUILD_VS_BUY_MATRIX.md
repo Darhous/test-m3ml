@@ -91,3 +91,6 @@ Feature's own `10-final-decision.md`; this is the roll-up index.
 | Billing | invoicing-engine | ENGINE + ADAPTER (shared ERPNext) | ERPNext | Medium | Decided |
 | Billing | pricing-price-lists | ENGINE + ADAPTER (shared ERPNext) | ERPNext | Low-Medium — layered on Module 12's catalog pricing | Decided |
 | Billing | collections-dunning | ENGINE + ADAPTER (shared ERPNext) + Novu | ERPNext, Novu | Low-Medium | Decided |
+| Payments and Treasury | payment-gateway-abstraction | BUILD (per-gateway adapters) + REFERENCE | N/A (Omnipay pattern) | Medium — Egypt-relevant (Wave 11) | Decided |
+| Payments and Treasury | cashbox-treasury-management | ENGINE + ADAPTER (shared ERPNext) | ERPNext | Low-Medium | Decided |
+| Payments and Treasury | refund-processing | BUILD (composition) + ENGINE + ADAPTER (shared) | ERPNext, gateway adapters | Low-Medium | Decided |

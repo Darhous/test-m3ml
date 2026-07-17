@@ -61,3 +61,5 @@ commercial model as currently understood.
 | Odoo Inventory (Community) | LGPL 3.0 | `LGPL-3.0-only` | Weak — library-level | Clear | Not selected — credible fallback only |
 | ERPNext | GPL 3.0 | `GPL-3.0-only` | Strong — distribution-triggered | Clear (self-hosted) | Selected as whole-system Engine (Procurement); clear for self-hosted use |
 | OpenProcurement | Apache License 2.0 | `Apache-2.0` | No | Clear | Not selected — government-tender scale mismatch |
+| Omnipay | MIT | `MIT` | No | Clear | Architecture Reference only, not a code dependency |
+| Nafezly/payments | MIT | `MIT` | No | Clear | Not selected — confidence, not license |
