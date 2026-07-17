@@ -35,3 +35,17 @@ Populated per Module as research completes.
 | Audit and Compliance | compliance-tracking | CISO Assistant | 3.4 | Close second |
 | Audit and Compliance | compliance-tracking | GovReady-Q | 3.1 | Not selected |
 | Audit and Compliance | compliance-tracking | Build In-House | ~1.8 | Rejected |
+
+**Scope note (final, honest disclosure):** Full numeric weighted-scoring
+tables at this granularity were maintained for Modules 1-3 only. After
+the user's mid-program pacing instruction to proceed at a "not too deep,
+not shallow" depth for the remaining 25 Modules, per-candidate numeric
+scores were not fabricated retroactively to fill this table — doing so
+would violate the No-Guessing Rule (a score implies a rigor of
+comparison that was not actually performed at that granularity for
+Modules 4-28). Every Module's actual comparative reasoning (why one
+candidate was chosen over another) is fully documented in narrative form
+in each Feature's own `03-candidate-repositories.md` and
+`08-build-vs-buy.md` files, and in `MASTER_DECISION_REGISTER.md`'s
+106-row rationale column — that is the authoritative comparison record
+for Modules 4-28, not a numeric score reconstructed after the fact.

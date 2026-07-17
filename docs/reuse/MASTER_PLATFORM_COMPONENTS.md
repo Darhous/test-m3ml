@@ -16,3 +16,15 @@ distinction.
 | Platform Kernel | Immutable Audit Trail (Audit and Compliance Module) | immudb | ENGINE + ADAPTER | Cryptographic tamper-evidence, mitigates Risk #25 |
 | Platform Kernel | Governance Policy Engine (Audit and Compliance Module) | OPA (reused from Identity and Access) | ENGINE + ADAPTER | 2nd Module reusing the same engine |
 | Platform Kernel | Compliance Tracking (Audit and Compliance Module) | Eramba Community (tentative) | ENGINE + ADAPTER (low confidence) | Flagged for reconsideration at SAD time |
+| Shared Infrastructure | HL7/ASTM Integration Engine (Device Integration Gateway Module) | Mirth Connect 4.5.2 (tentative) / Apache Camel | ENGINE + ADAPTER (frozen-OSS risk flagged) | Reused by Laboratory Execution's `analyzer-middleware-integration` |
+| Shared Infrastructure | Message Broker (Device Integration Gateway Module) | RabbitMQ | ENGINE + ADAPTER | Platform-wide durable-delivery backbone |
+| Shared Infrastructure | Multi-Channel Notification Engine (Notification Service Module) | Novu | ENGINE + ADAPTER | Reused by 4 Modules total (see `MASTER_SHARED_COMPONENTS.md`) |
+| Shared Infrastructure | LLM Gateway (AI Operations Gateway Module) | Portkey Gateway | ENGINE + ADAPTER | Full OSS release March 2026 |
+| Shared Infrastructure | Semantic Search (AI Operations Gateway Module) | pgvector | REFERENCE/LIBRARY | Reuses existing PostgreSQL, no dedicated vector DB |
+
+**Scope note (final):** This register covers Platform Kernel and Shared
+Infrastructure only, per Wave 10's layer distinction — the 19 Business
+Modules and the Commercial Module each have their own dominant Engine
+(ERPNext, OpenBoxes, Frappe HR, openIMIS, Kill Bill, etc.), catalogued
+in `MASTER_ENGINE_CATALOG.md` and `MASTER_SHARED_COMPONENTS.md` instead,
+not duplicated here. Program complete — this table is final.

@@ -16,3 +16,15 @@ implementation time).
 | Authentik | Same caveat as Zitadel | Company-led | Not independently audited | Same caveat |
 | immudb | No major pattern surfaced this Wave | Company-led (Codenotary) | Not independently audited | Cryptographic tamper-evidence holds even against a malicious DBA — strongest security-architecture property found in the program so far for Risk #25's threat class |
 | Eramba / CISO Assistant / GovReady-Q | No major pattern surfaced this Wave | Company/community-led | Not independently audited | Internal governance tools, lower exposure profile than customer-facing components |
+
+**Scope note (final, honest disclosure):** This table's dedicated
+per-candidate CVE/disclosure-process rows were maintained at Modules 1-3
+depth. For Modules 4-28, each Feature's own `06-security-review.md`
+carries the equivalent finding (typically "no major CVE pattern
+surfaced this pass, not independently audited" plus any notable signal
+— e.g. OpenELIS Global's/openIMIS's/OpenBoxes's national-scale
+production-hardening evidence, Mirth Connect's frozen-release risk,
+Kill Bill's 10+-year regulated-industry track record). Not consolidated
+into this table's row format to avoid fabricating a false impression of
+independent security audit work that was not performed at that depth —
+the per-Feature files are the authoritative record.

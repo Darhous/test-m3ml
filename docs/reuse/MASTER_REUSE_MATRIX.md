@@ -22,3 +22,16 @@ Detail lives in each Feature's `11-reusable-assets.md`.
 | Tenant and Organization Management | tenant-provisioning | Workflow | Saga with compensation | Reusable pattern for other multi-step cross-Module workflows |
 | Audit and Compliance | immutable-audit-trail | Data Model | immudb cryptographically-linked record structure | Informs the platform's own Audit Event schema |
 | Audit and Compliance | consent-management | Data Model | FHIR `Consent` resource shape | Directly reusable as the Consent Aggregate structure |
+| Patient Management | patient-registry-mpi | Data Model | FHIR `Patient` resource | Reused as a Reference pattern across 6 subsequent Modules (9-14) |
+| Diagnostic Ordering | order-entry-cpoe | Workflow | FHIR ServiceRequest/Task order-orchestration pattern | Cross-validated by 2 independent production systems (OpenELIS Global, Bahmni) |
+| Laboratory Execution | quality-control-tracking | Workflow | Westgard rules statistical QC methodology | Public, non-proprietary, industry-standard — not tied to any product |
+| Result Verification and Reporting | result-review-verification-workflow | Workflow | Policy-decision-with-trace evaluation (reused from Identity and Access) | Same audit-trace shape applied to the 8-dimension Result Verification Policy Model |
+| Payroll | payroll-approval-dual-control | Workflow | 4-eyes change-approval flow (reused from Tenant and Organization Management) | Same dual-control pattern applied to payroll disbursement |
+
+**Scope note (final):** Row-by-row cataloguing at Modules 1-3's density
+was not sustained across all 28 Modules per the pacing instruction — the
+5 rows above are the most consequential cross-Module reuse patterns
+found in the remaining 25 Modules, not an exhaustive re-listing. Every
+Feature's complete reusable-asset finding (including ones not
+highlighted here) lives in that Feature's own `11-reusable-assets.md` —
+the authoritative per-Feature record.
