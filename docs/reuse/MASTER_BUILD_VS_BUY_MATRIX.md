@@ -94,3 +94,6 @@ Feature's own `10-final-decision.md`; this is the roll-up index.
 | Payments and Treasury | payment-gateway-abstraction | BUILD (per-gateway adapters) + REFERENCE | N/A (Omnipay pattern) | Medium — Egypt-relevant (Wave 11) | Decided |
 | Payments and Treasury | cashbox-treasury-management | ENGINE + ADAPTER (shared ERPNext) | ERPNext | Low-Medium | Decided |
 | Payments and Treasury | refund-processing | BUILD (composition) + ENGINE + ADAPTER (shared) | ERPNext, gateway adapters | Low-Medium | Decided |
+| Insurance and Corporate Contracts | eligibility-verification | ENGINE + ADAPTER | openIMIS | High — Digital Public Good, module-level adoption | Decided |
+| Insurance and Corporate Contracts | claims-management | ENGINE + ADAPTER (shared openIMIS) | openIMIS | Medium | Decided |
+| Insurance and Corporate Contracts | corporate-contract-rates | ENGINE + ADAPTER (shared openIMIS) | openIMIS | Medium | Decided |

@@ -228,9 +228,9 @@ in the program's own instructions (`inventory/` → `stock/`, `barcode/`,
 
 | Feature | Source Capabilities | Status |
 |---|---|---|
-| `eligibility-verification` | Insurance | Pending |
-| `claims-management` | Insurance | Pending |
-| `corporate-contract-rates` | Corporate Contracts | Pending |
+| `eligibility-verification` | Insurance | Researched |
+| `claims-management` | Insurance | Researched |
+| `corporate-contract-rates` | Corporate Contracts | Researched |
 
 ## 24. Accounting (Business Module, Integration-leaning per Wave 3)
 

@@ -65,11 +65,11 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 *(Updated after every Module — see individual Module completion notes
 for the detailed count.)*
 
-- Modules fully researched: **22 of 28**
-- Features fully researched: **86 of 106** (85 decided, 1 explicitly
+- Modules fully researched: **23 of 28**
+- Features fully researched: **89 of 106** (88 decided, 1 explicitly
   blocked — `home-collection-logistics`)
-- Repositories evaluated: **62** (adds Omnipay, Nafezly/payments, and
-  Fawry/Paymob logged as Vendor-decision entries, not OSS)
+- Repositories evaluated: **64** (adds openIMIS and the FHIR
+  Claim/Coverage/EligibilityRequest resource family)
 - Estimated total effort-hours identified as reusable: **not numerically
   estimated** — no invented number, per the No-Guessing Rule; the
   qualitative conclusion (universal-dependency Feature, mature enterprise-
@@ -386,6 +386,17 @@ for the detailed count.)*
     architecture logged as a Reference pattern, not a dependency. ERPNext
     extends into a 4th Module (`cashbox-treasury-management`), now the
     broadest single-Engine footprint in the program after Keycloak.
+
+38. **Insurance and Corporate Contracts resolves entirely through
+    openIMIS**, a Digital-Public-Good-recognized, ILO/Swiss-Development-
+    Cooperation-originated, FHIR-based health-insurance and social-
+    protection platform serving 13M+ beneficiaries across 12+ countries
+    — the 2nd clearest whole-system reuse case in the Business Modules
+    after OpenBoxes (Module 18), since insurance/claims administration
+    sits outside the Core Domain's Patient-to-Result orchestration chain.
+    A 3rd proactive duplicate avoidance (after Modules 19 and 21):
+    `corporate-contract-rates`'s openIMIS Product model is explicitly
+    layered under, not competing with, Module 21's ERPNext Pricing Rules.
 
 *(Per the user's 2026-07-16 instruction to continue through all
 remaining Modules without pausing, module summaries from this point stay

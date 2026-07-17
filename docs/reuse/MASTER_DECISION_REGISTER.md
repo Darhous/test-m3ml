@@ -95,3 +95,6 @@ the current-state index.
 | 84 | 2026-07-16 | Payments and Treasury | payment-gateway-abstraction | BUILD (per-gateway adapters) + REFERENCE (Omnipay pattern) | No stack-neutral OSS product exists; Fawry/Paymob are Vendor decisions, not OSS; same reasoning as Module 4's device-protocol-adapters | — |
 | 85 | 2026-07-16 | Payments and Treasury | cashbox-treasury-management | ENGINE + ADAPTER (shared ERPNext) | Native Bank/Cash Account + reconciliation; extends ERPNext into its 4th Module | — |
 | 86 | 2026-07-16 | Payments and Treasury | refund-processing | BUILD (thin composition) + ENGINE + ADAPTER (shared) | Composes payment-gateway-abstraction's refund calls with ERPNext's Credit Note reversal | — |
+| 87 | 2026-07-16 | Insurance and Corporate Contracts | eligibility-verification | ENGINE + ADAPTER: openIMIS (AGPL-3.0) | Purpose-built, modular, FHIR-based, Digital Public Good, 13M+ beneficiaries/12+ countries; not Core Domain so no ADR-0011 conflict | — |
+| 88 | 2026-07-16 | Insurance and Corporate Contracts | claims-management | ENGINE + ADAPTER (shared openIMIS) | Claims is openIMIS's originally-strongest module | — |
+| 89 | 2026-07-16 | Insurance and Corporate Contracts | corporate-contract-rates | ENGINE + ADAPTER (shared openIMIS) | Native Product/Contract model; layers with Module 21's ERPNext Pricing Rules, explicitly disambiguated | — |

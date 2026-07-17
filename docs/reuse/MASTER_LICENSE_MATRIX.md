@@ -63,3 +63,4 @@ commercial model as currently understood.
 | OpenProcurement | Apache License 2.0 | `Apache-2.0` | No | Clear | Not selected — government-tender scale mismatch |
 | Omnipay | MIT | `MIT` | No | Clear | Architecture Reference only, not a code dependency |
 | Nafezly/payments | MIT | `MIT` | No | Clear | Not selected — confidence, not license |
+| openIMIS | AGPL 3.0 | `AGPL-3.0-only` | Yes (network-use-triggered) | Conditional, `Requires Legal Verification` | Selected as whole-system Engine (module-level adoption) |
