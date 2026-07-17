@@ -65,11 +65,11 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 *(Updated after every Module — see individual Module completion notes
 for the detailed count.)*
 
-- Modules fully researched: **23 of 28**
-- Features fully researched: **89 of 106** (88 decided, 1 explicitly
+- Modules fully researched: **24 of 28**
+- Features fully researched: **92 of 106** (91 decided, 1 explicitly
   blocked — `home-collection-logistics`)
-- Repositories evaluated: **64** (adds openIMIS and the FHIR
-  Claim/Coverage/EligibilityRequest resource family)
+- Repositories evaluated: **64** (unchanged — Module 24 fully reused
+  ERPNext)
 - Estimated total effort-hours identified as reusable: **not numerically
   estimated** — no invented number, per the No-Guessing Rule; the
   qualitative conclusion (universal-dependency Feature, mature enterprise-
@@ -397,6 +397,17 @@ for the detailed count.)*
     A 3rd proactive duplicate avoidance (after Modules 19 and 21):
     `corporate-contract-rates`'s openIMIS Product model is explicitly
     layered under, not competing with, Module 21's ERPNext Pricing Rules.
+
+39. **Accounting's own `external-erp-integration` Feature is literally
+    Wave 3's open Native/Integration/Deferred question** — this program
+    resolves it concretely rather than leaving it abstract: Integration,
+    specifically to ERPNext (already adopted across 4 prior Modules),
+    not a bespoke ledger and not deferred. ERPNext now spans 5 Modules
+    (Procurement, Supplier Management, Billing, Payments and Treasury,
+    Accounting), the broadest single-Engine footprint in the program
+    after Keycloak. This is a direct, named instance of the program
+    closing a Discovery-era open question with concrete evidence, the
+    kind of finding `open-questions.md`/`decisions.md` should absorb.
 
 *(Per the user's 2026-07-16 instruction to continue through all
 remaining Modules without pausing, module summaries from this point stay

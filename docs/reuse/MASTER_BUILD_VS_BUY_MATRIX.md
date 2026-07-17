@@ -97,3 +97,6 @@ Feature's own `10-final-decision.md`; this is the roll-up index.
 | Insurance and Corporate Contracts | eligibility-verification | ENGINE + ADAPTER | openIMIS | High — Digital Public Good, module-level adoption | Decided |
 | Insurance and Corporate Contracts | claims-management | ENGINE + ADAPTER (shared openIMIS) | openIMIS | Medium | Decided |
 | Insurance and Corporate Contracts | corporate-contract-rates | ENGINE + ADAPTER (shared openIMIS) | openIMIS | Medium | Decided |
+| Accounting | general-ledger | ENGINE + ADAPTER (shared ERPNext) | ERPNext | High — resolves Wave 3's Native/Integration/Deferred question | Decided |
+| Accounting | expense-tracking | ENGINE + ADAPTER (shared ERPNext) | ERPNext | Low-Medium | Decided |
+| Accounting | external-erp-integration | INTEGRATION (with ERPNext) | ERPNext | High — this Feature IS the boundary decision, now answered | Decided |

@@ -236,9 +236,9 @@ in the program's own instructions (`inventory/` → `stock/`, `barcode/`,
 
 | Feature | Source Capabilities | Status |
 |---|---|---|
-| `general-ledger` | Accounting, Costing | Pending |
-| `expense-tracking` | Expenses | Pending |
-| `external-erp-integration` | (the Native/Integration/Deferred boundary itself) | Pending |
+| `general-ledger` | Accounting, Costing | Researched |
+| `expense-tracking` | Expenses | Researched |
+| `external-erp-integration` | (the Native/Integration/Deferred boundary itself) | Researched — resolves to Integration (ERPNext) |
 
 ## 25. Workforce Management (Business Module — Generic)
 

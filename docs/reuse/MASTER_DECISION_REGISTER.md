@@ -98,3 +98,6 @@ the current-state index.
 | 87 | 2026-07-16 | Insurance and Corporate Contracts | eligibility-verification | ENGINE + ADAPTER: openIMIS (AGPL-3.0) | Purpose-built, modular, FHIR-based, Digital Public Good, 13M+ beneficiaries/12+ countries; not Core Domain so no ADR-0011 conflict | — |
 | 88 | 2026-07-16 | Insurance and Corporate Contracts | claims-management | ENGINE + ADAPTER (shared openIMIS) | Claims is openIMIS's originally-strongest module | — |
 | 89 | 2026-07-16 | Insurance and Corporate Contracts | corporate-contract-rates | ENGINE + ADAPTER (shared openIMIS) | Native Product/Contract model; layers with Module 21's ERPNext Pricing Rules, explicitly disambiguated | — |
+| 90 | 2026-07-16 | Accounting | general-ledger | ENGINE + ADAPTER (shared ERPNext) | Directly confirms Wave 3's "Integration-leaning" classification; ERPNext's General Ledger auto-posts from all 5 prior Modules | — |
+| 91 | 2026-07-16 | Accounting | expense-tracking | ENGINE + ADAPTER (shared ERPNext) | Native Expense Claim doctype, posts to General Ledger | — |
+| 92 | 2026-07-16 | Accounting | external-erp-integration | INTEGRATION (with ERPNext) | This Feature's own definition (the Native/Integration/Deferred boundary) is answered concretely by this program's evidence: Integration, specifically to ERPNext, not left abstract | — |
