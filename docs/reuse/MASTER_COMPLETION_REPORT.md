@@ -7,8 +7,13 @@ program's closing record.
 
 - **28 of 28 Modules** researched (`MASTER_FEATURE_CATALOG.md`)
 - **106 of 106 Features** classified — 105 with a Final Decision, 1
-  (`home-collection-logistics`) honestly left blocked on
-  `open-questions.md` #6, per the No-Guessing Rule
+  (`home-collection-logistics`) honestly left blocked at program-close
+  time on `open-questions.md` #6, per the No-Guessing Rule.
+  **Update (2026-07-18, Open Questions Resolution phase): #6 is
+  resolved (Offline Mode Required); this Feature is architecturally
+  unblocked. Its Build-vs-Buy classification still awaits a scoped,
+  implementation-level micro-assessment — see `MASTER_BUILD_VS_BUY_
+  MATRIX.md` and `docs/certification/20-OPEN-QUESTIONS-RESOLUTION.md`.**
 - **1,378 Feature-level files** written (106 Features × 13 required
   files each), independently verified by file count
 - **18 Global Knowledge Base documents** at `docs/reuse/` root: the 16
@@ -29,7 +34,7 @@ program's closing record.
 | BUILD | Laboratory Execution's worklist/QC/calibration Aggregates, all of Quality Management, payment-gateway-abstraction |
 | LIBRARY | FullCalendar, Prophet, ZXing, pgvector |
 | Deferred (deliberately, not guessed) | `clinical-report-generation`'s specific templating library (stack-dependent) |
-| Blocked (honestly, not guessed) | `home-collection-logistics` (Open Question #6) |
+| Blocked at program-close (honestly, not guessed); unblocked 2026-07-18 | `home-collection-logistics` — architectural blocker resolved (Open Question #6); classification pending implementation-level micro-assessment |
 | CONTROLLED FORK / SDK | Not used this program — no Feature's evidence supported these classifications; not forced to appear for completeness |
 
 ## Most Consequential Findings

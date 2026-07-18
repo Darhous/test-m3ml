@@ -5,7 +5,8 @@
 **Fact, surfaced directly rather than silently assumed away:** the
 Technology Baseline's 21 ratified Engines (`docs/architecture-review/
 02-TECHNOLOGY-BASELINE.md`) contain **no dedicated API Gateway
-product** — no Kong, Tyk, KrakenD, Envoy, Apigee, or equivalent has
+product, as of Part 1's own authoring** (superseded — see below) — no
+Kong, Tyk, KrakenD, Envoy, Apigee, or equivalent has
 been evaluated or ratified. The "Public API Gateway" named in
 Constitution Section 11's Accepted Independent Component list is an
 **architectural role**, not yet a **technology decision** — those are
@@ -19,6 +20,19 @@ eventual Gateway product must do — and records the product-selection
 gap as a new item in `.claude/context/open-questions.md` (#28) rather
 than guessing a product, consistent with the No-Guessing Rule
 (CLAUDE.md Section 3).
+
+**Superseded, 2026-07-18 (Open Questions Resolution + Pre-SAD Baseline
+Correction):** Open Question #28 is resolved. **Kong Gateway is the
+approved Version 1 API Gateway product selection**, now a Technology
+Baseline entry. This gap section is preserved as the historical record
+of Part 1's own scope — the architectural responsibilities and
+boundaries below remain fully valid and are what Kong Gateway is
+required to satisfy; only the "no product selected" framing is
+superseded. See `docs/certification/20-OPEN-QUESTIONS-RESOLUTION.md`
+and `docs/certification/25-PRE-SAD-CLEAN-CLOSURE.md` for the decision
+and its governance status (an approved product selection, not subject
+to re-evaluation during SAD authoring — only to implementation due
+diligence).
 
 ## Routing
 

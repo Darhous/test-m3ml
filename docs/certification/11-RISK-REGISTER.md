@@ -25,7 +25,7 @@ risks, and are excluded from this register accordingly).
 | R-11 | SLA commitments cannot yet be made honestly | No production telemetry exists to set real numeric targets | N/A | Medium | Medium | Defer all numeric SLA/SLO targets until `27-OBSERVABILITY.md` pipeline is live and Open Question #4 answered | SAD authors | Open | `docs/api-platform/28, 30` |
 | R-12 | Marketplace/Public API access contingent on unmade business decision | Architecture does not presuppose the platform will monetize a public developer ecosystem | N/A | Low (no commitment made) | Low | No architecture work should proceed on Marketplace/Public API until the business decision is made | Product/Business function (outside this Board's authority) | Open | `docs/api-platform/24, 30` |
 | R-13 | Egypt regulatory research incomplete | Cross-Border Transfer (Law 151/2020), Labor Law/Social Insurance impact on Payroll, National ID field requirement all `Requires Legal Verification` | Medium | Medium-High | Medium | Dedicated legal research pass, not yet performed | Legal/Compliance | Open | `.claude/context/open-questions.md` #25-27 |
-| R-14 | Home-collection-logistics remains the one undecided Feature | Blocked on Open Question #6 (Offline Mode requirement) | N/A | Low-Medium | Low-Medium | Await business/product clarification on Offline Mode requirement | Specimen Operations, Scheduling and Encounters | Open | `docs/reuse/home-collection-logistics/10-final-decision.md` |
+| R-14 | Home-collection-logistics Build-vs-Buy classification pending | **Resolved 2026-07-18: Open Question #6 answered (Offline Mode = Required, D-48); 0 architectural blockers remain.** Residual scope narrowed to an implementation-level Build-vs-Buy micro-assessment (which local-first sync library/engine) — not an architectural question | N/A | Low-Medium | Low-Medium | Scoped implementation-level micro-assessment during SAD/implementation phase | Specimen Operations, Scheduling and Encounters | **Reduced (Open, non-architectural)** | `docs/reuse/home-collection-logistics/10-final-decision.md`, `20-OPEN-QUESTIONS-RESOLUTION.md` |
 | R-15 | Core Domain (ADR-0011) and Bounded Context Map (ADR-0012) remain Proposed | Business-strategy question (Specimen Management alternative) not yet resolved by any architecture phase | N/A | Medium (SAD-readiness impact) | Medium | **Resolved 2026-07-18: both ADRs confirmed Accepted via explicit user review in Open Questions Resolution phase (D-40, D-41); Specimen Management alternative gap disclosed, not concealed, in ADR-0011's own Amendment section** | User / Product Strategy | **Closed** | `docs/adr/0011, 0012`, `20-OPEN-QUESTIONS-RESOLUTION.md` |
 
 ## Governance Enhancement — Resolution Gates for High and Medium-High Risks
@@ -52,8 +52,12 @@ table above.
 ## Risk Summary by Severity
 
 **Updated 2026-07-18 (Open Questions Resolution):** R-06, R-09, R-10,
-and R-15 are now Closed (see their rows above). Counts below reflect
-open risks only.
+and R-15 are now Closed (see their rows above). **Further updated
+2026-07-18 (Pre-SAD Baseline Correction):** R-14's architectural
+blocker is resolved; it remains Open only as a non-architectural,
+implementation-level tracking item (severity unchanged, Low-Medium) —
+not counted as Closed since a real (smaller) residual item remains.
+Counts below reflect open risks only.
 
 | Severity | Count | IDs |
 |---|---|---|

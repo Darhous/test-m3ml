@@ -48,13 +48,18 @@ audit time.
 | `CHANGELOG.md` | v1 and v2 version history |
 | `REVIEW-REPORT.md` | Internal quality review + v2 Addendum |
 
-## `docs/adr/` (12 files)
+## `docs/adr/` (14 files)
 
 `0001-modular-monolith-first.md` through `0010-arabic-english-and-
-localization-first.md` (Accepted), `0011-core-domain-test-processing-
-and-result-verification.md`, `0012-candidate-bounded-context-map.md`
-(both Proposed — Amended). Full certification: `docs/certification/
-04-ADR-CERTIFICATION.md`.
+localization-first.md`, `0011-core-domain-test-processing-and-result-
+verification.md`, `0012-candidate-bounded-context-map.md`,
+`0013-postgresql-as-primary-relational-database.md`,
+`0014-disaster-recovery-and-business-continuity-baseline.md` — **all 14
+Accepted**. (0011/0012 were Proposed — Amended at this audit's original
+authoring; promoted to Accepted 2026-07-18 in the Open Questions
+Resolution phase. 0013/0014 added 2026-07-18 in the Pre-SAD Baseline
+Correction phase.) Original certification: `docs/certification/
+04-ADR-CERTIFICATION.md` (historical record, preserved).
 
 ## `docs/discovery/` (99 files)
 
@@ -100,7 +105,7 @@ files), `16-CONTRACT-FIRST.md` through `33-PART2-EXECUTIVE-SUMMARY.md`
 | `07-SECURITY-CERTIFICATION.md` | Architectural security risk review |
 | `08-LICENSING-CERTIFICATION.md` | License cross-consistency |
 | `09-SAFE-FIXES-APPLIED.md` | 3 documentation fixes, full justification |
-| `10-DECISION-REGISTER.md` | 39 unified decisions |
+| `10-DECISION-REGISTER.md` | 43 unified decisions |
 | `11-RISK-REGISTER.md` | 15 unified risks |
 | `12-OPEN-QUESTIONS-REGISTER.md` | 31 questions, prioritized and timed |
 | `13-PROJECT-MEMORY.md` | Complete project history and knowledge preservation |
@@ -115,7 +120,14 @@ files), `16-CONTRACT-FIRST.md` through `33-PART2-EXECUTIVE-SUMMARY.md`
 | `22-ARCHITECTURE-BASELINE-FREEZE.md` | Formal freeze of the complete architectural baseline |
 | `23-SAD-READINESS-MATRIX.md` | All 25 planned SAD sections rated Ready/Partially Ready/Missing Inputs |
 | `24-REPOSITORY-MODIFICATION-REPORT.md` | Files touched in the Architecture Readiness Review phase |
-| `25-EXECUTIVE-CONCLUSION.md` | READY FOR SOFTWARE ARCHITECTURE DOCUMENT verdict |
+| `25-EXECUTIVE-CONCLUSION.md` | READY FOR SOFTWARE ARCHITECTURE DOCUMENT verdict (superseded by `25-PRE-SAD-CLEAN-CLOSURE.md` below — historical record preserved) |
+| `25-PRE-SAD-CLEAN-CLOSURE.md` | Pre-SAD Baseline Correction closure report: decision-count correction, Kong/OpenBao governance clarification, ADR-0013/0014, consistency sweep, final SAD readiness conclusion |
+
+**Note on the shared "25" prefix:** `25-EXECUTIVE-CONCLUSION.md` (Architecture
+Readiness Review) and `25-PRE-SAD-CLEAN-CLOSURE.md` (Pre-SAD Baseline
+Correction) are two distinct files from two distinct phases that happen to
+share a numeric prefix under this repository's per-phase numbering
+convention; neither is a duplicate or a replacement filename for the other.
 
 ## Relationship Between Every Artifact Tree
 

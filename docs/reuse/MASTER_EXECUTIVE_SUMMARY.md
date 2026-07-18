@@ -66,9 +66,13 @@ save 1000 hours, reuse it" directive — not in arbitrary catalog order:
 for the detailed count.)*
 
 - Modules fully researched: **28 of 28 — PROGRAM COMPLETE**
-- Features fully researched: **106 of 106** (105 decided, 1 explicitly
-  blocked — `home-collection-logistics`, Module 13, pending
-  `open-questions.md` #6)
+- Features fully researched: **106 of 106** (105 decided, 1 —
+  `home-collection-logistics`, Module 13 — at program-close time
+  explicitly blocked pending `open-questions.md` #6. **Update
+  (2026-07-18): #6 resolved, Feature architecturally unblocked;
+  Build-vs-Buy classification pending a scoped implementation-level
+  micro-assessment — see `docs/certification/
+  25-PRE-SAD-CLEAN-CLOSURE.md`.**)
 - Repositories evaluated: **69** (adds Kill Bill and Lago)
 - Estimated total effort-hours identified as reusable: **not numerically
   estimated** — no invented number, per the No-Guessing Rule; the

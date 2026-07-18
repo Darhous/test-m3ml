@@ -142,20 +142,24 @@ Questions Resolution" (2026-07-18) — التفاصيل الكاملة في
 
 ## أسئلة جديدة أُضيفت أثناء API Platform & Developer Ecosystem Strategy – Part 1 (2026-07-18)
 
-28. **ما منتج API Gateway المحدد الذي سيُعتمد؟** (مثل Kong, Tyk, KrakenD,
-    Envoy, Apigee...) — لا يوجد أي منتج API Gateway مُقيَّم أو مُعتمَد ضمن
-    الـTechnology Baseline المُجمَّد (21 Engine). "Public API Gateway" مذكور
-    في Constitution Section 11 كـ**دور معماري** (Independent Component)
-    فقط، وليس قرار تقنية. اختيار منتج فعلي هو قرار Build-vs-Buy يقع خارج
-    صلاحية `docs/api-platform/` (انظر `10-API-GATEWAY.md`). لا يُفترض أي
-    منتج بالتخمين.
-29. **ما محرك إدارة الأسرار (Secrets/Vault Engine) الذي سيُعتمد؟** (مثل
-    HashiCorp Vault, Infisical...) — نفس الفجوة أعلاه، لا يوجد أي محرك
-    Secrets/Vault ضمن الـTechnology Baseline. انظر `docs/api-platform/
-    12-SECRETS-AND-KEYS.md` للمتطلبات السلوكية المطلوبة من أي محرك
-    مستقبلي، دون تحديد منتج. **[API Platform Part 2]** HashiCorp Vault
-    غيّر ترخيصه من MPL-2.0 إلى BUSL 1.1 في 2023 — عامل إضافي يستدعي
-    تقييمًا مخصصًا يشبه انضباط مراجعة AGPL المعتمد في هذا المشروع. انظر
+28. **RESOLVED (2026-07-18, Open Questions Resolution + Pre-SAD Baseline
+    Correction): Kong Gateway هو منتج API Gateway المعتمد للإصدار
+    الأول** — أُضيف إلى Technology Baseline. لا يُعاد تقييمه معماريًا أثناء
+    SAD؛ يخضع فقط لـ Implementation Due Diligence (انظر
+    `docs/certification/25-PRE-SAD-CLEAN-CLOSURE.md`). النص الأصلي
+    (تاريخي): ما منتج API Gateway المحدد الذي سيُعتمد؟ (مثل Kong, Tyk,
+    KrakenD, Envoy, Apigee...) — لا يوجد أي منتج API Gateway مُقيَّم أو
+    مُعتمَد ضمن الـTechnology Baseline المُجمَّد (21 Engine). "Public API
+    Gateway" مذكور في Constitution Section 11 كـ**دور معماري**
+    (Independent Component) فقط، وليس قرار تقنية.
+29. **RESOLVED (2026-07-18, Open Questions Resolution + Pre-SAD Baseline
+    Correction): OpenBao هو محرك Secrets/Vault المعتمد للإصدار الأول**
+    (MPL-2.0، يتجنب مخاطرة ترخيص BUSL 1.1 الخاصة بـ HashiCorp Vault) —
+    أُضيف إلى Technology Baseline. لا يُعاد تقييمه معماريًا أثناء SAD؛
+    يخضع فقط لـ Implementation Due Diligence (انظر `docs/certification/
+    25-PRE-SAD-CLEAN-CLOSURE.md`). النص الأصلي (تاريخي): ما محرك إدارة
+    الأسرار الذي سيُعتمد؟ (مثل HashiCorp Vault, Infisical...) — انظر
+    `docs/api-platform/12-SECRETS-AND-KEYS.md`،
     `docs/api-platform/31-ENTERPRISE-PRODUCT-DECISIONS.md` #2.
 
 ## أسئلة جديدة أُضيفت أثناء API Platform & Developer Ecosystem Strategy – Part 2 (2026-07-18)

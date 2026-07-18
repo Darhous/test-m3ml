@@ -85,6 +85,14 @@ Inventory Management's control — "the Catalog" — is consistent with
 
 **This audit independently agrees with all 7 verdicts in `31`.**
 
+**Update (2026-07-18, Open Questions Resolution / Pre-SAD Baseline
+Correction):** the API Gateway and Secrets/Vault "Open" verdicts above
+were accurate as of this audit. Both are now resolved — API Gateway =
+Kong Gateway (D-44), Secrets/Vault = OpenBao (D-45) — with governance
+status clarified in `22-ARCHITECTURE-BASELINE-FREEZE.md`. This table is
+preserved unmodified as the historical record of this audit's own
+independent re-verification.
+
 ## Certification Verdict
 
 **PASS.** All 34 API Platform documents present, internally consistent,

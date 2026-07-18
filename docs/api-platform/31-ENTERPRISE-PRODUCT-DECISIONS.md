@@ -15,7 +15,15 @@ per this phase's explicit instruction not to guess. This produced 3
 Recommendations and 4 Open categories — a genuine, not reflexive,
 split.
 
-## 1. API Gateway — **OPEN**
+## 1. API Gateway — **OPEN at Part 2 authoring — Superseded 2026-07-18**
+
+**Superseded**: Open Question #28 is resolved — **Kong Gateway is the
+approved Version 1 API Gateway product selection**
+(`docs/certification/20-OPEN-QUESTIONS-RESOLUTION.md`,
+`25-PRE-SAD-CLEAN-CLOSURE.md`), now a Technology Baseline entry. The
+original "OPEN, insufficient evidence" finding below is preserved as
+the historical record of this document's own authoring — it is not
+rewritten, only superseded.
 
 **Insufficient evidence.** As already established in
 `10-API-GATEWAY.md`, no Gateway product (Kong, Tyk, Envoy, KrakenD,
@@ -31,7 +39,15 @@ not a Build-vs-Buy result, and naming Envoy on pattern-matching alone
 would be exactly the guess this instruction forbids). **Recorded as
 Open Question #28** (Part 1).
 
-## 2. Secrets/Vault Engine — **OPEN**
+## 2. Secrets/Vault Engine — **OPEN at Part 2 authoring — Superseded 2026-07-18**
+
+**Superseded**: Open Question #29 is resolved — **OpenBao is the
+approved Version 1 Secrets Management product selection**
+(`docs/certification/20-OPEN-QUESTIONS-RESOLUTION.md`,
+`25-PRE-SAD-CLEAN-CLOSURE.md`), now a Technology Baseline entry,
+directly consistent with this section's own original observation below
+naming OpenBao "a credible open alternative." The original finding is
+preserved as historical record, not rewritten.
 
 **Insufficient evidence**, and one specific piece of general knowledge
 this Board surfaces as directly relevant rather than silently omits:
@@ -130,8 +146,8 @@ API contract.
 
 | Category | Outcome | Confidence |
 |---|---|---|
-| API Gateway | OPEN (#28) | — |
-| Secrets/Vault | OPEN (#29) | — |
+| API Gateway | OPEN at authoring, **Superseded 2026-07-18 — Kong Gateway approved** | — (historical) |
+| Secrets/Vault | OPEN at authoring, **Superseded 2026-07-18 — OpenBao approved** | — (historical) |
 | Developer Portal | OPEN (#30, new) | — |
 | API Documentation Platform | Redoc, **conditional** on RTL verification | Medium |
 | API Analytics | OPEN (#31, new) — question is need, not just product | — |

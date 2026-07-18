@@ -16,7 +16,7 @@ full.
 | D-02 | Domain-Driven Design | ADR-0002 | Accepted | D-01 | All domain-modeling documents |
 | D-03 | Schema per Module | ADR-0003 | Accepted | D-01, D-02 | `docs/api-platform/02, 16, 17` |
 | D-04 | Event-Driven Integration (RabbitMQ) | ADR-0004 | Accepted | D-02 | `docs/api-platform/18` |
-| D-05 | Hybrid Tenant Isolation | ADR-0005 | Accepted | — | `docs/api-platform/14`, Open Question #15 |
+| D-05 | Hybrid Tenant Isolation | ADR-0005 | Accepted | — | `docs/api-platform/14`; partitioning detail resolved, see D-42 |
 | D-06 | Independent Device Gateway | ADR-0006 | Accepted | D-02 | `docs/api-platform/02, 08` |
 | D-07 | Governed AI Gateway, Human-in-the-Loop | ADR-0007 | Accepted | — | `docs/api-platform/03, 11` |
 | D-08 | Unified Login and Policy-Based Access (Keycloak + OPA) | ADR-0008 | Accepted | — | `docs/api-platform/08, 09` |
@@ -24,12 +24,17 @@ full.
 | D-10 | Arabic/English and Localization First | ADR-0010 | Accepted | — | `docs/api-platform/05` |
 | D-11 | Core Domain: Patient-to-Result Orchestration | ADR-0011 | **Accepted (superseded 2026-07-18 — see D-40)** | — | `docs/architecture-review/10`, `docs/api-platform/15`, `20-OPEN-QUESTIONS-RESOLUTION.md` |
 | D-12 | Bounded Context Map (28 contexts, Hybrid Modeled/Recognized) | ADR-0012 | **Accepted (superseded 2026-07-18 — see D-41)** | D-11 | `docs/reuse/` Module structure, `20-OPEN-QUESTIONS-RESOLUTION.md` |
+| — | PostgreSQL as Primary Relational Database | ADR-0013 | Accepted (2026-07-18) | D-03, D-05 | See D-56 below for full detail |
+| — | Disaster Recovery and Business Continuity Baseline | ADR-0014 | Accepted (2026-07-18) | — | See D-57 below for full detail |
 
-## Technology Baseline Decisions (Frozen, EARB phase)
+**14/14 ADRs Accepted, 0 Proposed** (updated 2026-07-18 — was 12/12 at
+the Architecture Readiness Review, ADR-0013/0014 added this cycle).
+
+## Technology Baseline Decisions (Frozen, EARB phase; extended 2026-07-18)
 
 | ID | Decision | Status | Count |
 |---|---|---|---|
-| D-13 | 21 Engines ratified (19 fully, 2 conditionally: Eramba, Mirth Connect) | Frozen | 21 |
+| D-13 | 24 Engines ratified (19 fully + 2 conditionally from EARB, plus 3 added 2026-07-18: Kong Gateway, OpenBao, PostgreSQL, all fully) | Frozen (extended 2026-07-18, see D-58) | 24 |
 | D-14 | 4 Libraries ratified | Frozen | 4 |
 | D-15 | 5 Reference Standards adopted | Frozen | 5 |
 | D-16 | 0 third-party SDKs ratified (confirmed absence) | Frozen | 0 |
@@ -60,8 +65,8 @@ full.
 
 | ID | Decision Category | Count | Status |
 |---|---|---|---|
-| D-34 | Features decided (Build/Reuse-Engine/Reuse-Library/Reference) | 105/106 | Ratified via EARB freeze (D-13 through D-15) |
-| D-35 | Features blocked (home-collection-logistics) | 1/106 → 0/106 | **Unblocked 2026-07-18 — Open Question #6 resolved (D-48, Offline Mode Required)** |
+| D-34 | Features with a Final Build-vs-Buy Decision (Build/Reuse-Engine/Reuse-Library/Reference) | 105/106 | Ratified via EARB freeze (D-13 through D-15); `home-collection-logistics` pending a scoped implementation-level micro-assessment (not an architectural blocker — see D-35) |
+| D-35 | Features with an architectural blocker | **0/106** | `home-collection-logistics` unblocked 2026-07-18 — Open Question #6 resolved (D-48, Offline Mode Required). Its Build-vs-Buy *classification* is a separate, implementation-level tracking item, not an architectural open question. |
 | D-36 | Duplicate Features detected and resolved | 9/9 | Resolved (2 reactive, 7 proactive) |
 
 ## This Certification Audit's Own Decisions
@@ -98,11 +103,23 @@ now made), D-35 (home-collection-logistics now unblocked).
 | D-54 | Expected usage volume = launch-scale Operational Assumption, no fixed number | Operational Assumption | Recorded |
 | D-55 | AGPL legal review outcome = remains Legal Dependency, not resolved by this Board | Legal Dependency | Unchanged, tracked |
 
+## Pre-SAD Baseline Correction Decisions (2026-07-18)
+
+| ID | Decision | Classification | Status |
+|---|---|---|---|
+| D-56 | PostgreSQL formally adopted as the primary relational database engine (ADR-0013) | Accepted Decision | Accepted — closes `23-SAD-READINESS-MATRIX.md` Data Architecture gap |
+| D-57 | Disaster Recovery and Business Continuity baseline adopted: 4-tier criticality classification, backup/recovery principles, no final RPO/RTO numbers (ADR-0014) | Accepted Decision (framework); numeric targets remain Pending Business/Regulatory/Workload dependencies | Accepted — closes `23-SAD-READINESS-MATRIX.md` Disaster Recovery gap |
+| D-58 | Kong Gateway and OpenBao added to Technology Baseline as ratified Engines (E22, E23); PostgreSQL added as E24 | Accepted Decision | Accepted — Technology Baseline now 24 Engines / 33 total entries |
+| D-59 | Kong and OpenBao governance status: approved Version 1 product selections, not subject to architectural re-evaluation during SAD, only to implementation due diligence | Accepted Decision | Accepted |
+
 ## Decision Quality Summary
 
-- **Total decisions tracked in this register: 39** (12 governing +
-  6 Baseline + 15 API Platform + 3 Reuse-summary + 3 this-audit).
+- **Total decisions tracked in this register: 43** (12 governing +
+  6 Baseline + 15 API Platform + 3 Reuse-summary + 3 EARB-audit + 4
+  Pre-SAD Baseline Correction).
 - **Every decision cites a traceable source document** — verified,
   zero orphan decisions (a decision with no cited evidence) found.
-- **Every non-decision (D-26, D-30, D-31, D-32, D-33) is explicit**,
-  not a silent gap — each has a named Open Question ID.
+- **Every non-decision (D-26, D-32, D-33) is explicit**,
+  not a silent gap — each has a named Open Question ID or Dependency
+  classification (D-30, D-31 are no longer non-decisions — see D-58/
+  D-59).

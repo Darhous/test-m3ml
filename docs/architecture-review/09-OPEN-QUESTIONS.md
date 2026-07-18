@@ -32,6 +32,13 @@ Section 3) — asserting an answer without confirmed input would be
 exactly the failure mode the project's Context Store discipline exists
 to prevent.
 
+**Resolved 2026-07-18 (Open Questions Resolution):** the product owner
+(the user) confirmed Offline Mode is Required (D-48). This entry is
+preserved as the accurate record of why this Board could not close it —
+see `docs/certification/20-OPEN-QUESTIONS-RESOLUTION.md` for the
+resolution and `docs/certification/25-PRE-SAD-CLEAN-CLOSURE.md` for
+confirmation that 0 architectural blockers remain.
+
 ### #14 — What is the platform's Core Domain? (ADR-0011)
 
 **Status: REMAINS OPEN at the ADR level** (`Proposed — Amended`, not

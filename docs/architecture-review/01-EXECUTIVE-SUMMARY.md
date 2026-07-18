@@ -35,6 +35,13 @@ the 9 Detected Duplicates from the reuse program were re-verified as
 genuinely resolved (2 reactive, 7 proactive), not merely claimed
 resolved.
 
+**Update (2026-07-18, Pre-SAD Baseline Correction):** this 30-entry/21-
+Engine count is preserved as the accurate record of this EARB freeze.
+The Technology Baseline was subsequently extended to 24 Engines / 33
+entries (Kong Gateway, OpenBao, PostgreSQL added) under this document's
+own Amendment Process — see `docs/certification/
+22-ARCHITECTURE-BASELINE-FREEZE.md`.
+
 **One decision is downgraded from "Approved" to "Conditionally
 Approved, Reconsider at SAD"**: `Eramba Community` for
 `compliance-tracking` (Audit and Compliance) — the reuse program itself

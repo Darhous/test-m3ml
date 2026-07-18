@@ -145,7 +145,7 @@ in the program's own instructions (`inventory/` → `stock/`, `barcode/`,
 | `specimen-accessioning` | Samples | Researched |
 | `barcode-labeling` | Samples (derived) | Researched |
 | `chain-of-custody` | Samples, Outsourced Tests | Researched |
-| `home-collection-logistics` | Home Visits | Researched (blocked — see `10-final-decision.md`) |
+| `home-collection-logistics` | Home Visits | Researched (architecturally unblocked 2026-07-18; Build-vs-Buy classification pending implementation-level micro-assessment — see `10-final-decision.md`) |
 
 ## 14. Laboratory Execution (Business Module — Core)
 
@@ -295,9 +295,18 @@ across sessions until the Stop Conditions were met.
 
 **Status update (Enterprise Architecture Certification Audit, 2026-07-18):**
 all 106/106 Features are now `Researched` (105 fully decided, 1 —
-`home-collection-logistics` — researched but explicitly blocked, see its
-own `10-final-decision.md`), matching `MASTER_COMPLETION_REPORT.md` and
-`MASTER_DECISION_REGISTER.md`. This catalog's Status column previously
-lagged 44 Features behind actual completion (a stale-index defect found
-and corrected during this audit — see `docs/certification/09-SAFE-FIXES-APPLIED.md`);
+`home-collection-logistics` — researched, at that time explicitly
+blocked, see its own `10-final-decision.md`), matching
+`MASTER_COMPLETION_REPORT.md` and `MASTER_DECISION_REGISTER.md`.
+
+**Further update (Pre-SAD Baseline Correction, 2026-07-18, same day):**
+`home-collection-logistics`'s architectural blocker (`open-questions.md`
+#6, Offline Mode) is now resolved — 106/106 Features have 0 architectural
+blockers. Its Build-vs-Buy classification remains pending a scoped,
+implementation-level micro-assessment, distinct from an architectural
+open question. See `docs/certification/25-PRE-SAD-CLEAN-CLOSURE.md`.
+
+This catalog's Status column previously lagged 44 Features behind
+actual completion (a stale-index defect found and corrected during the
+Certification Audit — see `docs/certification/09-SAFE-FIXES-APPLIED.md`);
 it is now the accurate single source of truth for what remains.

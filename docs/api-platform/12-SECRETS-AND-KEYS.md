@@ -15,6 +15,17 @@ This document defines the **required secret-management behavior**
 that any future Vault-style Engine, or an interim managed-cloud
 equivalent, must satisfy — not a specific product.
 
+**Superseded, 2026-07-18 (Open Questions Resolution + Pre-SAD Baseline
+Correction):** Open Question #29 is resolved. **OpenBao is the
+approved Version 1 Secrets Management product selection**, now a
+Technology Baseline entry. The required behavior below remains fully
+valid and is what OpenBao is required to satisfy; only the "no product
+selected" framing is superseded. See `docs/certification/
+20-OPEN-QUESTIONS-RESOLUTION.md` and `docs/certification/
+25-PRE-SAD-CLEAN-CLOSURE.md` — an approved product selection, not
+subject to re-evaluation during SAD authoring, only to implementation
+due diligence.
+
 ## Secret Management
 
 **Recommendation.** Every credential the platform holds toward an

@@ -16,7 +16,12 @@ every consuming Module. *Review Cycle* follows Constitution Section 55's
 Evolution Strategy discipline: Annual for stable/low-risk adoptions,
 Semi-Annual for AGPL/tentative/frozen-release adoptions.
 
-## A. Engines (21)
+## A. Engines (24)
+
+**E1-E21 ratified at the original EARB freeze (2026-07-17). E22-E24
+added 2026-07-18 (Pre-SAD Baseline Correction phase), authorized as the
+"subsequent EARB review cycle" this document's own Amendment Process
+permits** (see `12-DECISION-FREEZE.md`) — not a silent edit.
 
 | # | Technology | Category | Decision | Approved Version | License | Upgrade Policy | Replacement Candidate | Risk | Owner (Single Adoption Point) | Review Cycle | ADR Reference |
 |---|---|---|---|---|---|---|---|---|---|---|---|
@@ -41,6 +46,9 @@ Semi-Annual for AGPL/tentative/frozen-release adoptions.
 | E19 | Frappe Helpdesk | Support/Ticketing Engine | APPROVED | Latest stable | AGPL-3.0 | Hold pending legal review — **license-drift from Frappe HR/ERPNext, do not assume inherited clearance** | Zammad, osTicket (not evaluated this pass) | Medium — AGPL, `Requires Legal Verification` | CRM and Support | Semi-Annual | — |
 | E20 | Frappe CRM | Sales/Contact CRM Engine | APPROVED | Latest stable | AGPL-3.0 | Hold pending legal review — same license-drift caveat as E19 | Not evaluated this pass | Medium — AGPL, `Requires Legal Verification` | CRM and Support | Semi-Annual | — |
 | E21 | Kill Bill | Subscription/SaaS Billing Engine | APPROVED | Latest stable | Apache-2.0 | Track upstream | Lago (AGPL, credible modern fallback) | Low — clean license, 10+ years enterprise-proven | SaaS Commercial Operations | Annual | — |
+| E22 | Kong Gateway | API Gateway Engine | **APPROVED (added 2026-07-18, Pre-SAD Baseline Correction)** | OSS/Community Edition, latest stable | Apache-2.0 | Track upstream | Envoy (Apache-2.0, CNCF Graduated — lower-level proxy alternative) | Low — matches this Baseline's demonstrated Apache-2.0 pattern | API Platform (Public API Gateway Independent Component) | Annual | ADR reference: none dedicated — approved via Open Questions Resolution (D-44) and this Baseline addition, per `docs/certification/20-OPEN-QUESTIONS-RESOLUTION.md` |
+| E23 | OpenBao | Secrets/Vault Engine | **APPROVED (added 2026-07-18, Pre-SAD Baseline Correction)** | Latest stable | MPL-2.0 | Track upstream; re-verify OSS status given recency of the HashiCorp Vault BUSL fork event | HashiCorp Vault (BUSL 1.1 since 2023, not preferred) | Low-Medium — young fork, re-verify community health annually | API Platform (Secrets Management) | Annual | ADR reference: none dedicated — approved via Open Questions Resolution (D-45) and this Baseline addition |
+| E24 | PostgreSQL | Primary Relational Database Engine | **APPROVED (added 2026-07-18, Pre-SAD Baseline Correction)** | Latest stable | PostgreSQL License | Track upstream | N/A — no exception approved | Low — clean permissive license, already the implicit basis for R4 (RLS) and L1 (pgvector) | Cross-cutting (every Module via Schema per Module, ADR-0003) | Annual | ADR-0013 |
 
 ## B. Libraries (4)
 
@@ -60,19 +68,24 @@ data-model, protocol, or architecture patterns adopted by reference, per
 
 | # | Standard | Category | Decision | Version/Edition | License | Upgrade Policy | Replacement Candidate | Risk | Owner | Review Cycle | ADR Reference |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| R1 | HL7 FHIR Resource Family (Patient, Practitioner, ServiceRequest/Task, Encounter, Specimen, DiagnosticReport, Claim, Coverage, EligibilityRequest/Response) | Clinical Data Model Standard | APPROVED | FHIR R4 (assumed — **not explicitly version-pinned by the reuse program, flagged below**) | HL7 FHIR License | Track HL7 releases | N/A — industry standard | Low — but see `11-RISKS.md` R-06 (version not pinned) | Patient Management (originating Adoption Point, reused across 7 Modules) | Annual | ADR-0011 (Core Domain, Proposed-Amended — see `10-ADR-REVIEW.md`) |
+| R1 | HL7 FHIR Resource Family (Patient, Practitioner, ServiceRequest/Task, Encounter, Specimen, DiagnosticReport, Claim, Coverage, EligibilityRequest/Response) | Clinical Data Model Standard | APPROVED | **FHIR R4 — formally pinned 2026-07-18** (Open Questions Resolution, D-43; R-06 closed) | HL7 FHIR License | Track HL7 releases | N/A — industry standard | Low — version now pinned, R-06 closed | Patient Management (originating Adoption Point, reused across 7 Modules) | Annual | ADR-0011 (Core Domain — **Accepted** 2026-07-18, see `10-ADR-REVIEW.md` and `docs/certification/20-OPEN-QUESTIONS-RESOLUTION.md`) |
 | R2 | LOINC | Diagnostic Test Coding Standard | APPROVED | Latest release | Regenstrief free-use license | Track Regenstrief releases | N/A | Low | Diagnostic Ordering | Annual | — |
 | R3 | Westgard Rules | Statistical QC Methodology | APPROVED | N/A — public methodology | Public, not licensed software | N/A | N/A | Low | Laboratory Execution | N/A | — |
-| R4 | PostgreSQL Row-Level Security | Multi-Tenancy Data-Isolation Pattern | APPROVED (Reference, not a resolution) | N/A — database-native feature | PostgreSQL License | Tied to PostgreSQL's own release cycle | Schema-per-tenant (the SAD's still-open alternative) | Medium — feeds but does not resolve Open Question #15 | Tenant and Organization Management | N/A until `open-questions.md` #15 resolved | ADR-0005 |
+| R4 | PostgreSQL Row-Level Security | Multi-Tenancy Data-Isolation Pattern | APPROVED — **shared-tier partitioning mechanism formally decided 2026-07-18** (RLS + tenant-ID column, Open Questions Resolution D-42; Open Question #15 resolved) | N/A — database-native feature, engine formally adopted as E24 (ADR-0013) | PostgreSQL License | Tied to PostgreSQL's own release cycle | Schema-per-tenant (documented fallback for the Dedicated tier only, not a live alternative for the Shared tier) | Low — decision made, no longer an open resolution gap | Tenant and Organization Management | Annual | ADR-0005, ADR-0013 |
 | R5 | Omnipay adapter-pattern architecture | Payment Gateway Abstraction Pattern | APPROVED (architecture Reference only) | N/A — not a code dependency | MIT (informational only) | N/A | N/A | Low | Payments and Treasury | N/A | — |
 
 ## Summary Counts
 
-- **Engines ratified: 21** (19 fully Approved, 2 Conditionally Approved
-  — Eramba, and Mirth Connect's frozen-release status carried forward
-  as a standing High risk, not a rejection)
+**Updated 2026-07-18 (Pre-SAD Baseline Correction).** Original EARB
+freeze counts preserved in `12-DECISION-FREEZE.md` as the historical
+record of that specific freeze event; counts below are current.
+
+- **Engines ratified: 24** (21 from the original EARB freeze — 19 fully
+  Approved, 2 Conditionally Approved (Eramba, Mirth Connect) — plus 3
+  added this cycle: Kong Gateway, OpenBao, PostgreSQL, all fully
+  Approved)
 - **Libraries ratified: 4**
 - **Reference Standards ratified: 5**
-- **Total Technology Baseline entries: 30**
+- **Total Technology Baseline entries: 33**
 - **SDKs ratified: 0** (see `05-SDK-BASELINE.md`)
 - **Controlled Forks ratified: 0** (see `06-FORK-BASELINE.md`)

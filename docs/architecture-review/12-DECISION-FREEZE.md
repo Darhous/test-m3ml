@@ -56,6 +56,16 @@ unilateral choice, however well-justified it seems in the moment** — the
 entire point of a frozen baseline is that the same license/maintenance/
 security due diligence is not re-litigated Module-by-Module.
 
+**Update (2026-07-18, Pre-SAD Baseline Correction):** this Amendment
+Process's path 2 (a subsequent EARB review cycle) was formally invoked
+to *extend* — not change — the Baseline: 3 new Engines (Kong Gateway,
+OpenBao, PostgreSQL) were added, closing the previously-Open API
+Gateway, Secrets/Vault, and relational-database decisions. This
+document's own 30-entry/21-Engine count is preserved as the accurate
+record of the original EARB freeze; the current count (33 entries, 24
+Engines) is in `docs/architecture-review/02-TECHNOLOGY-BASELINE.md` and
+`docs/certification/22-ARCHITECTURE-BASELINE-FREEZE.md`.
+
 ## Freeze Contents Cross-Reference
 
 | Document | Role in the Freeze |

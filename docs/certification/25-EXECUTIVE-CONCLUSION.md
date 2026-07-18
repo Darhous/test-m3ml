@@ -2,6 +2,18 @@
 
 # READY FOR SOFTWARE ARCHITECTURE DOCUMENT
 
+**Superseded, 2026-07-18 (Pre-SAD Baseline Correction):** this document
+is preserved unmodified as the historical record of the Architecture
+Readiness Review's own conclusion. Two gaps it identified (Data
+Architecture / no formal PostgreSQL statement, and Disaster Recovery /
+Missing Inputs) were subsequently closed by ADR-0013 and ADR-0014. The
+ADR count (12), Technology Baseline count (30 entries), and SAD
+Readiness Matrix figures (19/5/1) below are this review's own point-in-
+time findings — the current, superseding figures (14 ADRs, 33 entries,
+21/4/0) are in `docs/certification/25-PRE-SAD-CLEAN-CLOSURE.md`, this
+cycle's own closure document, which shares this file's numeric prefix
+by coincidence of the original mission's naming, not by relation.
+
 ## Justification
 
 **Architecture Consistency**: PASS. Zero contradictions found across

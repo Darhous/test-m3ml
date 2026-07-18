@@ -61,7 +61,7 @@ Feature's own `10-final-decision.md`; this is the roll-up index.
 | Specimen Operations | specimen-accessioning | REFERENCE (FHIR Specimen) + BUILD | N/A | Medium — pending Module 14 reconciliation | Decided |
 | Specimen Operations | barcode-labeling | LIBRARY (ZXing or equivalent) | ZXing | Medium | Decided (general-knowledge basis, flag for re-confirmation) |
 | Specimen Operations | chain-of-custody | BUILD (event-chain, feeds immudb) | N/A | Medium | Decided |
-| Specimen Operations | home-collection-logistics | **DEFERRED** — blocked on `open-questions.md` #6 | N/A | Unknown | Blocked |
+| Specimen Operations | home-collection-logistics | **PENDING MICRO-ASSESSMENT** — `open-questions.md` #6 resolved 2026-07-18 (Offline Mode Required, D-48); no architectural blocker remains. Classification itself awaits a scoped, implementation-level Build-vs-Buy micro-assessment for offline/local-first sync technology (not yet performed) | N/A | Unknown | Unblocked, classification pending implementation-level assessment |
 | Laboratory Execution | worklist-management | REFERENCE (OpenELIS primary, SENAITE secondary) + BUILD | N/A — wholesale adoption of both evaluated and rejected (Core Domain) | High — resolves Modules 12-13's deferred decision | Decided |
 | Laboratory Execution | analyzer-middleware-integration | ENGINE + ADAPTER (shared Mirth/Camel, Module 4) + BUILD | Mirth Connect / Apache Camel | Medium — Cross-Feature Dependency | Decided |
 | Laboratory Execution | quality-control-tracking | REFERENCE (Westgard rules + SENAITE module design) + BUILD | N/A | Medium | Decided |
@@ -115,6 +115,11 @@ Feature's own `10-final-decision.md`; this is the roll-up index.
 | SaaS Commercial Operations | white-label-branding | BUILD + REFERENCE (consolidation) | N/A (4 prior Engines) | Low — no new research needed | Decided |
 | SaaS Commercial Operations | saas-billing | ENGINE + ADAPTER (shared Kill Bill) | Kill Bill | Medium — distinct from Module 21 | Decided |
 
-**Program complete: 106 of 106 Features decided** (105 Final Decisions +
-1 explicitly blocked — `home-collection-logistics`, Module 13, pending
-`open-questions.md` #6).
+**Program complete: 106 of 106 Features processed, 0 architectural
+blockers remain** (105 Final Decisions + `home-collection-logistics`,
+Module 13, architecturally unblocked 2026-07-18 per `open-questions.md`
+#6's resolution — its Build-vs-Buy *classification* still awaits a
+scoped implementation-level micro-assessment, which is distinct from an
+architectural open question; see `docs/certification/
+20-OPEN-QUESTIONS-RESOLUTION.md` and `docs/certification/
+25-PRE-SAD-CLEAN-CLOSURE.md`).

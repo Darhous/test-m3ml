@@ -40,6 +40,10 @@
 | 0010 | Arabic/English and Localization First | Accepted | `docs/adr/0010-arabic-english-and-localization-first.md` |
 | 0011 | Core Domain — Patient-to-Result Orchestration | **Accepted** (2026-07-18, Open Questions Resolution phase) | `docs/adr/0011-core-domain-test-processing-and-result-verification.md` |
 | 0012 | Bounded Context Map (28: 9 Modeled + 19 Recognized) | **Accepted** (2026-07-18, Open Questions Resolution phase) | `docs/adr/0012-candidate-bounded-context-map.md` |
+| 0013 | PostgreSQL as the Primary Relational Database | **Accepted** (2026-07-18, Pre-SAD Baseline Correction) | `docs/adr/0013-postgresql-as-primary-relational-database.md` |
+| 0014 | Disaster Recovery and Business Continuity Baseline | **Accepted** (2026-07-18, Pre-SAD Baseline Correction) | `docs/adr/0014-disaster-recovery-and-business-continuity-baseline.md` |
+
+**14 ADRs total, 14 Accepted, 0 Proposed.**
 
 **ملاحظة حول ADR 0011/0012:** كانا Proposed منذ Discovery حتى مرحلة "Open
 Questions Resolution" (2026-07-18)، حيث راجعهما المستخدم صراحةً وأكّدهما —
