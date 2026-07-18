@@ -31,7 +31,7 @@ system.
 | 7 | Enterprise Adoption Review Board (EARB) | `docs/architecture-review/` (14 files) | Technology Baseline FROZEN: 21 Engines, 4 Libraries, 5 Reference Standards; 0 SDKs, 0 Forks ratified; AGPL checklist established |
 | 8 | API Platform Strategy — Part 1 | `docs/api-platform/00-15` (16 files) | API-First architecture, domain inventory, governance, standards, auth, security foundation |
 | 9 | API Platform Strategy — Part 2 | `docs/api-platform/16-33` (18 files) | Contract-First tooling, webhooks, SDK strategy, Developer Portal, Marketplace, commercial loop; 3/7 tooling categories recommended, 4 left open |
-| 10 | **Enterprise Architecture Certification Audit (this phase)** | `docs/certification/` (19 files) | Full repository audit, 3 documentation defects found and fixed, 0 architectural contradictions, PASS WITH CONDITIONS |
+| 10 | **Enterprise Architecture Certification Audit + Closure (this phase)** | `docs/certification/` (20 files) | Full repository audit, 3 documentation defects found and fixed, 0 architectural contradictions, PASS WITH CONDITIONS; closure pass corrected register arithmetic and clarified Conditions vs. Dependencies |
 
 **Next authorized phase**: Software Architecture Document (SAD) —
 **not started**, requires explicit separate authorization per this

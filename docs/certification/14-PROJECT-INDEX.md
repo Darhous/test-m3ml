@@ -22,7 +22,7 @@ audit time.
     ├── reuse/                   1,396 files — Build-vs-Buy/Reuse Intelligence
     ├── architecture-review/     14 files — Enterprise Adoption Review (EARB)
     ├── api-platform/            34 files — API Platform Strategy Parts 1-2
-    └── certification/           19 files — this Enterprise Architecture Certification Audit
+    └── certification/           20 files — Enterprise Architecture Certification Audit + Closure Pass
 ```
 
 ## `.claude/context/` (9 files) — The Context Store
@@ -86,7 +86,7 @@ files), `16-CONTRACT-FIRST.md` through `33-PART2-EXECUTIVE-SUMMARY.md`
 (Part 2, 18 files). Full certification: `docs/certification/
 06-API-CERTIFICATION.md`.
 
-## `docs/certification/` (19 files) — This Audit
+## `docs/certification/` (20 files) — This Audit + Closure Pass
 
 | File | Purpose |
 |---|---|
@@ -109,6 +109,7 @@ files), `16-CONTRACT-FIRST.md` through `33-PART2-EXECUTIVE-SUMMARY.md`
 | `16-EXECUTIVE-DOSSIER.md` | Board/CTO-level summary |
 | `17-READINESS-SCORES.md` | Quantified readiness scores |
 | `18-CERTIFICATION-REPORT.md` | Formal certification report + final decision |
+| `19-CERTIFICATION-CLOSURE-REPORT.md` | Final pre-SAD cleanup closure report (documentation corrections + governance enhancements, no architectural change) |
 
 ## Relationship Between Every Artifact Tree
 

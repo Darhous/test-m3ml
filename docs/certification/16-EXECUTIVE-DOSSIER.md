@@ -46,6 +46,11 @@ verification.
 2. **Three infrastructure product selections outstanding** (API
    Gateway, Secrets/Vault, Developer Portal) — architecturally specified,
    not product-selected; each requires its own scoped Build-vs-Buy pass.
+   **Of these, only API Gateway and Secrets/Vault are formal
+   Certification Conditions; Developer Portal is a lower-priority,
+   tracked Dependency, not a condition of this certification's verdict**
+   — see `18-CERTIFICATION-REPORT.md`'s "Formal Certification Conditions
+   vs. Additional SAD Section Finalization Dependencies."
 3. **AGPL legal review has not actually occurred** — the checklist is
    ready; formal legal counsel has not yet acted on it.
 4. **A handful of stale documentation artifacts existed** (found and
@@ -73,8 +78,10 @@ reach: **R-15, Core Domain/Bounded Context Map still Proposed.**
 
 ## Remaining Work Before SAD Can Fully Finalize
 
-10 items, listed in full in `15-SAD-INPUT-PACKAGE.md` — none blocks SAD
-work from *starting*; several block *finalizing* specific SAD sections
+10 items, listed in full in `15-SAD-INPUT-PACKAGE.md` (marked there
+with ⚑ for the 5 that also happen to be formal Certification
+Conditions — see that document) — none blocks SAD work from
+*starting*; several block *finalizing* specific SAD sections
 (tenancy partitioning, FHIR version, exit strategies, AGPL terms,
 Arabic/RTL verification, Eramba reconsideration, 3 product selections,
 SLA numerics, Core Domain resolution).
@@ -87,9 +94,12 @@ SLA numerics, Core Domain resolution).
    formal legal review (R-04) and the Core Domain business-strategy
    review (R-15/Open Question #14) — these are the two items whose
    late resolution would cause the most SAD rework if deferred too far.
-3. **Schedule the three scoped Build-vs-Buy micro-assessments** (API
-   Gateway, Secrets/Vault, Developer Portal) as early SAD-phase
-   workstreams, not afterthoughts.
+3. **Schedule scoped Build-vs-Buy micro-assessments for API Gateway
+   and Secrets/Vault** (the two formal Certification Conditions) as
+   early, high-priority SAD-phase workstreams. Developer Portal may be
+   assessed on the same timeline for efficiency but is a lower-priority
+   Dependency, not a formal condition — do not treat it with equal
+   urgency to the other two.
 4. **Do not commit to any numeric SLA, rate-limit, or deprecation
    figure** until real usage/production data exists — this is a
    deliberate architectural position, not a gap, and should be

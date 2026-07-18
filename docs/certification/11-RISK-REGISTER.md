@@ -28,6 +28,27 @@ risks, and are excluded from this register accordingly).
 | R-14 | Home-collection-logistics remains the one undecided Feature | Blocked on Open Question #6 (Offline Mode requirement) | N/A | Low-Medium | Low-Medium | Await business/product clarification on Offline Mode requirement | Specimen Operations, Scheduling and Encounters | Open | `docs/reuse/home-collection-logistics/10-final-decision.md` |
 | R-15 | Core Domain (ADR-0011) and Bounded Context Map (ADR-0012) remain Proposed | Business-strategy question (Specimen Management alternative) not yet resolved by any architecture phase | N/A | Medium (SAD-readiness impact) | Medium | Requires explicit user review and Constitution §45 Amendment process — not an architecture-phase decision | User / Product Strategy | Open | `docs/adr/0011, 0012`, `docs/api-platform/15` |
 
+## Governance Enhancement — Resolution Gates for High and Medium-High Risks
+
+Added this closure pass, per explicit instruction to strengthen
+governance information without changing any risk's Description,
+Likelihood, Impact, Severity, Mitigation, Owner, or Status — all five
+fields above remain exactly as the certification audit recorded them.
+This table adds four new governance fields for the 5 risks rated High
+or Medium-High.
+
+| ID | Resolution Gate | Expected Resolution Phase | Required Approval Authority | Closure Evidence |
+|---|---|---|---|---|
+| R-02 | An Apache Camel migration path is budgeted and scheduled (or upstream Mirth Connect resumes free security patching) | SAD (budgeting/scheduling decision) — full technical resolution at Implementation | Device Integration Gateway Module Owner + Architecture Review Board | SAD's Device Integration Gateway section documents an approved migration path with a committed trigger condition, OR a dated upstream vendor announcement resuming free patching is filed against this risk |
+| R-04 | Formal legal counsel opinion issued on all 5 AGPL-3.0 Engines' network-use posture | Before SAD finalizes terms-of-service language for any AGPL-backed API Product (early SAD-phase workstream, per this Board's standing top recommendation) | Enterprise Legal/Compliance function (outside this Board's authority) | A signed, dated legal opinion per Engine filed against `docs/architecture-review/08-AGPL-LEGAL-CHECKLIST.md`, with each of the 5 items marked Cleared or Rejected-with-rationale |
+| R-07 | License confirmed (directly or via legal counsel) for both Novu and Documenso | Same legal-review workstream as R-04, before SAD finalizes the Notification Service / Document Management API Products | Enterprise Legal/Compliance | Confirmed SPDX license identifier recorded for both Engines, updating `08-AGPL-LEGAL-CHECKLIST.md` items 6-7 from Unconfirmed to a named license |
+| R-08 | An Exit Strategy subsection is drafted and approved for each of the 7 Tier-1 Engines (Keycloak, OPA, ERPNext, OpenBoxes, Kill Bill, Frappe HR, openIMIS) | During SAD — already named in `docs/architecture-review/11-RISKS.md` as an explicit SAD-authored deliverable | Architecture Review Board | SAD contains a dedicated Exit Strategy subsection per Tier-1 Engine, each specifying data-export format, API-compatibility assumptions, and cutover sequencing |
+| R-13 | A dedicated legal research pass is completed for all 3 Egypt-market items (Cross-Border Transfer/Law 151-2020, Labor/Social Insurance impact on Payroll, National ID field requirement) | Item 1 (data residency): Before SAD finalizes data-residency architecture. Item 2 (Payroll): Before SAD finalizes the Payroll Module, or During/After SAD if Payroll is confirmed non-v1-critical. Item 3 (National ID): Before SAD finalizes the Patient Management data model | Egypt-market Legal Counsel | Each of the 3 findings recorded in `.claude/context/open-questions.md` #25-27, moved from Open to Answered with a citation to the underlying legal source |
+
+**No risk's substantive assessment changed.** This table is purely
+additive governance metadata, verifiable against the unmodified risk
+table above.
+
 ## Risk Summary by Severity
 
 | Severity | Count | IDs |

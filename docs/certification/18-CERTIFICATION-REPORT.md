@@ -69,8 +69,8 @@ Architecture Document content.
 | `docs/reuse/` | 1,396 | Reuse Intelligence |
 | `docs/architecture-review/` | 14 | EARB |
 | `docs/api-platform/` | 34 | API Platform Parts 1-2 |
-| `docs/certification/` | 19 | This audit |
-| **Total** | **1,622** | (1,607 pre-audit + this audit's own 19 minus 4 already-counted skill/context overlaps — see `14-PROJECT-INDEX.md` for exact accounting) |
+| `docs/certification/` | 20 | This audit + closure pass (`19-CERTIFICATION-CLOSURE-REPORT.md` added post-audit) |
+| **Total** | **1,627** | 1,607 pre-audit files (which already include `.claude/context/` and `.claude/skills/`, both listed above for tree-level clarity, not double-counted in this Total) + 20 `docs/certification/` files. See `14-PROJECT-INDEX.md` for the full per-tree breakdown. |
 
 Full detail: `14-PROJECT-INDEX.md`.
 
@@ -174,8 +174,12 @@ verification, none falsely marked resolved anywhere. Full detail:
 Frozen Technology Baseline (30 entries) unmodified since EARB;
 correctly treated as fixed input by both API Platform Parts; 3 new
 infrastructure-tooling gaps honestly surfaced (Gateway, Vault,
-Developer Portal) rather than guessed. Full detail: `01-FULL-
-ENTERPRISE-AUDIT.md` §8.
+Developer Portal) rather than guessed. **Of these 3, only 2 (Gateway,
+Vault) rise to the status of a formal Certification Condition below —
+Developer Portal remains a lower-priority, tracked SAD dependency, not
+a certification condition; see "Formal Certification Conditions vs.
+Additional SAD Section Finalization Dependencies" below.** Full detail:
+`01-FULL-ENTERPRISE-AUDIT.md` §8.
 
 ## Quality Review
 
@@ -196,9 +200,11 @@ Full detail: `09-SAFE-FIXES-APPLIED.md`.
 
 ## Open Issues
 
-31 Open Questions, 2 Critical (#4 expected usage volume, #14 Core
-Domain), 8 High priority. 0 silently closed by this audit. Full
-detail: `12-OPEN-QUESTIONS-REGISTER.md`.
+31 Open Questions: 2 Critical (#4 expected usage volume, #14 Core
+Domain), 8 High, 10 Medium, 11 Low (2+8+10+11=31, re-verified this
+closure pass — see `12-OPEN-QUESTIONS-REGISTER.md`'s corrected
+Classification Summary). 0 silently closed by this audit. Full detail:
+`12-OPEN-QUESTIONS-REGISTER.md`.
 
 ## Remaining Risks
 
@@ -212,8 +218,14 @@ detail: `11-RISK-REGISTER.md`.
 2. Initiate the AGPL formal legal review (R-04) and the Core Domain
    business-strategy resolution (Open Question #14) in parallel with
    SAD work, not as a precondition to starting it.
-3. Schedule 3 scoped Build-vs-Buy micro-assessments (API Gateway,
-   Secrets/Vault, Developer Portal) as early SAD-phase workstreams.
+3. Schedule scoped Build-vs-Buy micro-assessments for the two formal
+   Conditions (API Gateway, Secrets/Vault) as early, high-priority
+   SAD-phase workstreams. A third micro-assessment (Developer Portal)
+   is recommended on the same timeline for efficiency — it shares
+   evaluation criteria with the Gateway question — but is a lower-
+   priority Dependency, not a formal Condition; see "Formal
+   Certification Conditions vs. Additional SAD Section Finalization
+   Dependencies" above.
 4. Preserve the deliberate absence of numeric SLA/rate-limit/
    deprecation-window commitments until real usage data exists —
    this is a correct architectural position, not a gap to rush-close.
@@ -261,6 +273,65 @@ prior readiness assessment already on record in this repository
 4. AGPL formal legal review outcome (R-04)
 5. FHIR version pin (R-06)
 6. Tenant-partitioning technology detail (Open Question #15)
+
+### Formal Certification Conditions vs. Additional SAD Section Finalization Dependencies
+
+Added this closure pass to remove an ambiguity present in the original
+audit: this repository tracks **31 Open Questions** and **15 Risks**,
+of which **13 Open Questions block finalizing some specific SAD
+section** (`12-OPEN-QUESTIONS-REGISTER.md`'s Resolution-Timing Summary)
+and **5 Risks are High or Medium-High severity**
+(`11-RISK-REGISTER.md`). Only a small subset of that combined set is
+elevated to a **formal Condition of this certification's PASS WITH
+CONDITIONS verdict** — the 6 items listed above. The distinction
+matters because conflating "affects some future SAD section" with
+"is a condition of this certification" would understate how narrow
+and specific this audit's actual conditions are.
+
+**Why these 6, and not more:** each of the 6 formal Conditions was
+selected because it is either (a) one of the 2 Critical-priority Open
+Questions (#14), (b) one of the 2 High-severity Risks (R-04, folded
+into the AGPL condition), or (c) a High-priority Open Question this
+Board judged to have the broadest downstream blast radius across
+multiple SAD sections simultaneously if left unresolved too long
+(#28, #29, #15) or to carry a distinct, standing recommendation from
+a prior certified phase (R-06, carried from `docs/architecture-review/
+11-RISKS.md`).
+
+**Why the remaining items are Dependencies, not Conditions**, using
+Developer Portal as the explicit worked example this closure pass was
+asked to clarify:
+
+- **Developer Portal product selection (Open Question #30) is
+  correctly a Medium-priority, "During SAD or later" item — it is NOT
+  a formal Certification Condition, and no document in this repository
+  states otherwise once this closure pass's edits are applied.** It
+  appears in `docs/api-platform/22` and `31` (architecturally specified,
+  product not selected), in `15-SAD-INPUT-PACKAGE.md` item 7 (a
+  "must produce" item, explicitly distinguished there from the two
+  Conditions in the same bullet), and in `12-OPEN-QUESTIONS-REGISTER.md`
+  #30 (Medium priority). It is entangled with, and lower-urgency than,
+  Open Question #28 (API Gateway) — the SAD may reasonably resolve the
+  Gateway question first and let the Portal question follow, which is
+  why it was never elevated to a formal Condition. **It would only
+  become a formal Condition if a future certified document explicitly
+  established it as one** — no such document currently exists.
+- The same reasoning applies to every other item in
+  `15-SAD-INPUT-PACKAGE.md`'s 10-item "must produce" list that is not
+  among the 6 Conditions above: R-08 (exit strategy procedures),
+  Arabic/RTL Engine verification, the Eramba Community reconsideration
+  (R-01), and the Domain Vision Statement gap are all genuine,
+  tracked SAD dependencies — none of them is a condition of this
+  certification passing.
+
+**Practical implication for the next phase**: the SAD may begin
+immediately. The 6 formal Conditions should be tracked as the
+highest-priority parallel workstreams (per the Recommendations below).
+The broader set of ~20 additional dependencies (Open Questions plus
+Risk-driven items not listed as Conditions) should be tracked and
+resolved as each affected SAD section is actually drafted, not treated
+as a blocker to the SAD phase's start or as equal in urgency to the 6
+formal Conditions.
 
 ---
 

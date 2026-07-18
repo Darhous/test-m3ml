@@ -45,26 +45,56 @@ every prior phase's own restraint.
 
 ## Classification Summary
 
+Re-verified this closure pass by direct recount of the 31 per-row
+Priority values above (not re-derived, only mechanically recounted —
+no priority value was changed from the original register).
+
 | Priority | Count | IDs |
 |---|---|---|
 | Critical | 2 | #4, #14 |
 | High | 8 | #2, #6, #15, #19, #23, #25, #28, #29 |
-| Medium | 12 | #1, #9, #12, #16, #17, #21, #24, #26, #27, #30, plus #2/#25 borderline already counted |
-| Low | 9 | #3, #5, #7, #8, #10, #11, #13, #18, #20, #22, #31 (recount: totals to 31 across all bands) |
+| Medium | 10 | #1, #9, #12, #16, #17, #21, #24, #26, #27, #30 |
+| Low | 11 | #3, #5, #7, #8, #10, #11, #13, #18, #20, #22, #31 |
+
+**2 + 8 + 10 + 11 = 31.** Matches the per-row table exactly. (Prior
+version of this summary contained an arithmetic error — Medium was
+misstated as 12 and Low as 9, with a stray "#2/#25 borderline" note
+that did not correspond to any actual reclassification. No question's
+Priority value changed; only the summary's own count was corrected to
+match the table it summarizes.)
 
 ## Resolution-Timing Summary
 
-| Timing | Count | Notes |
+**Terminology clarification (this closure pass):** the timing bucket
+previously labeled "Before SAD" is renamed **"Blocks Finalization of a
+Specific SAD Section"** to remove any ambiguity with "blocks SAD from
+starting" — no question in this register blocks SAD work from
+starting; see `18-CERTIFICATION-REPORT.md`'s "Formal Certification
+Conditions vs. Additional SAD Section Finalization Dependencies"
+section for the authoritative statement of this distinction. Counts
+below are recounted directly from the per-row "Resolution Required"
+column (not re-derived; no question's resolution-timing description
+was changed).
+
+| Timing | Count | IDs |
 |---|---|---|
-| Before SAD (finalization-blocking for specific sections) | 10 | #2, #4, #6, #14, #19, #23, #25, #28, #29, and #15 partially (During, but flagged as an explicit early SAD deliverable) |
-| During SAD | 11 | #1, #3, #7, #8, #9, #12, #15, #16, #17, #21, #24, #26, #27, #30 (some overlap with Before-SAD list where a question has both an early and a residual component) |
-| Implementation Phase | 4 | #5, #10, #18, #20, #22 |
+| Blocks finalization of a specific SAD section | 13 | #2, #4, #6, #9, #12, #14, #17, #19, #23, #25, #27, #28, #29 |
+| During SAD (general drafting, no section-blocking urgency) | 10 | #1, #3, #7, #8, #15, #16, #21, #24, #26, #30 |
+| Implementation Phase | 6 | #5, #10, #11, #18, #20, #22 |
 | After SAD / Future Release | 2 | #13, #31 |
+
+**13 + 10 + 6 + 2 = 31.** Matches the per-row table exactly.
 
 **No question requires resolution before SAD work starts.** This
 matches every prior readiness assessment in this repository exactly —
-the two Critical items (#4, #14) block *finalizing* specific numeric/
-Core-Domain-dependent sections, not the SAD phase's ability to begin.
+the 13 section-finalization-blocking items (including both Critical
+items, #4 and #14) block *finalizing* specific sections once SAD work
+is underway, not the SAD phase's ability to begin. Of these 13, only 6
+rise to the status of a **formal Certification Condition** on this
+audit's PASS WITH CONDITIONS verdict — see `18-CERTIFICATION-REPORT.md`
+for exactly which 6 and why the other 7 (plus non-Open-Question items
+like R-08 and R-01) are tracked as SAD-input dependencies without being
+elevated to formal conditions.
 
 ## Explicit Reminder
 
