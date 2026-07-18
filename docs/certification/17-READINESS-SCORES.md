@@ -63,9 +63,13 @@ drivers, each already named as a tracked, non-blocking-to-start item:
 - FHIR version pin
 - Tenant-partitioning technology detail
 
-**Verdict at this score: CONDITIONALLY READY** — matching this audit's
-formal certification decision (`18-CERTIFICATION-REPORT.md`) and every
-prior phase's own readiness assessment.
+**Verdict at this score (2026-07-18, original certification):
+CONDITIONALLY READY.** All deduction drivers above except AGPL legal
+review were subsequently resolved in the Open Questions Resolution
+phase — see `20-OPEN-QUESTIONS-RESOLUTION.md` and `22-ARCHITECTURE-
+BASELINE-FREEZE.md` for current status. This score is preserved as the
+historical record of the original assessment, not recalculated
+retroactively.
 
 ## Blocking Issues — Explicitly Enumerated
 

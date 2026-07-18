@@ -22,7 +22,7 @@ audit time.
     ├── reuse/                   1,396 files — Build-vs-Buy/Reuse Intelligence
     ├── architecture-review/     14 files — Enterprise Adoption Review (EARB)
     ├── api-platform/            34 files — API Platform Strategy Parts 1-2
-    └── certification/           21 files — Certification Audit + Closure + Open Questions Resolution
+    └── certification/           26 files — Audit + Closure + Open Questions Resolution + ARR/Baseline Freeze
 ```
 
 ## `.claude/context/` (9 files) — The Context Store
@@ -86,7 +86,7 @@ files), `16-CONTRACT-FIRST.md` through `33-PART2-EXECUTIVE-SUMMARY.md`
 (Part 2, 18 files). Full certification: `docs/certification/
 06-API-CERTIFICATION.md`.
 
-## `docs/certification/` (21 files) — Audit + Closure + Open Questions Resolution
+## `docs/certification/` (26 files) — Audit + Closure + Open Questions Resolution + ARR/Baseline Freeze
 
 | File | Purpose |
 |---|---|
@@ -111,6 +111,11 @@ files), `16-CONTRACT-FIRST.md` through `33-PART2-EXECUTIVE-SUMMARY.md`
 | `18-CERTIFICATION-REPORT.md` | Formal certification report + final decision |
 | `19-CERTIFICATION-CLOSURE-REPORT.md` | Final pre-SAD cleanup closure report (documentation corrections + governance enhancements, no architectural change) |
 | `20-OPEN-QUESTIONS-RESOLUTION.md` | Resolution of all 31 Open Questions; ADR-0011/0012 promoted to Accepted; SAD authorization statement |
+| `21-ARCHITECTURE-READINESS-REVIEW.md` | Final pre-SAD readiness review across 6 review areas |
+| `22-ARCHITECTURE-BASELINE-FREEZE.md` | Formal freeze of the complete architectural baseline |
+| `23-SAD-READINESS-MATRIX.md` | All 25 planned SAD sections rated Ready/Partially Ready/Missing Inputs |
+| `24-REPOSITORY-MODIFICATION-REPORT.md` | Files touched in the Architecture Readiness Review phase |
+| `25-EXECUTIVE-CONCLUSION.md` | READY FOR SOFTWARE ARCHITECTURE DOCUMENT verdict |
 
 ## Relationship Between Every Artifact Tree
 

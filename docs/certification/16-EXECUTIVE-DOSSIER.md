@@ -60,9 +60,12 @@ verification.
 
 ## Readiness
 
-**CONDITIONALLY READY for Software Architecture Document work.** See
-`17-READINESS-SCORES.md` for quantified scores across 12 dimensions and
-`18-CERTIFICATION-REPORT.md` for the full formal certification.
+**CONDITIONALLY READY at time of original certification (2026-07-18).**
+Superseded by the Open Questions Resolution phase — see
+`20-OPEN-QUESTIONS-RESOLUTION.md` and `22-ARCHITECTURE-BASELINE-FREEZE.md`
+for current status. `17-READINESS-SCORES.md` and `18-CERTIFICATION-
+REPORT.md` remain the historical record of the original assessment and
+are not retroactively rewritten.
 
 ## Critical Risks
 
@@ -108,5 +111,6 @@ SLA numerics, Core Domain resolution).
 
 ## Certification Decision
 
-**PASS WITH CONDITIONS.** Full justification: `18-CERTIFICATION-
-REPORT.md`.
+**PASS WITH CONDITIONS at original certification.** Full justification:
+`18-CERTIFICATION-REPORT.md`. Superseded: see `22-ARCHITECTURE-
+BASELINE-FREEZE.md` for the current, frozen baseline status.
