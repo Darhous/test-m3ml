@@ -136,6 +136,21 @@
     Management؟** Recommendation مطروحة، غير مؤكدة — تحتاج بحثًا عن قواعد
     ربط الهوية الصحية المصرية.
 
+## أسئلة جديدة أُضيفت أثناء API Platform & Developer Ecosystem Strategy – Part 1 (2026-07-18)
+
+28. **ما منتج API Gateway المحدد الذي سيُعتمد؟** (مثل Kong, Tyk, KrakenD,
+    Envoy, Apigee...) — لا يوجد أي منتج API Gateway مُقيَّم أو مُعتمَد ضمن
+    الـTechnology Baseline المُجمَّد (21 Engine). "Public API Gateway" مذكور
+    في Constitution Section 11 كـ**دور معماري** (Independent Component)
+    فقط، وليس قرار تقنية. اختيار منتج فعلي هو قرار Build-vs-Buy يقع خارج
+    صلاحية `docs/api-platform/` (انظر `10-API-GATEWAY.md`). لا يُفترض أي
+    منتج بالتخمين.
+29. **ما محرك إدارة الأسرار (Secrets/Vault Engine) الذي سيُعتمد؟** (مثل
+    HashiCorp Vault, Infisical...) — نفس الفجوة أعلاه، لا يوجد أي محرك
+    Secrets/Vault ضمن الـTechnology Baseline. انظر `docs/api-platform/
+    12-SECRETS-AND-KEYS.md` للمتطلبات السلوكية المطلوبة من أي محرك
+    مستقبلي، دون تحديد منتج.
+
 ## ملاحظة
 
 هذه القائمة أولية وستنمو مع تقدم النقاش. لا تُفترض إجابات لهذه الأسئلة ولا تُبنى
