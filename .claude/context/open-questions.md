@@ -149,7 +149,25 @@
     HashiCorp Vault, Infisical...) — نفس الفجوة أعلاه، لا يوجد أي محرك
     Secrets/Vault ضمن الـTechnology Baseline. انظر `docs/api-platform/
     12-SECRETS-AND-KEYS.md` للمتطلبات السلوكية المطلوبة من أي محرك
-    مستقبلي، دون تحديد منتج.
+    مستقبلي، دون تحديد منتج. **[API Platform Part 2]** HashiCorp Vault
+    غيّر ترخيصه من MPL-2.0 إلى BUSL 1.1 في 2023 — عامل إضافي يستدعي
+    تقييمًا مخصصًا يشبه انضباط مراجعة AGPL المعتمد في هذا المشروع. انظر
+    `docs/api-platform/31-ENTERPRISE-PRODUCT-DECISIONS.md` #2.
+
+## أسئلة جديدة أُضيفت أثناء API Platform & Developer Ecosystem Strategy – Part 2 (2026-07-18)
+
+30. **ما منتج/منصة Developer Portal التي ستُعتمد؟** (مثل Backstage، بناء
+    مخصص، أو منصة مرتبطة بمنتج API Gateway المُختار) — لا يوجد تقييم
+    Build-vs-Buy لهذه الفئة. القرار متشابك جزئيًا مع السؤال #28 (بعض
+    منتجات API Gateway التجارية تُضمِّن Developer Portal). كذلك دعم
+    Arabic/RTL (ADR-0010) معيار تقييم فعلي غير مُتحقَّق منه لأي مرشّح.
+    انظر `docs/api-platform/31-ENTERPRISE-PRODUCT-DECISIONS.md` #3.
+31. **هل تحتاج المنصة أداة API Analytics مخصصة (مثل Moesif) أم يكفي
+    إعادة استخدام Apache Superset (E10، معتمد بالفعل ضمن Technology
+    Baseline)؟** لا توجد بيانات إنتاج فعلية بعد لتحديد كفاية Superset
+    لتحليلات API التفصيلية (تحليل حسب Consumer، كشف الشذوذ). السؤال هو
+    الحاجة أصلًا، وليس فقط اختيار المنتج. انظر `docs/api-platform/
+    31-ENTERPRISE-PRODUCT-DECISIONS.md` #5.
 
 ## ملاحظة
 
