@@ -79,8 +79,9 @@ reach: **R-15, Core Domain/Bounded Context Map still Proposed.**
 ## Remaining Work Before SAD Can Fully Finalize
 
 10 items, listed in full in `15-SAD-INPUT-PACKAGE.md` (marked there
-with ⚑ for the 5 that also happen to be formal Certification
-Conditions — see that document) — none blocks SAD work from
+with ⚑ — 5 grouped items in that list collectively represent all 6
+formal Certification Conditions, since one item groups 2 Conditions
+together; see that document) — none blocks SAD work from
 *starting*; several block *finalizing* specific SAD sections
 (tenancy partitioning, FHIR version, exit strategies, AGPL terms,
 Arabic/RTL verification, Eramba reconsideration, 3 product selections,

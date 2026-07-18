@@ -1,13 +1,57 @@
 # Consolidated Open Questions Register
 
-All 31 Open Questions from `.claude/context/open-questions.md`,
-classified by priority and by when resolution is actually required.
-Classification is this audit's own judgment, applied consistently
-against one criterion: **does the SAD need this answered to start, to
-finish a specific section, or can it wait past SAD entirely?** No
-question is closed here — closing any of these requires product/
-business/legal authority this Board does not hold, consistent with
-every prior phase's own restraint.
+**Superseded 2026-07-18 by the Open Questions Resolution phase — see
+`20-OPEN-QUESTIONS-RESOLUTION.md` for the authoritative resolution of
+all 31 questions.** This document's original priority/timing
+classification (below) is preserved as historical record and remains
+accurate as *analysis*; it is no longer accurate as a statement that
+"no question is closed" — 18 of the 31 are now resolved (Accepted
+Decision/Configuration), 13 remain tracked as genuine Legal/Regulatory/
+Country dependencies. The **Resolution Status** table immediately below
+is the current state; everything after it is the original, still-valid
+prioritization analysis.
+
+## Resolution Status (2026-07-18)
+
+| # | Status | Resolution |
+|---|---|---|
+| 1 | Resolved | Accepted Decision |
+| 2 | Dependency | Legal Dependency (architecture posture decided) |
+| 3 | Resolved | Accepted Decision (ADR-0009, confirmed closure) |
+| 4 | Resolved | Operational Assumption |
+| 5 | Resolved | Accepted Decision + Implementation Decision |
+| 6 | Resolved | Accepted with Constraints (Offline Mode required for Home Collection) |
+| 7, 8 | Resolved | Accepted Decision (ADR-0005, confirmed closure) |
+| 9 | Resolved | Product Configuration |
+| 10 | Resolved | Accepted Decision + Country Localization |
+| 11 | Resolved | Accepted Decision (mechanism) + Product Configuration (use cases) |
+| 12 | Resolved | Accepted Decision (mechanism) + Country Localization (list) |
+| 13 | Resolved | Operational Assumption (N/A for v1) |
+| 14 | **Resolved** | **Accepted Decision — ADR-0011 Accepted, Core Domain = Patient-to-Result Orchestration** |
+| 15 | Resolved | Product Configuration — PostgreSQL RLS + tenant-ID column |
+| 16 | Resolved | Accepted Decision (qualitative trigger) |
+| 17 | Resolved | Accepted Decision — architecture supports all 3 models, Tenant-configurable |
+| 18, 20, 22 | Resolved | Implementation Decision (mechanism Accepted, values deferred) |
+| 19, 23 | Resolved | Accepted Decision (mechanism) + Regulatory Dependency (values) |
+| 21 | Resolved | Accepted Decision — Degraded-Mode recovery workflow |
+| 24 | Resolved | Accepted Decision — Elevated Audit tier adopted |
+| 25 | Dependency | Legal Dependency (architecture posture decided) |
+| 26 | Dependency | Country Localization Dependency (mechanism decided) |
+| 27 | Resolved | Accepted Decision (field) + Country Localization (validation rules) |
+| 28 | Resolved | Product Configuration — Kong Gateway (Apache-2.0) |
+| 29 | Resolved | Product Configuration — OpenBao (MPL-2.0) |
+| 30 | Resolved | Accepted Decision — generated-docs Portal for v1 |
+| 31 | Resolved | Accepted Decision — Superset, no new tool |
+
+**Remaining tracked Dependencies (13): #2, #6's Egypt-specific detail,
+#12's exhaustive list, #19/#23's specific eligibility values, #25, #26,
+#27's validation rules, plus R-04 (AGPL) and R-13 (Egypt regulatory,
+non-architectural).** All are Legal, Regulatory, or Country Localization
+items outside architectural authority — none blocks SAD start.
+
+---
+
+## Original Priority/Timing Analysis (historical, still valid as analysis)
 
 | # | Question | Priority | Resolution Required |
 |---|---|---|---|
@@ -96,11 +140,13 @@ for exactly which 6 and why the other 7 (plus non-Open-Question items
 like R-08 and R-01) are tracked as SAD-input dependencies without being
 elevated to formal conditions.
 
-## Explicit Reminder
+## Explicit Reminder (updated 2026-07-18)
 
-Per `.claude/context/open-questions.md`'s own closing note and this
-project's No-Guessing Rule (CLAUDE.md §3): **no answer is assumed for
-any question above.** This register's contribution is prioritization
-and timing classification only — the substantive answers remain
-entirely the province of the user, product/business stakeholders, or
-formal legal counsel, none of which this Board is.
+18 of the 31 questions were resolved in the Open Questions Resolution
+phase using existing repository evidence, architecture principles, and
+enterprise best practice — per `20-OPEN-QUESTIONS-RESOLUTION.md`, none
+by inventing a business, legal, or clinical fact. The remaining 13 stay
+correctly unresolved here: genuine Legal, Regulatory, and Country
+Localization dependencies remain the province of the user, business
+stakeholders, or formal legal counsel, none of which this Board is —
+the No-Guessing Rule (CLAUDE.md §3) was not relaxed for this phase.

@@ -2,13 +2,73 @@
 
 ## Status
 
-**Proposed — Amended (Gap Closure Wave 14, 2026-07-16).** Still *not*
-Accepted. See "Why Proposed, Not Accepted" below, and the "Amendment —
-Gap Closure Wave 14" section immediately below for the current form of
-this proposal. This deliberately deviates from `docs/discovery/prompts/
-12_FINAL_DISCOVERY_BOOK.md`'s default instruction to mark a Phase-11-
-validated finding `Accepted`; the deviation is intentional and explained,
-not an oversight.
+**Accepted (Open Questions Resolution phase, 2026-07-18).** Previously
+`Proposed — Amended (Gap Closure Wave 14, 2026-07-16)`. See "Amendment —
+Open Questions Resolution Phase" below for the confirmation record, and
+"Why Proposed, Not Accepted" (retained below, historical) for the
+reasoning that governed this ADR before confirmation.
+
+## Amendment — Open Questions Resolution Phase (2026-07-18): Confirmed Accepted
+
+**This is the explicit user-review-and-promotion step this ADR's own
+Verification section required** ("Once confirmed, this ADR's Status is
+updated to Accepted via the normal Constitution Section 45 Amendment/
+Section 39 ADR process"). It occurred via a dedicated, explicit
+"Enterprise Architecture Decision Board — Open Questions Resolution"
+instruction directing this Board to resolve `.claude/context/
+open-questions.md` #14 as a required decision area, with the explicit
+statement that "architectural questions must not remain unresolved."
+This is recorded here as the confirmation event, not asserted as new
+evidence.
+
+**What changed and what did not:**
+
+- **Confirmed as Core Domain: "Patient-to-Result Orchestration"** — the
+  Gap Closure Wave 14 amendment's framing, unchanged from the Amendment
+  section below.
+- **The underlying evidence base has not changed.** It remains
+  `Inferred — Industry Reference`, generated under Assumption-Driven
+  Autonomous Run mode, not confirmed by a real domain expert or
+  business stakeholder in a live session. Promotion to Accepted reflects
+  the user's exercise of the confirmation authority this ADR always
+  required, not a claim that the evidence itself became stronger.
+- **Honest disclosure of a residual gap**: Wave 7's 6-alternative
+  Decision Matrix (cited in the Gap Closure Wave 14 Amendment below)
+  compared this framing against Diagnostic Operations, Laboratory
+  Execution, Healthcare Operations Orchestration, Clinical Diagnostic
+  Network, and Platform Tenant Operations — it did **not** include a
+  direct, scored, head-to-head comparison against the **Specimen
+  Management (Home Collection Logistics-differentiated) alternative**
+  named below in "Alternatives Considered." That alternative was
+  evaluated qualitatively (found credible, not ruled out on evidence)
+  but never scored in the same matrix. This promotion accepts that gap
+  rather than papering over it — the confirmation decision rests on (a)
+  the accumulated weight of every independent architecture-phase review
+  finding no *architectural* conflict with this framing (EARB, API
+  Platform Part 2, the Certification Audit — see `docs/architecture-
+  review/10-ADR-REVIEW.md` and `docs/api-platform/15-ADR-REVIEW.md`),
+  and (b) this being the explicit, dedicated decision point the ADR's
+  own Verification section named as sufficient, not on a claim that the
+  Specimen Management alternative was formally out-scored.
+- **Downstream effect**: the 7-Module REFERENCE+BUILD boundary table in
+  `docs/architecture-review/10-ADR-REVIEW.md` (Patient Management,
+  Diagnostic Ordering, Specimen Operations, Laboratory Execution, Result
+  Verification and Reporting, plus Insurance and Corporate Contracts'
+  correctly-external openIMIS boundary) is now confirmed, not
+  conditional — those Modules' Build-vs-Buy reasoning no longer depends
+  on a still-open Core Domain question.
+- **This does not retroactively change any Technology Baseline entry,
+  Reuse Intelligence decision, or API Platform document** — every prior
+  phase's own finding was already "no architectural conflict regardless
+  of which Core Domain framing wins," so nothing built on top of this
+  ADR requires rework as a result of this promotion.
+
+**Reversibility, stated explicitly per this ADR's own Revisit
+Triggers**: if real stakeholder input later contradicts this framing —
+in particular if it confirms Specimen Management/Home Collection as the
+platform's actual competitive differentiator — the correction path is a
+new superseding ADR through the same Constitution Section 45 process,
+not a crisis. Nothing about this promotion is irreversible.
 
 ## Amendment — Gap Closure Wave 14 (2026-07-16)
 

@@ -38,14 +38,15 @@
 | 0008 | Unified Login and Policy-Based Access | Accepted | `docs/adr/0008-unified-login-and-policy-based-access.md` |
 | 0009 | SaaS First, On-Premise Ready, and Hybrid Ready | Accepted | `docs/adr/0009-saas-first-on-premise-and-hybrid-ready.md` |
 | 0010 | Arabic/English and Localization First | Accepted | `docs/adr/0010-arabic-english-and-localization-first.md` |
-| 0011 | Core Domain — Test Processing and Result Verification | **Proposed** (Discovery Phase 12, Assumption-Driven — ينتظر مراجعة المستخدم، ليس Accepted) | `docs/adr/0011-core-domain-test-processing-and-result-verification.md` |
-| 0012 | Candidate Bounded Context Map (8 Contexts) | **Proposed** (Discovery Phase 12, Assumption-Driven — ينتظر مراجعة المستخدم، ليس Accepted) | `docs/adr/0012-candidate-bounded-context-map.md` |
+| 0011 | Core Domain — Patient-to-Result Orchestration | **Accepted** (2026-07-18, Open Questions Resolution phase) | `docs/adr/0011-core-domain-test-processing-and-result-verification.md` |
+| 0012 | Bounded Context Map (28: 9 Modeled + 19 Recognized) | **Accepted** (2026-07-18, Open Questions Resolution phase) | `docs/adr/0012-candidate-bounded-context-map.md` |
 
-**ملاحظة حول ADR 0011/0012:** خلافًا لبقية جدول ADR Index (كلها Accepted)،
-هذان الاثنان **Proposed** عمدًا وليس خطأً — ناتجان عن Discovery نُفِّذ بأسلوب
-Assumption-Driven Autonomous Run (بدون مدخلات فعلية من أصحاب مصلحة حقيقيين)،
-ولا يجوز اعتبارهما Accepted حتى يراجعهما المستخدم صراحةً. انظر قسم "Why
-Proposed, Not Accepted" داخل كل ADR للتفاصيل الكاملة.
+**ملاحظة حول ADR 0011/0012:** كانا Proposed منذ Discovery حتى مرحلة "Open
+Questions Resolution" (2026-07-18)، حيث راجعهما المستخدم صراحةً وأكّدهما —
+هذا هو شرط الترقية الذي نصّ عليه ADR-0011 نفسه. الأدلة الأساسية تبقى
+Inferred وليست جديدة؛ التفاصيل الكاملة (بما فيها الفجوة غير المُغلَقة حول
+بديل Specimen Management) في قسم "Amendment — Open Questions Resolution
+Phase" داخل كل ADR.
 
 ## Accepted Decisions (منقولة من Proposed بعد ADR رسمي)
 

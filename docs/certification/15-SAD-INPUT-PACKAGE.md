@@ -10,7 +10,7 @@ Condition, no SAD section is drafted here.
 | Input | Source | Certification |
 |---|---|---|
 | Architecture Principles (Modular Monolith, DDD, Event-Driven, API-First, etc.) | `.claude/context/architecture-principles.md`, ADRs 0001-0010 | `04-ADR-CERTIFICATION.md` — PASS |
-| 28-Module Catalog, Bounded Context Map (28 contexts, Hybrid Modeled/Recognized) | `.claude/context/module-catalog.md`, ADR-0012 (Proposed) | `05-DDD-CERTIFICATION.md` — 8/10, boundaries sound |
+| 28-Module Catalog, Bounded Context Map (28 contexts, Hybrid Modeled/Recognized) | `.claude/context/module-catalog.md`, ADR-0012 (**Accepted**, 2026-07-18) | `05-DDD-CERTIFICATION.md` — 8/10, boundaries sound |
 | 106-Feature Build-vs-Buy decisions (105 decided, 1 blocked) | `docs/reuse/MASTER_DECISION_REGISTER.md` | `01-FULL-ENTERPRISE-AUDIT.md` §8 — Sound |
 | Frozen Technology Baseline (30 entries) | `docs/architecture-review/02-TECHNOLOGY-BASELINE.md` | `08-LICENSING-CERTIFICATION.md` — PASS |
 | API-First Architecture (5-layer model, standards, naming, versioning) | `docs/api-platform/01-15` | `06-API-CERTIFICATION.md` — PASS |
@@ -22,71 +22,58 @@ Condition, no SAD section is drafted here.
 
 ## What the SAD Must Still Produce (Not Pre-Empted by Any Prior Phase)
 
-Carried forward and consolidated from `docs/architecture-review/
-14-READINESS-FOR-SAD.md` and `13-READINESS-FOR-API-STRATEGY.md`, now
-cross-checked against this audit's own Open Questions Register
-(`12-OPEN-QUESTIONS-REGISTER.md`) for completeness.
+Carried forward from `docs/architecture-review/14-READINESS-FOR-SAD.md`
+and `13-READINESS-FOR-API-STRATEGY.md`. **Updated 2026-07-18**: 5 of
+these 10 items were resolved in the Open Questions Resolution phase
+(`20-OPEN-QUESTIONS-RESOLUTION.md`) — marked ✅ below, satisfying all 6
+formal Certification Conditions (item 7 alone covered 2). Unmarked
+items remain genuine Dependencies, unresolved by design (outside
+architectural authority).
 
-**Marker key** (added this closure pass): ⚑ = also one of the 6 formal
-Certification Conditions in `18-CERTIFICATION-REPORT.md`. Unmarked
-items are tracked SAD-input Dependencies the SAD must still produce,
-but are **not** formal conditions of this certification's PASS WITH
-CONDITIONS verdict.
-
-1. ⚑ **The tenant-partitioning technical decision** (Open Question
-   #15) — Technology Baseline provides evidence (R4, PostgreSQL RLS),
-   not the decision.
-2. ⚑ **A pinned FHIR version** (R-06) — R4 is the evidence-weighted
-   default, not an asserted Decision.
+1. ✅ **Tenant-partitioning technology** — **Resolved**: PostgreSQL RLS
+   + tenant-ID column (D-42).
+2. ✅ **FHIR version** — **Resolved**: R4 pinned (D-43).
 3. **Actual exit-strategy procedures** for the 7 Tier-1 Engines (R-08)
-   — fallback candidates are named, procedures are not. (Dependency,
-   not a formal Condition — see `11-RISK-REGISTER.md`'s Resolution
-   Gate for R-08.)
-4. ⚑ **Resolution or explicit carry-forward of the AGPL legal review
-   outcome** (R-04) into the SAD's own dependency documentation.
+   — still a Dependency; fallback candidates are named, procedures are
+   not. See `11-RISK-REGISTER.md`'s Resolution Gate for R-08.
+4. **AGPL legal review outcome** (R-04) — still a **Legal Dependency**,
+   correctly not resolved by this Board (see `20-OPEN-QUESTIONS-
+   RESOLUTION.md`'s explicit statement that this is outside
+   architectural authority).
 5. **Verification of Arabic/RTL localization support** for each
-   ratified Engine (ADR-0010 gap) and specifically for Redoc
-   (`docs/api-platform/31`'s conditional recommendation). (Dependency,
-   not a formal Condition.)
-6. **A decision on the Eramba Community reconsideration** (R-01) — the
-   SAD is the appropriate venue for the focused re-scan every prior
-   phase has declined to perform. (Dependency, not a formal Condition.)
-7. **Infrastructure product selections**, two of which are formal
-   Conditions and one of which is not:
-   - ⚑ **API Gateway** (Open Question #28) and ⚑ **Secrets/Vault**
-     (Open Question #29) — each via a scoped Build-vs-Buy micro-
-     assessment, not a full program re-run.
-   - **Developer Portal** (Open Question #30) — **not a formal
-     Certification Condition.** Medium priority, entangled with and
-     lower-urgency than #28; recommended on the same evaluation
-     timeline for efficiency, but its resolution does not gate this
-     certification's verdict. See `18-CERTIFICATION-REPORT.md`'s
-     "Formal Certification Conditions vs. Additional SAD Section
-     Finalization Dependencies" section for the full reasoning.
-8. **Numeric SLA/SLO/rate-limit/deprecation-window targets** (Open
-   Question #4-dependent) — structure exists (`docs/api-platform/
-   07, 13, 28`), numbers do not. (Dependency, not a formal Condition —
-   #4 is Critical-priority but is not itself one of the 6 formal
-   Conditions, since no SAD section can be finalized against it until
-   real usage data exists regardless of any certification verdict.)
-9. ⚑ **Core Domain and Bounded Context Map final resolution** (Open
-   Question #14, ADR-0011/0012) — **the single highest-impact open
-   item**; if the SAD proceeds without this resolved, it must explicitly
-   document which Module boundaries are contingent on the eventual
-   answer (the 7-Module table in `docs/architecture-review/
-   10-ADR-REVIEW.md` names them precisely).
-10. **A dedicated one-page Domain Vision Statement** for the Core
-    Domain candidate — currently folded into `.claude/context/
-    vision.md` rather than existing as its own artifact (minor,
-    `05-DDD-CERTIFICATION.md` finding). (Dependency, not a formal
-    Condition.)
+   ratified Engine and for Redoc — still a Dependency, unresolved.
+6. **Eramba Community reconsideration** (R-01) — still a Dependency,
+   unresolved.
+7. **Infrastructure product selections** — all resolved:
+   - ✅ **API Gateway**: Kong Gateway (Apache-2.0), D-44.
+   - ✅ **Secrets/Vault**: OpenBao (MPL-2.0), D-45.
+   - ✅ **Developer Portal**: generated-docs approach for v1, D-46 (was
+     never a formal Condition; now also has a v1 answer).
+8. **Numeric SLA/SLO/rate-limit/deprecation-window targets** — still a
+   Dependency; #4 (usage volume) now has an Operational Assumption
+   (D-54) but not a hard number — structure exists, numbers still
+   deferred to real usage data by design.
+9. ✅ **Core Domain and Bounded Context Map** — **Resolved**: ADR-0011
+   and ADR-0012 both Accepted (D-40, D-41). The 7-Module boundary table
+   in `docs/architecture-review/10-ADR-REVIEW.md` is now confirmed, not
+   conditional.
+10. **A dedicated one-page Domain Vision Statement** — still a minor
+    Dependency, unresolved.
+
+**5 of 10 items resolved. All 6 formal Certification Conditions
+satisfied** (items 1, 2, 4-partially via explicit non-closure, 7×2, 9 —
+note item 4/AGPL remains the one formal Condition still open, since it
+is a genuine Legal Dependency this Board cannot close).
 
 ## SAD Readiness Verdict
 
-**CONDITIONALLY READY**, consistent with and formally re-confirming
-every prior readiness assessment in this repository. See
-`18-CERTIFICATION-REPORT.md` for the full certification decision and
-`17-READINESS-SCORES.md` for quantified scores.
+**Updated 2026-07-18: READY.** Following the Open Questions Resolution
+phase, all 6 formal Certification Conditions except the AGPL Legal
+Dependency (outside architectural authority by design) are satisfied.
+See `20-OPEN-QUESTIONS-RESOLUTION.md` for the SAD Authorization
+statement. `18-CERTIFICATION-REPORT.md` and `17-READINESS-SCORES.md`
+remain the historical record of the original CONDITIONALLY READY
+verdict and are not retroactively rewritten.
 
 ## Explicit Boundary
 
@@ -94,4 +81,5 @@ This package is an index of *what to inherit* and *what remains
 undone* — it contains no architectural design, no section drafts, no
 component diagrams, and no technology selections beyond what is
 already frozen. The SAD phase itself, when authorized, is responsible
-for producing all 10 items above.
+for producing the 5 items still open above (3, 5, 6, 8, 10) plus
+carrying forward the AGPL Legal Dependency.

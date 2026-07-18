@@ -2,12 +2,50 @@
 
 ## Status
 
-**Proposed — Amended (Gap Closure Wave 14, 2026-07-16).** Still *not*
-Accepted, for the same reason as ADR 0011 (this Discovery run was
-Assumption-Driven; see that ADR's "Why Proposed, Not Accepted" section,
-which applies identically here and is not repeated in full). See the
-"Amendment — Gap Closure Wave 14" section below for the current form of
-this proposal.
+**Accepted (Open Questions Resolution phase, 2026-07-18).** Previously
+`Proposed — Amended (Gap Closure Wave 14, 2026-07-16)`. See "Amendment —
+Open Questions Resolution Phase" below for the confirmation record.
+
+## Amendment — Open Questions Resolution Phase (2026-07-18): Confirmed Accepted
+
+Confirmed jointly with ADR-0011 in the same Open Questions Resolution
+phase, for the same reason and via the same explicit-user-direction
+mechanism described in ADR-0011's own "Amendment — Open Questions
+Resolution Phase" section (not repeated in full here).
+
+**What is confirmed**: the Hybrid Modeled/Recognized 28-context map
+described in the "Amendment — Gap Closure Wave 14" section below — 9
+Modeled-tier contexts (Evidenced confidence) plus 19 Recognized-tier
+contexts (Inferred, lower confidence, not yet tactically modeled to the
+same depth). **The two-tier confidence distinction is itself part of
+what is confirmed** — accepting this ADR does not silently upgrade the
+19 Recognized-tier contexts to Modeled-tier confidence; that remains a
+separate, real distinction the SAD must continue to respect (Recognized
+contexts get their full Aggregate/invariant tactical modeling during
+SAD/Implementation, not retroactively assumed complete now).
+
+**Per this ADR's own Verification section**, promotion also confirms
+`.claude/context/module-catalog.md`'s update from "Discovery Candidates"
+to a real Module Catalog entry set — applied in this same phase (see
+that file directly).
+
+**Residual items, honestly carried forward, not resolved by this
+promotion:**
+
+- The Specimen Management/Test Processing split (Risk #8 in this ADR's
+  own Risks section) — flagged in the original ADR as "the single most
+  consequential judgment call in the whole Context Map." Confirming this
+  ADR accepts that split as the working boundary; it does not claim the
+  judgment call has been independently re-verified against new evidence.
+- Any individual Recognized-tier context later found to have no distinct
+  justification remains a candidate for merge/removal via the normal
+  Revisit Trigger process below, not a reason to withhold promotion of
+  the map as a whole.
+
+**Reversibility**: identical to ADR-0011 — a superseding ADR through
+Constitution Section 45 is the correction path if real stakeholder input
+later contradicts a specific boundary; this is not treated as
+irreversible.
 
 ## Amendment — Gap Closure Wave 14 (2026-07-16)
 

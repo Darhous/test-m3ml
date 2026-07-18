@@ -3,9 +3,12 @@
 Permanent record of this project's complete history, for any future
 session (human or AI) to orient quickly without re-deriving context
 from scratch. This complements, and does not replace, `.claude/context/`
-(the living Context Store) — this document is a point-in-time narrative
-snapshot as of the Enterprise Architecture Certification Audit; the
-Context Store remains the file to actually update going forward.
+(the living Context Store).
+
+**Current phase: Open Questions Resolution (complete, 2026-07-18).**
+**Next phase: Software Architecture Document (SAD) — authorized to
+begin, not yet started.** See `20-OPEN-QUESTIONS-RESOLUTION.md` for the
+full resolution log.
 
 ## What This Project Is
 
@@ -31,11 +34,11 @@ system.
 | 7 | Enterprise Adoption Review Board (EARB) | `docs/architecture-review/` (14 files) | Technology Baseline FROZEN: 21 Engines, 4 Libraries, 5 Reference Standards; 0 SDKs, 0 Forks ratified; AGPL checklist established |
 | 8 | API Platform Strategy — Part 1 | `docs/api-platform/00-15` (16 files) | API-First architecture, domain inventory, governance, standards, auth, security foundation |
 | 9 | API Platform Strategy — Part 2 | `docs/api-platform/16-33` (18 files) | Contract-First tooling, webhooks, SDK strategy, Developer Portal, Marketplace, commercial loop; 3/7 tooling categories recommended, 4 left open |
-| 10 | **Enterprise Architecture Certification Audit + Closure (this phase)** | `docs/certification/` (20 files) | Full repository audit, 3 documentation defects found and fixed, 0 architectural contradictions, PASS WITH CONDITIONS; closure pass corrected register arithmetic and clarified Conditions vs. Dependencies |
+| 10 | Enterprise Architecture Certification Audit + Closure | `docs/certification/` (20 files) | Full repository audit, 3 documentation defects found and fixed, 0 architectural contradictions, PASS WITH CONDITIONS; closure pass corrected register arithmetic and clarified Conditions vs. Dependencies |
+| 11 | **Open Questions Resolution (this phase)** | `docs/certification/20-OPEN-QUESTIONS-RESOLUTION.md`, ADR-0011/0012 promotion | All 31 Open Questions resolved (18 Accepted Decisions/Configurations, 13 tracked Dependencies), Core Domain and Bounded Context Map confirmed Accepted, Gateway/Vault products selected, FHIR version pinned |
 
 **Next authorized phase**: Software Architecture Document (SAD) —
-**not started**, requires explicit separate authorization per this
-phase's own Stop Condition.
+**authorized to begin, not yet started.**
 
 ## Major Decisions (Accepted)
 

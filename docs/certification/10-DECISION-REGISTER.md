@@ -22,8 +22,8 @@ full.
 | D-08 | Unified Login and Policy-Based Access (Keycloak + OPA) | ADR-0008 | Accepted | — | `docs/api-platform/08, 09` |
 | D-09 | SaaS First, On-Premise Ready, Hybrid Ready | ADR-0009 | Accepted | — | `docs/architecture-review/07`, licensing decisions |
 | D-10 | Arabic/English and Localization First | ADR-0010 | Accepted | — | `docs/api-platform/05` |
-| D-11 | Core Domain candidate: Patient-to-Result Orchestration | ADR-0011 | **Proposed — Amended, not Accepted** | Open Question #14 (Specimen Management alternative) | `docs/architecture-review/10`, `docs/api-platform/15` |
-| D-12 | Candidate Bounded Context Map (28 contexts, Hybrid Modeled/Recognized) | ADR-0012 | **Proposed — Amended, not Accepted** | D-11 | `docs/reuse/` Module structure |
+| D-11 | Core Domain: Patient-to-Result Orchestration | ADR-0011 | **Accepted (superseded 2026-07-18 — see D-40)** | — | `docs/architecture-review/10`, `docs/api-platform/15`, `20-OPEN-QUESTIONS-RESOLUTION.md` |
+| D-12 | Bounded Context Map (28 contexts, Hybrid Modeled/Recognized) | ADR-0012 | **Accepted (superseded 2026-07-18 — see D-41)** | D-11 | `docs/reuse/` Module structure, `20-OPEN-QUESTIONS-RESOLUTION.md` |
 
 ## Technology Baseline Decisions (Frozen, EARB phase)
 
@@ -51,17 +51,17 @@ full.
 | D-27 | Pact recommended for Contract Testing | Recommendation | `docs/api-platform/31` |
 | D-28 | OpenAPI Generator recommended for SDK Generation | Recommendation | `docs/api-platform/31` |
 | D-29 | Redoc recommended conditionally for API Documentation (RTL unverified) | Conditional Recommendation | `docs/api-platform/31` |
-| D-30 | API Gateway product selection: left open | Explicit non-decision | `docs/api-platform/10, 31`, Open Question #28 |
-| D-31 | Secrets/Vault Engine selection: left open | Explicit non-decision | `docs/api-platform/12, 31`, Open Question #29 |
-| D-32 | Developer Portal product selection: left open | Explicit non-decision | `docs/api-platform/22, 31`, Open Question #30 |
-| D-33 | API Analytics tooling need: left open (Superset may suffice) | Explicit non-decision | `docs/api-platform/27, 31`, Open Question #31 |
+| D-30 | API Gateway product selection | **Resolved 2026-07-18 — see D-44 (Kong Gateway)** | `docs/api-platform/10, 31`, Open Question #28 |
+| D-31 | Secrets/Vault Engine selection | **Resolved 2026-07-18 — see D-45 (OpenBao)** | `docs/api-platform/12, 31`, Open Question #29 |
+| D-32 | Developer Portal product selection | **Resolved 2026-07-18 — see D-46** | `docs/api-platform/22, 31`, Open Question #30 |
+| D-33 | API Analytics tooling need | **Resolved 2026-07-18 — see D-47 (Superset, no new tool)** | `docs/api-platform/27, 31`, Open Question #31 |
 
 ## Reuse Intelligence Decisions (Summarized — 106 individual rows in `MASTER_DECISION_REGISTER.md`)
 
 | ID | Decision Category | Count | Status |
 |---|---|---|---|
 | D-34 | Features decided (Build/Reuse-Engine/Reuse-Library/Reference) | 105/106 | Ratified via EARB freeze (D-13 through D-15) |
-| D-35 | Features blocked (home-collection-logistics) | 1/106 | Explicitly deferred, pending Open Question #6 |
+| D-35 | Features blocked (home-collection-logistics) | 1/106 → 0/106 | **Unblocked 2026-07-18 — Open Question #6 resolved (D-48, Offline Mode Required)** |
 | D-36 | Duplicate Features detected and resolved | 9/9 | Resolved (2 reactive, 7 proactive) |
 
 ## This Certification Audit's Own Decisions
@@ -71,6 +71,32 @@ full.
 | D-37 | 3 documentation-currency defects corrected (safe fixes) | Applied — see `09-SAFE-FIXES-APPLIED.md` |
 | D-38 | No architectural, ADR, or Technology Baseline change made | Confirmed — this audit is certification, not redesign |
 | D-39 | Certification verdict: PASS WITH CONDITIONS | See `18-CERTIFICATION-REPORT.md` |
+
+## Open Questions Resolution Phase Decisions (2026-07-18)
+
+Full rationale/evidence for each: `20-OPEN-QUESTIONS-RESOLUTION.md`.
+Supersedes/updates: D-11 (Core Domain, now Accepted), D-12 (Bounded
+Context Map, now Accepted), D-30/D-31/D-32/D-33 (product selections
+now made), D-35 (home-collection-logistics now unblocked).
+
+| ID | Decision | Classification | Status |
+|---|---|---|---|
+| D-40 | Core Domain = Patient-to-Result Orchestration | Accepted Decision | ADR-0011 Accepted |
+| D-41 | Bounded Context Map = 28 (9 Modeled + 19 Recognized) | Accepted Decision | ADR-0012 Accepted |
+| D-42 | Shared-tier partitioning = PostgreSQL RLS + tenant-ID column | Product Configuration | Accepted |
+| D-43 | FHIR version pinned = R4 | Accepted Decision | Accepted |
+| D-44 | API Gateway = Kong Gateway (OSS, Apache-2.0) | Product Configuration | Accepted |
+| D-45 | Secrets/Vault = OpenBao (MPL-2.0) | Product Configuration | Accepted |
+| D-46 | Developer Portal v1 = generated docs (Redoc), no dedicated platform | Accepted Decision | Accepted |
+| D-47 | API Analytics = Superset (E10), no new tool | Accepted Decision | Accepted |
+| D-48 | Home Collection Offline Mode = Required (local-first capture + sync) | Accepted with Constraints | Accepted, scoped to Home Collection |
+| D-49 | Billing/Insurance model = architecture supports all 3 (Direct/Reimbursement/Capitation), Tenant-configurable | Accepted Decision | Accepted |
+| D-50 | Result Verifier eligibility = OPA policy-driven mechanism; values are Regulatory Dependency | Accepted Decision (mechanism) | Accepted |
+| D-51 | Device/processing-failure recovery = Degraded-Mode workflow (Provenance-tracked queue/retry) | Accepted Decision | Accepted |
+| D-52 | Elevated Audit tier adopted (Refund, Expiry-block, Break-Glass, Tenant Config) | Accepted Decision | Accepted |
+| D-53 | National ID = structurally-present optional Patient identifier (FHIR pattern); validation rules are Country Localization | Accepted Decision | Accepted |
+| D-54 | Expected usage volume = launch-scale Operational Assumption, no fixed number | Operational Assumption | Recorded |
+| D-55 | AGPL legal review outcome = remains Legal Dependency, not resolved by this Board | Legal Dependency | Unchanged, tracked |
 
 ## Decision Quality Summary
 
