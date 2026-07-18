@@ -1,13 +1,15 @@
-# Project Constitution v2
+# Project Constitution v2.1
 
-**Status:** Accepted (v2)
+**Status:** Accepted (v2.1)
 **Applies to:** the digital healthcare platform project (`darhous/test-m3ml`), starting
 point: Laboratory Management.
 **Relationship to other documents:** this Constitution states the *governing rules*
 of the architecture. It is **not** the Software Architecture Document (SAD) — the
 SAD (later) describes *how* systems are built to satisfy these rules. It is also not
 an implementation plan: it names no programming language, framework, cloud provider,
-message broker, database product, AI provider, or frontend framework.
+message broker, database product, AI provider, or frontend framework — technology
+selections are made and recorded through the ADR process (Section 39) and cross-
+referenced from here, not written as Constitution rules.
 
 **v2 note:** v2 is a strict superset of v1. Sections 1–47 and the "Consolidated
 Accepted Decisions" appendix are unchanged from v1 (no prior architectural decision
@@ -16,6 +18,22 @@ they upgrade this document from an architecture-decision record into a full
 Enterprise Architecture Constitution (engineering policies, fitness functions,
 budgets, quality gates, governance processes) so that writing the Software
 Architecture Document later does not require re-deriving project rules.
+
+**v2.1 note (2026-07-18, Final Pre-SAD Semantic Consistency Correction):** a
+minor, non-substantive amendment via Section 45, correcting active
+governing text that had become stale relative to later-Accepted decisions:
+Section 51's RTO/RPO rows (stale once ADR-0013, PostgreSQL as the Primary
+Relational Database, and ADR-0014, Disaster Recovery and Business
+Continuity Baseline, were Accepted), Section 6's Core Domain recommendation
+and the Section 47 Glossary's Core Domain row (stale once ADR-0011 was
+Accepted), and Section 46's Open Questions framing (stale once all 14
+listed items, and the platform's other tracked Open Questions, were
+resolved). In every case only the *status/reason* text is corrected — no
+numeric RTO/RPO/availability value is introduced, the 14-item Open
+Questions list itself is preserved unmodified as history, and no rule in
+Sections 1–50 or 52–62 is changed in substance. No ADR was reopened and no
+principle was reversed. See `docs/constitution/CHANGELOG.md` for the full
+amendment record.
 
 See `docs/constitution/README.md` for authority/process notes and
 `docs/constitution/CHANGELOG.md` for the version history.
@@ -211,10 +229,20 @@ with a shared database."
   in generic "service" classes, for the Core Domain specifically (see Strategic
   Design below).
 
-**Recommendation (not yet a Rule):** identify the Core Domain(s) for the
-platform (Strategic Design/Distillation) once module discovery begins; this
-Constitution does not name the Core Domain — that requires a dedicated DDD
-session and is logged as an Open Question (Section 46).
+**Recommendation (not yet a Rule) at v1/v2 authoring:** identify the Core
+Domain(s) for the platform (Strategic Design/Distillation) once module
+discovery begins; this Constitution did not name the Core Domain at that
+time — it was logged as an Open Question (Section 46, item 14).
+
+**Update (2026-07-18, v2.1):** the dedicated DDD session this
+recommendation called for has since taken place. The Core Domain is
+**Accepted** as "Patient-to-Result Orchestration" — ADR-0011, confirmed via
+explicit user review in the Open Questions Resolution phase (see
+`docs/certification/20-OPEN-QUESTIONS-RESOLUTION.md`). Open Question item
+14 (Section 46) is resolved accordingly. This does not change the
+principle stated here (Core Domain deserves the deepest modeling
+investment and must not be anemic) — only its former "not yet identified"
+status.
 
 **Verification**
 - DDD consistency review using the `domain-driven-design` skill's Quick
@@ -1131,8 +1159,18 @@ A module/integration/decision is "done" at the architecture level only when:
 
 ## 46. Open Questions
 
-Carried over from `.claude/context/open-questions.md` (unchanged, still
-Open — this Constitution does not answer them):
+Carried over from `.claude/context/open-questions.md` as it stood at v1/v2
+authoring (2026-07-15), unchanged at that time — this Constitution did not
+answer them.
+
+**Update (2026-07-18, v2.1):** all items below (1–14), along with the rest
+of the platform's tracked Open Questions, were subsequently resolved in
+the Open Questions Resolution phase — see `docs/certification/
+20-OPEN-QUESTIONS-RESOLUTION.md` for the authoritative current answer to
+each, and `.claude/context/open-questions.md` for the live-updated
+register. The list below is preserved unmodified as the historical record
+of what was still open when this Constitution was authored; it is not the
+current status of any item.
 
 1. Target countries/markets.
 2. Local legal/regulatory requirements (regulatory/health/data-protection).
@@ -1176,7 +1214,7 @@ in the glossary:
 | Hybrid Tenant Isolation | The two-tier tenant isolation model: shared infrastructure with logical isolation for small/medium tenants, dedicated database/deployment option for large/regulated tenants. | Accepted (this Constitution) |
 | Break-Glass Access | Exceptional, time-limited, justified, fully audited emergency access path that bypasses normal authorization flow. | Accepted (this Constitution) |
 | Anti-Corruption Layer | A translation layer preventing an external system's (device, AI provider, legacy system) model from leaking into a platform Bounded Context's domain model. | Accepted (this Constitution, per DDD skill) |
-| Core Domain | The Bounded Context(s) where the platform's competitive/differentiating value lives, warranting the deepest modeling investment. | Open — not yet identified (Section 46, item 14) |
+| Core Domain | The Bounded Context(s) where the platform's competitive/differentiating value lives, warranting the deepest modeling investment. | **Accepted (2026-07-18, v2.1): "Patient-to-Result Orchestration" — ADR-0011.** Open at v1/v2 authoring (Section 46, item 14); identified via a dedicated DDD session in the Open Questions Resolution phase. |
 
 ---
 
@@ -1838,8 +1876,8 @@ number.
 | Background Job Delay | Not set | Draft | Depends on job type and volume — no job catalog exists yet. |
 | Cache Hit Ratio | Not set | Draft | No cache layer exists yet (Section 55, Evolution Strategy, defines when one would be introduced); a target ratio cannot precede the cache's existence. |
 | Error Rate | Not set | Draft | Depends on defining "error" per operation criticality (see Exception Classification, Section 48) and on production traffic patterns that do not exist pre-launch. |
-| Recovery Time Objective (RTO) | Not set | Draft | Requires a decided hosting model detail and disaster-recovery design, both open (`open-questions.md` #3) and not yet designed (flagged as a Missing Decision in Section 62/REVIEW-REPORT.md). |
-| Recovery Point Objective (RPO) | Not set | Draft | Same as RTO — depends on backup/replication design not yet chosen (explicitly no database product is chosen by this Constitution). |
+| Recovery Time Objective (RTO) | Not set | Draft | **Updated 2026-07-18 (v2.1):** the DR classification and governance framework is Accepted — ADR-0014 establishes 4 service-criticality tiers and backup/restore/governance principles. The gap here is numeric and deployment-specific only: final RTO values remain pending Business Approval, Regulatory Validation, and Workload Evidence, and a decided hosting-model detail (`open-questions.md` #3) — not a complete absence of DR design. |
+| Recovery Point Objective (RPO) | Not set | Draft | **Updated 2026-07-18 (v2.1):** PostgreSQL is formally selected as the platform's primary transactional relational engine — ADR-0013 (Accepted). ADR-0014 (Accepted) establishes the backup/recovery principles a final RPO will be measured against. The gap here is numeric and deployment-specific only: final RPO values, replication topology, retention policy, and tenant-tier commitments remain pending Business Approval, Regulatory Validation, and Workload Evidence — not an absence of database or DR design. |
 | Availability | Not set | Draft | Depends on the chosen hosting/deployment model per tenant tier (Section 19) and on RTO/RPO above; a single platform-wide number would also misrepresent the two-tier Hybrid Tenant Isolation model, which may reasonably justify different availability commitments per tier. |
 | Observability Coverage | 100% of modules meet Logging/Metrics/Health baseline (Section 48) before acceptance | **Set (qualitative, not a numeric SLA)** | This is a binary Definition-of-Done gate (Section 53), not a percentage SLA — deliberately not expressed as a numeric target to avoid implying partial observability is acceptable. |
 | Audit Coverage | 100% of sensitive operations (Section 21/23) emit an Audit Event before acceptance | **Set (qualitative)** | Same reasoning as Observability Coverage — Audit Coverage is a correctness gate (Section 49, Audit Coverage Fitness Function), not a target to be tuned. |
@@ -2463,10 +2501,15 @@ Decisions / Ambiguous Terms / Validation Checklist covering Sections 48–62.
 
 ---
 
-*End of Project Constitution v2. Like v1, this document deliberately
-excludes: final Module Catalog, Roadmap, Tasks, programming language/
-framework/cloud/broker/database/AI-provider/frontend-framework choice, and
-any final legal compliance claim. Numeric Non-Functional Budgets remain
-Draft (Section 51) pending real measurement data. The next planned step,
-per explicit instruction, is a separate Discovery / Software Architecture
-Document task — not started here.*
+*End of Project Constitution v2.1. Like v1 and v2, this document
+deliberately excludes: final Module Catalog, Roadmap, Tasks, programming
+language/framework/cloud/broker/AI-provider/frontend-framework choice, and
+any final legal compliance claim. (The primary relational database engine
+is an exception recorded here only by cross-reference: PostgreSQL is
+Accepted via ADR-0013, a separate governing document — this Constitution
+still does not itself state a product choice as one of its own rules.)
+Numeric Non-Functional Budgets remain Draft (Section 51) pending real
+measurement data and deployment-topology decisions, though the Disaster
+Recovery classification framework behind RTO/RPO is now Accepted
+(ADR-0014). The next planned step, per explicit instruction, is the
+Software Architecture Document — not started here.*

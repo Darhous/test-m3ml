@@ -49,6 +49,16 @@ logged this as its lowest-confidence decision, and this Board agrees
 that status should carry forward unchanged, not be silently upgraded to
 full confidence by omission.
 
+**Update (2026-07-18, Final Pre-SAD Semantic Consistency Correction):**
+this document's own "Reconsider at SAD" phrasing is preserved as the
+accurate record of this EARB freeze's original finding. It created a
+governance contradiction once the Baseline was later marked FROZEN and
+mandatory SAD input — the SAD is not a vendor-selection phase. The
+corrected, current governance status (conditionally approved,
+implementation due diligence required, not subject to architectural
+re-evaluation during SAD authoring) is in `02-TECHNOLOGY-BASELINE.md`
+(E5) and `docs/certification/26-FINAL-SEMANTIC-CONSISTENCY-CLOSURE.md`.
+
 **One decision remains explicitly OPEN, not frozen**:
 `home-collection-logistics` (Specimen Operations) — genuinely blocked on
 Open Question #6 (Offline Mode requirement). This Board does not close

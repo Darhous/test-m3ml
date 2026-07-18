@@ -95,8 +95,10 @@ ADR-0001's decision block.)
   platform-wide would add integration complexity with no documented
   driver. This is a Recommendation for API Governance to ratify, not
   a Decision this Board can unilaterally make final.)
-- Every external Engine (the 21 ratified Engines in the Technology
-  Baseline) is wrapped behind this platform's own API and an
+- Every external Engine (all ratified Engines in the Technology
+  Baseline — 21 at this document's own authoring, 24 as of 2026-07-18;
+  see `docs/architecture-review/02-TECHNOLOGY-BASELINE.md` for the
+  current count) is wrapped behind this platform's own API and an
   Anti-Corruption Layer — no Engine's native API is ever exposed
   directly to a Portal, Partner, or Public consumer. (**Fact**,
   Constitution's Accepted "Anti-Corruption Layer" definition, ADR-0006/

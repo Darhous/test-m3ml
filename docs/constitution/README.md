@@ -41,4 +41,4 @@ or a new/superseding ADR plus a `CHANGELOG.md` entry.
 
 ## Version
 
-Current version: **v1** (Accepted). See `CHANGELOG.md` for history.
+Current version: **v2.1** (Accepted). See `CHANGELOG.md` for history.

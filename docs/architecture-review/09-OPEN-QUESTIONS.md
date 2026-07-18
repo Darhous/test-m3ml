@@ -112,6 +112,16 @@ status is not itself a blocker (a working Engine is adopted, just at
 lower confidence) and therefore does not trigger the "absolutely
 necessary" exception. Left CONDITIONALLY APPROVED, reconsider at SAD.
 
+**Update (2026-07-18, Final Pre-SAD Semantic Consistency Correction):**
+"reconsider at SAD" is preserved as this Board's own original finding,
+but it is superseded — the SAD is not a vendor-selection phase, so a
+frozen Baseline entry cannot carry an instruction to informally
+reconsider it during SAD authoring. Eramba remains conditionally
+approved; the SAD documents the selection and its due-diligence gate
+without comparing or selecting a replacement. See `02-TECHNOLOGY-
+BASELINE.md` (E5) and `docs/certification/
+26-FINAL-SEMANTIC-CONSISTENCY-CLOSURE.md`.
+
 ### Novu and Documenso license strings (never independently confirmed)
 
 **Status: CLOSABLE only by direct verification, not by this Board's

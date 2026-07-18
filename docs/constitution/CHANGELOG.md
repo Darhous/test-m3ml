@@ -82,3 +82,73 @@ Catalog, Roadmap, Tasks, Software Architecture Document, Discovery work, any
 technology/language/framework/cloud/broker/database/AI-provider selection,
 legal compliance certification, and all numeric Non-Functional Budgets
 (Section 51, Draft pending real data).
+
+## v2.1 — 2026-07-18
+
+**Status:** Accepted
+
+**Amendment type:** minor, non-substantive — per Section 45 (Constitution
+Amendment Process). Authorized by explicit user instruction (the "Final
+Pre-SAD Semantic Consistency Correction" mission).
+
+**Reason:** a semantic consistency review (2026-07-18) found active
+governing text in this Constitution that no longer reflected the current
+architecture baseline, though it was accurate when v2 was written:
+Section 51's Non-Functional Budgets table stated, for the RTO and RPO
+rows, that disaster-recovery design and database-engine selection were
+entirely undesigned/unchosen — stale once ADR-0013 (PostgreSQL as the
+Primary Relational Database) and ADR-0014 (Disaster Recovery and Business
+Continuity Baseline) were Accepted, both 2026-07-18. Separately, Section 6
+and the Section 47 Glossary stated the Core Domain was "not yet
+identified" and Section 46 presented its 14-item Open Questions list as
+"still Open" — both stale once the Core Domain (ADR-0011) and all 31
+tracked Open Questions were resolved, also 2026-07-18, in the Open
+Questions Resolution phase. In every case, only the *reason a value is
+still Draft/Open* was corrected; no numeric value was introduced and no
+Constitution rule was reversed.
+
+**Exact sections changed:**
+- Title, Status line, and "v2 note" paragraph (version metadata: v2 → v2.1;
+  added a v2.1 note describing this amendment's scope).
+- Section 51 (Non-Functional Budgets): the RTO and RPO rows' *Reason /
+  Basis* column only. The *Value* (`Not set`) and *Status* (`Draft`)
+  columns are unchanged — no numeric RTO, RPO, availability, retention, or
+  topology figure was introduced. No other row in Section 51 was touched.
+- Closing statement ("End of Project Constitution...") updated to v2.1 and
+  to note the database/DR cross-references without changing its underlying
+  claim that this Constitution does not itself state a product choice as
+  one of its own rules.
+- Section 6 (Strategic Design area): the Core Domain "Recommendation (not
+  yet a Rule)" paragraph now carries an update note — the Core Domain was
+  identified and Accepted (ADR-0011, "Patient-to-Result Orchestration") in
+  the Open Questions Resolution phase. The underlying principle (Core
+  Domain warrants the deepest modeling investment, no anemic Core Domain
+  objects) is unchanged.
+- Section 47 Glossary table: the "Core Domain" row's Status column updated
+  from "Open — not yet identified" to Accepted, citing ADR-0011.
+- Section 46 (Open Questions): a header-level update note added stating all
+  14 listed items were subsequently resolved (`20-OPEN-QUESTIONS-
+  RESOLUTION.md`). The 14-item list itself is preserved unmodified as the
+  historical record of what was open at v1/v2 authoring — individual items
+  were not rewritten, per the smallest-compliant-amendment principle.
+- `docs/constitution/README.md`'s Version line, corrected from a
+  pre-existing stale "v1" to the current version (a documentation-currency
+  fix discovered while reviewing README as required by Section 45, not
+  itself part of the RTO/RPO substance).
+
+**References:** `docs/adr/0011-core-domain-test-processing-and-result-
+verification.md`, `docs/adr/0013-postgresql-as-primary-relational-
+database.md`, `docs/adr/0014-disaster-recovery-and-business-continuity-
+baseline.md`, `docs/certification/20-OPEN-QUESTIONS-RESOLUTION.md`,
+`docs/certification/26-FINAL-SEMANTIC-CONSISTENCY-CLOSURE.md`.
+
+**Confirmation:** no architectural principle, ADR, or previously Accepted
+rule was reversed, reopened, or reinterpreted. Sections 1–50 and 52–62 are
+unchanged in substance. No new ADR was created by this amendment — it
+documents two already-Accepted ADRs, it does not decide anything new.
+
+**Not included in this version (still explicitly deferred):** everything
+listed as deferred in v2 above, unchanged. Numeric RTO, RPO, Availability,
+and all other Non-Functional Budgets remain Draft pending real measurement
+data, business approval, regulatory validation, and deployment-topology
+decisions.

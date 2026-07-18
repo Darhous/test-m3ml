@@ -394,8 +394,11 @@ REGISTER.md`'s existing R-04 Resolution Gate).
 
 ## Remaining Risks (genuine only)
 
-- **R-01** Eramba low confidence (unchanged, reconsideration still
-  recommended at SAD).
+- **R-01** Eramba low confidence (unchanged at this phase; governance
+  status corrected 2026-07-18 in the Final Pre-SAD Semantic Consistency
+  Correction — conditionally approved, not subject to re-evaluation
+  during SAD authoring, subject only to implementation due diligence —
+  see `26-FINAL-SEMANTIC-CONSISTENCY-CLOSURE.md`).
 - **R-02** Mirth Connect frozen-release (unchanged, migration path
   budgeting still needed).
 - **R-03** ERPNext concentration (unchanged, documentation-only

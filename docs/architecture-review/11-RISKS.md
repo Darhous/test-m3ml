@@ -5,6 +5,14 @@ files plus this Board's own review findings. Each risk is rated
 Likelihood × Impact (Low/Medium/High), consistent with the reuse
 program's own per-Feature risk tables.
 
+**Superseded:** this is the original EARB-phase risk list. It is
+consolidated into, and superseded as the active register by,
+`docs/certification/11-RISK-REGISTER.md` — preserved here unmodified as
+the historical record of this Board's own original findings (including
+R-01's original "Reconsider at SAD" mitigation wording, corrected in the
+active register on 2026-07-18; see `docs/certification/
+26-FINAL-SEMANTIC-CONSISTENCY-CLOSURE.md`).
+
 ## R-01 — Eramba Community low-confidence GRC decision
 
 **Likelihood:** Medium. **Impact:** Medium. **Source:**

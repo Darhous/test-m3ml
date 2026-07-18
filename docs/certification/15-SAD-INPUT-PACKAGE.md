@@ -42,8 +42,19 @@ architectural authority).
    architectural authority).
 5. **Verification of Arabic/RTL localization support** for each
    ratified Engine and for Redoc — still a Dependency, unresolved.
-6. **Eramba Community reconsideration** (R-01) — still a Dependency,
-   unresolved.
+6. ✅ **Eramba Community governance status** (R-01) — **Resolved**:
+   conditionally approved Version 1 selection, **not** SAD-authoring
+   work. **Corrected 2026-07-18 (Final Pre-SAD Semantic
+   Consistency Correction):** Eramba is the conditionally approved
+   Version 1 GRC/Compliance selection; the SAD documents that selection,
+   its constraints, and its due-diligence gate, but does not compare or
+   select a replacement product. The genuine remaining Dependency is
+   narrower than originally framed: implementation-time due diligence
+   (license verification, security/maintenance assessment, deployment
+   fit, operational ownership, exit-strategy validation) before
+   production adoption — see `docs/architecture-review/
+   02-TECHNOLOGY-BASELINE.md` E5 and `26-FINAL-SEMANTIC-CONSISTENCY-
+   CLOSURE.md`.
 7. **Infrastructure product selections** — all resolved:
    - ✅ **API Gateway**: Kong Gateway (Apache-2.0), D-44. **Approved
      Version 1 selection, not subject to architectural re-evaluation
@@ -77,11 +88,13 @@ architectural authority).
     the sole Missing-Inputs finding `23-SAD-READINESS-MATRIX.md`
     identified. *(New item, same reason as #11.)*
 
-**7 of 12 items resolved. All 6 formal Certification Conditions
-satisfied** (items 1, 2, 4-partially via explicit non-closure, 7×2, 9 —
-item 4/AGPL remains the one formal Condition still open, a genuine
-Legal Dependency this Board cannot close). **Both gaps discovered at
-the Architecture Readiness Review (items 11-12) are also now closed.**
+**8 of 12 items resolved** (updated 2026-07-18, Final Pre-SAD Semantic
+Consistency Correction — item 6/Eramba governance status added to the
+resolved set). **All 6 formal Certification Conditions satisfied**
+(items 1, 2, 4-partially via explicit non-closure, 7×2, 9 — item 4/AGPL
+remains the one formal Condition still open, a genuine Legal Dependency
+this Board cannot close). **Both gaps discovered at the Architecture
+Readiness Review (items 11-12) are also now closed.**
 
 ## SAD Readiness Verdict
 

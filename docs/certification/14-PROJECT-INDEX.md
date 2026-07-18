@@ -122,6 +122,7 @@ files), `16-CONTRACT-FIRST.md` through `33-PART2-EXECUTIVE-SUMMARY.md`
 | `24-REPOSITORY-MODIFICATION-REPORT.md` | Files touched in the Architecture Readiness Review phase |
 | `25-EXECUTIVE-CONCLUSION.md` | READY FOR SOFTWARE ARCHITECTURE DOCUMENT verdict (superseded by `25-PRE-SAD-CLEAN-CLOSURE.md` below — historical record preserved) |
 | `25-PRE-SAD-CLEAN-CLOSURE.md` | Pre-SAD Baseline Correction closure report: decision-count correction, Kong/OpenBao governance clarification, ADR-0013/0014, consistency sweep, final SAD readiness conclusion |
+| `26-FINAL-SEMANTIC-CONSISTENCY-CLOSURE.md` | Final Pre-SAD Semantic Consistency Correction closure report: Eramba governance-status correction, ADR-0014 ownership/count correction, Constitution v2.1 amendment (RTO/RPO reasons, Core Domain), semantic sweep, final SAD readiness conclusion |
 
 **Note on the shared "25" prefix:** `25-EXECUTIVE-CONCLUSION.md` (Architecture
 Readiness Review) and `25-PRE-SAD-CLEAN-CLOSURE.md` (Pre-SAD Baseline

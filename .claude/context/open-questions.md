@@ -64,7 +64,17 @@ Questions Resolution" (2026-07-18) — التفاصيل الكاملة في
 
 ## أسئلة جديدة أُضيفت أثناء إعداد Constitution v1 (2026-07-15)
 
-14. **ما هو الـCore Domain للمنصة؟** (Strategic Design/Distillation ضمن DDD — انظر
+14. **RESOLVED (2026-07-18, Open Questions Resolution):** الـCore Domain
+    للمنصة هو **"Patient-to-Result Orchestration"** — ADR-0011 **Accepted**
+    (راجعه المستخدم صراحةً وأكّده، وهو شرط الترقية الذي نصّ عليه ADR-0011
+    نفسه). انظر `docs/certification/20-OPEN-QUESTIONS-RESOLUTION.md`
+    (D-40) و`docs/constitution/PROJECT-CONSTITUTION.md` Section 6/46/47
+    (محدَّثة، v2.1). فجوة الأدلة المُفصَح عنها: بديل "Specimen Management"
+    لم يُقيَّم رأسًا لرأس — موثقة صراحة في قسم "Amendment — Open Questions
+    Resolution Phase" داخل ADR-0011 نفسه، وليست مُخفاة.
+
+    **النص الأصلي (تاريخي، محفوظ كسجل لما كان معروفًا وقت كتابته):** ما هو
+    الـCore Domain للمنصة؟ (Strategic Design/Distillation ضمن DDD — انظر
     `docs/constitution/PROJECT-CONSTITUTION.md` Section 6 و46). لم يُحدَّد بعد؛
     يحتاج جلسة DDD مخصصة عند بدء اكتشاف الـModules الفعلية. **لا** يُعتبر أي
     Bounded Context "Core" ضمنيًا لمجرد ذكره في `module-catalog.md`.

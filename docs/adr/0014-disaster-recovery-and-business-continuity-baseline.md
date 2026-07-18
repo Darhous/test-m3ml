@@ -127,11 +127,42 @@ DR infrastructure is not a lower-security side channel.
 
 ## Dependency Recovery Responsibilities (Accepted)
 
-- Each of the 21 ratified Engines' own backup/recovery capability is
-  the responsibility of the Module holding that Engine's Single
-  Adoption Point (per the ownership discipline already established in
-  `docs/architecture-review/02-TECHNOLOGY-BASELINE.md`'s Owner column)
-  — DR is not a single central team's undifferentiated responsibility.
+**Updated 2026-07-18 (Final Pre-SAD Semantic Consistency Correction):**
+the rule below replaces an earlier version of this section that named a
+specific Engine count (21) — a number that was already stale relative
+to the Technology Baseline's own count at the time and, more
+fundamentally, does not belong in a durable architectural rule. The
+rule now stated is deliberately count-independent.
+
+- **Every ratified Engine or stateful platform component that stores
+  authoritative data, recoverable configuration, secrets, policies,
+  integration state, or operational metadata must have an explicitly
+  assigned backup, restore, recovery-validation, and disaster-recovery
+  responsibility.** This applies uniformly across however many Engines
+  the Technology Baseline ratifies at any point in time — the rule does
+  not require updating when the Baseline's count changes.
+- Ownership belongs to the responsible **Module, Bounded Context,
+  Independent Component, platform capability, or operational owner**,
+  as recorded in the Technology Baseline's Owner column
+  (`docs/architecture-review/02-TECHNOLOGY-BASELINE.md`), the SAD,
+  deployment documentation, or a dedicated ownership register — whichever
+  is authoritative for that component. Not every Engine's Single
+  Adoption Point maps to a conventional domain Module; some are owned by
+  a platform capability (e.g., a shared Identity or Observability
+  capability) rather than a Bounded Context.
+- Not every stateless library or Reference Standard requires an
+  independent backup strategy in its own right. However, the
+  configuration, secrets, policy definitions, schemas, and
+  infrastructure definitions that operate a component may still require
+  recovery even when the runtime component itself is otherwise
+  stateless — statelessness of the runtime does not imply nothing about
+  it needs to be recoverable.
+- Central platform operations may coordinate DR execution across
+  Engines and components (e.g., a shared backup schedule or a common
+  restore-drill calendar), but responsibility for each Engine's or
+  component's actual recovery must remain **explicitly assigned** —
+  coordination must never collapse into an undifferentiated central
+  obligation that no single owner is accountable for.
 - This is the natural extension of R-08 (No formal vendor exit strategy
   documented) — an Engine's exit strategy and its DR/backup strategy
   are related but distinct deliverables; this ADR does not merge them,
