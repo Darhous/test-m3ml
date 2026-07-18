@@ -487,3 +487,9 @@ multi-session program lasting well beyond this session — consistent with
 the pacing note already logged in `MASTER_FEATURE_CATALOG.md`. This is
 reported here transparently rather than silently thinning out research
 quality in later Modules to appear faster.
+
+**Superseded, 2026-07-18 (Enterprise Architecture Certification Audit):**
+this multi-session pacing prediction is now historical — all 28/28
+Modules completed, per this document's own "PROGRAM COMPLETE" status
+above and `MASTER_COMPLETION_REPORT.md`. Kept verbatim, not deleted, per
+this project's append-only historical-record discipline.

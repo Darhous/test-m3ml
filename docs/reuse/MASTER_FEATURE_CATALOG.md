@@ -44,99 +44,99 @@ in the program's own instructions (`inventory/` → `stock/`, `barcode/`,
 
 | Feature | Source Capabilities | Status |
 |---|---|---|
-| `tenant-provisioning` | Tenant Management | Pending |
-| `organization-branch-hierarchy` | Organization Management, Branch Management | Pending |
-| `multi-tenancy-isolation` | (Constitution Section 18/19, ADR 0005) | Pending |
-| `feature-flags` | Feature Flags | Pending |
-| `tenant-configuration` | Tenant Management | Pending |
+| `tenant-provisioning` | Tenant Management | Researched |
+| `organization-branch-hierarchy` | Organization Management, Branch Management | Researched |
+| `multi-tenancy-isolation` | (Constitution Section 18/19, ADR 0005) | Researched |
+| `feature-flags` | Feature Flags | Researched |
+| `tenant-configuration` | Tenant Management | Researched |
 
 ## 3. Audit and Compliance (Platform Kernel)
 
 | Feature | Source Capabilities | Status |
 |---|---|---|
-| `immutable-audit-trail` | Audit | Pending |
-| `consent-management` | Consent | Pending |
-| `policy-engine` | Policy Management | Pending |
-| `compliance-tracking` | Compliance, Risk | Pending |
-| `document-control` | Document Control | Pending |
+| `immutable-audit-trail` | Audit | Researched |
+| `consent-management` | Consent | Researched |
+| `policy-engine` | Policy Management | Researched |
+| `compliance-tracking` | Compliance, Risk | Researched |
+| `document-control` | Document Control | Researched |
 
 ## 4. Device Integration Gateway (Shared Infrastructure)
 
 | Feature | Source Capabilities | Status |
 |---|---|---|
-| `hl7-integration-engine` | Device Integration | Pending |
-| `astm-integration` | Device Integration | Pending |
-| `device-protocol-adapters` | Analyzer Operations | Pending |
-| `message-broker-queueing` | Device Integration (idempotency) | Pending |
+| `hl7-integration-engine` | Device Integration | Researched |
+| `astm-integration` | Device Integration | Researched |
+| `device-protocol-adapters` | Analyzer Operations | Researched |
+| `message-broker-queueing` | Device Integration (idempotency) | Researched |
 
 ## 5. Notification Service (Shared Infrastructure)
 
 | Feature | Source Capabilities | Status |
 |---|---|---|
-| `multi-channel-notification-engine` | Notifications | Pending |
-| `templating` | Notifications, Reminders | Pending |
-| `delivery-tracking` | Notifications | Pending |
-| `whatsapp-integration` | Notifications (Egypt-relevant, Wave 11) | Pending |
+| `multi-channel-notification-engine` | Notifications | Researched |
+| `templating` | Notifications, Reminders | Researched |
+| `delivery-tracking` | Notifications | Researched |
+| `whatsapp-integration` | Notifications (Egypt-relevant, Wave 11) | Researched |
 
 ## 6. AI Operations Gateway (Shared Infrastructure)
 
 | Feature | Source Capabilities | Status |
 |---|---|---|
-| `llm-gateway-orchestration` | AI | Pending |
-| `prompt-audit-logging` | AI ↔ Audit | Pending |
-| `ai-use-case-governance` | AI (Constitution Section 28) | Pending |
-| `semantic-search` | Search | Pending |
+| `llm-gateway-orchestration` | AI | Researched |
+| `prompt-audit-logging` | AI ↔ Audit | Researched |
+| `ai-use-case-governance` | AI (Constitution Section 28) | Researched |
+| `semantic-search` | Search | Researched |
 
 ## 7. Analytics (Cross-Cutting Service)
 
 | Feature | Source Capabilities | Status |
 |---|---|---|
-| `bi-dashboards` | BI | Pending |
-| `embedded-analytics` | Analytics, Reporting (enterprise) | Pending |
-| `reporting-engine` | Reporting (enterprise) | Pending |
-| `forecasting-engine` | Forecasting | Pending |
+| `bi-dashboards` | BI | Researched |
+| `embedded-analytics` | Analytics, Reporting (enterprise) | Researched |
+| `reporting-engine` | Reporting (enterprise) | Researched |
+| `forecasting-engine` | Forecasting | Researched |
 
 ## 8. Document Management (Cross-Cutting Service)
 
 | Feature | Source Capabilities | Status |
 |---|---|---|
-| `document-storage-versioning` | Document Control | Pending |
-| `document-control-workflow` | Document Control | Pending |
-| `e-signature` | (Inferred — Sensitive Operation adjacent) | Pending |
+| `document-storage-versioning` | Document Control | Researched |
+| `document-control-workflow` | Document Control | Researched |
+| `e-signature` | (Inferred — Sensitive Operation adjacent) | Researched |
 
 ## 9. Patient Management (Business Module — Clinical)
 
 | Feature | Source Capabilities | Status |
 |---|---|---|
-| `patient-registry-mpi` | Patient Identity | Pending |
-| `patient-history-timeline` | Patient History | Pending |
-| `patient-portal-ui` | (Confirmed — Portal routing) | Pending |
-| `consent-linkage` | Consent ↔ Patient | Pending |
+| `patient-registry-mpi` | Patient Identity | Researched |
+| `patient-history-timeline` | Patient History | Researched |
+| `patient-portal-ui` | (Confirmed — Portal routing) | Researched |
+| `consent-linkage` | Consent ↔ Patient | Researched |
 
 ## 10. Practitioner and Clinic Management (Business Module — Clinical)
 
 | Feature | Source Capabilities | Status |
 |---|---|---|
-| `practitioner-registry-credentialing` | Practitioner Management | Pending |
-| `clinic-facility-directory` | (derived — Org/Branch ↔ Practitioner) | Pending |
-| `referral-management` | Referrals | Pending |
+| `practitioner-registry-credentialing` | Practitioner Management | Researched |
+| `clinic-facility-directory` | (derived — Org/Branch ↔ Practitioner) | Researched |
+| `referral-management` | Referrals | Researched |
 
 ## 11. Scheduling and Encounters (Business Module — Clinical)
 
 | Feature | Source Capabilities | Status |
 |---|---|---|
-| `appointment-scheduling-engine` | Scheduling | Pending |
-| `resource-calendar` | Scheduling | Pending |
-| `encounter-tracking` | Clinical Relationship | Pending |
-| `reminders-integration` | Reminders ↔ Notification | Pending |
+| `appointment-scheduling-engine` | Scheduling | Researched |
+| `resource-calendar` | Scheduling | Researched |
+| `encounter-tracking` | Clinical Relationship | Researched |
+| `reminders-integration` | Reminders ↔ Notification | Researched |
 
 ## 12. Diagnostic Ordering (Business Module — Clinical, Core-adjacent)
 
 | Feature | Source Capabilities | Status |
 |---|---|---|
-| `order-entry-cpoe` | Orders | Pending |
-| `order-catalog-pricing` | Orders ↔ Pricing | Pending |
-| `order-status-tracking` | Orders | Pending |
+| `order-entry-cpoe` | Orders | Researched |
+| `order-catalog-pricing` | Orders ↔ Pricing | Researched |
+| `order-status-tracking` | Orders | Researched |
 
 ## 13. Specimen Operations (Business Module — Clinical, Core)
 
@@ -287,10 +287,17 @@ here so they are not lost, not because they are committed.
 
 Given the true scope (28 modules × 106 features × 13 files = ~1,378
 individual documents, each requiring genuine live research), this program
-executes as a **multi-session Module-by-module marathon**, identical in
+executed as a **multi-session Module-by-module marathon**, identical in
 discipline to the preceding Discovery Gap Closure's Wave structure: one
 Module fully researched and committed at a time, in priority order (see
 `MASTER_EXECUTIVE_SUMMARY.md` for the priority rationale), continuing
-across sessions until the Stop Conditions are met. This catalog is the
-single source of truth for what remains — `Pending` rows are the honest,
-un-hidden backlog, not a silently-dropped scope.
+across sessions until the Stop Conditions were met.
+
+**Status update (Enterprise Architecture Certification Audit, 2026-07-18):**
+all 106/106 Features are now `Researched` (105 fully decided, 1 —
+`home-collection-logistics` — researched but explicitly blocked, see its
+own `10-final-decision.md`), matching `MASTER_COMPLETION_REPORT.md` and
+`MASTER_DECISION_REGISTER.md`. This catalog's Status column previously
+lagged 44 Features behind actual completion (a stale-index defect found
+and corrected during this audit — see `docs/certification/09-SAFE-FIXES-APPLIED.md`);
+it is now the accurate single source of truth for what remains.
