@@ -5,7 +5,7 @@
 | Field | Value |
 |---|---|
 | Wave number and title | 4 of 13 — Building Block View (`docs/sad/README.md`) |
-| Document Status | **Review** (Constitution §59 Document Status Vocabulary — not `Accepted`) |
+| Document Status | **Accepted** (per `docs/constitution/PROJECT-CONSTITUTION.md` §59 Document Status Vocabulary). Accepted by the **Project Owner**, acting as Architecture Review Board (Constitution §57), on 2026-07-20, following an Independent Architecture Review that returned a verdict of **PASS WITH NARROW PRE-ACCEPTANCE ERRATUM**, and following closure of that erratum (§27, corrective commit `9cf0729`, `docs(sad): correct Wave 4 pre-acceptance semantics`). Full Acceptance Record in §27. |
 | Owner | Author of this Wave (session author, 2026-07-20) |
 | Review authority | Project Owner, acting as Architecture Review Board (Constitution §57) |
 | Dependencies | Wave 1 — **Accepted**; Wave 2 — **Accepted**; Wave 3 — **Accepted** (commit `6a0f8d9`, following erratum closure `b4c341e`) |
@@ -13,7 +13,7 @@
 | Superseded by | None |
 | Updated | 2026-07-20 |
 
-This Wave does not become `Accepted` in this pass, regardless of its own self-review verdict (§26). Per the Inter-Wave Gate (`docs/sad/README.md`), only the Project Owner's explicit statement of acceptance changes this field.
+**Historical note, preserved verbatim from this Wave's original drafting (unchanged since):** "This Wave does not become `Accepted` in this pass, regardless of its own self-review verdict (§26). Per the Inter-Wave Gate (`docs/sad/README.md`), only the Project Owner's explicit statement of acceptance changes this field." That statement was true at the time this Wave was drafted and self-reviewed. §27 (Acceptance Record) documents the separate, subsequent Project Owner acceptance — following the Independent Architecture Review and this erratum's closure — that now governs this Wave's actual Document Status, the same never-rewrite-history convention Waves 1–3 already established for their own acceptance records.
 
 ## 2. Purpose and Boundaries
 
@@ -734,3 +734,23 @@ All 21 gates PASS. No gate is marked PASS on an unresolved finding — every PAS
 **PASS.**
 
 All 21 Validation Gates (A–U) pass with direct evidence. Three genuine review cycles were run against the actually-saved file (Blind Building-Block Reader, Adversarial Architecture Reviewer, Final Verification), together finding and closing 12 real defects, one of them independently re-verified against its cited source rather than merely trusted. No new architectural decision was introduced; the 9 Modeled/19 Recognized tiering, the Technology Baseline's mixed status, and the Independent Components' per-item Required/Permitted/Not-decided status are all preserved without flattening. No Container/Component confusion remains in either diagram; no cross-module schema access, circular dependency, or native-Engine-exposure claim survives in the final text. This verdict is this Wave's own review conclusion — it is **not** project-owner Accepted approval. Wave 4 Document Status remains `Review`; Waves 1–3 remain `Accepted`, untouched in substance; Wave 5 has not been started.
+
+### Post-Review Independent Architecture Review — Erratum Note
+
+Following this self-review, an **Independent Architecture Review** examined this Wave and returned a verdict of **PASS WITH NARROW PRE-ACCEPTANCE ERRATUM**: 10 narrow semantic issues spanning schema-ownership arithmetic, logical-vs-deployment separation, C4 legend accuracy, authorization-layer placement, IAM scope leakage, Analytics data-access wording, BC-status/Module-mapping conflation, premature closure of two historical capability candidates, deferred-modeling ownership, and Engine-count wording. All 10 were corrected directly in this Wave's own text (no source outside `docs/sad/04-building-block-view.md` was touched), independently re-verified against 10 required questions with quoted evidence, and closed in commit `9cf0729`. The correction is narrow (wording, arithmetic, and placement fixes within this Wave's own text), does not reopen or re-run the three Reader Testing passes above, does not change this Wave's Final Verdict of PASS, and does not touch Waves 1–3. Wave 4's formal Project-Owner acceptance is recorded below only after this erratum's independent verification passed.
+
+## 27. Acceptance Record
+
+This section documents the Project Owner's formal acceptance of this Wave, satisfying Inter-Wave Gate condition 3 (`docs/sad/README.md`) — separate from, and subsequent to, the self-review verdict recorded in §26. §26's own historical text is preserved verbatim, unedited, per this document's own never-rewrite-history convention (also applied by Wave 1 commit `20c3657`, Wave 2 `02-context-and-scope.md` §20, and Wave 3 `03-solution-strategy.md` §27).
+
+| Field | Value |
+|---|---|
+| Acceptance status | **ACCEPTED** |
+| Accepted by | **Project Owner**, acting as Architecture Review Board (Constitution §57 — the ARB function is fulfilled entirely by the Project Owner today) |
+| Independent Architecture Review verdict | **PASS WITH NARROW PRE-ACCEPTANCE ERRATUM** (10 narrow semantic issues, §26 Post-Review Erratum Note) |
+| Erratum closure | Corrected and independently re-verified (10 required verification questions, all confirmed sound with quoted evidence) before acceptance was registered; correction commit `9cf0729` (`docs(sad): correct Wave 4 pre-acceptance semantics`), pushed and verified matching `origin/main` before this Acceptance Record was added |
+| Date | 2026-07-20 |
+| Basis | The corrective commit `9cf0729`, itself building on this Wave's own 3-pass Reader Testing and 21-Gate self-review (§26, Final Verdict: PASS) |
+| Scope of this acceptance commit | Administrative only — Document Status (§1) and this Acceptance Record (§27) added; no further substantive Building Block, Mapping Matrix, or Traceability content is altered by the acceptance commit itself (all substantive correction happened in the separate, prior erratum commit `9cf0729`) |
+| Effect on Inter-Wave Gate | Satisfies condition 3 for Wave 4. Combined with conditions 1 (Completed), 2 (Reviewed — self-review §26 plus Independent Architecture Review), 4 (Committed), and 5 (Pushed, verified below), the Inter-Wave Gate is now satisfied for Wave 4, permitting Wave 5 (Runtime View) to begin |
+| Precedent | Same acceptance pattern as Wave 1 (`20c3657`), Wave 2 (`02-context-and-scope.md` §20), and Wave 3 (`03-solution-strategy.md` §27) — a separate, subsequent Project Owner acceptance following a self-review verdict, here additionally preceded by an Independent Architecture Review and a closed erratum |
