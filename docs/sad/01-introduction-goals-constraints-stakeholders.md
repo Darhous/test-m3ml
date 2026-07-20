@@ -1,9 +1,16 @@
 # SAD Wave 1 — Introduction, Goals, Constraints & Stakeholders
 
-**Document Status:** Review (per `docs/constitution/PROJECT-CONSTITUTION.md`
-§59 Document Status Vocabulary — circulated, not yet Accepted). Becomes
-Accepted upon review by the Architecture Review Board, which today is
-fulfilled entirely by the project owner (Constitution §57).
+**Document Status:** **Accepted** (per
+`docs/constitution/PROJECT-CONSTITUTION.md` §59 Document Status
+Vocabulary). Accepted by the **Project Owner**, acting as the
+Architecture Review Board (Constitution §57 — the ARB is a
+function/process fulfilled entirely by the project owner today), on
+2026-07-20, following an Independent Architecture Review of the Wave 1
+Corrective Review (§17.2). Final Architecture Review Verdict at
+acceptance time: **PASS**. This registers the administrative act of
+acceptance only — no substantive/architectural content of this Wave was
+changed to produce this status change (see §17.2 for the last
+substantive review, which remains the operative content review).
 
 **Wave:** 1 of 13 (see `docs/sad/README.md` for the full wave plan).
 
@@ -449,21 +456,28 @@ listed — nothing here is newly invented for this Wave:
 
 ## 12. Document Governance and Ownership
 
+**Acceptance record (added 2026-07-20, administrative registration
+only — no substantive content changed):** this document moved from
+`Review` to `Accepted` on 2026-07-20, approved by the Project Owner
+acting as the Architecture Review Board, following the Independent
+Architecture Review that produced the Corrective Review in §17.2.
+
 Per Constitution §59, this document follows the **Document Lifecycle
 Status** vocabulary (`Draft` → `Review` → `Accepted` →
 `Deprecated`/`Archived`), a separate vocabulary from the Decision Status
 taxonomy (`Draft`/`Proposed`/`Accepted`/`Rejected`/`Superseded`) used for
-architectural decisions themselves — this document being in `Review`
-status says nothing about whether the decisions it *references* are
-Accepted (they are, per §4 above).
+architectural decisions themselves — this document being `Accepted`
+says nothing about whether the decisions it *references* are Accepted
+(they are, per §4 above, and were already Accepted independently of
+this document's own status).
 
 Per Constitution §57 (Architecture Review Board): **as a plain fact,
 stated by the Constitution itself**, this project currently has one
 project owner and no separate architecture team — the ARB is a
 function/process fulfilled entirely by the project owner today. This
-document's move from `Review` to `Accepted` therefore requires the
-project owner's approval, consistent with how every prior Accepted
-artifact in this repository (Constitution, all 14 ADRs) was approved.
+document's move from `Review` to `Accepted` required the project
+owner's approval, consistent with how every prior Accepted artifact in
+this repository (Constitution, all 14 ADRs) was approved.
 
 Ownership of this document (and each subsequent Wave) rests with
 whoever authors it, with the project owner as sole approval authority

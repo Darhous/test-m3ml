@@ -30,7 +30,7 @@ architectural conflict is discovered during execution.
 
 | Wave | Title | Status |
 |---|---|---|
-| 1 | Introduction, Goals, Constraints & Stakeholders | **Review** — drafted 2026-07-20; self-review verdict PASS was not accepted by the project owner (interim ruling: PASS WITH CONDITIONS, ADR full-text review gap); Corrective Review completed 2026-07-20, new verdict PASS (see §17.2 of the Wave 1 document); still awaiting explicit project owner Accepted approval — a review verdict is not the same as Accepted status |
+| 1 | Introduction, Goals, Constraints & Stakeholders | **Accepted** — drafted 2026-07-20; Corrective Review verdict PASS (§17.2 of the Wave 1 document); formally **Accepted by the Project Owner on 2026-07-20** following Independent Architecture Review, satisfying gate condition 3 below |
 | 2 | Context & Scope | Not started |
 | 3 | Solution Strategy | Not started |
 | 4 | Building Block View | Not started |
