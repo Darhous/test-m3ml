@@ -5,7 +5,7 @@
 | Field | Value |
 |---|---|
 | Wave number and title | 3 of 13 — Solution Strategy (`docs/sad/README.md`) |
-| Document Status | **Review** (Constitution §59 Document Status Vocabulary — not `Accepted`) |
+| Document Status | **Accepted** (per `docs/constitution/PROJECT-CONSTITUTION.md` §59 Document Status Vocabulary). Accepted by the **Project Owner**, acting as Architecture Review Board (Constitution §57), on 2026-07-20, following an Independent Architecture Review that returned a verdict of **PASS WITH MANDATORY NARROW PRE-ACCEPTANCE ERRATUM**, and following closure of that erratum (§26, corrective commit `b4c341e`, `docs(sad): correct Wave 3 independent-component semantics`). Full Acceptance Record in §27. |
 | Owner | Author of this Wave (session author, 2026-07-20) |
 | Review authority | Project Owner, acting as Architecture Review Board (Constitution §57 — the ARB is a function/process fulfilled entirely by the project owner today) |
 | Dependencies | Wave 1 (`01-introduction-goals-constraints-stakeholders.md`) — **Accepted**, 2026-07-20; Wave 2 (`02-context-and-scope.md`) — **Accepted**, 2026-07-20 (commit `5434739`) |
@@ -13,7 +13,7 @@
 | Superseded by | None |
 | Updated | 2026-07-20 |
 
-This Wave does not become `Accepted` in this pass, regardless of its own self-review verdict (§25). Per the Inter-Wave Gate (`docs/sad/README.md`), only the Project Owner's explicit statement of acceptance changes this field.
+**Historical note, preserved verbatim from this Wave's original drafting (unchanged since):** "This Wave does not become `Accepted` in this pass, regardless of its own self-review verdict (§25). Per the Inter-Wave Gate (`docs/sad/README.md`), only the Project Owner's explicit statement of acceptance changes this field." That statement was true at the time this Wave was drafted and self-reviewed. §27 (Acceptance Record) documents the separate, subsequent Project Owner acceptance — following the Independent Architecture Review and this erratum's closure — that now governs this Wave's actual Document Status, exactly the same never-rewrite-history convention Wave 1 and Wave 2 already established for their own acceptance records.
 
 ## 2. Purpose and Boundaries
 
@@ -855,3 +855,19 @@ Following this self-review, an **Independent Architecture Review** examined this
 **Deployment topology remains Wave 6's territory.** This erratum does not fix, imply, or foreclose any specific v1 deployment count, container boundary, or process topology for any of the 7 components without ADR-0006's specific commitment. Wave 4 (Building Block View) may document each of the 8 as a logical building block with an "Operational independence status: Required / Permitted / Not decided / Not applicable" field per component (per item, not flattened); Wave 6 (Deployment View) finalizes the actual topology.
 
 **This correction creates no new ADR.** No new architectural decision is introduced; no existing ADR is reversed, amended, or superseded; this is a wording-level correction to this Wave's own synthesis text, bringing it back into alignment with sources that were already Accepted before this Wave was drafted.
+
+## 27. Acceptance Record
+
+This section documents the Project Owner's formal acceptance of this Wave, satisfying Inter-Wave Gate condition 3 (`docs/sad/README.md`) — separate from, and subsequent to, the self-review verdict recorded in §25. §25's own historical text ("this Wave does not become `Accepted` in this pass... only the Project Owner's explicit statement of acceptance changes this field") is preserved verbatim, unedited, per this document's own never-rewrite-history convention (also applied by Wave 1, commit `20c3657`, and Wave 2, `02-context-and-scope.md` §20).
+
+| Field | Value |
+|---|---|
+| Acceptance status | **ACCEPTED** |
+| Accepted by | **Project Owner**, acting as Architecture Review Board (Constitution §57 — the ARB function is fulfilled entirely by the Project Owner today) |
+| Independent Architecture Review verdict | **PASS WITH MANDATORY NARROW PRE-ACCEPTANCE ERRATUM** (a status-promotion defect in the Independent Components' operational-independence wording, §26) |
+| Erratum closure | The erratum was corrected and independently re-verified (targeted grep sweep plus a fresh, independent sub-agent review answering 5 required verification questions, all resolved) before acceptance was registered; correction commit `b4c341e` (`docs(sad): correct Wave 3 independent-component semantics`), pushed and verified matching `origin/main` before this Acceptance Record was added |
+| Date | 2026-07-20 |
+| Basis | The corrective commit `b4c341e`, itself building on this Wave's own 3-pass Reader Testing and 16-Gate self-review (§25, Final Verdict: PASS) |
+| Scope of this acceptance commit | Administrative only — Document Status (§1) and this Acceptance Record (§27) added; no substantive Strategy Pillar content, Trade-off, Non-Decision, Open Dependency, or Traceability entry is altered by the acceptance commit itself (all substantive correction happened in the separate, prior erratum commit `b4c341e`) |
+| Effect on Inter-Wave Gate | Satisfies condition 3 for Wave 3. Combined with conditions 1 (Completed), 2 (Reviewed — self-review §25 plus Independent Architecture Review), 4 (Committed), and 5 (Pushed, verified below), the Inter-Wave Gate is now satisfied for Wave 3, permitting Wave 4 (Building Block View) to begin |
+| Precedent | Same acceptance pattern as Wave 1 (commit `20c3657`) and Wave 2 (`02-context-and-scope.md` §20) — a separate, subsequent Project Owner acceptance following a self-review verdict, here additionally preceded by an Independent Architecture Review and a closed erratum |
