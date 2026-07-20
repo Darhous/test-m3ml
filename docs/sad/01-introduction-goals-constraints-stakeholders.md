@@ -447,12 +447,16 @@ listed — nothing here is newly invented for this Wave:
   any kind; replacing the Constitution itself.
 - End-user Portal/UX design documentation is entirely out of scope of
   the SAD — that is product/UX documentation, not architecture.
-- **Legacy system migration** (`.claude/context/open-questions.md` #13)
-  remains a genuinely **Open**, unanswered question — Discovery Phase 08
-  explicitly found no basis, confirmed or inferred, to answer it, and
-  invented no legacy-system profile. This Wave records that the
-  question is still open; it does **not** claim the question has been
-  resolved or that no migration will be needed.
+- **Legacy system migration** — **corrected 2026-07-20, see the
+  Post-Acceptance Semantic Erratum below.** No legacy system has been
+  identified anywhere in this repository's evidence base. The current
+  Operational Assumption (`docs/certification/
+  20-OPEN-QUESTIONS-RESOLUTION.md` #13; `12-OPEN-QUESTIONS-REGISTER.md`
+  row 13, both dated 2026-07-18) is: **no legacy migration is in scope
+  for v1.** If a real legacy system is identified later, it becomes a
+  new, separately-scoped Integration/Migration workstream — this is not
+  a platform Non-Goal (migration capability is not precluded), and it
+  is not an integration that exists today.
 
 ## 12. Document Governance and Ownership
 
@@ -711,7 +715,6 @@ above with its own citation:
 - Vendor exit-strategy procedures for the 7 Tier-1 Engines (R-08).
 - Numeric Non-Functional Budgets / SLA / SLO / RPO / RTO targets
   (Constitution §51, Open Question #4).
-- Legacy system migration status — genuinely still Open, not resolved.
 - Eramba Community implementation due diligence (R-01).
 
 #### Conflicts detected
@@ -853,8 +856,14 @@ Cross-Border Transfer, Labor/Social Insurance, and National ID
 validation-rule research (R-13); Result Verifier eligibility values
 (D-50, mechanism only); vendor exit-strategy procedures for the 7
 Tier-1 Engines (R-08); numeric Non-Functional Budgets/SLA/SLO/RPO/RTO
-targets; legacy system migration status (genuinely Open); Eramba
-Community implementation due diligence (R-01). Two items are added to
+targets; legacy system migration status (genuinely Open — **this
+specific finding was itself in error; see the Post-Acceptance Semantic
+Erratum at the end of this document, added 2026-07-20. Preserved
+verbatim here as the historical record of what this review pass
+concluded at the time, per this repository's own "never rewrite
+history, add a forward-reference" convention — not the current
+status**); Eramba Community implementation due diligence (R-01). Two
+items are added to
 this list as a direct result of this review, both **by design, not
 oversight** — this Wave explicitly declines to resolve them itself:
 
@@ -890,3 +899,54 @@ Conditions" phrasing all corrected per the project owner's specific
 instructions §6–§9. Document Status remains `Review` — this verdict is
 this review's own conclusion, not a substitute for the project owner's
 Accepted approval (§12).
+
+---
+
+## Post-Acceptance Semantic Erratum (2026-07-20)
+
+**Wave 1 Document Status remains `Accepted` — this erratum does not
+reopen Wave 1, does not change any architectural decision, and does not
+revoke acceptance.** It corrects one narrow semantic error discovered
+during an Independent Architecture Review of Wave 2, which traced back
+to a research gap in this document.
+
+**Previous error (§11, §17.1, §17.2, as originally written):** this
+document stated that legacy system migration "remains a genuinely
+Open, unanswered question." This was true of
+`.claude/context/open-questions.md`'s per-item narrative text for
+item #13 at the time it was read, but that per-item text is **stale**
+— it predates the Open Questions Resolution phase and was never given
+an individual "RESOLVED" marker the way item #14 was, even though the
+question it describes was in fact resolved in that same phase.
+
+**Governing, more current source:**
+`docs/certification/20-OPEN-QUESTIONS-RESOLUTION.md` #13 (2026-07-18)
+and `docs/certification/12-OPEN-QUESTIONS-REGISTER.md` row 13
+(2026-07-18, "Resolved | Operational Assumption (N/A for v1)") — both
+postdate and supersede the Context Store's stale per-item narrative for
+this specific question, per this repository's own Truth Order (Git/
+Files > Project File > Knowledge Notes, and within Files, the more
+recently authored, higher-authority certification document governs
+over an unmarked older narrative on the same specific point).
+
+**Correction:** Legacy system migration is **not** an open question.
+The current, Accepted-Decision-tier status is: **no legacy system has
+been identified in this repository's evidence base; the Operational
+Assumption is that no legacy migration is in scope for v1.** If a real
+legacy system is identified later, it becomes a new, separately-scoped
+Integration/Migration workstream — this is neither a platform Non-Goal
+(migration capability is not precluded) nor a currently-existing
+integration.
+
+**What did not change:** no architectural decision changed as a result
+of this correction — the Operational Assumption classification was
+already Decision-Register-adjacent in substance (`12-OPEN-QUESTIONS-
+REGISTER.md` already classified it "Resolved" on 2026-07-18); this
+erratum only corrects Wave 1's own citation of it, which had not been
+cross-checked against the certification documents at drafting time.
+Wave 1 §11 was updated in place (with the historical §17.1/§17.2
+review-report text preserved verbatim, per this repository's
+never-rewrite-history convention, each with a forward-reference to
+this erratum instead). No other Wave 1 content was touched.
+
+**Wave 1 Document Status: `Accepted` — unchanged by this erratum.**
