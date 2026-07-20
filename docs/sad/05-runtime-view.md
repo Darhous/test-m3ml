@@ -5,7 +5,7 @@
 | Field | Value |
 |---|---|
 | Wave number and title | 5 of 13 — Runtime View (`docs/sad/README.md`) |
-| Document Status | **Review** (Constitution §59 Document Status Vocabulary — not `Accepted`) |
+| Document Status | **Accepted** (per `docs/constitution/PROJECT-CONSTITUTION.md` §59 Document Status Vocabulary). Accepted by the **Project Owner**, acting as Architecture Review Board (Constitution §57), on 2026-07-20, following an Independent Architecture Review that returned a verdict of **PASS WITH NARROW PRE-ACCEPTANCE ERRATUM**, and following closure of that erratum (§20, corrective commit `38e1558`, `docs(sad): correct Wave 5 pre-acceptance semantics`). Full Acceptance Record in §20. |
 | Owner | Author of this Wave (session author, 2026-07-20) |
 | Review authority | Project Owner, acting as Architecture Review Board (Constitution §57) |
 | Dependencies | Wave 1 — **Accepted**; Wave 2 — **Accepted**; Wave 3 — **Accepted**; Wave 4 — **Accepted** (commit `ec8d045`, following erratum closure `9cf0729`) |
@@ -13,7 +13,7 @@
 | Superseded by | None |
 | Updated | 2026-07-20 |
 
-This Wave does not become `Accepted` in this pass, regardless of its own self-review verdict (§18). Per the Inter-Wave Gate (`docs/sad/README.md`), only the Project Owner's explicit statement of acceptance changes this field.
+**Historical note, preserved verbatim from this Wave's original drafting (unchanged since):** "This Wave does not become `Accepted` in this pass, regardless of its own self-review verdict (§18). Per the Inter-Wave Gate (`docs/sad/README.md`), only the Project Owner's explicit statement of acceptance changes this field." That statement was true at the time this Wave was drafted and self-reviewed. §20 (Acceptance Record) documents the separate, subsequent Project Owner acceptance — following the Independent Architecture Review and this erratum's closure (§19) — that now governs this Wave's actual Document Status, the same never-rewrite-history convention Waves 1–4 already established for their own acceptance records.
 
 ## 2. Purpose and Boundaries
 
@@ -1109,3 +1109,23 @@ This erratum classifies one item (publish-after-commit guarantee mechanism) more
 ### Targeted independent verification (after B1–B10 were applied)
 
 An independent reviewer sub-agent, given only this file and 10 required verification questions, confirmed 6 of 10 clean outright and found 4 residual defects of the same B1–B10 classes, all now closed: (a) R11's Main success path field read "the ratified machine-identity mechanism... (not yet ratified)" — a self-contradictory phrase, reworded to "an authenticated, contract-scoped machine identity (Accepted requirement)"; (b) R5's diagram carried an un-isolated "Review Queue (proposed, not confirmed)" participant, the same defect class as Webhook Dispatcher — relabeled "Unconfirmed Review-Queue Mechanism" with the same placeholder Note and non-counted treatment, and §14's "sole exception" claim corrected to name both placeholders; (c) §17 Traceability Matrix's R12 row still read "Background Workers (logical)" / "Status: Deferred," inconsistent with the corrected "confirmed component, placement open" language used elsewhere — reworded; (d) §11 Error Matrix's "Engine failure" and "Persistence failure" rows stated retry status as bare "Deferred" without the Constitution §48 qualitative-rule citation the other five retry-related rows carry — added. No further defects were found on re-verification.
+
+### Corrective commit
+
+`38e1558` (`docs(sad): correct Wave 5 pre-acceptance semantics`), containing only `docs/sad/05-runtime-view.md`, pushed and verified `main`==`origin/main`==`38e1558eb3363dfee8c2ca5a0e46635b890fc3ed` before this erratum was considered closed.
+
+## 20. Acceptance Record
+
+This section documents the Project Owner's formal acceptance of this Wave, satisfying Inter-Wave Gate condition 3 (`docs/sad/README.md`) — separate from, and subsequent to, the self-review verdict recorded in §18 and the narrow erratum recorded in §19. §18's own historical text is preserved verbatim, unedited, per this document's own never-rewrite-history convention (also applied by Wave 1 commit `20c3657`, Wave 2 `02-context-and-scope.md` §20, Wave 3 `03-solution-strategy.md` §27, and Wave 4 `04-building-block-view.md` §27).
+
+| Field | Value |
+|---|---|
+| Acceptance status | **ACCEPTED** |
+| Accepted by | **Project Owner**, acting as Architecture Review Board (Constitution §57 — the ARB function is fulfilled entirely by the Project Owner today) |
+| Independent Architecture Review verdict | **PASS WITH NARROW PRE-ACCEPTANCE ERRATUM** (10 narrow semantic issues, B1–B10, §19 Post-Review Narrow Semantic Erratum) |
+| Erratum closure | Corrected and independently re-verified (10 required verification questions; 6 confirmed clean outright, 4 residual defects found and closed) before acceptance was registered; correction commit `38e1558` (`docs(sad): correct Wave 5 pre-acceptance semantics`), pushed and verified matching `origin/main` before this Acceptance Record was added |
+| Date | 2026-07-20 |
+| Basis | The corrective commit `38e1558`, itself building on this Wave's own 3-pass Reader Testing and 23-Gate self-review (§18, Final Verdict: PASS) |
+| Scope of this acceptance commit | Administrative only — Document Status (§1) and this Acceptance Record (§20) added; no further substantive Runtime Scenario, Invariant, or Traceability content is altered by the acceptance commit itself (all substantive correction happened in the separate, prior erratum commit `38e1558`) |
+| Effect on Inter-Wave Gate | Satisfies condition 3 for Wave 5. Combined with conditions 1 (Completed), 2 (Reviewed — self-review §18 plus Independent Architecture Review and erratum §19), 4 (Committed), and 5 (Pushed, verified below), the Inter-Wave Gate is now satisfied for Wave 5, permitting Wave 6 (Deployment View) to begin |
+| Precedent | Same acceptance pattern as Wave 1 (`20c3657`), Wave 2 (`02-context-and-scope.md` §20), Wave 3 (`03-solution-strategy.md` §27), and Wave 4 (`04-building-block-view.md` §27) — a separate, subsequent Project Owner acceptance following a self-review verdict, here additionally preceded by an Independent Architecture Review and a closed erratum |
