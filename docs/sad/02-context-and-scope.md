@@ -70,10 +70,21 @@ single governed system comprising:
    API Gateway, Background Workers) — operationally independent from
    the start for named, justified reasons, but **logically part of the
    platform**, not external to it (see §5, §15).
-5. **24 ratified Technology Baseline Engines** (Keycloak, OPA, RabbitMQ,
-   ERPNext, Kong Gateway, PostgreSQL, etc. —
-   `docs/architecture-review/02-TECHNOLOGY-BASELINE.md`) that the
-   platform adopts, operates, and wraps behind its own API and an
+5. **24 Technology Baseline Engines, with status preserved, not a
+   uniform "24 Adopted" block** (`docs/architecture-review/
+   02-TECHNOLOGY-BASELINE.md`): 19 fully APPROVED from the original
+   EARB freeze, 2 CONDITIONALLY APPROVED from that same freeze (Eramba
+   Community — implementation due diligence required before production
+   adoption; Mirth Connect — frozen-release risk), and 3 more fully
+   APPROVED added later (Kong Gateway, OpenBao, PostgreSQL). Several
+   Engines additionally carry an unresolved License/Legal dependency
+   (e.g., Novu, Cal.com, Atlas CMMS, openIMIS, Frappe Helpdesk, Frappe
+   CRM — `Requires Legal Verification` or AGPL-3.0, per R-04/R-07). A
+   Legal Dependency does **not** mean an Engine is rejected, and a
+   Frozen Baseline does **not** mean every Engine's due diligence is
+   complete — both are preserved states, not resolved to either
+   extreme. All 24 are, regardless of individual status, adopted and
+   operated by the platform, wrapped behind its own API and an
    Anti-Corruption Layer — "no Engine's native API is ever exposed
    directly to a Portal, Partner, or Public consumer"
    (`01-API-VISION.md`).
@@ -150,8 +161,15 @@ re-derived here):
 
 ### Inside the System of Interest
 
+**Corrected 2026-07-20** (Reader Testing finding, Corrective Review
+Pass 1): this table previously listed only three categories, silently
+dropping Client Surfaces/Portals even though §3 names them as one of
+the System of Interest's five constituent parts. Added below as a
+fourth row — this was an omission in the table, not a boundary change.
+
 | Category | Members | Source |
 |---|---|---|
+| Central Backend Platform + Client Surfaces/Portals | The shared Backend Platform and the client surfaces that consume it through Unified Login (Web Platform, Patient App, Sample Collector/Home Visit App) — no Portal-specific backend fork | §3; `01-API-VISION.md` Goal 1; Constitution's Consolidated Accepted Decisions appendix ("Clients" row) |
 | Bounded Contexts / Modules (Modular Monolith) | 28 (9 Modeled + 19 Recognized) | ADR-0012 (Accepted); §8 below |
 | Independent Components / Shared Services | Notification Service, Device Integration Gateway, AI Gateway, Analytics Platform, Search Service, File Processing Service, Public API Gateway, Background Workers | Constitution §11 (Accepted) |
 | Adopted/Integrated Technology Baseline Engines | 24 Engines (Keycloak, OPA, RabbitMQ, ERPNext, Kong Gateway, PostgreSQL, etc.) — operated and upgraded by the platform, wrapped behind the platform's own API + Anti-Corruption Layer | `02-TECHNOLOGY-BASELINE.md`, `01-API-VISION.md` |
@@ -174,7 +192,7 @@ Anti-Corruption Layer or a Partner/Integration API). Full inventory in
 
 | Party | Responsibility (context-level) | Source |
 |---|---|---|
-| **The Platform** | The Backend Platform, all 28 Bounded Contexts, the 8 Shared Services, and operating/upgrading the 24 adopted Engines; backend-enforced authorization for every client surface | ADR-0008; Constitution §10–11 |
+| **The Platform** | The Backend Platform, all 28 Bounded Contexts, the 8 Shared Services, and operating/upgrading the 24 Technology Baseline Engines (per their individually preserved Approved/Conditionally Approved/Legal-Dependency status, §3); backend-enforced authorization for every client surface | ADR-0008; Constitution §10–11 |
 | **The Tenant / Healthcare Organization** | Their own Organization/Branch configuration, staff/role assignment within granted Data Scope, and (for On-Premise/Hybrid deployments only) sharing DR/infrastructure responsibility per a documented split — the exact split is a commercial/contractual matter, not resolved here | ADR-0005; ADR-0014 (Relationship Between SaaS/On-Premise/Hybrid section) |
 | **Third-Party Providers** | Their own Engine's upstream maintenance/patching cadence (Technology Baseline "Upgrade Policy" column); external counterparties' (payers, referring clinics, device vendors) own systems, entirely outside platform operation | `02-TECHNOLOGY-BASELINE.md`; §7 below |
 
@@ -307,7 +325,7 @@ SaaS Commercial Operations · Audit and Compliance.
   (Device Integration, Insurance and Corporate Contracts, etc.); no
   separate integration-hub context exists.
 - **A Bounded Context is not a microservice, a Module 1:1, or a
-  deployment unit.** Per `domain-driven-design` skill guidance (§20
+  deployment unit.** Per `domain-driven-design` skill guidance (§19
   below) and Constitution §6/§7: a Bounded Context is a model/language
   boundary. The 28 contexts do not imply 28 deployables — the Modular
   Monolith (ADR-0001) may hold many contexts in one deployable, with
@@ -346,7 +364,7 @@ vs. `W1-vision-scope-operating-model.md`).
 | **Optional / deployment-dependent** | On-Premise-specific and Hybrid-specific operational detail (ADR-0009) — architecturally ready, topology not fixed | ADR-0009; §5, §10 |
 | **External dependency (not an architectural gap)** | 5 AGPL-3.0 Engines pending legal review (R-04); Egypt regulatory research (R-13); Eramba due-diligence (R-01) | `11-RISK-REGISTER.md` |
 | **Explicitly Out of Scope (Non-Goals, Confirmed)** | A general-purpose Hospital Information System (inpatient bed management, surgical scheduling, pharmacy dispensing); a full financial ERP by default; a general-purpose e-commerce/retail platform | `W1-vision-scope-operating-model.md`, "Non-Goals and Scope Boundaries" |
-| **Unresolved** | Specimen Management as an alternative Core Domain (ADR-0011); legacy system migration (`open-questions.md` #13, genuinely Open); Result Verifier eligibility values (D-50, mechanism only) | ADR-0011; `open-questions.md`; `10-DECISION-REGISTER.md` |
+| **Unresolved** | Specimen Management as an alternative Core Domain (ADR-0011); Result Verifier eligibility values (D-50, mechanism only) | ADR-0011; `10-DECISION-REGISTER.md` |
 
 **32 Confirmed business domains, verbatim** (`W1-vision-scope-operating-model.md`):
 Laboratory Operations · Patient Operations · Doctor and Practitioner
@@ -371,9 +389,22 @@ Organization and Branch Operations.
 |---|---|---|
 | **Current architectural baseline** | Constitution v2.1 (Accepted) + 14 Accepted ADRs + Technology Baseline (33 entries, frozen) + Bounded Context Map (28, Accepted) + Wave 1 (Accepted) + this Wave (in Review) | **Documentation-only.** No product code exists yet in this repository (confirmed by this Wave's own Git Preflight, §19). "Current" here means *current governing architecture*, never *current production system* — nothing in this document is asserted as implemented |
 | **Target platform scope** | The full Healthcare Operations Platform vision: 32 business domains, 9 customer types, White Label/Plans/Subscriptions/SaaS billing, Egypt-first with multi-market readiness | `W1-vision-scope-operating-model.md` |
-| **Future / optional expansion** | Additional markets beyond Egypt; additional languages/currencies beyond the Arabic/English baseline (ADR-0010); a general HIS-adjacent domain set — explicitly excluded as a Non-Goal unless the user adds it later | ADR-0010; `W1-vision-scope-operating-model.md` Non-Goals |
+| **Future / optional expansion** | Additional markets beyond Egypt; additional languages/currencies beyond the Arabic/English baseline (ADR-0010) | ADR-0010; `W1-vision-scope-operating-model.md` |
 | **Deferred implementation decisions** | Numeric SLA/SLO/RPO/RTO targets (Constitution §51, ADR-0014); vendor exit-strategy procedures (R-08); Developer Portal beyond the v1 generated-docs decision (D-46) | Wave 1 §9; `10-DECISION-REGISTER.md` |
 | **Regulatory / localization dependencies** | AGPL-3.0 legal review (R-04); Egypt Cross-Border Transfer, Labor/Social Insurance, National ID validation rules (R-13) | `11-RISK-REGISTER.md` |
+| **Not in v1 scope, but not a Non-Goal (Operational Assumption)** | Legacy system migration — no legacy system identified in this repository's evidence base; no migration is in scope for v1. This is **distinct from a Non-Goal**: it does not exclude migration capability from ever being built, and it does not describe a currently-existing integration. If a real legacy system is identified later, it becomes a new, separately-scoped Integration/Migration workstream | `docs/certification/20-OPEN-QUESTIONS-RESOLUTION.md` #13; `12-OPEN-QUESTIONS-REGISTER.md` row 13 |
+
+**Correction (2026-07-20, Independent Architecture Review finding):**
+the "Future / optional expansion" row previously listed "a general
+HIS-adjacent domain set — explicitly excluded as a Non-Goal unless the
+user adds it later," which incorrectly implied a Non-Goal is a form of
+planned Future Scope. **A Non-Goal is not Future Scope.** The general
+Hospital Information System domains (inpatient bed management,
+surgical scheduling, pharmacy dispensing) remain classified **only** as
+Explicit Non-Goals / Out of Scope (§9, §13) — they do not become Future
+Scope merely because a future Product Scope decision is hypothetically
+possible; they would require an actual new Product Scope decision,
+which does not exist today, to move into any scope category at all.
 
 ## 11. Integration Context
 
@@ -383,14 +414,24 @@ versioning, or retry policies are designed in this Wave** (all Wave
 4/later or already-existing `docs/api-platform/` detail, cited not
 re-authored).
 
-- **API surface types** (`03-API-DOMAIN-INVENTORY.md` definitions):
-  Internal API (28/28 Modules have one — baseline Modular Monolith
-  expectation), External API (21 Modules, end-user-facing via Portals),
-  Partner API (6 candidates identified, **0 designed**), Admin API
-  (platform/tenant/org/branch administration), Integration API
-  (machine-to-machine with an external system), Public API (**0**,
-  deliberately deferred to Part 2 — "the platform has made no Decision
-  to open general-purpose public developer access").
+- **API surface types** (`03-API-DOMAIN-INVENTORY.md` definitions).
+  **Terminology correction (2026-07-20, Independent Architecture Review
+  finding):** `03-API-DOMAIN-INVENTORY.md` classifies its 28 rows using
+  the word "Modules" — that document's own, source-local nomenclature,
+  authored before ADR-0012's 28-Bounded-Context map existed in its
+  current Accepted form. This Wave does **not** treat that as a
+  validated, current, 1:1 "28 Modules = 28 Bounded Contexts" mapping —
+  which Bounded Contexts become which implementation Modules (if a 1:1
+  mapping holds at all) is undecided, Wave 4 work (§8's own caveat).
+  With that correction stated: the source document classifies 28
+  domain entries as having at least one Internal API surface (baseline
+  Modular Monolith expectation), 21 as having an External API surface
+  (end-user-facing via Portals), 6 as Partner API candidates
+  (**0 designed**), some as Admin API (platform/tenant/org/branch
+  administration), some as Integration API (machine-to-machine with an
+  external system), and 0 as Public API (deliberately deferred to Part
+  2 — "the platform has made no Decision to open general-purpose public
+  developer access").
 - **Healthcare interoperability**: the resource family named below is
   **quoted verbatim from the already-Accepted Reference Standard entry
   (R1, Technology Baseline)** — this Wave does not select or design
@@ -414,9 +455,20 @@ re-authored).
 - **AI Gateway boundary**: independent, governed AI Gateway (ADR-0007;
   Constitution §28) — approval-workflow design is Wave 9.
 - **Notification channels**: Novu (E8) is the adopted multi-channel
-  notification Engine; the **specific channel set (SMS/Email/Push/
-  WhatsApp/etc.) remains Open** (`open-questions.md` #10) — no channel
-  list is asserted as decided here.
+  notification Engine. **Corrected 2026-07-20** (this Wave's original
+  draft cited the Context Store's stale, unmarked text for this item
+  instead of the governing certification documents — see the
+  status-currency note above and §19's Current-Source Precedence
+  table): **SMS, Push, Email, In-Portal, and WhatsApp are Accepted at
+  architecture level** as the supported channel set
+  (`docs/certification/20-OPEN-QUESTIONS-RESOLUTION.md` #10;
+  `12-OPEN-QUESTIONS-REGISTER.md` row 10, both 2026-07-18). **Per-market
+  activation and availability** of each channel is **Country
+  Localization Configuration** — which channels are actually turned on
+  for a given market/tenant is not fixed here. No specific
+  SMS/WhatsApp/email carrier/provider is named (none is documented);
+  Novu's own License status (`Requires Legal Verification`, Technology
+  Baseline E8) is unchanged by this correction.
 
 ## 12. Data Responsibility Boundaries
 
@@ -464,84 +516,184 @@ formalizes it, if ever needed.
 
 ## 14. Context Diagram Specification
 
-**This is a specification for a future official diagram, not the
-official diagram itself** — no draw.io artifact is produced or claimed
-complete in this Wave.
+**Rebuilt 2026-07-20** (Independent Architecture Review finding, using
+the `c4-architecture` skill's actual C4 Level-1 System Context
+discipline — see §19). **This is a specification for a future official
+diagram, not the official diagram itself** — no draw.io artifact is
+produced or claimed complete in this Wave.
 
-- **System name**: Enterprise Healthcare SaaS Platform (§3).
-- **System boundary**: as defined in §5 — 28 Bounded Contexts + 8
-  Shared Services + 24 adopted Technology Baseline Engines, one
-  boundary line.
-- **Human actors** (grouped, §6): Clinical and Care; Laboratory;
-  Front-Office and Support; Financial; Workforce; Supply Chain;
-  Commercial and External; Technical and Platform; Governance and
-  External Oversight; Commercial Operations.
-- **External systems** (grouped, §7): Healthcare devices/analyzers;
-  Payment providers (illustrative only); Messaging/notification
-  carriers (underlying, behind Novu); Insurance/payer counterparties;
-  External clinical systems/referring organizations (Partner API
-  candidates); AI model providers (underlying, behind Portkey Gateway);
-  Public/Partner API consumers (0 designed, deferred).
-- **Relationship labels and direction**: Actor → Platform (interacts
-  via Portal/Unified Login); Device → Platform (inbound, via Device
-  Integration Gateway); Platform → Payment/Messaging/AI providers
-  (outbound, via adopted Engine + ACL); Payer/External clinical system
-  ↔ Platform (bidirectional, via Partner API — candidate/not designed);
-  Regulator: no relationship yet (Open).
-- **Trust/responsibility notes** (light, no STRIDE analysis): every
-  external interaction crosses an Anti-Corruption Layer or an
-  authenticated API boundary (ADR-0006/0007/0008) — no external system
-  is ever trusted by network position alone (`01-API-VISION.md` Goal
-  4). Detailed threat/trust-boundary analysis is Wave 7.
-- **Elements that must NOT appear in the System Context Diagram**:
-  internal Bounded Context decomposition detail, Module class/package
-  names, database tables, runtime call sequences, deployment
-  nodes/regions — all later-Wave content (§13).
-- **Traceability**: every element above cites its source in §5–§8
-  above; this specification introduces no new fact.
+### What the C4 System Context level requires (and the original draft got wrong)
 
-**Informative Mermaid sketch** (illustrative only — not a final or
-official diagram, not a substitute for the future draw.io station;
-syntax-checked):
+Per `c4-architecture`'s `references/common-mistakes.md`: a Level-1
+**System Context** diagram shows exactly one Software System box for
+the system being described, the Actors (People) around it, and the
+**External Software Systems** it has a real, current relationship
+with — nothing inside the system box. The original draft violated this
+by drawing the Backend Platform, the 28 Bounded Contexts, the 8 Shared
+Services, and the 24 Engines all as separate internal nodes **inside**
+the same diagram meant to represent the system as one box — exactly the
+"Confusing Containers and Components" / "undefined abstraction levels"
+mistake the skill's own guide warns against, one level worse (it also
+mixed in Container-level and Engine/database-level detail). That
+internal detail belongs to Wave 4 (Container and Building Block View),
+not a System Context diagram. It also used a bidirectional arrow
+(`<-->`) for two relationships and drew a dangling "no relationship
+yet" line to the Regulator — both directly contradicted by the skill's
+"Bidirectional Arrows" and "External Systems" guidance.
+
+### System Context — corrected specification (v2, Corrective Review Pass 1)
+
+**Further corrected** after Reader Testing Pass 1 (§19) found two real
+gaps in the first corrected version: (a) the System description omitted
+Client Surfaces/Portals even though §3/§5 name them as part of the
+System of Interest; (b) the 5 Person groups silently dropped 3 of §6's
+10 actor clusters (Supply Chain; Commercial and External; Commercial
+Operations) with no stated rationale, and separately never addressed
+the Legal Reviewer actor at all. Both are fixed below.
+
+- **Title**: "System Context — Enterprise Healthcare SaaS Platform."
+- **System (one box only)**: `Enterprise Healthcare SaaS Platform` —
+  described per §3/§5: the central Backend Platform and its Client
+  Surfaces/Portals (Web Platform, Patient App, Sample Collector App),
+  28 Bounded Contexts, 8 Shared Services, and 24 adopted Engines, all
+  internal — **not separately drawn**; that composition is text-only
+  here, cross-referencing §5/§8, never diagram nodes. Baseline-count
+  note (**citation corrected, Reader Testing Pass 2 finding**: the
+  24+4+5 breakdown is not actually stated in §3 or §10 as previously
+  cited — corrected to its real source): the Technology Baseline's full
+  total is **33 entries** — 24 Engines + 4 Libraries + 5 Reference
+  Standards, per `docs/architecture-review/
+  02-TECHNOLOGY-BASELINE.md`'s own "Summary Counts" section directly
+  (§10 above only states the "33 entries" total, not this breakdown).
+  This System Context concerns itself only with the 24 Engines, since
+  Libraries and Reference Standards (e.g., `pgvector`, FHIR-as-a-pattern)
+  are
+  implementation-internal, not boundary-relevant at Context level — the
+  two numbers (24, 33) describe different, non-overlapping subsets, not
+  a discrepancy.
+- **Human Actors (Person / Person_Ext)** — all 10 clusters from §6 are
+  now explicitly accounted for, none silently dropped:
+  1. `Person` Patients & Referring Doctors — Clinical and Care cluster
+  2. `Person` Laboratory & Clinical Staff — Laboratory cluster
+  3. `Person` Front-Office, Financial, Workforce & Supply Chain Staff —
+     merges 4 internal-operations clusters (Front-Office and Support;
+     Financial; Workforce; Supply Chain) into one Context-level group
+  4. `Person` Platform, Tenant & Commercial Operations Administrators —
+     merges 2 internal-operator clusters (Technical and Platform;
+     Commercial Operations)
+  5. `Person` Auditors & Compliance Staff — the internal-facing part of
+     the Governance and External Oversight cluster only
+  6. `Person_Ext` Insurance Users & Corporate Clients — the Commercial
+     and External cluster (§6 marks both Indirect/external-facing)
+  - **Explicitly excluded from the diagram, stated here rather than
+    silently dropped**: **Legal Reviewer** and **Regulator** (both from
+    the Governance and External Oversight cluster, §6). **Citation
+    correction (Reader Testing Pass 2 finding):** the detail that Legal
+    Reviewer has no system interaction ("N/A — advisory role") is
+    sourced from `docs/discovery/artifacts/W2-persona-catalog.md`'s
+    per-persona table, not from Wave 2's own §6 (§6 only names Legal
+    Reviewer at cluster level, "*(external)*," without repeating that
+    per-persona detail) — the previous version of this note incorrectly
+    attributed the quote to §6 itself; corrected here to cite the
+    actual source. Regulator's exclusion is directly sourced from §6:
+    `"Not yet designed — Open"`. Neither has a real, current system
+    interaction to draw; both are named here as **External
+    Stakeholders**, not connected with any line. **Suppliers** (Supply
+    Chain cluster) are likewise excluded as a diagram element
+    specifically in their *external* capacity (the Partner API
+    candidate, §7/§11, 0 designed) — internal staff who manage supplier
+    relationships are covered by Person group 3 above.
+- **External Software Systems (System_Ext)** — only systems with a
+  real, currently-Accepted architectural relationship (per §7's
+  status-currency findings), each with its status stated plainly:
+  1. Healthcare Devices & Analyzers — Accepted pattern (ADR-0006)
+  2. Payment Providers — Accepted need to process payments; specific
+     vendor not yet selected (illustrative names only in §7)
+  3. Messaging / SMS / Email / WhatsApp Carriers — Accepted channel set
+     (§7, §11 correction), underlying carriers not named
+  4. Insurance / Payer Systems — Accepted pattern (openIMIS-mediated,
+     `ClaimAdjudicated` ingestion)
+  5. AI Model Providers — Accepted pattern (ADR-0007, governed via AI
+     Gateway), specific provider not named
+- **Excluded from the diagram, per the same rule applied consistently**:
+  External clinical systems/referring organizations and Public/Partner
+  API consumers generally are **Partner API candidates with 0 designed
+  integrations** (§7, §11) — no real current relationship to draw;
+  named in text only as **Future Integration Candidates**, never
+  connected with a "no relationship" line.
+- **Relationships**: 11 total, **all unidirectional**, each with an
+  action-verb label and, where applicable, a technology/mechanism note
+  — see the table below.
+- **Trust/responsibility notes** (light, no STRIDE): every external
+  interaction crosses an Anti-Corruption Layer or an authenticated API
+  boundary (ADR-0006/0007/0008) — no external system is trusted by
+  network position alone (`01-API-VISION.md` Goal 4). Detailed
+  threat/trust-boundary analysis is Wave 7.
+- **Legend / notation note**: `Person` = an internal-organization human
+  actor group (§6, grouped); `Person_Ext` = an external-organization
+  human actor group; `System` = the one system being described (§3);
+  `System_Ext` = an external software system with a real, current
+  relationship (§7). No Container, Component, Database, or
+  Deployment-level element appears at this level — see Wave 4/5/6 for
+  those.
+- **Element count**: 12 (1 System + 6 Person/Person_Ext + 5 System_Ext)
+  — under the skill's 20-element ceiling.
+- **Traceability**: every element and relationship cites its source in
+  §3, §5, §6, or §7 above; this specification introduces no new fact.
+  All 10 of §6's clusters are now accounted for — 6 folded into the 6
+  diagram actors above (with 2 sub-roles, Legal Reviewer and Regulator,
+  explicitly named as excluded rather than silently dropped) plus
+  Suppliers explicitly addressed in both capacities (internal staff
+  covered, external Partner-candidate capacity excluded).
+
+| # | Relationship | Direction | Label (verb) | Technology/Mechanism |
+|---|---|---|---|---|
+| 1 | Patients & Referring Doctors → Platform | Actor-initiated | Requests services and views results via | Web/Mobile Portal, Unified Login |
+| 2 | Laboratory & Clinical Staff → Platform | Actor-initiated | Manages specimens, processing, and verification via | Web Portal, Unified Login |
+| 3 | Front-Office, Financial, Workforce & Supply Chain Staff → Platform | Actor-initiated | Manages billing, scheduling, workforce, and inventory/procurement records via | Web Portal, Unified Login |
+| 4 | Platform, Tenant & Commercial Operations Administrators → Platform | Actor-initiated | Configures tenants, roles, plans, and platform settings via | Admin Portal |
+| 5 | Auditors & Compliance Staff → Platform | Actor-initiated | Reviews the audit trail and compliance posture via | Read-only Portal |
+| 6 | Insurance Users & Corporate Clients → Platform | Actor-initiated | Views coverage status and organization billing via | External-facing Portal |
+| 7 | Healthcare Devices & Analyzers → Platform | Device-initiated | Sends device/analyzer results to | HL7/HL7v2/FHIR/ASTM, via Device Integration Gateway |
+| 8 | Platform → Payment Providers | Platform-initiated | Processes patient/tenant payments via | Payment Gateway integration, vendor not yet selected |
+| 9 | Platform → Messaging/SMS/Email/WhatsApp Carriers | Platform-initiated | Sends notifications via | SMS/Push/Email/In-Portal/WhatsApp channels, via Novu |
+| 10 | Insurance/Payer Systems → Platform | Payer-initiated | Submits claim adjudication results to | `ClaimAdjudicated` event, via Insurance and Corporate Contracts module ACL |
+| 11 | Platform → AI Model Providers | Platform-initiated | Requests governed AI-assisted analysis from | AI Gateway, Human-in-the-Loop enforced |
+
+**Informative Mermaid sketch — real `C4Context` syntax, not a generic
+flowchart** (illustrative only; not a substitute for the future
+draw.io station; syntax-checked against `c4-architecture`'s reference):
 
 ```mermaid
-flowchart TB
-  subgraph Actors["Human Actors (10 clusters, 39 personas)"]
-    A1[Clinical & Care]
-    A2[Laboratory]
-    A3[Financial / Workforce / Supply Chain]
-    A4[Technical & Platform]
-    A5[Governance & External Oversight]
-  end
+C4Context
+  title System Context — Enterprise Healthcare SaaS Platform
 
-  subgraph Platform["Enterprise Healthcare SaaS Platform"]
-    BE[Central Backend Platform<br/>Unified Login + Policy-Based Access]
-    BC[28 Bounded Contexts<br/>9 Modeled + 19 Recognized]
-    SS[8 Shared Services<br/>Notification, Device GW, AI GW,<br/>Analytics, Search, File Processing,<br/>Public API GW, Background Workers]
-    ENG[24 Adopted Technology Baseline Engines<br/>Keycloak, OPA, RabbitMQ, ERPNext,<br/>Kong Gateway, PostgreSQL, etc.]
-    BE --> BC
-    BC --> SS
-    BC --> ENG
-  end
+  Person(clinical, "Patients & Referring Doctors", "End users requesting services and viewing results")
+  Person(labStaff, "Laboratory & Clinical Staff", "Specimen processing, execution, and result verification")
+  Person(opsStaff, "Front-Office, Financial, Workforce & Supply Chain Staff", "Billing, scheduling, workforce, and inventory/procurement operations")
+  Person(admins, "Platform, Tenant & Commercial Operations Administrators", "Tenant, role, plan, and platform configuration")
+  Person(auditors, "Auditors & Compliance Staff", "Read-only audit and compliance review")
+  Person_Ext(commercial, "Insurance Users & Corporate Clients", "External payer contacts and corporate contract owners")
 
-  subgraph External["External Systems (not owned/operated by the Platform)"]
-    D[Lab Devices / Analyzers]
-    PAY[Payment Providers *illustrative*]
-    MSG[Messaging Carriers *behind Novu*]
-    INS[Insurance / Payer Counterparties]
-    CLI[External Clinical Systems<br/>*Partner API candidates, 0 designed*]
-    AI[AI Model Providers *behind Portkey*]
-    REG[Regulator *Open — not yet designed*]
-  end
+  System(platform, "Enterprise Healthcare SaaS Platform", "Central Backend Platform + Client Portals, 28 Bounded Contexts, 8 Shared Services, 24 adopted Engines -- internal composition described in text (S3, S5), not decomposed here")
 
-  Actors -->|Portals / Unified Login| BE
-  D -->|inbound, ACL| SS
-  Platform -->|outbound, ACL| PAY
-  Platform -->|outbound, ACL| MSG
-  Platform -->|outbound, ACL| AI
-  INS <-->|Partner API, candidate| BC
-  CLI <-->|Partner API, candidate| BC
-  REG -.->|no relationship yet| Platform
+  System_Ext(devices, "Healthcare Devices & Analyzers", "Lab devices/analyzers, HL7/ASTM/FHIR")
+  System_Ext(payment, "Payment Providers", "Vendor not yet selected")
+  System_Ext(messaging, "Messaging/SMS/Email/WhatsApp Carriers", "Underlying carriers behind Novu")
+  System_Ext(payers, "Insurance / Payer Systems", "External claim adjudication counterparties")
+  System_Ext(aiProviders, "AI Model Providers", "Underlying providers behind Portkey AI Gateway")
+
+  Rel(clinical, platform, "Requests services, views results via", "Web/Mobile Portal")
+  Rel(labStaff, platform, "Manages specimens/processing/verification via", "Web Portal")
+  Rel(opsStaff, platform, "Manages billing/scheduling/workforce/inventory via", "Web Portal")
+  Rel(admins, platform, "Configures tenants/roles/plans/settings via", "Admin Portal")
+  Rel(auditors, platform, "Reviews audit trail/compliance via", "Read-only Portal")
+  Rel(commercial, platform, "Views coverage status/organization billing via", "External-facing Portal")
+  Rel(devices, platform, "Sends device/analyzer results to", "HL7/ASTM/FHIR, Device Gateway")
+  Rel(platform, payment, "Processes payments via", "Payment Gateway, vendor TBD")
+  Rel(platform, messaging, "Sends notifications via", "SMS/Push/Email/In-Portal/WhatsApp, Novu")
+  Rel(payers, platform, "Submits claim adjudication results to", "ClaimAdjudicated event, ACL")
+  Rel(platform, aiProviders, "Requests governed AI analysis from", "AI Gateway, HITL-enforced")
 ```
 
 ## 15. Scope Decision Rules
@@ -568,25 +720,49 @@ architectural decision is made by stating these rules**:
    `Confirmed`/`Accepted`/`Inferred`/`Draft`/`Open`/`Recognized`/
    `Proposed` labels from a cited source are never silently promoted in
    this Wave (Gate C, §19).
-6. **A new ADR is required — but not created now — when**: a currently
-   Open dependency (e.g., Specimen Management vs. Patient-to-Result
-   Orchestration, a notification channel set, a Partner API's business
-   terms) needs a final architectural answer; a new Independent
-   Component beyond the 8 named is proposed; or a Bounded Context
-   boundary changes materially (Constitution §57's Decision Types
-   table, already Accepted, restated here only as the applicable
-   trigger — not exercised in this Wave).
+6. **A new ADR is required — but not created now — only for the
+   specific trigger types Constitution §57's Decision Types table
+   already names** (restated verbatim here, not invented): a new
+   Accepted architectural principle/pattern platform-wide; Selective
+   Service Extraction of a specific module; a new Independent
+   Component beyond the 8 already named (Constitution §11); a
+   Constitution Amendment that reverses or materially changes an
+   ADR-backed decision. **Corrected 2026-07-20** (Independent
+   Architecture Review finding — this rule was originally drafted too
+   broadly, implying any Open item needing "a final architectural
+   answer" would require an ADR): per Constitution §57's own table, an
+   ADR is explicitly **not** required for a scoped Exception (project
+   owner approval suffices) or for a day-to-day implementation choice
+   within an already-Accepted rule (the module owner decides). This
+   Wave extends that same table's logic to the specific Open items it
+   tracks (§16): **none** of Specimen Management's eventual resolution,
+   a Partner API's commercial terms, per-market notification-channel
+   activation, or any other product/country/contract-level
+   configuration decision requires an ADR by default — each may need a
+   Product, Legal, Commercial, API, Security, or Privacy review instead,
+   per its own nature, but an ADR is triggered only by the four
+   categories this rule names above.
 
 ## 16. Assumptions, Open Dependencies and Unresolved Scope Questions
+
+**Corrected 2026-07-20** (Independent Architecture Review finding): two
+items previously listed here — *Legacy system migration* and
+*Notification channel set* — are **removed from this table**, because
+both are in fact Resolved (per `docs/certification/
+20-OPEN-QUESTIONS-RESOLUTION.md` #13/#10 and
+`12-OPEN-QUESTIONS-REGISTER.md` rows 13/10, both 2026-07-18), not Open.
+The original draft cited the Context Store's stale, unmarked per-item
+text instead of these governing certification documents — see §19's
+Current-Source Precedence table for the full comparison. Legacy
+migration's resolved status is now recorded in §10; notification
+channels' resolved status is now recorded in §7 and §11.
 
 | Item | Status | Source | Impact on Wave 2 | Blocks Wave 2? | Owner |
 |---|---|---|---|---|---|
 | Specimen Management as an alternative Core Domain | Open — live, unresolved competing hypothesis | ADR-0011 | Could shift which Bounded Context(s) §8 treats as Core, per ADR-0012's own Revisit Trigger | No — this Wave documents the current Accepted state with its caveat, does not depend on resolution | User / Product Strategy (ADR-0011's own Revisit Trigger) |
-| Legacy system migration | Open — genuinely unanswered, no basis found either way | `open-questions.md` #13 | System Boundary (§5) does not address migration scope | No | Unassigned |
 | AGPL-3.0 legal review (5 Engines) | Open | R-04 | Does not change which Engines are "inside the Platform" (§5) — adoption status, not membership | No | Enterprise Legal/Compliance |
 | Eramba Community due diligence | Open (implementation-level, not architectural) | R-01 | None on scope definition | No | Audit and Compliance |
 | Egypt regulatory research (cross-border transfer, labor law, National ID) | Open | R-13 | Affects the "readiness not compliance" framing in §4, does not remove Egypt as the target market | No | Egypt Legal Counsel |
-| Notification channel set | Open | `open-questions.md` #10 | Integration Context §11's Notification entry stays generic (Novu only, no channel list) | No | Unassigned |
 | Result Verifier eligibility values | Open (mechanism Accepted, D-50) | `10-DECISION-REGISTER.md` | None — a Wave 8 concern | No | Unassigned |
 | Dedicated one-page Domain Vision Statement | Not yet produced | `docs/certification/15-SAD-INPUT-PACKAGE.md` item 10 | §4 (Business Context) serves a related purpose but is not formally that artifact | No — flagged as still owed, not fabricated here | SAD authors |
 | Partner API business terms (6 candidates) | Planned/Candidate, 0 designed | `21-INTEGRATIONS.md` | §7, §11 list the candidates only, do not design terms | No | Per-Partner (future, per-relationship) |
@@ -605,7 +781,7 @@ architectural decision is made by stating these rules**:
 | §10 Current/Target/Future Scope | §51 | 0014 | D-54 | R-08, R-13 | — | Wave 1 §9 |
 | §11 Integration Context | §12, §13, §24, §28 | 0004, 0006, 0007 | D-43 | R-06 (Closed) | R1 | `03-API-DOMAIN-INVENTORY.md`; `18-ASYNCAPI-EVENTS.md` (referenced, not read in full — §19) |
 | §12 Data Responsibility Boundaries | §10, §16, §17, §23 | 0003, 0005, 0006, 0013, 0014 | D-42, D-56 | — | E24, R4 | ADR-0013, ADR-0014 full text |
-| §14 Context Diagram Specification | §38 (Documentation Rules — Mermaid/C4) | — | — | — | — | `c4-architecture`, `mermaid-diagrams` skills (§20) |
+| §14 Context Diagram Specification | §38 (Documentation Rules — Mermaid/C4) | — | — | — | — | `c4-architecture` skill (§19) |
 | §15 Scope Decision Rules | §57 | 0012 | — | — | — | Constitution §57 Decision Types table |
 | §16 Open Dependencies | — | 0011 | D-50 | R-01, R-04, R-13 | — | `15-SAD-INPUT-PACKAGE.md` |
 
@@ -710,22 +886,59 @@ re-litigated or forgotten.
 
 #### `c4-architecture`
 
-- **Instructions file read**: `.claude/skills/c4-architecture/SKILL.md`.
-- **Why used**: mandatory per instruction §5(2) — System of Interest
-  definition, Actor/external-system identification, System Context vs.
-  Container/Component distinction, preventing Building-Block-View
-  content leakage.
-- **Steps applied**: used the System Context Diagram level of C4
-  specifically (not Container or Component) to scope §3–§7 and §14;
-  applied the skill's boundary-drawing discipline to keep the Mermaid
-  sketch in §14 to System Context depth only (actors and external
-  systems around one system box — no containers/components inside it).
-- **Sections affected**: §3 (System of Interest), §5 (System Boundary),
-  §14 (Context Diagram Specification).
-- **Result**: confirmed §14's Mermaid sketch does not leak
-  Container/Component-level detail (no internal Module boxes, no
-  database nodes) — consistent with the skill's System Context
-  definition. No official draw.io diagram was produced, per instruction.
+- **Instructions file read**: `.claude/skills/c4-architecture/SKILL.md`
+  **and** `.claude/skills/c4-architecture/references/common-mistakes.md`
+  — both read in full during this Corrective Review
+  (`Skill(skill="c4-architecture")`, plus a direct `Read` of
+  `common-mistakes.md`).
+- **Honest correction about the original Wave 2 draft**: the first
+  version of this report claimed `c4-architecture` had been "used" to
+  shape §3/§5/§14, but **the skill was never actually invoked in that
+  session** — no `Skill` call for it exists in that session's tool
+  history. That claim was itself a violation of the same rule this
+  Corrective Review's instructions restate explicitly ("لا تسجل Skill
+  على أنها مستخدمة بأثر رجعي دون تنفيذ مراجعة فعلية بها الآن"). This is
+  recorded here plainly rather than smoothed over: **the original §14
+  was written without the skill's actual guidance, and its errors are
+  direct evidence of that** — it drew a Backend Platform node, 28
+  Bounded Context node, 8 Shared Service node, and 24 Engine node all
+  inside the same "system" diagram, used bidirectional arrows, and drew
+  a dangling "no relationship yet" line to the Regulator. Every one of
+  these is a named anti-pattern in `common-mistakes.md`
+  ("Confusing Containers and Components," "Adding Undefined Abstraction
+  Levels," "Bidirectional Arrows," and the External Systems guidance
+  respectively).
+- **Why used (this pass)**: mandatory per instruction §5(2) and
+  explicitly required by instruction §11 to document the System-Context/
+  internal-decomposition error and its fix.
+- **Rule applied**: the skill's own table — "Level 1, C4Context, shows
+  System + external actors" — and `common-mistakes.md`'s explicit
+  before/after examples for Container-vs-Component confusion,
+  bidirectional arrows, and external systems as black boxes.
+- **Error it caught**: the mixing of System Context with internal
+  decomposition (Backend Platform/28 Bounded Contexts/8 Shared
+  Services/24 Engines all drawn as diagram nodes), two bidirectional
+  (`<-->`) relationships, and a dangling no-relationship line to the
+  Regulator — all in the original §14.
+- **Correction produced**: §14 was rebuilt from scratch using real
+  `C4Context` Mermaid syntax (`Person`, `Person_Ext`, `System`,
+  `System_Ext`, `Rel` — not a generic `flowchart`), exactly one `System`
+  box for the platform (internal composition, including Client Surfaces/
+  Portals, described in text only, cross-referencing §3/§5, never
+  drawn), 5 `System_Ext` entities limited to those with a real, current,
+  Accepted relationship, and the Regulator (plus, applying the same rule
+  consistently, the Partner API candidates and Suppliers' external
+  capacity) removed from the diagram and stated in text only as External
+  Stakeholder/Future Integration Candidates. **Updated after Reader
+  Testing Pass 1** (§19): the actor side was rebuilt again from 5
+  `Person` groups (which had silently dropped 3 of §6's 10 clusters) to
+  **6 `Person`/`Person_Ext` groups explicitly covering all 10 clusters**
+  (one exclusion list item, Suppliers, addressed in both its internal
+  and external capacity) and **11** relationships — the current, final
+  count in §14, not the 5/10 count from the first corrective pass.
+- **Sections affected**: §14 (rebuilt twice — Corrective Review Pass 1
+  and again after Reader Testing Pass 1's findings), §3/§5 (referenced,
+  not re-decomposed).
 
 #### `domain-driven-design`
 
@@ -739,12 +952,21 @@ re-litigated or forgotten.
   ("a bounded context is not a microservice") and "Strategic Design and
   Distillation" (Core Domain handling) directly shaped §8's explicit
   caveat block and §4's repeated ADR-0011 caveat.
-- **Sections affected**: §4, §8.
+- **Sections affected**: §4, §8, and (Corrective Review addendum) §11.
 - **Result**: confirmed §8 never states or implies a 1:1 Bounded
   Context → Module/service/deployment-unit mapping (explicitly flagged
   as undecided, Wave 4 work); confirmed the Core Domain is presented
   with its Accepted status *and* its disclosed evidentiary caveat
-  together, never one without the other.
+  together, never one without the other. **Re-applied on this
+  Corrective Review**: caught §11 citing `03-API-DOMAIN-INVENTORY.md`'s
+  "28 Modules" language as if it were a validated, current 1:1 mapping
+  to the 28 Accepted Bounded Contexts — exactly the "Bounded context =
+  microservice"-class conflation the skill warns against, one step
+  removed (Module, not microservice, but the same "premature 1:1
+  binding" error). Fixed with an explicit terminology-correction note
+  in §11 (ADR-0012 remains the governing source for the Bounded Context
+  count; `03-API-DOMAIN-INVENTORY.md`'s "Modules" wording is that
+  document's own, source-local nomenclature, not re-derived here).
 
 #### `architecture-patterns`
 
@@ -779,7 +1001,14 @@ re-litigated or forgotten.
 - **Result**: confirmed §7/§11 classify surfaces (Internal/External/
   Partner/Admin/Integration/Public) without designing any endpoint,
   schema, or version — no Accepted API decision (`docs/api-platform/`)
-  was reopened or redesigned.
+  was reopened or redesigned. **Re-applied on this Corrective Review**:
+  used the skill's classification discipline to help phrase §11's
+  "28 Modules" terminology fix as a *classification-source* correction
+  (what `03-API-DOMAIN-INVENTORY.md` calls its rows) rather than a
+  re-design of the API type taxonomy itself — the six API types
+  (Internal/External/Partner/Admin/Integration/Public) and their
+  counts are unchanged; only the claim that they map 1:1 onto "Modules"
+  as a settled fact was corrected.
 
 #### Skills explicitly not used
 
@@ -794,7 +1023,7 @@ re-litigated or forgotten.
   skill invocation, per instruction §16's rule against claiming
   retroactive/unused skill credit.
 
-### Reader Testing
+### Reader Testing — Original Corrective Review (previous session, preserved)
 
 Performed via a genuine, fresh sub-agent invocation (Agent tool, general
 purpose, foreground) given only this Wave 2 file's path — no other
@@ -857,6 +1086,84 @@ precision gaps found and fixed.** This is reported as a genuine finding
 of this Wave's own drafting process, not smoothed over — precisely
 because the instructions require that a Skill be shown to have actually
 done something, not credited retroactively.
+
+### Reader Testing — Corrective Review Pass 1 (this session)
+
+Performed **after** all Corrective Review Pass 1 fixes (notification
+channels, legacy migration, C4 rebuild, Technology Baseline status
+handling, 28-Modules terminology, ADR trigger rule, Future/Non-Goal
+semantics) were drafted and saved — the sub-agent was given only the
+file path, no verbal briefing of expected results, and asked to
+independently verify 8 specific checklist items plus flag any new
+issue. Full transcript in this session's tool history.
+
+**Result: 6 of 8 checklist items PASS outright** (Internal vs. External
+boundary; Current/Target/Future/Non-Goal semantics; Open vs. Resolved
+statuses for notification channels and legacy migration; 28 Contexts
+vs. 28 Modules; Technology Baseline conditional statuses; ADR trigger
+rules). **1 item (System of Interest) FAIL, 1 item (C4 abstraction
+level) PASS on the specific syntax questions asked but flagged a real
+completeness gap.** Two additional issues were found outside the
+checklist.
+
+**Issues found and fixed:**
+1. **Client Surfaces/Portals silently missing** from the §5 boundary
+   table and the §14 System description, despite §3 naming them as one
+   of five constituent parts of the System of Interest. **Fixed**: added
+   as an explicit row in §5 and named explicitly in §14's System
+   description.
+2. **3 of 10 actor clusters (§6) silently absent** from the C4 diagram's
+   5 Person groups (Supply Chain; Commercial and External; Commercial
+   Operations), with the diagram's own traceability claim ("introduces
+   no new fact") overstating completeness. **Fixed**: rebuilt to 6
+   Person/Person_Ext groups explicitly covering all 10 clusters, plus an
+   explicit exclusion list for sub-roles with no real interaction
+   (Legal Reviewer, Regulator, Suppliers' external capacity).
+3. *(outside checklist)* **Technology Baseline count inconsistency**
+   ("33 entries" in §10 vs. "24 Engines" everywhere else, unreconciled).
+   **Fixed**: added a reconciliation note in §14.
+4. *(outside checklist)* **Legal Reviewer actor dropped without
+   acknowledgment** anywhere in §14, unlike Regulator which was
+   addressed by name. **Fixed**: added to the explicit exclusion list.
+
+### Reader Testing — Corrective Review Pass 2 (Final, this session)
+
+Performed **after** all Pass 1 fixes above were applied and saved — a
+second, independent sub-agent, given only the file path, was explicitly
+told two issues had been claimed fixed and instructed **not** to assume
+the fixes worked, only to verify from the text itself.
+
+**Result: both originally-flagged issues confirmed CLOSED**, with 3
+smaller residual problems the fix itself introduced, found and fixed
+before this Wave's final verdict:
+
+1. Client Surfaces/Portals: confirmed present in both §5 and §14, with
+   exact quotes matching.
+2. All 10 actor clusters: confirmed each maps to either a diagram
+   element or an explicit exclusion; none unaccounted for.
+3. **New issue — Legal Reviewer's exclusion rationale
+   misattributed its source** (cited "§6" for a quote — "advisory
+   role... N/A" — that does not actually appear in §6; the real source
+   is `docs/discovery/artifacts/W2-persona-catalog.md`'s per-persona
+   table). **Fixed**: citation corrected to the actual source document,
+   not §6.
+4. **New issue — the "24 Engines + 4 Libraries + 5 Reference Standards
+   = 33" breakdown was cited to "§3/§10"**, but neither section actually
+   states the Libraries/Reference-Standards split. **Fixed**: citation
+   corrected to `docs/architecture-review/02-TECHNOLOGY-BASELINE.md`'s
+   own "Summary Counts" section, the actual source of that breakdown.
+5. **New issue — §19's `c4-architecture` Skills Utilization Report
+   entry described a stale intermediate state** ("5 grouped `Person`
+   actors," "10... relationships") that no longer matched §14's final
+   6-actor/11-relationship count after the Pass 1 fix. **Fixed**:
+   updated to describe both the Pass-1 rebuild and the actor-count
+   correction that followed it.
+
+**No further issues found after these fixes.** This is the final Reader
+Testing pass for this Corrective Review — no third pass was run because
+Pass 2's own findings were resolved by direct, verifiable citation
+corrections, not by content changes requiring re-verification of new
+claims.
 
 ### Status Preservation Audit (Gate C)
 
@@ -934,47 +1241,81 @@ decision was modified anywhere in this document.
 ### Unresolved Issues
 
 See §16 (Assumptions, Open Dependencies and Unresolved Scope Questions)
-— the authoritative, complete list. None of the 9 items there blocks
-Wave 2 itself; all are carried forward as Open/Unresolved for their
-own, later, appropriate Wave or external authority.
+— the authoritative, complete list, now with Notification channels and
+Legacy migration removed (both Resolved, see §7/§10/§11). None of the
+remaining 7 items blocks Wave 2 itself; all are carried forward as
+Open/Unresolved for their own, later, appropriate Wave or external
+authority.
 
-### Files Changed
+### Files Changed (Corrective Review, this session)
 
-- `docs/sad/02-context-and-scope.md` — new file (this document).
-- `docs/sad/README.md` — Wave 2 row updated from `Not started` to
-  `Review` (see §1 above; no other row changed).
+- `docs/sad/02-context-and-scope.md` — corrected in place: §3, §5, §7,
+  §9, §10, §11, §12, §14 (rebuilt twice), §15, §16, §19 (Skills
+  Utilization Report and this Review Report section).
+- `docs/sad/01-introduction-goals-constraints-stakeholders.md` —
+  corrected in a separate, prior commit (Wave 1 legacy-migration
+  erratum) — not part of this file's diff.
+- `docs/sad/README.md` — not modified in this corrective pass (Wave 2's
+  row already correctly read `Review`; no description update was
+  judged necessary beyond what the document itself now states).
 
 **No other file was touched.** `docs/constitution/`, `docs/adr/`,
 `.claude/context/`, `docs/architecture-review/`, `docs/certification/`,
-`docs/api-platform/`, `docs/discovery/`, and
-`docs/sad/01-introduction-goals-constraints-stakeholders.md` are all
-unchanged from `origin/main` — verified via `git status`/`git diff`
-before committing (full output in the chat-facing final report).
+`docs/api-platform/`, and `docs/discovery/` are all unchanged from
+`origin/main` — verified via `git status`/`git diff` immediately before
+committing (full output in the chat-facing final report).
 
-### Validation Gates Checklist
+### Current-Source Precedence Table (Preflight requirement)
 
-| Gate | Result | Evidence |
-|---|---|---|
-| A — Content Completeness | **PASS** | All 19 required sections present, none a placeholder |
-| B — Full-Text Source Consistency | **PASS** | 14 ADRs (reused full-text read), Constitution (targeted full-section reads), Technology Baseline, Decision/Risk Registers, 3 Discovery artifacts, 4 API Platform documents all read in full and cited specifically, not via index |
-| C — Status Preservation | **PASS** | See "Status Preservation Audit" above — no status silently promoted |
-| D — Cross-Reference Validation | **PASS** | See "Cross-Reference Validation" above — no broken link, no invented Wave/ADR/Decision/Risk ID |
-| E — Terminology Review | **PASS** | See "Terminology Consistency" above — no conflation found |
-| F — Reader Testing | **PASS** (1 process defect + 3 content precision gaps found and fixed — §6, §9, §11, §12, §19) | See "Reader Testing" above |
-| G — Scope Leakage Check | **PASS** | See "Scope Leakage Check" above — no Wave 3–13 content designed |
-| H — Git Diff Review | **PASS** | See chat-facing final report for the full diff/file list; changes confined to the two permitted files, no secrets/temp files |
+| Question | Stale/lower-authority source | Current/higher-authority source | How resolved |
+|---|---|---|---|
+| Notification channel set | `.claude/context/open-questions.md` item #10 — narrative text says "لا تزال غير مؤكدة" (still unconfirmed), never given a RESOLVED marker (unlike item #14) | `docs/certification/20-OPEN-QUESTIONS-RESOLUTION.md` #10 and `12-OPEN-QUESTIONS-REGISTER.md` row 10 (both 2026-07-18): "Resolved — Accepted Decision + Country Localization"; channel set = SMS, Push, Email, In-Portal, WhatsApp | Wave 2 now cites the certification documents directly (§7, §11); the Context Store's stale per-item text is not repeated as current |
+| Legacy system migration | `.claude/context/open-questions.md` item #13 — narrative text says no basis exists "either way," never given a RESOLVED marker | `20-OPEN-QUESTIONS-RESOLUTION.md` #13 and `12-OPEN-QUESTIONS-REGISTER.md` row 13 (both 2026-07-18): "Resolved — Operational Assumption (N/A for v1)" | Wave 1 and Wave 2 both corrected (separate erratum/corrective commits) to cite the certification documents; the "genuinely Open" framing is preserved only as historical quoted text with a forward-reference, never as current status |
+
+**Precedence rule applied**: per this repository's own Truth Order
+(Git/Files > Project File > Knowledge Notes > Session Summaries), and
+specifically because `.claude/context/README.md` itself states the
+Context Store is an input to later documents, not a replacement for
+them — a certification document dated *after* and specifically
+superseding a Context Store narrative item governs over that narrative,
+even when the Context Store file itself was never mechanically updated
+with a status marker. This is the same class of gap the project's own
+`26-FINAL-SEMANTIC-CONSISTENCY-CLOSURE.md` phase found and fixed for
+Core Domain (item #14) — items #10 and #13 were simply missed by that
+same closure pass, not a new kind of error.
+
+### Validation Gates A–L (Corrective Review, this pass)
+
+| Gate | Check | Result | Evidence |
+|---|---|---|---|
+| A | Notification status matches Open Questions Resolution | **PASS** | §7, §11 now cite `20-OPEN-QUESTIONS-RESOLUTION.md` #10 / `12-OPEN-QUESTIONS-REGISTER.md` row 10 directly; removed from §16 |
+| B | Legacy Migration status matches Open Questions Resolution in Wave 1 and Wave 2 | **PASS** | Wave 1 erratum (commit `b5e4e04`) + Wave 2 §10/§16 both cite `20-OPEN-QUESTIONS-RESOLUTION.md` #13 / `12-OPEN-QUESTIONS-REGISTER.md` row 13 |
+| C | C4 Context contains one in-scope Software System box with no internal decomposition | **PASS** | §14's Mermaid has exactly one `System()` node; Bounded Contexts/Shared Services/Engines are text-only in its description, never separate nodes (verified directly by both reader tests) |
+| D | All relationships are unidirectional and describe real interactions | **PASS** | 11/11 `Rel()` calls unidirectional, verb-labeled; Regulator/Legal Reviewer/Partner-API-candidates/Suppliers-as-external excluded rather than connected with a placeholder line |
+| E | No "28 Modules = 28 Bounded Contexts" implication remains | **PASS** | §11 explicitly refuses the 1:1 mapping; §8 states the Module-to-Bounded-Context mapping is undecided, Wave 4 work |
+| F | Conditional/legal Technology Baseline statuses are preserved | **PASS** | §3 preserves 19 fully approved / 2 conditionally approved / 3 later-approved / License-Dependency Engines distinctly; no Engine's status collapsed to a uniform "Adopted" |
+| G | ADR trigger rule matches Constitution §57 | **PASS** | §15 rule 6 restates §57's Decision Types table's four actual ADR triggers verbatim in substance, explicitly excluding notification activation, Partner terms, and country/product configuration |
+| H | Non-Goals are not presented as planned future scope | **PASS** | §10's "Future / optional expansion" row no longer includes the HIS Non-Goal; a correction note makes the Non-Goal/Future-Scope distinction explicit |
+| I | Source precedence is documented and current sources win over stale context files | **PASS** | See "Current-Source Precedence Table" above |
+| J | Reader Testing was executed after drafting, then repeated after fixes | **PASS** | Two genuine sub-agent runs this session — Pass 1 (post-draft) found 2 real + 2 minor issues; Pass 2 (post-fix, skeptical re-verification) confirmed both original issues closed and found 2 further citation-precision issues, also fixed |
+| K | Diff is limited to the three permitted SAD files | **PASS** | `git status` confirms only `docs/sad/01-...md`, `docs/sad/02-...md`, and (not needed this pass) `docs/sad/README.md` are ever touched |
+| L | Wave 2 remains `Review`, Wave 1 remains `Accepted`, Wave 3 remains `Not started` | **PASS** | Verified in both files and `docs/sad/README.md` immediately before commit |
 
 ### Final Verdict
 
 **PASS.**
 
-No section is incomplete. Every required source was reviewed at the
-depth its content demanded (full text, not indices, where the source
-carried Scope/Status/Caveats/Consequences/Revisit Triggers/Confidence
-levels). No conflict with the Constitution, any Accepted ADR, the
-Technology Baseline, the Decision Register, or the Risk Register was
-found. No status was promoted without a cited Decision/Risk ID. All
-cross-references resolve. Reader Testing passed after one fix. No
-scope leakage into Waves 3–13. This verdict is this Wave's own review
-conclusion — it is **not** project-owner Accepted approval (Wave 2
-Document Status remains `Review`, §1 above).
+All 12 gates (A–L) pass with direct evidence. Both structural defects
+an Independent Architecture Review found in the prior draft (stale
+notification/legacy-migration status; C4 System Context mixed with
+internal decomposition, plus the narrower 28-Modules/ADR-trigger/
+Non-Goal precision errors) are corrected, verified by two independent,
+genuinely-executed Reader Testing passes — not asserted, tested. Two
+smaller citation-precision issues the fix itself introduced (a
+misattributed Legal Reviewer quote, an uncited Technology Baseline
+breakdown) were caught by the second Reader Testing pass and corrected
+before this verdict was issued, not left as conditions. This verdict is
+this Wave's own review conclusion — it is **not** project-owner
+Accepted approval. Wave 2 Document Status remains `Review`; Wave 1
+remains `Accepted`, untouched in substance; Wave 3 has not been
+started.
