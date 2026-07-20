@@ -31,7 +31,7 @@ architectural conflict is discovered during execution.
 | Wave | Title | Status |
 |---|---|---|
 | 1 | Introduction, Goals, Constraints & Stakeholders | **Accepted** — drafted 2026-07-20; Corrective Review verdict PASS (§17.2 of the Wave 1 document); formally **Accepted by the Project Owner on 2026-07-20** following Independent Architecture Review, satisfying gate condition 3 below |
-| 2 | Context & Scope | Not started |
+| 2 | Context & Scope | **Review** — drafted 2026-07-20; self-review verdict PASS (`02-context-and-scope.md` §19); a self-review verdict is not project-owner Accepted approval — awaiting explicit acceptance per the Inter-Wave Gate above before Wave 3 may start |
 | 3 | Solution Strategy | Not started |
 | 4 | Building Block View | Not started |
 | 5 | Runtime View | Not started |
@@ -78,6 +78,7 @@ as authorization to proceed.
 | File | Wave | Content |
 |---|---|---|
 | `01-introduction-goals-constraints-stakeholders.md` | 1 | Purpose, objectives, audience, goals, stakeholders, constraints, assumptions, out-of-scope, governance |
+| `02-context-and-scope.md` | 2 | System of Interest, business context, system boundary, actors, external systems, bounded-context landscape at scope level, functional/current/target/future scope, integration context, data responsibility boundaries, out-of-scope, context diagram specification, scope decision rules |
 
 ## Traceability
 
