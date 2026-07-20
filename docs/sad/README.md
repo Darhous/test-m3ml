@@ -30,7 +30,7 @@ architectural conflict is discovered during execution.
 
 | Wave | Title | Status |
 |---|---|---|
-| 1 | Introduction, Goals, Constraints & Stakeholders | **Review** — drafted and self-reviewed 2026-07-20 (verdict: PASS, see §15 of the Wave 1 document); awaiting project owner Accepted review |
+| 1 | Introduction, Goals, Constraints & Stakeholders | **Review** — drafted 2026-07-20; self-review verdict PASS was not accepted by the project owner (interim ruling: PASS WITH CONDITIONS, ADR full-text review gap); Corrective Review completed 2026-07-20, new verdict PASS (see §17.2 of the Wave 1 document); still awaiting explicit project owner Accepted approval — a review verdict is not the same as Accepted status |
 | 2 | Context & Scope | Not started |
 | 3 | Solution Strategy | Not started |
 | 4 | Building Block View | Not started |
@@ -44,8 +44,34 @@ architectural conflict is discovered during execution.
 | 12 | Risks, Technical Debt & Evolution | Not started |
 | 13 | Glossary, Consistency Review & Final Close-out | Not started |
 
-Each wave is authored, reviewed, and committed independently, in order.
-No wave begins before the previous one is committed.
+## Inter-Wave Gate (Required, not optional)
+
+A Wave may begin **only after every one of the following is true for
+the immediately preceding Wave**:
+
+1. **Completed** — its full required content, per this table, has been
+   authored.
+2. **Reviewed** — a consistency/terminology/full-source review has been
+   performed on it (see that Wave's own Review Report section) and
+   produced a verdict of `PASS` or `PASS WITH CONDITIONS` with the
+   conditions explicitly tracked, not silently dropped.
+3. **Explicitly Accepted by the project owner** (today's sole
+   Architecture Review Board authority, Constitution §57) — a review
+   verdict of `PASS` from the author/reviewer is **not** the same thing
+   as project-owner Accepted approval, and does not by itself authorize
+   starting the next Wave. The project owner must say so explicitly.
+4. **Committed** to the local `main` branch.
+5. **Pushed** to `origin/main`.
+
+**A commit by itself — even a pushed one — does not satisfy this gate.**
+All five conditions must hold; the first Wave found not satisfying all
+five blocks every subsequent Wave from starting, regardless of how much
+work exists in the pipeline behind it.
+
+This gate was corrected 2026-07-20 (Wave 1 Corrective Review) — the
+original wording only required a commit, which is insufficient and was
+itself the reason Wave 1's initial `PASS` self-review was not accepted
+as authorization to proceed.
 
 ## Files
 

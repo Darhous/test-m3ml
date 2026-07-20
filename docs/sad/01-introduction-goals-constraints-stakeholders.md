@@ -30,7 +30,10 @@ later Waves.
 11. Out-of-Scope Items (this Document)
 12. Document Governance and Ownership
 13. Relationship to the Constitution, ADRs, Baselines, Registers, and Prior Artifacts
-14. Wave 1 Traceability References
+14. ADR Full-Text Review Summary
+15. Wave 1 Traceability References
+16. Skills Utilization Report
+17. Wave 1 Review Report (Corrective Review)
 
 ---
 
@@ -57,12 +60,18 @@ design — not to re-decide anything already Accepted.
 The SAD was authorized to begin on 2026-07-18, when
 `docs/certification/26-FINAL-SEMANTIC-CONSISTENCY-CLOSURE.md` recorded
 the verdict **"CLEAN SEMANTIC BASELINE — READY FOR SOFTWARE ARCHITECTURE
-DOCUMENT."** `docs/certification/15-SAD-INPUT-PACKAGE.md` independently
-confirms a **READY** verdict for SAD authoring, noting that all 6 formal
-Certification Conditions are satisfied except the AGPL-3.0 legal review
-(R-04), which is an explicit Legal Dependency outside architectural
-authority and is carried forward, not treated as a blocker (see §9 and
-§13 below).
+DOCUMENT."** `docs/certification/15-SAD-INPUT-PACKAGE.md` independently confirms a
+**READY** verdict for SAD authoring. Precisely: of the 6 formal
+Certification Conditions that verdict is based on, 5 are fully
+satisfied and closed; the 6th — the AGPL-3.0 legal review (R-04) —
+remains genuinely open. That 6th item is explicitly classified as a
+**Legal Dependency outside architectural authority**, not an
+architectural gap, and `15-SAD-INPUT-PACKAGE.md` treats it as carried
+forward into the SAD rather than as something blocking the SAD from
+starting. This Wave preserves that same distinction: R-04 is open, it
+is not architecturally resolvable by this Board, and it does not block
+SAD authoring — three separate facts, none of which contradicts the
+other two (see §9 and §13 below).
 
 ## 2. Document Objectives
 
@@ -71,9 +80,21 @@ authority and is carried forward, not treated as a blocker (see §9 and
    rated Partially Ready, 0 with Missing Inputs) into an authored
    architecture description, Wave by Wave, per `docs/sad/README.md`.
 2. Preserve full traceability: every substantive statement in the SAD
-   must trace back to a governing ADR, Constitution section, Decision
-   Register ID (`D-nn`), or Risk Register ID (`R-nn`) — the SAD does not
-   introduce new architectural decisions silently.
+   must trace back to a legitimate project source — a governing ADR,
+   Constitution section, Decision Register ID (`D-nn`), Risk Register ID
+   (`R-nn`), the Technology Baseline
+   (`docs/architecture-review/02-TECHNOLOGY-BASELINE.md`), the API
+   Platform Strategy (`docs/api-platform/`), a Certification artifact
+   (`docs/certification/`), a Discovery artifact
+   (`docs/discovery/artifacts/`), or a Context Store file
+   (`.claude/context/*.md`, cited **with its actual status preserved** —
+   Draft/Proposed/Inferred/Confirmed/Accepted, never silently promoted).
+   This rule is deliberately not narrowed to ADR/Constitution/Decision/
+   Risk sources only, since Wave 1 itself draws on all of the source
+   types above — the rule exists to forbid unsourced or fabricated
+   statements, not to exclude legitimate sources this Wave actually
+   uses. The SAD does not introduce new architectural decisions
+   silently.
 3. Explicitly carry forward, without resolving them here, the items
    `docs/certification/15-SAD-INPUT-PACKAGE.md` names as still owed by
    the SAD itself: exit-strategy procedures for the 7 Tier-1 Engines
@@ -107,8 +128,13 @@ a product/UX document):
   audit architecture defined in later Waves.
 - **Device Integration Teams** — for the Device Integration Gateway
   architecture (Wave 9).
-- **External API Partners** — for the parts of the API Architecture that
-  become public-facing (Wave 4 onward, `docs/api-platform/`).
+- **External API Partners** — for the public-facing parts of the
+  platform's API design. Note: "API Architecture" is **not** a Wave
+  name in the approved 13-wave structure (`docs/sad/README.md`) — it
+  refers to the already-fixed API Platform Strategy input
+  (`docs/api-platform/`), which Wave 4 (Building Block View) and Wave
+  10 (Architecture Decisions & Traceability) draw on and cross-reference
+  rather than re-author.
 
 **Not the intended audience of the SAD:** Patients, Doctors, and
 Laboratory Staff (end users) — their needs inform product/UX
@@ -161,14 +187,50 @@ distinction rather than flattening it into a single status:
 | Unified Login and Policy-Based Access | [0008](../adr/0008-unified-login-and-policy-based-access.md) |
 | SaaS First, On-Premise Ready, Hybrid Ready, replaceable cloud provider | [0009](../adr/0009-saas-first-on-premise-and-hybrid-ready.md) |
 | Arabic/English and Localization First | [0010](../adr/0010-arabic-english-and-localization-first.md) |
-| Core Domain = Patient-to-Result Orchestration | [0011](../adr/0011-core-domain-test-processing-and-result-verification.md) |
-| Bounded Context Map — 28 contexts (9 Modeled + 19 Recognized) | [0012](../adr/0012-candidate-bounded-context-map.md) |
+| Core Domain = Patient-to-Result Orchestration* | [0011](../adr/0011-core-domain-test-processing-and-result-verification.md) |
+| Bounded Context Map — 28 contexts (9 Modeled + 19 Recognized)* | [0012](../adr/0012-candidate-bounded-context-map.md) |
 | PostgreSQL as the primary relational database | [0013](../adr/0013-postgresql-as-primary-relational-database.md) |
 | Disaster Recovery and Business Continuity baseline (4-tier criticality; numeric RPO/RTO Pending, not fabricated) | [0014](../adr/0014-disaster-recovery-and-business-continuity-baseline.md) |
 
 API-First Design is Accepted as part of the same decision block as
 ADR-0001 (`.claude/context/architecture-principles.md`, principle #9),
 not a separately numbered ADR.
+
+**\* Precision note, added on Corrective Review (full-text read of
+ADR-0011 and ADR-0012 — see §14):** these two rows are Accepted, and
+this Wave does not reopen them. But unlike the other 12 ADRs above,
+both carry an evidentiary caveat stated explicitly in their own text,
+which this Wave must not flatten into the same unqualified confidence
+as, say, ADR-0001:
+
+- **ADR-0011 (Core Domain)**: the evidence behind "Patient-to-Result
+  Orchestration" remains `Inferred — Industry Reference` — generated
+  under an Assumption-Driven Discovery run, not confirmed by a real
+  domain expert or business stakeholder. Acceptance in the Open
+  Questions Resolution phase (2026-07-18) confirmed the user's exercise
+  of the confirmation authority the ADR always required; it did not
+  assert the underlying evidence became stronger. The ADR also
+  explicitly discloses a **residual gap**: a competing alternative,
+  Specimen Management (with Home Collection Logistics as the
+  differentiator), was evaluated qualitatively and found credible, but
+  was never scored head-to-head against Patient-to-Result Orchestration
+  in the same Decision Matrix. The ADR calls this alternative "a live,
+  unresolved competing hypothesis," not superseded by the Accepted
+  status. Reopening it is out of scope for this Wave (and for this
+  Corrective Review specifically) — this note only makes the existing,
+  already-disclosed caveat visible in the SAD where it was previously
+  omitted.
+- **ADR-0012 (Bounded Context Map)**: acceptance explicitly does
+  **not** upgrade the 19 Recognized-tier contexts to the same
+  confidence as the 9 Modeled-tier contexts — the ADR states the
+  two-tier confidence distinction "is itself part of what is
+  confirmed." The Specimen Management / Test Processing split is
+  separately flagged in the ADR's own Risks section as "the single most
+  consequential judgment call in the whole Context Map," carried
+  forward, not resolved, by acceptance. ADR-0012's own Revisit Triggers
+  also tie it directly to ADR-0011: if the Core Domain confirmation is
+  ever revisited, "a rejection could change which context(s) this map
+  treats as Core."
 
 ## 5. Primary Stakeholders
 
@@ -216,7 +278,7 @@ Accepted requirements.
 
 | Stakeholder | Candidate Concern (Inferred) | Primarily Addressed In |
 |---|---|---|
-| Patients | Convenient test ordering; trustworthy, timely results; clear billing | Later Waves (Runtime View, API Architecture) |
+| Patients | Convenient test ordering; trustworthy, timely results; clear billing | Wave 5 (Runtime View); public-facing API detail is drawn from `docs/api-platform/`, not a separate Wave |
 | Doctors | Fast, reliable result delivery; ordering on a patient's behalf; result history access | Later Waves |
 | Laboratory Staff | Clear worklists; accurate specimen tracking; low-friction result entry/verification | Wave 4 (Building Block View) |
 | Laboratory Management | Operational visibility; staff workload balancing | Wave 4 |
@@ -230,7 +292,7 @@ Accepted requirements.
 | Support Teams | Tools to resolve patient/doctor issues | Later Waves |
 | Security and Compliance Teams | Full audit trail; enforceable Data Scope; breach-readiness | Wave 7 (Security, Privacy & Trust Boundaries) |
 | Development Teams | Clear module boundaries and contracts to build against | Wave 3 (Solution Strategy), Wave 4 |
-| External API Partners | Stable, versioned integration contracts | Later Waves (`docs/api-platform/`) |
+| External API Partners | Stable, versioned integration contracts | Wave 4 (Building Block View) and Wave 10 (Architecture Decisions & Traceability); source content is `docs/api-platform/`, not a separate Wave |
 
 ## 7. Known Constraints
 
@@ -363,11 +425,13 @@ listed — nothing here is newly invented for this Wave:
 
 ## 11. Out-of-Scope Items (of this Document)
 
-- **Out of scope for Wave 1 specifically** (deferred to later Waves per
-  `docs/sad/README.md`): Context Diagrams, Bounded Context detail,
-  Building Block View, Runtime View, Deployment View, detailed API
-  contracts, Quality Attribute numeric scenarios, and detailed Risk
-  mitigation planning.
+- **Out of scope for Wave 1 specifically**, per the wave plan in
+  `docs/sad/README.md`: Context Diagrams and system boundary (Wave 2,
+  Context & Scope), Bounded Context detail and Building Block View
+  (Wave 4), Runtime View (Wave 5), Deployment View (Wave 6), detailed
+  API contracts (Wave 4/`docs/api-platform/`), Quality Attribute
+  numeric scenarios (Wave 11), and detailed Risk mitigation planning
+  (Wave 12).
 - **Out of scope for the SAD as a whole**, per Constitution §1
   Non-authority: selecting a programming language, framework, cloud
   provider, message broker, database product, AI provider, or frontend
@@ -421,7 +485,35 @@ Types and Required Process" table).
 | `.claude/context/*.md` (Context Store) | Draft/Proposed source material — cited with its actual status preserved (Draft/Inferred/Confirmed/Accepted), never silently promoted. |
 | `docs/discovery/artifacts/*` | Source for stakeholder/persona and vision-expansion detail (§5, §6, §4.1) — not duplicated in full here. |
 
-## 14. Wave 1 Traceability References
+## 14. ADR Full-Text Review Summary
+
+Performed on Corrective Review (2026-07-20), replacing the original
+Wave 1 pass, which had only used the ADR index/titles
+(`.claude/context/decisions.md`) for ADR citations rather than each
+ADR's full text. All 14 files under `docs/adr/` were read in full
+(1,757 lines total) before this verdict was issued. No conflict with
+Wave 1's content was found in any of the 14; two ADRs (marked below)
+required Wave 1 to add a precision caveat rather than a correction —
+see §4.2's footnote.
+
+| ADR | Status (as stated in the file) | Relevant part(s) to Wave 1 | Conflict found? |
+|---|---|---|---|
+| 0001 Modular Monolith First | Accepted | Context/Decision — v1 architectural style; §4.2, §9 | None |
+| 0002 Domain-Driven Design | Accepted | Decision — modeling approach; §4.2 | None |
+| 0003 Schema per Module | Accepted | Decision — data ownership constraint; §7 (#8), §9 | None |
+| 0004 Event-Driven Integration | Accepted | Decision — cross-module integration style; §4.2 | None |
+| 0005 Hybrid Tenant Isolation | Accepted | Decision — tenancy model; §7 (#9), §9. Note: this ADR's own "Negative Consequences" section states the shared-tier partitioning technique was "left to the SAD" at authoring time — historical text, not a live gap; D-42 later resolved it (Open Questions Resolution phase), which Wave 1 already cites correctly in §9. No conflict — the ADR text and D-42 describe two different points in time, not two different answers. | None |
+| 0006 Independent Device Gateway | Accepted | Decision — Anti-Corruption Layer, provenance; §4.2, §7 (#10) | None |
+| 0007 Governed AI Gateway | Accepted | Decision — mandatory Human-in-the-Loop; §4.2, §7 (#11), §8 | None |
+| 0008 Unified Login and Policy-Based Access | Accepted | Decision — backend-enforced, policy-based authorization; §4.2, §7 (#12) | None |
+| 0009 SaaS First, On-Premise Ready, Hybrid Ready | Accepted | Decision — deployment-model readiness, replaceable cloud provider; §4.2, §7 (#13) | None |
+| 0010 Arabic/English and Localization First | Accepted | Decision — no hardcoded locale/currency/timezone; §4.2, §7 (#14) | None |
+| 0011 Core Domain — Patient-to-Result Orchestration | **Accepted (2026-07-18, Open Questions Resolution)**, superseding the file's own original title/body text ("Test Processing and Result Verification," originally Proposed) | Decision — Core Domain identification (DDD Strategic Design). Full text revealed an **explicitly disclosed evidentiary caveat** (evidence remains `Inferred — Industry Reference`) and an **explicitly disclosed unresolved alternative** (Specimen Management/Home Collection Logistics, never head-to-head scored) that the original Wave 1 draft did not carry forward. **Corrected** — §4.2 footnote added; Wave 1's own Core Domain citation ("Patient-to-Result Orchestration") was already the correct, current name and required no change, only the added caveat. | **Precision gap found and fixed** (not a factual conflict — nothing Wave 1 stated was false, but it omitted a caveat the ADR itself requires readers to carry) |
+| 0012 Candidate Bounded Context Map (28 contexts) | **Accepted (2026-07-18, Open Questions Resolution)**, superseding the file's own original title/body text ("8 Contexts," originally Proposed) | Decision — Bounded Context Map, Modeled/Recognized two-tier confidence. Full text confirmed the two-tier confidence split is itself part of what is Accepted (Recognized tier not silently upgraded), and that this ADR's own Revisit Triggers are directly linked to ADR-0011's Core Domain status. **Corrected** — §4.2 footnote added for the same reason as 0011. | **Precision gap found and fixed** (same nature as 0011) |
+| 0013 PostgreSQL as Primary Relational Database | Accepted | Decision — engine selection, explicit "What This Decision Does Not Mean" scope-limits section; §9 | None |
+| 0014 Disaster Recovery and Business Continuity Baseline | Accepted | Decision — 4-tier criticality, numeric RPO/RTO explicitly Pending; §4.2, §9 | None |
+
+## 15. Wave 1 Traceability References
 
 Every substantive claim in this Wave cites its source inline. Summary of
 primary sources consulted in full for this Wave:
@@ -429,38 +521,138 @@ primary sources consulted in full for this Wave:
 - `docs/constitution/PROJECT-CONSTITUTION.md` — §1, §2, §3, §4, §5 (principles list), §38, §39, §41, §44, §45, §46, §57, §59, and the "Consolidated Accepted Decisions" appendix.
 - `.claude/context/vision.md`, `constraints.md`, `stakeholders.md`, `glossary.md`, `decisions.md`, `architecture-principles.md`, `module-catalog.md`, `open-questions.md`, `README.md`.
 - `docs/certification/15-SAD-INPUT-PACKAGE.md`, `23-SAD-READINESS-MATRIX.md`, `10-DECISION-REGISTER.md`, `11-RISK-REGISTER.md`, `26-FINAL-SEMANTIC-CONSISTENCY-CLOSURE.md`.
-- `docs/adr/0001` through `0014` (index-level; full text not required for Wave 1's depth).
+- `docs/adr/0001` through `0014` — **full text**, all 1,757 lines, read in full on Corrective Review (see §14). The original Wave 1 pass had only used the index; this is itself one of the corrections this review made.
 
 No source outside this repository (and the user's direct instructions in
 this conversation) was used to produce this Wave.
 
 ---
 
-## 15. Wave 1 Review Report
+## 16. Skills Utilization Report
+
+Produced during the Corrective Review (2026-07-20). Each skill below
+was actually invoked and applied in this session, not recorded
+retroactively.
+
+### `doc-coauthoring`
+
+- **Why used**: mandatory for this Wave per the project's own Skill
+  Execution Contract (`D:\Claude-Brain` workstation memory,
+  `skill-execution-contract.md` — not part of this repository); the
+  Corrective Review's instruction #4 also names it explicitly for
+  "مراجعة بنية الوثيقة وReader Testing."
+- **Steps/rules applied**: Stage 3, "Reader Testing" — specifically the
+  "if access to sub-agents is available, perform the testing directly"
+  path. Predicted 10 realistic reader questions plus 3 structural
+  checks (ambiguity, assumed background knowledge, internal
+  contradictions), then dispatched a fresh sub-agent with **only** the
+  Wave 1 file path — no other project context — to answer them blind,
+  exactly matching the skill's "no context bleed" intent. (Stages 1–2,
+  Context Gathering and section-by-section Refinement, were not
+  re-run: the user had already supplied Wave 1's full required content
+  list directly, which is the documented "if user declines [the
+  interactive interview], work freeform" exception — but Stage 3 was
+  run for real.)
+- **Sections/files reviewed or affected**: the entire Wave 1 document
+  (fresh-read by the sub-agent); no other file.
+- **Result**: sub-agent correctly answered 9 of 10 questions with the
+  right sourced answer. It flagged one real gap on Q1 — the Core Domain
+  row read as "fully and unconditionally Accepted" with no hedging,
+  unlike every other open item in the document — which independently
+  confirmed the ADR-0011/0012 full-text finding from this same review
+  (§14, §4.2 footnote) and was fixed as a direct result. It also
+  flagged a minor clarity gap on Q6 (Context Diagram cross-reference
+  not naming a specific Wave number), fixed in §11. No internal
+  contradiction was found (Check C). Full transcript available in this
+  session's tool history.
+
+### `domain-driven-design`
+
+- **Why used**: mandatory per Corrective Review instruction #4, "لمراجعة
+  دقة المصطلحات الخاصة بالـCore Domain والـBounded Contexts."
+- **Steps/rules applied**: the "Strategic Design and Distillation"
+  section (Core Domain identification, Domain Vision Statement,
+  "revisit what is core as the business evolves") and the Quick
+  Diagnostic row "Have you identified which subdomain is core?" —
+  used as the lens for re-examining how Wave 1 represented ADR-0011's
+  Core Domain decision. Also checked Wave 1's use of "Bounded Context"
+  vs. "Module" vs. "microservice" against the skill's explicit warning
+  that "a bounded context is not a microservice" and its "Bounded
+  context = microservice" Common Mistake entry.
+- **Sections/files reviewed or affected**: §4.2 (Architectural Goals
+  table and its new footnote), §5 (stakeholder terms), cross-checked
+  against `docs/adr/0011` and `0012` full text (§14).
+- **Result**: confirmed Wave 1 never conflates Bounded Context with
+  microservice or deployment unit anywhere (no fix needed there).
+  Confirmed the Core Domain/Bounded Context Map rows needed the
+  precision caveat added in §4.2 — the skill's own emphasis that Core
+  Domain identification is where "deepest modeling investment"
+  concentrates made it clear that understating this decision's actual
+  confidence level would mislead later Waves (especially Wave 4,
+  Building Block View) that depend on it.
+
+### `architecture-patterns`
+
+- **Why used**: mandatory per Corrective Review instruction #4, "لمراجعة
+  صياغة الأهداف والقيود المعمارية."
+- **Steps/rules applied**: the Clean/Hexagonal Architecture and DDD
+  Strategic/Tactical Patterns reference tables — used to check that
+  Wave 1's architectural-goal phrasing (§4.2) and constraint phrasing
+  (§7–§9) use each pattern name correctly: Anti-Corruption Layer,
+  Schema per Module / Repository-style data ownership, Bounded Context,
+  Independent Component. Also checked against the skill's
+  "Context bleed across bounded contexts" troubleshooting entry.
+- **Sections/files reviewed or affected**: §4.2, §7, §9.
+- **Result**: no misuse of pattern terminology found — "Anti-Corruption
+  Layer" (§4.2, Device Gateway row) matches ADR-0006's own usage
+  exactly; "Schema per Module," "no direct cross-module database
+  access," and "Independent Component" are all used consistently with
+  both the skill's definitions and the ADRs' own text. No correction
+  was required from this skill specifically; it served as a
+  confirmatory check, reported here as instructed rather than omitted
+  for having found nothing to fix.
+
+**Skills considered and not used**: `api-design-principles`,
+`c4-architecture`, `mermaid-diagrams`, `stride-analysis-patterns`,
+`threat-mitigation-mapping` — none apply to Wave 1's actual content
+(no API contracts, no diagrams, no threat modeling are in scope for
+this Wave; see §11, Out-of-Scope). Not used to avoid padding the count,
+per the Corrective Review's own instruction #4.
+
+## 17. Wave 1 Review Report
+
+### 17.1 Original Review (2026-07-20) — historical, preserved
+
+**Superseded in part by the Corrective Review below (§17.2)**, per the
+project owner's independent review finding the original `PASS` verdict
+not yet accepted. Preserved unmodified as the historical record of what
+this review found at the time, consistent with this repository's
+"never delete, mark superseded" convention
+(`.claude/context/README.md`).
 
 Performed before this Wave was marked ready for the project owner's
 Accepted review, per the explicit review protocol given for this Wave.
 
-### Files created
+#### Files created
 
 - `docs/sad/README.md` — SAD index and the 13-wave plan.
 - `docs/sad/01-introduction-goals-constraints-stakeholders.md` — this
   document.
 
-### Files modified
+#### Files modified
 
 None. `git status` confirms only the two new files above are new;
 nothing in `docs/constitution/`, `docs/adr/`, `.claude/context/`, or any
 other existing path was changed.
 
-### Sources consulted (full list)
+#### Sources consulted (full list)
 
 See §14 above. In full: the Constitution (specific sections listed),
 all 9 `.claude/context/` files, 5 certification documents
 (`10`, `11`, `15`, `23`, `26`), and the `docs/adr/` index (all 14 titles
 and statuses, via `.claude/context/decisions.md`'s ADR Index).
 
-### Consistency and terminology review
+#### Consistency and terminology review
 
 - Cross-checked every `D-nn` and `R-nn` citation against
   `docs/certification/10-DECISION-REGISTER.md` and
@@ -492,7 +684,7 @@ and statuses, via `.claude/context/decisions.md`'s ADR Index).
   `Confirmed` — this nuance was underspecified in the first draft and
   tightened during review.
 
-### Points left explicitly incomplete or undecided (by design, not oversight)
+#### Points left explicitly incomplete or undecided (by design, not oversight)
 
 Every item below is a genuine open Dependency inherited from prior
 phases, not a gap this Wave failed to close — each is listed in §8–§10
@@ -508,19 +700,179 @@ above with its own citation:
 - Legacy system migration status — genuinely still Open, not resolved.
 - Eramba Community implementation due diligence (R-01).
 
-### Conflicts detected
+#### Conflicts detected
 
 **None.** No statement in this Wave contradicts an Accepted ADR, the
 Constitution, the Technology Baseline, or either Register. No Accepted
 decision was reopened, reinterpreted, or silently promoted from a
 Draft/Proposed/Open status.
 
-### Verdict
+#### Verdict
 
-**PASS.**
+**PASS** *(original — superseded by §17.2's verdict below; this line is
+preserved unmodified as the historical record of what this review
+concluded at the time)*.
 
 Two citation-accuracy defects were found and corrected during this
 Wave's own review pass (see "Consistency and terminology review"
 above) — both fixed before this verdict was issued, not left as
 conditions. No unresolved conflict, fabricated fact, or reopened
 decision remains.
+
+**Independent review finding (project owner, 2026-07-20):** this `PASS`
+was not accepted. The official interim ruling was **PASS WITH
+CONDITIONS**, on the grounds that this review's ADR consistency check
+had used the ADR index/titles rather than each ADR's full text (see
+§14, added on Corrective Review) — a real methodological gap this
+review did not itself catch. The Corrective Review in §17.2 below
+addresses that gap directly.
+
+### 17.2 Corrective Review (2026-07-20)
+
+Scoped strictly to Wave 1, per the project owner's explicit instruction:
+no rewrite from scratch, no reopening of any prior architectural
+decision. This review supersedes only the ADR-verification methodology
+and its downstream findings from §17.1 — it does not discard §17.1's
+other findings (the two citation fixes, the Wave-cross-reference fixes,
+the Status-vocabulary check), which remain valid and are not
+re-litigated here.
+
+#### What triggered this review
+
+The project owner's independent review of Wave 1 accepted the
+engineering content but declined the `PASS` verdict specifically because
+"no conflict with any ADR" had been asserted without reading each ADR's
+full text — only the index (`.claude/context/decisions.md`) had been
+consulted. This is a legitimate methodological gap: an index records a
+title and a status, not a decision's Context, Alternatives Considered,
+Risks, or (for ADR-0011/0012 specifically) amendment history — exactly
+the kind of nuance a full-text read can surface and an index cannot.
+
+#### Files created
+
+None new. Same two files as §17.1 (`docs/sad/README.md`,
+`docs/sad/01-introduction-goals-constraints-stakeholders.md`) — both
+edited, not recreated.
+
+#### Files modified
+
+- `docs/sad/01-introduction-goals-constraints-stakeholders.md` — this
+  file: added §14 (ADR Full-Text Review Summary), §16 (Skills
+  Utilization Report), renumbered §14→15 (Traceability References,
+  updated to reflect the full-text read) and §15→17 (this Review
+  Report, restructured into §17.1/§17.2); added the ADR-0011/0012
+  precision footnote to §4.2; fixed the "API Architecture"
+  pseudo-Wave-name references in §3 and §6; named Wave 2 explicitly in
+  §11 for Context Diagrams; broadened the traceability rule in §2;
+  clarified the "6 Certification Conditions" phrasing in §1.
+- `docs/sad/README.md` — corrected the inter-Wave gate rule (see below)
+  to require explicit project-owner Accepted approval, not just a
+  commit, before the next Wave may start.
+
+**No other file was touched.** `git status` (re-verified at the end of
+this review, before committing) confirms this — `docs/constitution/`,
+`docs/adr/`, `.claude/context/`, `docs/architecture-review/`,
+`docs/certification/`, and `docs/api-platform/` are all unchanged from
+`origin/main`.
+
+#### ADR Full-Text Review Summary
+
+See §14 above (new section, added by this review) for the complete
+per-ADR table: all 14 ADRs under `docs/adr/` (1,757 lines total) were
+read in full, with the specific part(s) relevant to Wave 1 and a
+conflict-found column for each. Result: **0 factual conflicts**; **2
+precision gaps** (ADR-0011, ADR-0012 — both fixed via the §4.2
+footnote, not by reopening either ADR).
+
+#### Skills Utilization Report
+
+See §16 above (new section). Three skills genuinely invoked and applied
+in this session: `doc-coauthoring` (sub-agent Reader Testing — Stage 3),
+`domain-driven-design` (Core Domain/Bounded Context terminology
+accuracy), `architecture-patterns` (architectural-goal/constraint
+phrasing accuracy). Five other project skills were considered and
+explicitly not used, with the reason stated, rather than invoked
+just to inflate the count.
+
+#### Cross-Reference Validation
+
+- **ADR links** (14): re-verified all resolve to existing files under
+  `docs/adr/` — unchanged from §17.1's check, still holds.
+- **Wave cross-references**: every "Wave N" mention in the document was
+  checked against `docs/sad/README.md`'s 13-wave table. Found and fixed
+  three that referred to a **non-existent "API Architecture" Wave**
+  (§3, and twice in §6) — there is no Wave by that name in the approved
+  structure; corrected to name the actual Wave(s) or to explicitly
+  attribute the content to `docs/api-platform/` as a cited source, not
+  a Wave. Also tightened §11's "later Waves" language to name Wave 2
+  specifically for Context Diagrams (a gap the `doc-coauthoring`
+  sub-agent reader test independently surfaced).
+- **D-nn / R-nn citations**: all re-checked against
+  `docs/certification/10-DECISION-REGISTER.md` and
+  `11-RISK-REGISTER.md` a second time during this pass — no additional
+  errors found beyond the two §17.1 already caught and fixed (D-40→D-50,
+  the 59-vs-43 decision count).
+- **Document Objectives traceability rule (§2)**: found to be narrower
+  than the sources this Wave actually cites (it named only ADR/
+  Constitution/Decision/Risk, while Wave 1 also legitimately cites the
+  Technology Baseline, `docs/api-platform/`, Discovery artifacts,
+  Certification artifacts, and the Context Store). **Corrected** to
+  name all of Wave 1's actual legitimate source types explicitly, while
+  keeping the rule's anti-fabrication purpose intact.
+- **§1 "6 Certification Conditions" phrasing**: found ambiguous — could
+  be misread as claiming all 6 are satisfied while also naming one that
+  is not. **Corrected** to state plainly: 5 of 6 are satisfied and
+  closed; the 6th (AGPL-3.0, R-04) is open, is a Legal Dependency
+  outside architectural authority, and does not block SAD authoring —
+  three distinct, non-contradictory facts, now stated as three separate
+  sentences instead of one compressed clause.
+- **`docs/sad/README.md` inter-Wave gate**: found insufficient — it did
+  not state that a project-owner Accepted approval is required before
+  the next Wave starts, only implying that a commit was enough.
+  **Corrected** (see below).
+
+#### Points left explicitly incomplete or undecided (unchanged from §17.1)
+
+Same list as §17.1 — re-verified, still accurate, nothing resolved or
+newly discovered in this pass: AGPL-3.0 legal review (R-04); Egypt
+Cross-Border Transfer, Labor/Social Insurance, and National ID
+validation-rule research (R-13); Result Verifier eligibility values
+(D-50, mechanism only); vendor exit-strategy procedures for the 7
+Tier-1 Engines (R-08); numeric Non-Functional Budgets/SLA/SLO/RPO/RTO
+targets; legacy system migration status (genuinely Open); Eramba
+Community implementation due diligence (R-01). Two items are added to
+this list as a direct result of this review, both **by design, not
+oversight** — this Wave explicitly declines to resolve them itself:
+
+- The Specimen Management/Home Collection Logistics alternative to
+  ADR-0011's Core Domain remains a live, unresolved competing
+  hypothesis per the ADR's own text — not resolved by this Wave, and
+  not this Wave's authority to resolve (that is ADR-0011's own
+  Verification/Revisit Trigger process, per Constitution §39/§45).
+- The Specimen Management/Test Processing split within ADR-0012's
+  Context Map remains flagged by that ADR itself as its single most
+  consequential judgment call — same treatment, not resolved here.
+
+#### Conflicts detected
+
+**None**, confirmed against full ADR text this time, not just the
+index. Two **precision gaps** (not factual conflicts) were found and
+fixed — see §14 and the §4.2 footnote. No Accepted ADR was reopened,
+reinterpreted, edited, or superseded. No new architectural decision was
+introduced. No number was fabricated.
+
+#### Verdict
+
+**PASS.**
+
+This verdict rests on: (1) full-text review of all 14 ADRs, not the
+index, per the project owner's specific instruction; (2) zero factual
+conflicts found; (3) two precision gaps found and fixed (ADR-0011/
+ADR-0012 evidentiary caveats, now visible in §4.2); (4) three
+mandatory-per-instruction skills genuinely invoked with a documented
+Skills Utilization Report (§16); (5) the inter-Wave gate, traceability
+rule, "API Architecture" pseudo-Wave references, and "6 Certification
+Conditions" phrasing all corrected per the project owner's specific
+instructions §6–§9. Document Status remains `Review` — this verdict is
+this review's own conclusion, not a substitute for the project owner's
+Accepted approval (§12).
