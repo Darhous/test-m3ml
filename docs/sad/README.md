@@ -35,7 +35,7 @@ architectural conflict is discovered during execution.
 | 3 | Solution Strategy | **Accepted** — drafted 2026-07-20; self-review verdict PASS (`03-solution-strategy.md` §25, commit `1f8482f`); Independent Architecture Review found one narrow semantic erratum, corrected and re-verified (`03-solution-strategy.md` §26, commit `b4c341e`); formally **Accepted by the Project Owner on 2026-07-20** following that erratum's closure, satisfying gate condition 3 below (see `03-solution-strategy.md` §27 Acceptance Record) |
 | 4 | Building Block View | **Accepted** — drafted 2026-07-20; self-review verdict PASS (`04-building-block-view.md` §26, commit `7377d9e`); Independent Architecture Review found 10 narrow semantic issues, corrected and re-verified (`04-building-block-view.md` §26 Erratum Note, commit `9cf0729`); formally **Accepted by the Project Owner on 2026-07-20** following that erratum's closure, satisfying gate condition 3 below (see `04-building-block-view.md` §27 Acceptance Record) |
 | 5 | Runtime View | **Accepted** — drafted 2026-07-20; self-review verdict PASS (`05-runtime-view.md` §18, commit `17e1f80`); Independent Architecture Review found 10 narrow semantic issues, corrected and re-verified (`05-runtime-view.md` §19, commit `38e1558`); formally **Accepted by the Project Owner on 2026-07-20** following that erratum's closure, satisfying gate condition 3 below (see `05-runtime-view.md` §20 Acceptance Record) |
-| 6 | Deployment View | Not started |
+| 6 | Deployment View | **Review** — drafted 2026-07-20; self-review verdict PASS (`06-deployment-view.md` §40, 3-pass Reader Testing, 28 Gates A–AB) |
 | 7 | Security, Privacy & Trust Boundaries | Not started |
 | 8 | Multi-Tenancy, Identity & Access Governance | Not started |
 | 9 | AI Governance, Device Integration & Other Cross-Cutting Concerns | Not started |
@@ -82,6 +82,7 @@ as authorization to proceed.
 | `03-solution-strategy.md` | 3 | Executive Solution Strategy, Domain Vision Statement, Architectural Drivers, Strategy Pillars (architecture style, DDD, Clean/Hexagonal, communication, API, data, multi-tenancy/IAM, reuse, device, AI, deployment, auditability, evolution), trade-offs, rejected alternatives, explicit non-decisions, open dependencies, traceability matrix, wave boundary map |
 | `04-building-block-view.md` | 4 | Level-0/1/2 building blocks, BC-to-Module Mapping Matrix (28 contexts), Independent-Capable Components Catalog, Core Platform white box, Engine Adoption-Point Mapping, dependency model, diagrams |
 | `05-runtime-view.md` | 5 | Universal Runtime Invariants, 12 runtime scenarios (order-to-release, device ingestion/failure, notification, billing/insurance, AI assistance, FHIR/partner, background work), interaction catalog, transaction/consistency boundaries, idempotency, error/failure matrix, audit/provenance, state-transition coverage, sequence diagrams |
+| `06-deployment-view.md` | 6 | Deployment Unit Classification Matrix, Baseline/SaaS/Dedicated-DB/Dedicated-Deployment/On-Prem/Hybrid archetypes, Independent Components and Engine placement, data/backup/DR topology (ADR-0014), failure domains, deployment diagrams (C4Deployment), open deployment decisions |
 
 ## Traceability
 
