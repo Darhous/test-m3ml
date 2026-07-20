@@ -31,7 +31,7 @@ architectural conflict is discovered during execution.
 | Wave | Title | Status |
 |---|---|---|
 | 1 | Introduction, Goals, Constraints & Stakeholders | **Accepted** — drafted 2026-07-20; Corrective Review verdict PASS (§17.2 of the Wave 1 document); formally **Accepted by the Project Owner on 2026-07-20** following Independent Architecture Review, satisfying gate condition 3 below |
-| 2 | Context & Scope | **Review** — drafted 2026-07-20; self-review verdict PASS (`02-context-and-scope.md` §19); a self-review verdict is not project-owner Accepted approval — awaiting explicit acceptance per the Inter-Wave Gate above before Wave 3 may start |
+| 2 | Context & Scope | **Accepted** — drafted 2026-07-20; Corrective Review self-verdict PASS (`02-context-and-scope.md` §19, commit `db2ee66`); formally **Accepted by the Project Owner on 2026-07-20** following Independent Architecture Review, satisfying gate condition 3 below (see `02-context-and-scope.md` §20 Acceptance Record) |
 | 3 | Solution Strategy | Not started |
 | 4 | Building Block View | Not started |
 | 5 | Runtime View | Not started |

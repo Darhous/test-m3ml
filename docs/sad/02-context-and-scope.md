@@ -5,7 +5,7 @@
 | Field | Value |
 |---|---|
 | Wave number and title | 2 of 13 — Context & Scope (`docs/sad/README.md`) |
-| Document Status | **Review** (Constitution §59 Document Status Vocabulary — not `Accepted`) |
+| Document Status | **Accepted** (per `docs/constitution/PROJECT-CONSTITUTION.md` §59 Document Status Vocabulary). Accepted by the **Project Owner**, acting as the Architecture Review Board (Constitution §57 — the ARB is a function/process fulfilled entirely by the project owner today), on 2026-07-20, following an Independent Architecture Review of the Wave 2 Corrective Review (commit `db2ee66`). Final Architecture Review Verdict at acceptance time: **PASS**. This registers the administrative act of acceptance only — no substantive/architectural content of this Wave was changed to produce this status change (see §19 for the last substantive review, which remains the operative content review, and the Acceptance Record after §19 for the full acceptance history). |
 | Owner | Author of this Wave (session author, 2026-07-20) |
 | Review authority | Project Owner, acting as Architecture Review Board (Constitution §57 — the ARB is a function/process fulfilled entirely by the project owner today) |
 | Dependencies | Wave 1 (`01-introduction-goals-constraints-stakeholders.md`) — **Accepted**, 2026-07-20 |
@@ -1319,3 +1319,31 @@ this Wave's own review conclusion — it is **not** project-owner
 Accepted approval. Wave 2 Document Status remains `Review`; Wave 1
 remains `Accepted`, untouched in substance; Wave 3 has not been
 started.
+
+*(The paragraph immediately above is preserved verbatim as written at
+the time of the Wave 2 Corrective Review — it describes that review's
+own conclusion, which was self-review `PASS`, not project-owner
+acceptance. The Acceptance Record below documents a separate,
+subsequent, administrative act — the Project Owner's actual acceptance
+— and is what governs Wave 2's Document Status going forward. Per this
+Wave's own convention of never rewriting prior review history, that
+paragraph is not edited to match; this note disambiguates the two.)*
+
+## 20. Acceptance Record
+
+This section records the administrative act of Project Owner acceptance
+that changed this document's Document Status (§1) from `Review` to
+`Accepted`. It does not reopen or re-perform the substantive review in
+§19 — that review, and its `PASS` verdict, remains the operative content
+review for this Wave.
+
+| Field | Value |
+|---|---|
+| Acceptance status | **ACCEPTED** |
+| Accepted by | Project Owner, acting as the Architecture Review Board (Constitution §57 — the ARB is a function/process fulfilled entirely by the project owner today) |
+| Independent Architecture Review verdict | **PASS** |
+| Date of acceptance | 2026-07-20 |
+| Basis of acceptance | The Wave 2 Corrective Review recorded in §19 of this document, committed as `db2ee66` (`docs(sad): correct Wave 2 context, scope, and C4 boundaries`) — the Project Owner's Independent Architecture Review examined that corrective commit and found it satisfactory, superseding the corrective review's own internal self-verdict of `PASS` (§19) with formal Accepted approval |
+| Scope of this record | Administrative only — this record changes Document Status (§1) and this Wave's row in `docs/sad/README.md`. No substantive/architectural content in §2–§19 of this document was altered to produce this acceptance |
+| Effect on Inter-Wave Gate | Satisfies Inter-Wave Gate condition 3 (`docs/sad/README.md`, "Explicit Accepted by the project owner") for Wave 2, alongside conditions 1 (Completed), 2 (Reviewed, §19), 4 (Committed — this record's own commit), and 5 (Pushed — verified after this record's commit) |
+| Precedent | Registered following the same pattern used for Wave 1's acceptance (`docs/sad/01-introduction-goals-constraints-stakeholders.md`, commit `20c3657`) |
