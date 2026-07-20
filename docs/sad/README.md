@@ -32,7 +32,7 @@ architectural conflict is discovered during execution.
 |---|---|---|
 | 1 | Introduction, Goals, Constraints & Stakeholders | **Accepted** — drafted 2026-07-20; Corrective Review verdict PASS (§17.2 of the Wave 1 document); formally **Accepted by the Project Owner on 2026-07-20** following Independent Architecture Review, satisfying gate condition 3 below |
 | 2 | Context & Scope | **Accepted** — drafted 2026-07-20; Corrective Review self-verdict PASS (`02-context-and-scope.md` §19, commit `db2ee66`); formally **Accepted by the Project Owner on 2026-07-20** following Independent Architecture Review, satisfying gate condition 3 below (see `02-context-and-scope.md` §20 Acceptance Record) |
-| 3 | Solution Strategy | **Review** — drafted 2026-07-20; self-review verdict pending Reader Testing (`03-solution-strategy.md` §25); not yet Accepted by the Project Owner |
+| 3 | Solution Strategy | **Review** — drafted 2026-07-20; three Reader Testing passes completed, self-review verdict **PASS** (`03-solution-strategy.md` §25); Independent Architecture Review found one narrow semantic erratum (independent-component operational-independence status promotion, `03-solution-strategy.md` §26); awaiting closure of that erratum and formal Project Owner acceptance |
 | 4 | Building Block View | Not started |
 | 5 | Runtime View | Not started |
 | 6 | Deployment View | Not started |
