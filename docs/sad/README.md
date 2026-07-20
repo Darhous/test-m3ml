@@ -33,7 +33,7 @@ architectural conflict is discovered during execution.
 | 1 | Introduction, Goals, Constraints & Stakeholders | **Accepted** — drafted 2026-07-20; Corrective Review verdict PASS (§17.2 of the Wave 1 document); formally **Accepted by the Project Owner on 2026-07-20** following Independent Architecture Review, satisfying gate condition 3 below |
 | 2 | Context & Scope | **Accepted** — drafted 2026-07-20; Corrective Review self-verdict PASS (`02-context-and-scope.md` §19, commit `db2ee66`); formally **Accepted by the Project Owner on 2026-07-20** following Independent Architecture Review, satisfying gate condition 3 below (see `02-context-and-scope.md` §20 Acceptance Record) |
 | 3 | Solution Strategy | **Accepted** — drafted 2026-07-20; self-review verdict PASS (`03-solution-strategy.md` §25, commit `1f8482f`); Independent Architecture Review found one narrow semantic erratum, corrected and re-verified (`03-solution-strategy.md` §26, commit `b4c341e`); formally **Accepted by the Project Owner on 2026-07-20** following that erratum's closure, satisfying gate condition 3 below (see `03-solution-strategy.md` §27 Acceptance Record) |
-| 4 | Building Block View | Not started |
+| 4 | Building Block View | **Review** — drafted 2026-07-20; self-review pending Reader Testing (`04-building-block-view.md` §26) |
 | 5 | Runtime View | Not started |
 | 6 | Deployment View | Not started |
 | 7 | Security, Privacy & Trust Boundaries | Not started |
@@ -80,6 +80,7 @@ as authorization to proceed.
 | `01-introduction-goals-constraints-stakeholders.md` | 1 | Purpose, objectives, audience, goals, stakeholders, constraints, assumptions, out-of-scope, governance |
 | `02-context-and-scope.md` | 2 | System of Interest, business context, system boundary, actors, external systems, bounded-context landscape at scope level, functional/current/target/future scope, integration context, data responsibility boundaries, out-of-scope, context diagram specification, scope decision rules |
 | `03-solution-strategy.md` | 3 | Executive Solution Strategy, Domain Vision Statement, Architectural Drivers, Strategy Pillars (architecture style, DDD, Clean/Hexagonal, communication, API, data, multi-tenancy/IAM, reuse, device, AI, deployment, auditability, evolution), trade-offs, rejected alternatives, explicit non-decisions, open dependencies, traceability matrix, wave boundary map |
+| `04-building-block-view.md` | 4 | Level-0/1/2 building blocks, BC-to-Module Mapping Matrix (28 contexts), Independent-Capable Components Catalog, Core Platform white box, Engine Adoption-Point Mapping, dependency model, diagrams |
 
 ## Traceability
 
