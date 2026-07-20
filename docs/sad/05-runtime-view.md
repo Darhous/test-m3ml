@@ -35,7 +35,7 @@ This Wave does not become `Accepted` in this pass, regardless of its own self-re
 
 Applied per the governing instruction's order; **higher wins on conflict**: (1) Constitution; (2) Accepted ADRs, full text including Amendments/Revisit Triggers; (3) Decision Register and Open Questions Resolution/Register; (4) Certification/Semantic Closure; (5) Frozen Technology Baseline; (6) Accepted Waves 1–4; (7) API Platform Strategy; (8) Discovery/Event-Storming/Workflow artifacts; (9) Reuse artifacts; (10) `.claude/context/` — lowest authority.
 
-**One conflict was found and resolved, after Reader Testing Pass 2 (§18) — this Wave's initial draft missed it and is corrected here, not silently amended.** `docs/api-platform/19-WEBHOOKS.md` (rank 7, API Platform Strategy) calls its "Webhook Dispatcher" role *"a new architectural role — an Independent Component in the same sense as the Constitution Section 11 list."* But Wave 4 (rank 6, Accepted, higher precedence) closes the Independent Component count at exactly 8 and states explicitly: *"No 9th Independent Component is introduced anywhere in this table"* (Wave 4 §13), reinforced by Wave 4's own Validation Gate P. Per this Wave's own precedence order, **Wave 4's closed 8-component list governs** — `19-WEBHOOKS.md`'s "Independent Component" framing for Webhook Dispatcher is a lower-precedence source's own phrasing, not adopted as fact here. This Wave instead treats **Webhook Delivery** as a **logical runtime responsibility** — the mechanism by which an Integration Event already leaving RabbitMQ reaches an external HTTP endpoint — without asserting it is a 9th Independent Component, a confirmed sub-component of one of the existing 8, or a separate deployable of any kind; which existing block (most plausibly Public API Gateway's own scope, given both are Edge-adjacent, external-facing responsibilities) eventually owns this responsibility is not decided by this Wave and is recorded as an Open Runtime Decision (§16). Every other cross-check this Wave performed (Constitution §12, ADR-0004, `18-ASYNCAPI-EVENTS.md`, Discovery's event/workflow artifacts) found no further conflict.
+**One conflict was found and resolved, after Reader Testing Pass 2 (§18) — this Wave's initial draft missed it and is corrected here, not silently amended.** `docs/api-platform/19-WEBHOOKS.md` (rank 7, API Platform Strategy) calls its "Webhook Dispatcher" role *"a new architectural role — an Independent Component in the same sense as the Constitution Section 11 list."* But Wave 4 (rank 6, Accepted, higher precedence) closes the Independent Component count at exactly 8 and states explicitly: *"No 9th Independent Component is introduced anywhere in this table"* (Wave 4 §13), reinforced by Wave 4's own Validation Gate P. Per this Wave's own precedence order, **Wave 4's closed 8-component list governs** — `19-WEBHOOKS.md`'s "Independent Component" framing for Webhook Dispatcher is a lower-precedence source's own phrasing, not adopted as fact here. This Wave instead treats **Webhook Delivery** as an **unassigned, non-deployable runtime responsibility** — the mechanism by which an Integration Event already leaving RabbitMQ reaches an external HTTP endpoint — without asserting it is a 9th Independent Component, a confirmed sub-component of one of the existing 8, or a separate deployable of any kind. This Wave does **not** name a most-likely owner: which existing block eventually takes on this responsibility (candidates include, without preference, Public API Gateway's own scope, Notification Service, or Background Workers) is not decided here and is recorded as an Open Runtime Decision (§16), classified as an **Architecture Design Gap** — non-blocking for this Wave's own documentation of the synchronous Partner runtime (R11), but blocking before any outbound-webhook path is implemented. If ownership is later assigned to an existing block without materially changing that block's responsibilities, that is a SAD/Architecture Review decision; if it instead creates a 9th Independent Component or changes Constitution §11, an ADR/Constitution-governed process is required. **Narrow erratum, applied after a second Independent Architecture Review (§19)**: R11's diagram and text were restructured so the confirmed synchronous FHIR/Partner scenario is fully separated from this unassigned webhook-follow-up responsibility, which now appears only as an explicitly-labeled, non-counted placeholder (§7 R11, §19). Every other cross-check this Wave performed (Constitution §12, ADR-0004, `18-ASYNCAPI-EVENTS.md`, Discovery's event/workflow artifacts) found no further conflict.
 
 ## 4. Source Coverage
 
@@ -85,7 +85,7 @@ Documented once here; every scenario in §7 assumes and never contradicts these:
 12. **No native Engine API reaches a client, Portal, Partner, or Public consumer** at runtime, exactly as Wave 4 §7/§18 establish statically.
 13. **A runtime participant is never implicitly a separate deployable** — every "calls" arrow in every diagram below is a logical message exchange; Wave 6 decides whether it crosses a process boundary.
 14. **No scenario claims Exactly-Once delivery** — where an event or webhook can be redelivered, the platform provides At-Least-Once delivery only (`19-WEBHOOKS.md`), and the consuming side's idempotency handling (§10) is what actually prevents a duplicate effect.
-15. **No retry count, timeout value, or backoff interval is invented** — where a source states a mechanism exists without fixing its numbers (e.g., `19-WEBHOOKS.md`'s exponential backoff), this Wave repeats that hedge rather than filling in a number.
+15. **Retry eligibility, safety, backoff use, and boundedness are Accepted qualitative requirements** (Constitution §48 "Retry Policy") — a retry occurs only for a failure classified as potentially transient, only when the operation is safe/idempotent to retry, uses backoff, and is bounded to a maximum attempt count that surfaces explicitly on exhaustion rather than silently dropping; retrying a Domain Violation or Programming Error is forbidden. **No retry count, timeout value, or backoff interval (the numeric parameters) is invented** — where a source states the mechanism exists without fixing its numbers (e.g., `19-WEBHOOKS.md`'s exponential backoff), this Wave repeats that hedge rather than filling in a number.
 
 ## 7. Runtime Scenarios
 
@@ -114,7 +114,7 @@ Each scenario below states its full required field set before its diagram(s), pe
 | Tenant/Data-Scope/Consent obligations | Server-derived tenant context (Invariant 8); Data-Scope and Consent evaluated at the Application/Authorization layer |
 | Transaction boundary | Single transaction within the owning Module, per operation |
 | Consistency model | Strong within the owning Module's Aggregate boundary; eventually consistent for any downstream event reaction |
-| Idempotency/replay status | Idempotency-Key required only if the operation is financial/clinical-sensitive (`05-API-STANDARDS.md`; §10 below) |
+| Idempotency/replay status | Accepted: idempotent effect required only if this specific operation is retried or consumes an at-least-once-delivered Integration Event (Constitution §48); current API Strategy recommendation (not yet ratified): an `Idempotency-Key` header for the named financial/clinical-sensitive list (`05-API-STANDARDS.md`; §10 below) |
 | Provenance requirements | Not applicable unless the request originates from a device (R4) |
 | Open/deferred mechanisms | Exact token/header field names — Wave 8 (Wave 4 §17's own deferral, carried forward) |
 | Traceability | ADR-0008; Constitution §20–21; `09-AUTHORIZATION.md`, `10-API-GATEWAY.md`; Wave 4 §7, §10 |
@@ -171,7 +171,7 @@ sequenceDiagram
 | Tenant/Data-Scope/Consent obligations | Standard R1 pattern |
 | Transaction boundary | Single transaction within Diagnostic Ordering |
 | Consistency model | Strong within `TestOrder`; downstream contexts (e.g., Specimen Operations) react eventually via `TestOrdered` |
-| Idempotency/replay status | Not flagged as financial/clinical-sensitive by `05-API-STANDARDS.md`'s own list — standard request handling, no Idempotency-Key mandated by that source |
+| Idempotency/replay status | Not on the current API Strategy's named Idempotency-Key list (Recommendation, `05-API-STANDARDS.md`) and not itself retried or event-replay-triggered — no Accepted semantic idempotency requirement (Constitution §48) applies here beyond standard request handling |
 | Provenance requirements | Not applicable |
 | Open/deferred mechanisms | None beyond R1's general deferrals |
 | Traceability | ADR-0002, ADR-0012; Wave 4 §9, §11, §16 |
@@ -320,12 +320,13 @@ sequenceDiagram
 sequenceDiagram
     participant Dev as Healthcare Device/Analyzer
     participant DIG as Device Integration Gateway
-    participant Rev as Review Queue (proposed, not confirmed)
+    participant Rev as Unconfirmed Review-Queue Mechanism
 
     Dev->>DIG: Malformed/partial payload, or connection lost
     DIG->>DIG: Detect failure (Protocol/Vendor Adapter)
     DIG->>DIG: Isolate - do NOT write to Core Domain
-    DIG->>Rev: Surface for review (mechanism not confirmed by any source)
+    DIG->>Rev: Surface for review
+    Note over Rev: Conceptual placeholder only - NOT a Wave 4<br/>Building Block, Component, or Container.<br/>Mechanism/product not confirmed by any source (S16).<br/>Not counted as a confirmed runtime participant (S18).
     DIG->>DIG: Log failure (operational signal)
     Note over DIG: No TestProcessingStarted/TestResultCaptured<br/>is emitted for this message
 ```
@@ -354,7 +355,7 @@ sequenceDiagram
 | Tenant/Data-Scope/Consent obligations | Standard R1 pattern, plus the Result Verifier Role check specifically |
 | Transaction boundary | Each state transition (`Captured`, `Verified`, `Released`) is its own transaction within Result Verification and Reporting's `TestResult` Aggregate — never a single transaction spanning Laboratory Execution and Result Verification and Reporting together |
 | Consistency model | Strong within `TestResult`'s own Aggregate per transition; eventually consistent for every downstream reaction (Notification, Billing, Insurance) |
-| Idempotency/replay status | `ResultVerified`/`ResultReleased` are named in `05-API-STANDARDS.md`'s own Idempotency-Key list — a repeated verify/release call with the same key returns the original result rather than repeating the effect |
+| Idempotency/replay status | Accepted: `ResultVerified`/`ResultReleased` must have an idempotent effect, since they are Sensitive Operations subject to retry/event-replay (Constitution §48). Current API Strategy recommendation (not yet ratified by API Governance): an `Idempotency-Key` header, where a repeated verify/release call with the same key returns the original result rather than repeating the effect (`05-API-STANDARDS.md`) |
 | Provenance requirements | `VerificationRecord` (who verified, when — Wave 4 §11) is part of the `TestResult` Aggregate itself, not a separate mechanism |
 | Open/deferred mechanisms | None beyond the general Wave 9/11 deferrals already established |
 | Traceability | ADR-0002, ADR-0004, ADR-0011; Constitution §21, §23; Wave 4 §9, §11, §16 |
@@ -423,7 +424,7 @@ sequenceDiagram
 | Tenant/Data-Scope/Consent obligations | Standard R6 pattern |
 | Transaction boundary | Within Result Verification and Reporting, same discipline as R6 |
 | Consistency model | Same as R6 |
-| Idempotency/replay status | Not separately confirmed beyond R6's general Idempotency-Key coverage of `ResultVerified`/`ResultReleased`-class operations |
+| Idempotency/replay status | Not separately confirmed beyond R6's general coverage: Accepted idempotent-effect requirement (Constitution §48) for `ResultVerified`/`ResultReleased`-class operations, with the current API Strategy's `Idempotency-Key` header as its Recommendation-level mechanism |
 | Provenance requirements | Justification for the correction — not specified by any source; Deferred |
 | Open/deferred mechanisms | Correction-workflow detail (justification capture, downstream re-notification mechanics) — **Deferred**, this Wave provides only the skeleton above |
 | Traceability | `07-workflow-state-machines.md`; Constitution §12 |
@@ -518,7 +519,7 @@ sequenceDiagram
 | Tenant/Data-Scope/Consent obligations | Standard R1 pattern |
 | Transaction boundary | Within Billing, per `Invoice`; within Insurance and Corporate Contracts, per `Claim` — never a single transaction spanning both contexts or the external Payer |
 | Consistency model | Eventually consistent throughout — no distributed transaction with the external Payer |
-| Idempotency/replay status | Financial writes (Billing charges, Payments) are named in `05-API-STANDARDS.md`'s Idempotency-Key list — a repeated charge/payment call with the same key returns the original result |
+| Idempotency/replay status | Accepted: Billing charges and Payments must have an idempotent effect, since they are financial writes subject to retry/event-replay (Constitution §48). Current API Strategy recommendation (not yet ratified): an `Idempotency-Key` header, where a repeated charge/payment call with the same key returns the original result (`05-API-STANDARDS.md`) |
 | Provenance requirements | Not applicable beyond standard audit |
 | Open/deferred mechanisms | The exact external-Payer protocol/response-timing pattern — this Wave does not invent a financial workflow beyond what `21-INTEGRATIONS.md` and Wave 4 §11/§20 already establish |
 | Traceability | Wave 4 §9, §11, §16, §20; `21-INTEGRATIONS.md`; Wave 2 §7 (Insurance/Payer external system) |
@@ -595,30 +596,33 @@ sequenceDiagram
 
 ### R11 — FHIR / Partner Interoperability
 
+**Restructured after a second Independent Architecture Review (§19)**: the confirmed synchronous scenario below is now fully separated from the unassigned webhook-follow-up responsibility, which appears only as a distinct "Provisional Runtime Skeleton" immediately after, with an explicitly-labeled, non-counted placeholder participant.
+
 | Field | Value |
 |---|---|
 | Scenario ID | R11 |
+| Name | FHIR / Partner Interoperability (Synchronous Path — Confirmed) |
 | Business trigger | A Partner (e.g., referring clinic) or FHIR-shaped external exchange occurs |
 | Preconditions | Partner integration is certified per `21-INTEGRATIONS.md`'s checklist; FHIR R4 is the pinned version (D-43, R-06 Closed) |
 | Actors | External Partner system |
-| Runtime participants | External Partner → Kong Gateway (Partner API classification) → owning Module (Patient Management or Result Verification and Reporting, per Wave 4 §7's FHIR usage) → Webhook Delivery, where the Partner subscribes to async notification (a **logical delivery responsibility**, not a confirmed 9th Independent Component — corrected after Reader Testing Pass 2, §3, §18) |
+| Runtime participants | External Partner → Kong Gateway (Partner API classification) → owning Module (Patient Management or Result Verification and Reporting, per Wave 4 §7's FHIR usage) |
 | Owning Bounded Context/Module | Patient Management (FHIR Patient resource exchange) or Result Verification and Reporting (FHIR DiagnosticReport exchange) — Wave 4 §15 |
-| Main success path | Partner authenticates (Client Credentials, scoped to contract, `08-AUTHENTICATION.md`) → Kong Gateway applies coarse AuthZ + Partner scope/quota (`13-RATE-LIMITING.md`) → owning Module's Application/Authorization layer re-checks Data-Scope for the Partner's declared scope (`14-MULTI-TENANCY.md`, `21-INTEGRATIONS.md`) → FHIR resource translated to/from the platform's internal model via that Module's own contract → response returned synchronously, or an async follow-up delivered via Webhook subscription where the Partner requires notification (e.g., referring-clinic result delivery, `19-WEBHOOKS.md`) |
-| Alternative paths | Async delivery via Webhook instead of synchronous response, per the Partner's own subscription |
+| Main success path | Partner authenticates via an authenticated, contract-scoped machine identity (**Accepted** requirement) — current API Strategy recommendation (not yet ratified by API Governance): OAuth2 Client Credentials, scoped to the Partner contract (`08-AUTHENTICATION.md`) → Kong Gateway applies coarse AuthZ (**Accepted**, Wave 4 §7 — the Gateway's responsibility for protecting the entry surface), with Partner-specific scope/quota structure per the current API Strategy recommendation (`13-RATE-LIMITING.md`, not yet ratified, no numeric quota fixed) → owning Module's Application/Authorization layer re-checks Data-Scope for the Partner's declared scope (`14-MULTI-TENANCY.md`, `21-INTEGRATIONS.md`) → FHIR resource translated to/from the platform's internal model via that Module's own contract → response returned synchronously |
+| Alternative paths | None beyond the denial branch below. Async delivery via Webhook, where a Partner subscribes to notification instead of polling, is a distinct, not-yet-owned responsibility — see the Provisional Runtime Skeleton immediately below, not part of this confirmed scenario |
 | Failure paths | Partner authentication/authorization failure; certification-scope violation — see §11 |
 | State changes and owner | None from a read exchange; a write-capable Partner interaction (e.g., referring-physician order submission) follows R2's own state-change rules under the owning Module |
 | Synchronous interactions | Partner ↔ Kong Gateway ↔ owning Module, for an immediate FHIR resource fetch |
-| Asynchronous interactions | Webhook delivery, where the Partner subscribes (`19-WEBHOOKS.md`) — **At-Least-Once delivery**, Idempotency via the shared `eventId` (Invariant 14, §10) |
+| Asynchronous interactions | None in this confirmed scenario — see the Provisional Runtime Skeleton below for the async webhook-follow-up case |
 | Domain Events | None crossing the boundary directly — FHIR exchange is a contract-level translation, not a raw event |
-| Integration Events | Whichever underlying event the Partner subscribed to (e.g., `ResultReleased` for referring-clinic result delivery) |
+| Integration Events | None in this confirmed synchronous scenario |
 | Audit obligations | Standard operational audit; a Partner-scope violation attempt is itself audited (`14-MULTI-TENANCY.md`'s cross-tenant protection, extended to Partner scope) |
 | Tenant/Data-Scope/Consent obligations | Partner scope declared at certification time, re-checked at every call — never trusted from the Partner's own claim alone |
 | Transaction boundary | Within the owning Module, per request |
-| Consistency model | Strong for a synchronous read; At-Least-Once/eventually-consistent for Webhook delivery |
-| Idempotency/replay status | Webhook deliveries carry the underlying event's `eventId`; a Partner receiving a retried delivery is expected to treat it as a duplicate (`19-WEBHOOKS.md`) |
+| Consistency model | Strong for a synchronous read |
+| Idempotency/replay status | Not applicable to this synchronous read scenario |
 | Provenance requirements | Not applicable beyond standard audit |
-| Open/deferred mechanisms | Specific FHIR Resource field mappings, endpoint paths — not designed here (Wave 4 §15's own guardrail, restated) |
-| Traceability | D-43 (FHIR R4 pinned); Wave 4 §7, §15, §18; `08-AUTHENTICATION.md`, `13-RATE-LIMITING.md`, `19-WEBHOOKS.md`, `21-INTEGRATIONS.md` |
+| Open/deferred mechanisms | Specific FHIR Resource field mappings, endpoint paths — not designed here (Wave 4 §15's own guardrail, restated); exact Client Credentials grant mechanics and Partner quota numerics — Recommendation-level, not Accepted (`08-AUTHENTICATION.md`, `13-RATE-LIMITING.md`) |
+| Traceability | D-43 (FHIR R4 pinned); Wave 4 §7, §15, §18; `08-AUTHENTICATION.md`, `13-RATE-LIMITING.md`, `21-INTEGRATIONS.md` |
 | Owning later Wave | Wave 10 (endpoint/schema detail already exists in `docs/api-platform/`, cross-referenced) |
 
 ```mermaid
@@ -627,23 +631,36 @@ sequenceDiagram
     participant GW as Kong Gateway
     participant Mod as Owning Module (Patient Mgmt / Result Verification)
     participant AC as Audit and Compliance
-    participant Wh as Webhook Delivery (logical role, not a<br/>confirmed 9th Independent Component - S18)
 
-    Partner->>GW: Authenticated request (Client Credentials, scoped)
-    GW->>GW: Coarse AuthZ + Partner quota/scope
+    Partner->>GW: Authenticated request (machine identity, contract-scoped)
+    GW->>GW: Coarse AuthZ + Partner quota/scope<br/>(current API Strategy recommendation)
     GW->>Mod: Route (Partner API classification)
     Mod->>Mod: Re-check Data-Scope for declared Partner scope
-    alt Within declared scope - synchronous FHIR fetch
+    alt Within declared scope
         Mod-->>GW: FHIR resource (translated)
         GW-->>Partner: Response
-    else Within declared scope - async delivery (subscribed)
-        Mod->>Wh: Trigger webhook (underlying event)
-        Wh->>Partner: HTTPS POST, signed, carries eventId
     else Outside declared scope
         Mod->>AC: Mandatory Audit Event (scope-violation attempt)
         Mod-->>GW: Denial
         GW-->>Partner: Denial response
     end
+```
+
+**Provisional Runtime Skeleton — Ownership Deferred (Webhook Follow-Up)**
+
+This is **not** part of the confirmed R11 scenario above, and its one participant is **not** counted among this Wave's confirmed runtime participants (§18 Runtime Participant Audit). It exists to acknowledge, honestly, that a Partner can subscribe to async notification (e.g., referring-clinic result delivery) — without asserting who inside the platform owns delivering it. The skeleton starts at the already-Published Integration Event and ends at the External Partner's endpoint; it draws no existing block (not Public API Gateway, not Notification Service, not Background Workers) as the owner, since none is decided.
+
+**Classification**: Architecture Design Gap. Non-blocking for documenting this Wave's synchronous Partner runtime (above). Blocking before implementation of any outbound-webhook path. Owner: Architecture Review Board. If ownership is assigned to an existing block without materially changing that block's responsibilities: a SAD/Architecture Review decision. If it instead creates a 9th Independent Component or changes Constitution §11: an ADR/Constitution-governed process is required (§3, §16, §19).
+
+```mermaid
+sequenceDiagram
+    participant Bus as Event Bus (contract) - already-Published Integration Event
+    participant Unassigned as Unassigned Webhook Delivery Responsibility
+    participant Partner as External Partner System
+
+    Bus-->>Unassigned: Underlying event a Partner has subscribed to
+    Note over Unassigned: Conceptual placeholder only - NOT a Wave 4<br/>Building Block, Component, or Container.<br/>Internal owner is an Open Runtime Decision (S16).<br/>Not counted as a confirmed runtime participant (S18).
+    Unassigned->>Partner: HTTPS POST, signed, carries eventId<br/>(mechanism per 19-WEBHOOKS.md, Recommendation)
 ```
 
 ### R12 — Long-Running / Background Work
@@ -654,7 +671,7 @@ sequenceDiagram
 | Business trigger | Any long-running or deferred task (e.g., bulk import, report generation) |
 | Preconditions | A Module identifies work that should not block a synchronous request |
 | Actors | None directly |
-| Runtime participants | Requesting Module → Background Workers (logical responsibility, not a confirmed separate deployable, Wave 4 §13) or a module-local equivalent |
+| Runtime participants | Requesting Module → Background Workers (a **confirmed named independent-capable component**, Wave 4 §13; workload placement and deployment separateness remain open, Wave 6) or a module-local equivalent, per workload |
 | Owning Bounded Context/Module | Whichever Module owns the underlying business data; Background Workers has **no owning Bounded Context in the 28-context map** (Wave 4 §13) |
 | Main success path | Module submits a job with trackable status (queued/running/succeeded/failed, Constitution §48) → job executes → status updates → owning Module is notified of completion via its own contract |
 | Alternative paths | A module-local equivalent handles the work without a separate Background Workers component, per Constitution §48's own explicit allowance — this Wave does not assert which of the two applies, since no source decides it |
@@ -670,14 +687,14 @@ sequenceDiagram
 | Consistency model | Eventually consistent — the whole point of deferring work is that it does not hold up the triggering request |
 | Idempotency/replay status | Not specified by any source; a re-run job should not be assumed idempotent without the owning Module's own design |
 | Provenance requirements | Not applicable beyond standard job-status tracking |
-| Open/deferred mechanisms | **Explicitly Deferred, per Wave 4 §13**: whether Background Workers is a separate deployable at all, queue name/product, worker count — none invented here |
+| Open/deferred mechanisms | Background Workers' existence as a named independent-capable component is Confirmed (Wave 4 §13); **explicitly Deferred**: whether its runtime is co-deployed, module-local, or operationally separate for any given workload, queue name/product, worker count — none invented here |
 | Traceability | Constitution §48; Wave 4 §13 |
 | Owning later Wave | Not tied to a specific Wave — evidence-triggered (Wave 3 §18's own discipline) |
 
 ```mermaid
 sequenceDiagram
     participant Mod as Requesting Module
-    participant BW as Background Workers (logical) / module-local equivalent
+    participant BW as Background Workers (confirmed component,<br/>placement open) / module-local equivalent
 
     Mod->>BW: Submit job (status: queued)
     BW->>BW: Execute (status: running)
@@ -711,7 +728,7 @@ sequenceDiagram
 | Requesting Module | AI Operations Gateway | AI assistance need | Sync | Internal contract | AI Operations | AI Operations | **Yes, mandatory** | Yes | Confirmed | ADR-0007 |
 | AI Operations Gateway | External AI Model Provider | Governed call | Sync | Integration (external) | AI Operations | AI Operations | Yes | N/A (provider-side) | Confirmed | ADR-0007 |
 | External Partner | Kong Gateway | Partner API call | Sync | Partner API | Owning Module | Kong Gateway / Owning Module | If sensitive | Yes | Confirmed | Wave 4 §7 |
-| Owning Module | Webhook Delivery (logical role) | Subscribed event | Async | Webhook (external) | Owning Module | Webhook Delivery (logical role) | On DLQ exhaustion | Yes | **Open** (logical responsibility only — not a confirmed 9th Independent Component, §3) | `19-WEBHOOKS.md` |
+| Owning Module | Unassigned Webhook Delivery Responsibility (placeholder, not a Wave 4 block) | Subscribed event | Async | Webhook (external) | Owning Module | Unassigned (Open Runtime Decision) | On DLQ exhaustion | Yes | **Open** — non-deployable, non-counted placeholder only, not a confirmed 9th Independent Component (§3, §7 R11) | `19-WEBHOOKS.md` |
 | Requesting Module | Background Workers / module-local equivalent | Long-running task | Async | Not fixed | Not fixed | Not specified | Standard | Yes | **Deferred** | Wave 4 §13 |
 | Any block | Analytics | Read-model need | Async (events/exports) | Approved Read Model / export | Analytics (derived only) | Analytics | No | Yes | Confirmed | Wave 4 §17 |
 
@@ -730,20 +747,45 @@ sequenceDiagram
 | Event Sourcing | **Not adopted** (Assess-tier, Wave 3 §9) | Restated, not re-decided, here |
 | CQRS | **Not adopted** (Assess-tier, Wave 3 §9) | Restated, not re-decided, here |
 
-**What happens on failure after commit, before downstream reaction** (a required question per the governing instruction): if an owning block commits its own state change but fails before publishing the resulting event, the required semantic outcome is that the event is **eventually published** (the fact already happened and must not be lost) — but **the specific mechanism guaranteeing this (Outbox pattern, at-least-once publisher retry, etc.) is not fixed by any Accepted source**, and this Wave records that as an Open Runtime Decision (§11) rather than inventing one.
+**What happens on failure after commit, before downstream reaction** (a required question per the governing instruction), **corrected and elevated after a second Independent Architecture Review (§19)**:
+
+**Required Semantic Outcome (Accepted, derived from Constitution §12's event-immutability rule and §34's at-least-once/eventual-consistency rule)**: if an owning block commits its own business-state change, the resulting Integration Event must **eventually become publishable** — there is no silent, permanent loss of the already-happened fact between business commit and event publication. Duplicate publication of the same fact is acceptable under the platform's At-Least-Once assumptions (§10), provided the consuming side's idempotent handling (Constitution §48) absorbs it.
+
+**Decision Status: Mandatory Pre-Implementation Architecture Decision.** The specific mechanism guaranteeing this outcome (Transactional Outbox, Change Data Capture, broker-transaction integration, a recoverable publication log, or another approach) is **not fixed by any Accepted source**, and this Wave does not select one — no mechanism is defaulted to Outbox or any other pattern. This is recorded as an Open Runtime Decision (§16), owned by the Architecture Review Board, requiring an ADR-suitability assessment because the mechanism is platform-wide and affects reliability and data-consistency guarantees across every cross-module event reaction; **no ADR is created by this Wave**. Implementation of any workflow that depends on cross-module event reaction cannot proceed on the affected event paths until this mechanism is ratified — this does **not** block Wave 6 (Deployment View) or this Wave's own documentation, both of which record the gap rather than resolve it.
+
+**Owning SAD Follow-Up**: Wave 10 (Architecture Decisions & Traceability) registers this gap and determines whether an ADR is required; Wave 11 (Quality Requirements & Quality Scenarios) tests the Required Semantic Outcome above; Wave 12 (Risk Treatment) carries the risk of event loss/duplicate handling until the mechanism is ratified.
 
 ## 10. Idempotency, Duplicate Delivery and Replay
 
-| Concept | Status | Evidence |
-|---|---|---|
-| **Business idempotency requirement** | Accepted for a named list: Billing charges, Payments, `ResultVerified`, `ResultReleased`, Break-Glass Access | `05-API-STANDARDS.md`: "Any unsafe operation touching a financial or clinical write... requires an `Idempotency-Key` header; a repeated call with the same key returns the original result rather than repeating the effect" |
-| **API idempotency** | Same mechanism as above, at the API layer | `05-API-STANDARDS.md` |
-| **Event duplicate handling** | At-Least-Once delivery is the platform's stated guarantee; consumers are expected to be idempotent/redelivery-tolerant | Constitution §34 (cited by Wave 3 §9); `19-WEBHOOKS.md` |
-| **Device message deduplication** | **Open** — device messages are a documented duplicate-delivery risk (`08-integration-inventory.md`'s STRIDE first-pass) but no dedup mechanism/window is specified | Not confirmed by any source; recorded in §11 |
-| **Replay/reprocessing** | Not specified for any scenario | Not confirmed by any source |
-| **Exactly-once claim** | **Explicitly disclaimed** | `19-WEBHOOKS.md`: "this architecture provides at-least-once delivery, not exactly-once" |
+**Corrected after a second Independent Architecture Review (§19) to separate what is Constitutionally Accepted from what is only the current API Strategy's Recommendation** — the prior draft cited `05-API-STANDARDS.md`'s `Idempotency-Key` header as if it were itself an Accepted architecture fact; it is a Recommendation, not yet ratified by API Governance (`05-API-STANDARDS.md`'s own framing: every standard there is labeled either **Fact** — already Accepted elsewhere — or **Recommendation** — "this Board's proposed default, not yet an independent ADR, pending API Governance ratification"; the Idempotency section is Recommendation-labeled).
 
-**No idempotency-key header name, key format, retention period, retry count, or deduplication window is invented anywhere in this Wave** — where `05-API-STANDARDS.md` and `19-WEBHOOKS.md` state a mechanism exists without fixing its parameters, this Wave repeats that same hedge rather than filling in a number, per the governing instruction's explicit prohibition.
+### Accepted Semantic Requirement (Constitution §48 "Idempotency Policy" and "Retry Policy"; Constitution §34 "Reliability and Resilience Rules")
+
+| Requirement | Status | Evidence |
+|---|---|---|
+| Idempotent final effect | **Accepted** — every operation that may be retried, or that consumes an at-least-once-delivered Integration Event, must not produce a duplicate business effect | Constitution §48: "Every operation that may be retried or that consumes an at-least-once-delivered Integration Event (Section 34) is idempotent" |
+| Carried or derived deduplication identity | **Accepted** | Constitution §48: "State-changing operations exposed to retry or event replay carry or derive a deduplication key" |
+| Duplicate-safe consumer behavior | **Accepted** — every Integration Event consumer tolerates redelivery/ordering variance unless a stronger guarantee is explicitly documented for that event | Constitution §34 |
+| No duplicate clinical/financial effect | **Accepted outcome** — this is the binding architectural requirement; *how* it is technically achieved for any given operation is not fixed by the Constitution itself | Constitution §48, §34 |
+
+### API Strategy Recommendation (not yet ratified by API Governance — may be cited as the current recommended mechanism, never as an Accepted architecture fact)
+
+| Item | Status | Evidence |
+|---|---|---|
+| `Idempotency-Key` HTTP header, for a named list: Billing charges, Payments, `ResultVerified`, `ResultReleased`, Break-Glass Access | **Recommendation** | `05-API-STANDARDS.md`, "Idempotency" section, explicitly labeled Recommendation |
+| A repeated call with the same key returns the original result rather than repeating the effect | **Recommendation** (describes the recommended header's behavior, not a separately Accepted mechanism) | `05-API-STANDARDS.md` |
+| Webhook deliveries carrying the underlying event's `eventId` so a Partner can recognize a duplicate delivery | **Recommendation** | `18-ASYNCAPI-EVENTS.md`, `19-WEBHOOKS.md` |
+
+### Deferred Implementation Detail
+
+| Item | Status | Evidence |
+|---|---|---|
+| Storage location, key scope, retention duration, response-replay implementation, deduplication table/cache/store, conflict handling, exact endpoint applicability | **Deferred** | Not fixed by any source reviewed |
+| Device message deduplication window/mechanism | **Open** — device messages are a documented duplicate-delivery risk (`08-integration-inventory.md`'s STRIDE first-pass) but no dedup mechanism/window is specified | Not confirmed by any source; recorded in §11, §16 |
+| Replay/reprocessing | Not specified for any scenario | Not confirmed by any source |
+| Exactly-once claim | **Explicitly disclaimed** | `19-WEBHOOKS.md`: "this architecture provides at-least-once delivery, not exactly-once" |
+
+**No idempotency-key header name, key format, retention period, retry count, or deduplication window is invented anywhere in this Wave** — where `05-API-STANDARDS.md` and `19-WEBHOOKS.md` state a mechanism exists without fixing its parameters, this Wave repeats that same hedge rather than filling in a number, per the governing instruction's explicit prohibition. Every scenario in §7 citing idempotency now cites the **Accepted semantic requirement** first and the **API Strategy Recommendation** second, never conflating the two (§7 R1, R6, R9, R11).
 
 ## 11. Error and Failure Matrix
 
@@ -751,20 +793,20 @@ sequenceDiagram
 |---|---|---|---|---|---|---|---|---|
 | Authentication failure | Kong Gateway | Identity and Access | None | Denial response | Operational log | Not applicable | No state touched | Wave 8 |
 | Authorization denial | Owning Module's Application layer | Owning Module | None | Denial response | Operational log; Audit Event if the attempted action was itself Sensitive | Not applicable | No state touched | Wave 8 |
-| Tenant mismatch | Application boundary and persistence boundary (both check, Wave 4 §17) | Owning Module | None | Denial response (`404`-class per `14-MULTI-TENANCY.md`'s own general principle, not redesigned here) | Mandatory Audit Event (cross-tenant attempt) | Not applicable | Cross-tenant isolation preserved by construction | Wave 8 |
+| Tenant mismatch | Application boundary and persistence boundary (both check, Wave 4 §17) | Owning Module | None | Denial response that does not reveal whether the out-of-scope resource exists (**Accepted** non-disclosure requirement, Constitution §19/§21); current API Strategy recommendation uses a `404`-class response specifically (`14-MULTI-TENANCY.md`, `05-API-STANDARDS.md`) — not independently ratified | Mandatory Audit Event (cross-tenant attempt) | Not applicable | Cross-tenant isolation preserved by construction | Wave 8 / API Governance (exact status code) |
 | Validation failure | Owning Module's Application layer | Owning Module | None | Validation error response | Operational log | Not applicable | No state touched | — |
 | Invalid state transition (e.g., verifying an already-Released result incorrectly) | Owning Module's Domain model | Owning Module | None — transition rejected | Error response | Operational log | Not applicable | Aggregate invariants preserved | — |
-| Device malformed payload | Device Integration Gateway | Device Integration Gateway | None in Core Domain (Invariant 11) | Not user-visible (device-originated) | Logged; surfaced for review (mechanism not confirmed) | **Deferred** — no retry count invented | No partial/invalid Core Domain state | Wave 9 |
-| Device unavailable | Device Integration Gateway | Device Integration Gateway | None | Not user-visible directly; may delay downstream Laboratory Execution | Operational log | **Deferred** | No partial state written | Wave 9 |
-| External provider unavailable (Payer, AI) | Insurance and Corporate Contracts / AI Operations Gateway | Same | None written | Downstream reaction delayed or shows pending state | Operational log; AI action still logged even on provider failure per ADR-0007's completeness requirement | **Deferred** — no retry count invented | No partial state written | Wave 9/12 |
-| Event publication/consumption failure | Publishing/consuming block itself | Same | Publisher's own state already committed (§9); consumer's reaction is what's delayed/lost until resolved | Not directly user-visible | Operational log | **Open Runtime Decision** (§9) — Outbox-style guarantee not confirmed | At-risk until the Open Decision is resolved — disclosed, not hidden | Not tied to a specific Wave |
-| Notification failure | Notification Service | Notification Service | Delivery-status record only | Recipient does not receive the notification | Operational log | **Deferred** — no retry policy invented | Underlying business fact (e.g., `ResultReleased`) is unaffected | — |
-| Payer/partner failure | Insurance and Corporate Contracts / Kong Gateway | Same | `Claim` remains in a pending-equivalent state | Delayed claim status | Operational log | **Deferred** | No partial state written | — |
-| Engine failure (any adopted Engine) | Owning block's Adapter | Owning block | None written to Core Domain (Invariant 11) | Owning block's operation fails gracefully | Operational log | Not specified generically — Deferred per-Engine | No partial/invalid state (architectural guarantee, Wave 3 §8) | Wave 6/9 |
-| Persistence failure | Owning block | Owning block | Transaction rolled back (standard relational-database guarantee, ADR-0013) | Operation fails | Operational log | Not specified — Deferred | Transaction atomicity within the owning schema (ADR-0013) | — |
-| Duplicate request/event | Owning block (API layer or event consumer) | Owning block | None beyond the original effect (idempotent handling, §10) | Same response as the original (for Idempotency-Key-covered operations) | Operational log | Idempotent handling, where §10 applies; otherwise Deferred | Preserved for the operations §10 covers; Open elsewhere | §10 |
+| Device malformed payload | Device Integration Gateway | Device Integration Gateway | None in Core Domain (Invariant 11) | Not user-visible (device-originated) | Logged; surfaced for review (mechanism not confirmed) | Retry eligibility governed by Constitution §48 (transient-only, idempotent-safe, bounded, exhausted-retries surfaced); whether a malformed-payload failure itself qualifies as transient is not classified by any source — **Deferred**, along with the numeric retry count | No partial/invalid Core Domain state | Wave 9 |
+| Device unavailable | Device Integration Gateway | Device Integration Gateway | None | Not user-visible directly; may delay downstream Laboratory Execution | Operational log | Retry eligibility governed by Constitution §48 (transient-only, idempotent-safe, bounded, exhausted-retries surfaced) — connectivity loss is a plausible transient-failure candidate; numeric retry count/backoff **Deferred** | No partial state written | Wave 9 |
+| External provider unavailable (Payer, AI) | Insurance and Corporate Contracts / AI Operations Gateway | Same | None written | Downstream reaction delayed or shows pending state | Operational log; AI action still logged even on provider failure per ADR-0007's completeness requirement | Retry eligibility governed by Constitution §48 (transient-only, idempotent-safe, bounded, exhausted-retries surfaced); numeric retry count **Deferred** | No partial state written | Wave 9/12 |
+| Event publication/consumption failure | Publishing/consuming block itself | Same | Publisher's own state already committed (§9); consumer's reaction is what's delayed/lost until resolved | Not directly user-visible | Operational log | **Mandatory Pre-Implementation Architecture Decision** (§9, §16) — publish-after-commit guarantee mechanism not yet ratified; blocking for implementation of affected event paths, not for this Wave's own documentation | At-risk until the Open Decision is resolved — disclosed, not hidden | Not tied to a specific Wave |
+| Notification failure | Notification Service | Notification Service | Delivery-status record only | Recipient does not receive the notification | Operational log | Retry eligibility governed by Constitution §48; numeric retry policy **Deferred** | Underlying business fact (e.g., `ResultReleased`) is unaffected | — |
+| Payer/partner failure | Insurance and Corporate Contracts / Kong Gateway | Same | `Claim` remains in a pending-equivalent state | Delayed claim status | Operational log | Retry eligibility governed by Constitution §48; numeric parameters **Deferred** | No partial state written | — |
+| Engine failure (any adopted Engine) | Owning block's Adapter | Owning block | None written to Core Domain (Invariant 11) | Owning block's operation fails gracefully | Operational log | Retry eligibility governed by Constitution §48 (transient-only, idempotent-safe, bounded, exhausted-retries surfaced); not specified generically per-Engine which failures qualify as transient — numeric parameters **Deferred** per-Engine | No partial/invalid state (architectural guarantee, Wave 3 §8) | Wave 6/9 |
+| Persistence failure | Owning block | Owning block | Transaction rolled back (standard relational-database guarantee, ADR-0013) | Operation fails | Operational log | Retry eligibility governed by Constitution §48 (transient-only, idempotent-safe, bounded, exhausted-retries surfaced); numeric parameters **Deferred** | Transaction atomicity within the owning schema (ADR-0013) | — |
+| Duplicate request/event | Owning block (API layer or event consumer) | Owning block | None beyond the original effect (Accepted: no duplicate business effect, Constitution §48) | Same response as the original, per the current API Strategy's `Idempotency-Key` Recommendation, for the operations §10 names | Operational log | Idempotent handling, where §10 applies; otherwise Deferred | Preserved for the operations §10 covers; Open elsewhere | §10 |
 
-**No HTTP status code is fixed anywhere in this table** beyond the one general, already-Accepted pattern cited from `14-MULTI-TENANCY.md` (a `404`-class response for out-of-scope resources, to avoid confirming another tenant's resource exists) — no other status code is invented.
+**No HTTP status code is fixed anywhere in this table as an Accepted architecture fact.** The non-disclosure requirement — a denial response must not reveal whether an out-of-scope resource exists — is **Accepted** (Constitution §19/§21). The specific `404`-class status code implementing it is the current API Strategy's **Recommendation** (`14-MULTI-TENANCY.md`, `05-API-STANDARDS.md`), not independently ratified by any ADR or Decision Register entry; exact HTTP status catalog ratification remains API Governance/Wave 10 territory. No other status code is invented anywhere.
 
 ## 12. Runtime Audit, Correlation and Provenance
 
@@ -797,7 +839,7 @@ Using `docs/discovery/artifacts/07-workflow-state-machines.md` as the sole sourc
 
 ## 14. Runtime Diagrams
 
-All 9 minimum-required sequence diagrams appear embedded in their own scenario in §7: (1) R1, (2) R2, (3) R3, (4) R4, (5) R5, (6) R6 (split into 2 diagrams for readability), (7) R8, (8) R10, (9) R11. R7, R9, and R12 additionally include diagrams beyond the required minimum, for completeness. Every diagram participant is either one of Wave 4's own block names verbatim, a Wave 2-documented external actor/system, or — in R11's one exception — explicitly labeled a **logical role, not a Wave 4 block**, after Reader Testing Pass 2 found "Webhook Dispatcher" had been imported from a lower-precedence source as if it were a confirmed 9th Independent Component (§3, §17); every diagram uses only `sequenceDiagram` syntax with `alt`/`opt` where genuinely branching (no `par` was needed — no scenario reviewed required true parallel, independent branches at the sequence-diagram level); stays within 4–7 participants per diagram, well under the crowding threshold; shows no deployment node, host, cluster, or region; shows no Recognized-context internal detail beyond what Wave 4 §12 itself documents; and was checked for valid Mermaid syntax (§18, Mermaid Validation).
+At least 9 sequence diagrams are required; this Wave now has 14, embedded in their own scenario in §7: (1) R1, (2) R2, (3) R3, (4) R4, (5) R5, (6)–(7) R6 (split into 2 diagrams for readability), (8) R7, (9) R8, (10) R9, (11) R10, (12)–(13) R11 (split, after the narrow erratum §19, into a Confirmed synchronous diagram and a separate Provisional Runtime Skeleton diagram), (14) R12. Every diagram participant is either one of Wave 4's own block names verbatim, a Wave 2-documented external actor/system, or one of **two** explicitly-labeled, non-counted conceptual placeholders — R11's Provisional Runtime Skeleton's **"Unassigned Webhook Delivery Responsibility"** (§3, §7 R11, §19) and R5's **"Unconfirmed Review-Queue Mechanism"** (§7 R5, corrected alongside R11 for the identical defect class after the same second Independent Architecture Review, §19) — neither of which is a Wave 4 block, and neither of which is counted among this Wave's confirmed runtime participants (§18 Runtime Participant Audit). Every diagram uses only `sequenceDiagram` syntax with `alt`/`opt` where genuinely branching (no `par` was needed — no scenario reviewed required true parallel, independent branches at the sequence-diagram level); stays within 3–7 participants per diagram, well under the crowding threshold; shows no deployment node, host, cluster, or region; shows no Recognized-context internal detail beyond what Wave 4 §12 itself documents; and was checked for valid Mermaid syntax (§18, Mermaid Validation).
 
 ## 15. Explicit Non-Decisions
 
@@ -821,10 +863,10 @@ All 9 minimum-required sequence diagrams appear embedded in their own scenario i
 
 | Question | Current status | Why not decidable here | Required outcome | Decision authority | ADR required? | Owning future Wave | Blocking? |
 |---|---|---|---|---|---|---|---|
-| Publish-after-commit guarantee mechanism (Outbox pattern or equivalent) | Open | No Accepted source fixes this; inventing one would be a hidden new decision | The fact must eventually be published; the mechanism is not yet chosen | Architecture Review Board, once a measured need or implementation phase requires it | Likely yes, if a platform-wide mechanism (e.g., Outbox) is later adopted | Not tied to a specific Wave — evidence-triggered (Wave 3 §18's own discipline) | No |
+| Publish-after-commit guarantee mechanism (Outbox pattern or equivalent) | Open — classified, after a second Independent Architecture Review (§19), as a **Mandatory Pre-Implementation Architecture Decision** | No Accepted source fixes this; inventing one would be a hidden new decision | The fact must eventually be published, with no silent permanent loss; duplicate publication is acceptable under At-Least-Once assumptions given idempotent consumption (§9, §10) | Architecture Review Board | ADR-suitability assessment required — platform-wide, affects reliability/data-consistency guarantees; no ADR created by this Wave | Wave 10 (gap registration/ADR-suitability), Wave 11 (quality-scenario testing), Wave 12 (risk treatment) | **Blocking** for implementation of any workflow depending on cross-module event reaction; non-blocking for this Wave's or Wave 6's own documentation |
 | Device message deduplication window | Open | Not specified by any source | A defined dedup strategy for device-originated duplicate messages | Development Teams, Device Integration Gateway owner | No — implementation detail unless it requires a platform-wide pattern | Wave 9 | No |
-| Background Workers vs. module-local equivalent | Open (Wave 4 §13's own carried-forward status) | Constitution §48 explicitly allows either; no source picks one | Confirmed component or per-Module pattern | Architecture Review Board | Possibly, if Background Workers is confirmed as a separate deployable | Wave 6 | No |
-| Webhook Delivery ownership (found this Wave, R11) | Open | `19-WEBHOOKS.md` calls it a new Independent Component; Wave 4's closed 8-component list (higher precedence) does not name it | Confirmed ownership by an existing block (most plausibly Public API Gateway's own scope) or a deliberate 9th-component ADR | Architecture Review Board | Yes, if a 9th Independent Component is ever actually confirmed | Wave 4 revision or Wave 6 | No |
+| Background Workers workload placement (co-deployed, module-local, or operationally separate) | Open — Background Workers **is** a confirmed named independent-capable component (Wave 4 §13); the open question is workload placement, not component existence | Constitution §48 explicitly allows either a Background Workers responsibility or a module-local equivalent per workload; no source picks one for any specific workload | A confirmed placement per workload, and a confirmed baseline deployment topology for the Background Workers component itself | Architecture Review Board | No — placement/topology is SAD-level deployment design, not a new component | Wave 6 | No |
+| Webhook Delivery ownership (found this Wave, R11) | Open | `19-WEBHOOKS.md` calls it a new Independent Component; Wave 4's closed 8-component list (higher precedence) does not name it | Confirmed ownership by an existing block (candidates, named without preference: Public API Gateway, Notification Service, Background Workers) via a SAD/Architecture Review decision if responsibilities aren't materially changed, or a deliberate 9th-Independent-Component ADR if they are | Architecture Review Board | Yes, if a 9th Independent Component is ever actually confirmed | Wave 4 revision or Wave 6 | Non-blocking for documenting the synchronous Partner runtime (R11); **blocking** before any outbound-webhook path is implemented |
 | Result correction workflow detail (R7) | Open | Only the state name and Role requirement are confirmed; justification/notification detail is not | A confirmed correction workflow | Development Teams / clinical governance input | No | Implementation-level, not tied to a specific Wave | No |
 | Retry/backoff numeric parameters (webhooks, event consumers, device reprocessing) | Open, by design (`19-WEBHOOKS.md`'s own explicit non-invention) | Requires real operational/Partner-SLA data this Board has no evidence for | Numeric values once real data exists | Architecture Review Board | No | Wave 11 (Quality Requirements) | No |
 | Specimen rejection criteria detail | Open | Not itemized by any source | A confirmed intake-criteria list | Laboratory governance / clinical input | No | Implementation-level | No |
@@ -846,7 +888,7 @@ All 9 minimum-required sequence diagrams appear embedded in their own scenario i
 | R9 | Accurate billing/claims reaction | Financial stakeholders | Billing, Insurance and Corporate Contracts | Billing, Insurance and Corporate Contracts | — | — | — | R-04 (AGPL, openIMIS) | `21-INTEGRATIONS.md` | — | E16 (ERPNext), E17 (openIMIS) | Confirmed | — |
 | R10 | Governed, trustworthy AI assistance | Doctors, Security/Compliance | AI Operations Gateway | AI Operations | §28 | ADR-0007 | D-07 | — | — | — | E9 (Portkey Gateway) | Confirmed | Wave 9 |
 | R11 | Stable partner/portal integration | External API Partners | Kong Gateway, Patient Management, Result Verification and Reporting | Patient Management, Result Verification and Reporting | §14-15 | ADR-0006, ADR-0007 | D-43, D-44 | R-06 (Closed) | `08, 13, 19, 21` | — | E22 | Confirmed | Wave 10 |
-| R12 | Sustainable long-running work | Development Teams | Background Workers (logical) | None (no owning BC) | §48 | — | — | — | — | — | — | Deferred | Not tied to a specific Wave |
+| R12 | Sustainable long-running work | Development Teams | Background Workers (confirmed component, Wave 4 §13) | None (no owning BC) | §48 | — | — | — | — | — | — | Confirmed (component); Deferred (workload placement) | Wave 6 |
 
 All references above were verified against the actual source documents during this session's fresh reads (§18, Cross-Reference Validation) — none is a generic reference to memory of a prior review.
 
@@ -878,7 +920,7 @@ See §4 in full.
 
 ### Source Precedence
 
-See §3 — one conflict found and resolved (Webhook Dispatcher, `19-WEBHOOKS.md` rank 7 vs. Wave 4's closed 8-Independent-Component list, rank 6) — Wave 4's higher-precedence status governs; treated as a logical role, not a confirmed 9th component, throughout this Wave's final text.
+See §3 — one conflict found and resolved (Webhook Dispatcher, `19-WEBHOOKS.md` rank 7 vs. Wave 4's closed 8-Independent-Component list, rank 6) — Wave 4's higher-precedence status governs; treated as an unassigned, non-deployable placeholder responsibility, isolated in its own Provisional Runtime Skeleton (§7 R11, §19), never a confirmed 9th component, throughout this Wave's final text.
 
 ### Skills Utilization
 
@@ -890,7 +932,11 @@ All 12 mandatory scenarios (R1–R12) are present, each with the full required f
 
 ### Runtime Participant Audit
 
-Every participant named in every sequence diagram (§7) was checked against Wave 4's own block names (§5, §8, §9, §13) or Wave 2's documented external actors/systems. **This audit initially missed one real defect, found and closed by Reader Testing Pass 2 (below), not by this audit itself**: R11's diagram had imported "Webhook Dispatcher" from `19-WEBHOOKS.md` as if it were a confirmed Wave 4 block/Independent Component; it is neither, and is now labeled explicitly as a logical role, not a Wave 4 block, everywhere it appears (§3, §7 R11, §8). With that correction applied, every remaining participant in every diagram is confirmed against Wave 4's own block names or Wave 2's documented external systems — "External Payer System," "Healthcare Device/Analyzer," "External AI Model Provider," and "External Partner System" are Wave 2 §7's own named external systems, not new inventions.
+Every participant named in every sequence diagram (§7) was checked against Wave 4's own block names (§5, §8, §9, §13) or Wave 2's documented external actors/systems. **This audit initially missed one real defect, found and closed by Reader Testing Pass 2 (below), not by this audit itself**: R11's diagram had imported "Webhook Dispatcher" from `19-WEBHOOKS.md` as if it were a confirmed Wave 4 block/Independent Component; it is neither. With that correction applied, every remaining participant in every diagram is confirmed against Wave 4's own block names or Wave 2's documented external systems — "External Payer System," "Healthcare Device/Analyzer," "External AI Model Provider," and "External Partner System" are Wave 2 §7's own named external systems, not new inventions.
+
+**Updated after a second Independent Architecture Review (§19)**: the original fix (labeling "Webhook Dispatcher" a logical role) was itself narrower than the governing requirement — a logical-role label still let the participant sit inside R11's one confirmed diagram, alongside genuinely confirmed Wave 4 blocks. R11 is now split (§7): the Confirmed synchronous diagram contains only Wave 4 blocks and Wave 2 external systems; the webhook-follow-up responsibility appears solely in a separate Provisional Runtime Skeleton diagram, as a participant explicitly named "Unassigned Webhook Delivery Responsibility" with an in-diagram Note stating it is a conceptual placeholder, not a Wave 4 Building Block, Component, or Container, and is **not counted** toward this Gate (Gate D).
+
+**A second instance of the identical defect class was found during this same review's own verification pass** (not by this audit's first two rounds): R5's diagram carried a "Review Queue (proposed, not confirmed)" participant with no isolation treatment, the same defect Webhook Dispatcher had. Corrected identically: relabeled "Unconfirmed Review-Queue Mechanism," given the same in-diagram Note (conceptual placeholder, not a Wave 4 block, not counted), consistent with §14's now-corrected "two placeholders" statement. With both corrections applied, every diagram contributing to Gate D's confirmed-participant count contains only Wave 4 blocks or Wave 2 external systems; both placeholders are explicitly excluded from the count.
 
 ### Sync/Async Audit
 
@@ -906,7 +952,24 @@ Every scenario in §7 states a transaction boundary confined to its owning block
 
 ### Idempotency Audit
 
-Every scenario touching a financial/clinical write (`ResultVerified`, `ResultReleased`, Billing charges, Payments — R6, R9) correctly cites `05-API-STANDARDS.md`'s Idempotency-Key requirement; no other scenario invents an idempotency mechanism beyond standard event-consumer tolerance (Invariant 14); no key format, header name beyond the cited `Idempotency-Key`, retention period, or dedup window is invented anywhere (§10).
+Every scenario touching a financial/clinical write (`ResultVerified`, `ResultReleased`, Billing charges, Payments — R6, R9) cites an idempotency obligation; no other scenario invents an idempotency mechanism beyond standard event-consumer tolerance (Invariant 14); no key format, header name, retention period, or dedup window is invented anywhere (§10).
+
+**Corrected after a second Independent Architecture Review (§19)**: the original audit and R1/R6/R9's own fields had cited `05-API-STANDARDS.md`'s `Idempotency-Key` header as if it were itself the Accepted requirement, rather than the current API Strategy's Recommendation implementing an Accepted, more general Constitution §48 semantic requirement (idempotent effect, carried/derived deduplication identity). §10 was restructured into three explicit tiers — Accepted Semantic Requirement (Constitution §48, §34), API Strategy Recommendation (`05-API-STANDARDS.md`, `18-ASYNCAPI-EVENTS.md`, not yet ratified), and Deferred Implementation Detail — and every citing scenario (R1, R6, R9, R11) now states both tiers explicitly rather than treating the header name as fact.
+
+### API/Event Strategy Status Audit (added after a second Independent Architecture Review, §19)
+
+Every API Platform Strategy field/mechanism this Wave cites was checked against that source document's own Fact/Recommendation labeling (`05-API-STANDARDS.md`'s own convention: "labeled **Fact**... or **Recommendation**... pending API Governance ratification"), and against whether any higher-precedence source (Constitution, ADR, Decision Register) independently ratifies it:
+
+| Item | Source label | This Wave's status after correction |
+|---|---|---|
+| `Idempotency-Key` header | Recommendation (`05-API-STANDARDS.md`) | Cited as Recommendation implementing the Accepted Constitution §48 semantic requirement — never as Accepted fact itself (§10, R1, R6, R9) |
+| OAuth2 Client Credentials (Partner) | Recommendation (`08-AUTHENTICATION.md`) | Cited as the current API Strategy's recommended machine-identity mechanism; the Accepted requirement is only that Partner access uses *some* authenticated, contract-scoped machine identity (R11) |
+| Per-Partner rate quota structure | Recommendation, no numeric values fixed (`13-RATE-LIMITING.md`) | Cited as Recommendation; the Accepted requirement is only that Kong Gateway protects the entry surface (Wave 4 §7) — no quota number is or was invented (R11) |
+| `404`-class response for out-of-scope resources | Recommendation (`05-API-STANDARDS.md`, `14-MULTI-TENANCY.md`) | Cited as Recommendation implementing the Accepted non-disclosure requirement (Constitution §19/§21) — the Accepted fact is non-disclosure, not the specific status code (§11 Error Matrix) |
+| `eventId` field | Part of `18-ASYNCAPI-EVENTS.md`'s Recommendation-labeled AsyncAPI notation | Cited as the current API Strategy's field-naming recommendation for duplicate-delivery recognition, not an Accepted schema fact (§10, R11) |
+| "Webhook Dispatcher" as a 9th Independent Component | `19-WEBHOOKS.md`'s own claim, contradicted by Wave 4 (higher precedence) | Rejected; treated as an unassigned, non-deployable responsibility (§3, §7 R11, §16) |
+
+No item in this table was found promoted beyond its source's own status anywhere else in this Wave after the correction; the six rows above were the only promotions found, and all six are now closed.
 
 ### Failure Handling Audit
 
@@ -924,6 +987,8 @@ Every Sensitive Operation scenario (R6, R7, R10, and R1's sensitive-read branch)
 
 Checked every "Confirmed" status in §8/§17 against its cited source. Result: **zero new architectural decisions found.** Two statements were checked specifically for New-Decision risk and confirmed clean: (1) R9's Billing/Insurance runtime flow does not assert a financial workflow beyond what `21-INTEGRATIONS.md` and Wave 4 already state; (2) R7's correction-workflow skeleton is explicitly labeled Deferred rather than presented as a designed mechanism.
 
+**Re-checked after a second Independent Architecture Review (§19)**: six additional items were checked for silent status promotion (an API Strategy Recommendation cited as if Accepted) rather than a new invented decision — see the API/Event Strategy Status Audit above. None of the six was a new architectural decision; all six were a citation-precision defect (Recommendation cited without its qualifier), now corrected. Separately, the publish-after-commit guarantee mechanism (§9) was reclassified from a generically "Open" item to a formally-named **Mandatory Pre-Implementation Architecture Decision** — this reclassification is itself not a new decision; it names and elevates the visibility of a gap this Wave had already identified, without selecting a mechanism.
+
 ### Scope Leakage Audit
 
 No cloud/region/Kubernetes/replica count anywhere (Wave 6); no RBAC/ABAC policy-model detail or token/header content (Wave 8, carried-forward deferral from Wave 4's own erratum); no AI prompt/model-routing detail (Wave 9); no device protocol implementation detail (Wave 9); no numeric quality target (Wave 11); no STRIDE analysis (Wave 7).
@@ -934,7 +999,7 @@ ADR links: every citation corresponds to a file verified to exist under `docs/ad
 
 ### Mermaid Validation
 
-All 12 `sequenceDiagram` blocks reviewed for valid syntax (correct `participant`/`->>`/`-->>`/`alt`/`else`/`opt`/`end` structure, no undeclared participant referenced). No diagram uses `par` (no scenario required genuinely independent parallel branches at this level of detail). No diagram exceeds 6 participants.
+All 14 `sequenceDiagram` blocks (13 originally, plus one added when R11 was split into a Confirmed diagram and a Provisional Runtime Skeleton diagram, §7, §19) reviewed for valid syntax (correct `participant`/`->>`/`-->>`/`alt`/`else`/`opt`/`Note`/`end` structure, no undeclared participant referenced). No diagram uses `par` (no scenario required genuinely independent parallel branches at this level of detail). No diagram exceeds 6 participants.
 
 ### Reader Testing
 
@@ -970,8 +1035,8 @@ No further sub-agent pass was run after this round — per the governing instruc
 |---|---|---|---|
 | A | Wave 4 narrow erratum closed | **PASS** | Commit `9cf0729`, verified pushed and matching `origin/main` |
 | B | Wave 4 formally Accepted in separate commit | **PASS** | Commit `ec8d045`, verified pushed and matching `origin/main` |
-| C | Required sources read and precedence applied | **PASS** | §4 Source Coverage; §3 — one conflict found and resolved (Webhook Dispatcher) |
-| D | Every runtime participant exists in Wave 4 or is a documented external actor/system | **PASS** (after fix) | §18 Runtime Participant Audit — Webhook Dispatcher corrected to an explicitly-labeled logical role, not a Wave 4 block |
+| C | Required sources read and precedence applied | **PASS** (updated §19) | §4 Source Coverage; §3 — one conflict found and resolved (Webhook Dispatcher), plus the API/Event Strategy Status Audit's six status-precision corrections |
+| D | Every confirmed runtime participant exists in Wave 4 or is a documented external actor/system; any unassigned responsibility appears only as a non-counted Provisional/Deferred placeholder, never as a confirmed Building Block | **PASS** (after fix, updated again §19) | §18 Runtime Participant Audit — "Unassigned Webhook Delivery Responsibility" isolated in its own Provisional Runtime Skeleton diagram (§7 R11), explicitly non-counted, with every other diagram containing only Wave 4 blocks or Wave 2 external systems |
 | E | No deployment topology decided | **PASS** | §15; every diagram's arrows are logical, per §6 Invariant 13 |
 | F | No direct cross-schema access | **PASS** | §6 Invariant 2; verified clean in Adversarial pass |
 | G | Domain Events do not cross contexts without translation | **PASS** (after fix) | R6's `TestResultCaptured` explicitly labeled as the Integration Event at that crossing |
@@ -984,9 +1049,9 @@ No further sub-agent pass was run after this round — per the governing instruc
 | N | Device provenance/failure isolation preserved | **PASS** | R4, R5; Invariant 9, 11 |
 | O | AI HITL preserved | **PASS** | R10; verified clean in Adversarial pass |
 | P | Recognized contexts not overmodeled | **PASS** | §13's state-transition table sourced entirely from `07-workflow-state-machines.md`; verified clean in Adversarial pass |
-| Q | No independent-component deployment assumption beyond accepted status | **PASS** (after fix) | Webhook Dispatcher/Delivery downgraded to Open, logical-role status; no other component's status was ever asserted beyond Wave 4 §13 |
-| R | Idempotency/duplicates handled without invented parameters | **PASS** | §10; verified clean in Adversarial pass |
-| S | All diagrams syntax-valid and readable | **PASS** | §18 Mermaid Validation; all 13 diagrams checked, 4–7 participants each |
+| Q | No independent-component deployment assumption beyond accepted status | **PASS** (after fix, strengthened §19) | Webhook Dispatcher/Delivery downgraded to an unassigned, non-deployable, non-counted placeholder, isolated in its own diagram; Background Workers' component-confirmed status kept separate from its open workload-placement question (§7 R12, §16); no other component's status was ever asserted beyond Wave 4 §13 |
+| R | Idempotency/duplicates handled without invented parameters, and Accepted semantic requirement is never conflated with API Strategy Recommendation | **PASS** (updated §19) | §10 (three-tier restructure); API/Event Strategy Status Audit above |
+| S | All diagrams syntax-valid and readable | **PASS** (updated §19) | §18 Mermaid Validation; all 14 diagrams checked (13 original + 1 added when R11 was split), 3–7 participants each |
 | T | All references resolve | **PASS** (after fix) | §18 Cross-Reference Validation; the one backwards static-dependency citation corrected |
 | U | Reader Testing passes completed after drafting | **PASS** | This addendum — 3 genuine passes, 14 total findings (5 Pass 1 + 4 Pass 2 + 1 found by Pass 3 itself), all closed with quoted evidence |
 | V | Only allowed files changed | **PASS** | `git status`/`git diff --stat` (below) confirm only `docs/sad/README.md` and `docs/sad/05-runtime-view.md`; `compact/` untouched |
@@ -1003,3 +1068,44 @@ All 23 gates PASS. No gate is marked PASS on an unresolved finding — every PAS
 **PASS.**
 
 All 23 Validation Gates (A–W) pass with direct evidence. Three genuine review cycles were run against the actually-saved file (Blind Runtime Reader, Adversarial Architecture Reviewer, Final Verification), together finding and closing 14 real defects, including one genuine Source Precedence conflict this Wave's own first draft had incorrectly claimed did not exist (Webhook Dispatcher vs. Wave 4's closed 8-Independent-Component list) and one inverted static-dependency citation matching the exact class of error Wave 4's own erratum had to correct — both caught this time within the same authoring session, not requiring a separate corrective-review cycle. No new architectural decision was introduced; no Saga/Outbox/CQRS/Event-Sourcing/Exactly-Once claim survives; every Sensitive Operation's mandatory audit is now consistently diagrammed, not merely asserted in prose; no Domain Event crosses a Bounded Context boundary unlabeled. This verdict is this Wave's own review conclusion — it is **not** project-owner Accepted approval. Wave 5 Document Status remains `Review`; Waves 1–4 remain `Accepted`, untouched in substance; Wave 6 has not been started.
+
+**Note added after §19's narrow erratum**: this Final Verdict describes this Wave's *own* self-review, performed before the Independent Architecture Review below. It is superseded in currency, not in validity, by §19 — the self-review's PASS still stands for everything it actually checked; §19 documents a second, external review that found further, narrower issues this Wave's own three passes did not surface.
+
+## 19. Post-Review Narrow Semantic Erratum
+
+An Independent Architecture Review, distinct from and subsequent to this Wave's own three-pass Reader Testing above, returned the verdict **"Wave 5 — PASS WITH NARROW PRE-ACCEPTANCE ERRATUM."** This section records what that review found, the governing sources, the corrections applied, and why none of it required re-authoring this Wave.
+
+### The prior errors
+
+Ten narrow semantic issues (B1–B10), all status-promotion or classification defects, not substantive runtime-logic errors:
+
+1. **Idempotency status promotion (B1)** — `05-API-STANDARDS.md`'s `Idempotency-Key` header (a Recommendation, not yet ratified by API Governance) was cited across R1, R6, R9, R11, and §10 as if it were itself the Accepted architecture requirement, rather than the current API Strategy's proposed mechanism implementing a more general, genuinely Accepted Constitution §48 semantic requirement (idempotent effect; carried/derived deduplication identity).
+2. **Partner authentication status promotion (B2)** — R11 cited OAuth2 Client Credentials (`08-AUTHENTICATION.md`, Recommendation) as if it were a fixed precondition, rather than the current API Strategy's recommended mechanism for the Accepted, more general requirement (authenticated, contract-scoped machine identity).
+3. **Rate-limiting/Partner-quota status promotion (B3)** — R11 cited Partner scope/quota structure (`13-RATE-LIMITING.md`, Recommendation, no numeric values fixed) without distinguishing it from the Accepted fact that Kong Gateway protects the entry surface (Wave 4 §7).
+4. **HTTP status semantics (B4)** — the Error Matrix's Tenant-mismatch row and its closing note cited a `404`-class response as an "already-Accepted pattern," when only the non-disclosure requirement is Accepted (Constitution §19/§21); the specific status code is a Recommendation (`14-MULTI-TENANCY.md`, `05-API-STANDARDS.md`).
+5. **Webhook Delivery responsibility (B5)** — R11's diagram placed the unassigned webhook-follow-up responsibility inside the same diagram as Wave 4's confirmed blocks (labeled a "logical role"), which still let it read as a near-equivalent runtime participant; and §3/§16 named Public API Gateway as the "most plausible" owner, effectively pre-answering an Open Decision this Wave itself says is undecided.
+6. **Background Workers semantics (B6)** — §16's Open Runtime Decisions row used the phrase "if Background Workers is confirmed as a separate deployable," which reads as if the *component's existence* were in question, when Wave 4 §13 already confirms Background Workers as one of the 8 named independent-capable components; only its workload placement is open.
+7. **Atomic state/event publication gap (B7)** — §9 recorded the publish-after-commit guarantee mechanism as a generic "Open Runtime Decision... not tied to a specific Wave," without the sharper classification the gap's actual severity warrants (platform-wide, affects reliability/data-consistency for every cross-module event reaction).
+8. **Retry policy alignment (B8)** — several Error Matrix rows and Invariant 15 stated retry handling as simply "Deferred," without first stating the Accepted qualitative retry rule (Constitution §48: transient-only, idempotent-safe, backoff, bounded, exhausted-retries surfaced) that governs regardless of the (genuinely Deferred) numeric parameters.
+9. **API/event field status preservation (B9)** — `eventId` (part of `18-ASYNCAPI-EVENTS.md`'s Recommendation-labeled notation) was used in R11 without its Recommendation qualifier.
+10. **Review Report honesty (B10)** — the Runtime Participant Audit, Idempotency Audit, New-Decision Audit, and Gates D/R had already been marked PASS against the pre-erratum text and needed updating once 1–9 above were fixed.
+
+### The governing sources
+
+Constitution §48 ("Idempotency Policy," "Retry Policy," "Background Jobs Policy"), §34 ("Reliability and Resilience Rules"), §21 ("Authorization and Data Scope Rules"), §19 (Tenant Isolation), §12 (Event-Driven Architecture Rules), §57 (Architecture Review Board); ADR-0004 (Event-Driven Integration); Wave 4 §13 (Independent-Capable Components Catalog, closed 8-component list); `docs/api-platform/05-API-STANDARDS.md`, `08-AUTHENTICATION.md`, `13-RATE-LIMITING.md`, `14-MULTI-TENANCY.md`, `18-ASYNCAPI-EVENTS.md`, `19-WEBHOOKS.md`, `21-INTEGRATIONS.md` — each read fresh, in full, this session, with their own inline Fact/Recommendation labeling taken as authoritative for status classification.
+
+### Corrections applied
+
+Detailed per-location above: §3 (Source Precedence, Webhook ownership neutrality), §6 Invariant 15 (retry qualitative rule), §7 R1/R6/R9 (idempotency field), §7 R11 (fully restructured into a Confirmed synchronous scenario + a separate Provisional Runtime Skeleton for webhook follow-up, with an explicitly-labeled, non-counted "Unassigned Webhook Delivery Responsibility" placeholder), §7 R12 (Background Workers component-confirmed wording), §8 (Interaction Catalog Webhook row), §9 (publish-after-commit reclassified as a Mandatory Pre-Implementation Architecture Decision), §10 (restructured into Accepted Semantic Requirement / API Strategy Recommendation / Deferred Implementation Detail tiers), §11 (Error Matrix Tenant-mismatch, retry-related, and event-publication rows), §14 (diagram count and participant-labeling update), §16 (Publish-after-commit, Background Workers, and Webhook Delivery rows re-specified), §18 (Runtime Participant Audit, Idempotency Audit, new API/Event Strategy Status Audit, New-Decision Audit, Mermaid Validation, Gates D and R).
+
+### Why this did not require re-authoring Wave 5
+
+Every correction is a **status-precision fix** — restoring the distinction between what a higher-precedence source (Constitution, ADR, Wave 4) actually makes Accepted and what a lower-precedence source (the API Platform Strategy, itself internally labeled Recommendation for these exact items) merely proposes. No runtime scenario's actors, ordering, transaction boundary, consistency model, or state-transition logic changed. No sequence diagram's *business* flow changed — R11's split separates an already-hedged async aside into its own diagram; it does not add or remove a business step. The central scenario (R6) and every other scenario (R1–R10, R12) are untouched in substance.
+
+### No new ADR was created
+
+This erratum classifies one item (publish-after-commit guarantee mechanism) more precisely as a Mandatory Pre-Implementation Architecture Decision requiring a future ADR-suitability assessment — it does not itself decide a mechanism, select a technology, or constitute an ADR. No ADR was drafted, proposed, or implied as already decided anywhere in this erratum.
+
+### Targeted independent verification (after B1–B10 were applied)
+
+An independent reviewer sub-agent, given only this file and 10 required verification questions, confirmed 6 of 10 clean outright and found 4 residual defects of the same B1–B10 classes, all now closed: (a) R11's Main success path field read "the ratified machine-identity mechanism... (not yet ratified)" — a self-contradictory phrase, reworded to "an authenticated, contract-scoped machine identity (Accepted requirement)"; (b) R5's diagram carried an un-isolated "Review Queue (proposed, not confirmed)" participant, the same defect class as Webhook Dispatcher — relabeled "Unconfirmed Review-Queue Mechanism" with the same placeholder Note and non-counted treatment, and §14's "sole exception" claim corrected to name both placeholders; (c) §17 Traceability Matrix's R12 row still read "Background Workers (logical)" / "Status: Deferred," inconsistent with the corrected "confirmed component, placement open" language used elsewhere — reworded; (d) §11 Error Matrix's "Engine failure" and "Persistence failure" rows stated retry status as bare "Deferred" without the Constitution §48 qualitative-rule citation the other five retry-related rows carry — added. No further defects were found on re-verification.
