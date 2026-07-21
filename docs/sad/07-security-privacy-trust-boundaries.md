@@ -211,13 +211,13 @@ flowchart LR
         Partner[FHIR Partner / Payer System]
     end
     subgraph Z2["API Edge zone"]
-        Kong2[Kong Gateway<br/>Client Credentials, contract-scoped]
+        Kong2["Kong Gateway<br/>Client Credentials (Recommendation), contract-scoped"]
     end
     subgraph Z3["Central Application zone"]
         Mod[Owning Module<br/>e.g. Result Verification and Reporting, Insurance]
     end
 
-    Partner -->|TB-11: Client Credentials, HTTPS| Kong2
+    Partner -->|"TB-11: Client Credentials (Recommendation), HTTPS"| Kong2
     Kong2 -->|coarse AuthZ| Mod
     Mod -->|response, Data-Scope-filtered| Kong2
     Kong2 -->|response| Partner

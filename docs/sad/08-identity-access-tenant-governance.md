@@ -848,7 +848,7 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    Partner[Partner System - P8] -->|Client Credentials, contract-scoped| Kong3[Kong Gateway]
+    Partner[Partner System - P8] -->|"Client Credentials (Recommendation), contract-scoped"| Kong3[Kong Gateway]
     Kong3 -->|coarse AuthZ| Mod2[Owning Module]
     Mod2 -->|Partner-contract-scoped Data Scope| Data[Contract-bound resource only]
     Mod2 -.->|cross-partner attempt| Audit1[Mandatory Audit Event]
