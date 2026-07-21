@@ -5,13 +5,13 @@
 | Field | Value |
 |---|---|
 | Wave number and title | 6 of 13 — Deployment View (`docs/sad/README.md`) |
-| Document Status | **Review** (Constitution §59 Document Status Vocabulary — not `Accepted`) |
-| Owner | Author of this Wave (session author, 2026-07-20) |
+| Document Status | **Review** (Constitution §59 Document Status Vocabulary — not `Accepted`); Independent Architecture Review verdict: **PASS WITH MANDATORY NARROW PRE-ACCEPTANCE ERRATUM** (see §42) — erratum applied in this same pass, prior to formal acceptance |
+| Owner | Author of this Wave (session author, 2026-07-20/21) |
 | Review authority | Project Owner, acting as Architecture Review Board (Constitution §57) |
 | Dependencies | Wave 1 — **Accepted**; Wave 2 — **Accepted**; Wave 3 — **Accepted**; Wave 4 — **Accepted**; Wave 5 — **Accepted** (commit `0f028ff`, following erratum closure `38e1558`) |
 | Supersedes | None |
 | Superseded by | None |
-| Updated | 2026-07-20 |
+| Updated | 2026-07-21 (Narrow Pre-Acceptance Erratum) |
 
 This Wave does not become `Accepted` in this pass, regardless of its own self-review verdict (§40). Per the Inter-Wave Gate (`docs/sad/README.md`), only the Project Owner's explicit statement of acceptance changes this field.
 
@@ -51,7 +51,7 @@ This Wave does not become `Accepted` in this pass, regardless of its own self-re
 
 Applied per the governing instruction's order; higher wins on conflict: (1) Constitution; (2) Accepted ADRs; (3) Decision Register + Open Questions Resolution/Register; (4) Certification/Semantic Closure; (5) Frozen Technology Baseline + Decision Freeze; (6) Accepted Waves 1–5; (7) API Platform Strategy; (8) Discovery/Reuse artifacts per own status; (9) `.claude/context/` — lowest.
 
-**No conflict requiring resolution was found.** Every deployment-relevant source read this session (§4) is internally consistent with the others on the facts this Wave states. One genuine ambiguity was found and is recorded as an Open Deployment Decision rather than silently resolved: `docs/adr/0005-hybrid-tenant-isolation.md`'s own text states "a dedicated database **or** dedicated deployment option" as one combined alternative, not two separately named tiers — `docs/discovery/artifacts/09-tenancy-analysis.md` and `14-MULTI-TENANCY.md` both confirm no five-tier taxonomy (Shared/Dedicated-DB/Dedicated-Deployment/On-Prem/Hybrid) is Accepted anywhere; this Wave treats "Dedicated Database Tenant" and "Dedicated Deployment Tenant" (§14, §15 below) as two **illustrative points on one Accepted "dedicated" spectrum** (ADR-0005), not as two independently Accepted tiers — flagged explicitly wherever the distinction matters.
+**Corrected (§42): this claim was too strong in the original draft.** The original text asserted "No conflict requiring resolution was found," but the Wave 6 Narrow Erratum found and corrected several genuine internal-consistency defects this claim had missed: this Wave's own §20 stated an Open Question (#6, Offline Mode) as still Open when the Open Questions Resolution phase had already resolved it (Accepted with Constraints); this Wave's own §15 asserted uniform Engine-layer tenant scoping unsupported by the Reuse-research evidence actually available (§13A); this Wave's own §13 miscounted the Platform Infrastructure Services it had itself already tabulated in §12 (corrected, §42/B6); and this Wave's own §35 self-contradicted within single table cells (assigning and disclaiming the same responsibility at once). None of these was a conflict *between external sources* — each was this Wave's own drafting error relative to sources it had itself already cited correctly elsewhere. One genuine ambiguity between external sources was found and is recorded as an Open Deployment Decision rather than silently resolved: `docs/adr/0005-hybrid-tenant-isolation.md`'s own text states "a dedicated database **or** dedicated deployment option" as one combined alternative, not two separately named tiers — `docs/discovery/artifacts/09-tenancy-analysis.md` and `14-MULTI-TENANCY.md` both confirm no five-tier taxonomy (Shared/Dedicated-DB/Dedicated-Deployment/On-Prem/Hybrid) is Accepted anywhere; this Wave treats "Dedicated Database Tenant" and "Dedicated Deployment Tenant" (§14, §15 below) as two **illustrative points on one Accepted "dedicated" spectrum** (ADR-0005), not as two independently Accepted tiers — flagged explicitly wherever the distinction matters.
 
 ## 4. Source Coverage
 
@@ -60,12 +60,13 @@ Applied per the governing instruction's order; higher wins on conflict: (1) Cons
 | Source | Relevance |
 |---|---|
 | Constitution §5, §9–12, §16–19, §24, §28, §33–35, §41–43, §48–56 (confirmed titles: §33 Observability, §34 Reliability and Resilience, §35 Testing, §41 Repository/Folder Governance, §42 Git Workflow, §43 Definition of Done, §49 Fitness Functions, §50 Decision Matrix, §51 Non-Functional Budgets, §52 Quality Gates, §53 Module Acceptance Checklist, §54 Architecture Radar, §55 Evolution Strategy, §56 Repository Governance) | Deployment principles, tenancy, reliability, non-functional budget status (Draft, no invented numbers), radar/evolution constraints |
-| ADR-0001, 0003, 0005, 0006, 0007, 0008, 0009, 0013, 0014 (full text, this session); 0002, 0004, 0010, 0011, 0012 (prior-session research, restated not re-decided) | Modular Monolith unit, schema-per-module, Hybrid Tenant Isolation, Device Gateway independence, AI Gateway independence, Unified Login, **SaaS-First/On-Prem-Ready/Hybrid-Ready**, PostgreSQL selection + hosting-form deferral, **DR/BC baseline with no numeric RPO/RTO** |
+| **All 14 ADRs (0001–0014), full text, read fresh in the Wave 6 Narrow Erratum session (§42)** — corrects the original draft's narrower claim of 9 full-text ADRs plus 5 prior-session restatements | Modular Monolith unit, DDD, schema-per-module, Event-Driven Integration, Hybrid Tenant Isolation, Device Gateway independence, AI Gateway independence, Unified Login, Localization-First, Core Domain (Accepted), Bounded Context Map (Accepted), PostgreSQL selection + hosting-form deferral, **SaaS-First/On-Prem-Ready/Hybrid-Ready**, **DR/BC baseline with no numeric RPO/RTO** |
 | `docs/architecture-review/02-TECHNOLOGY-BASELINE.md` (Frozen); `docs/architecture-review/12-DECISION-FREEZE.md`; `docs/certification/22-ARCHITECTURE-BASELINE-FREEZE.md` | 24-Engine catalog, license status, frozen-artifact discipline |
 | `docs/certification/10-DECISION-REGISTER.md`, `11-RISK-REGISTER.md`, `20-OPEN-QUESTIONS-RESOLUTION.md`, `15-SAD-INPUT-PACKAGE.md`, `23-SAD-READINESS-MATRIX.md`, `26-FINAL-SEMANTIC-CONSISTENCY-CLOSURE.md` | D-42 (RLS), D-56/57/58/59, R-02/04/07/08/13, Open Questions #3/4/7/8/15/16/25/28/29, Deployment Architecture readiness = "Partially Ready" (topology intentionally undecided), DR readiness = "Ready" (framework only) |
 | `docs/api-platform/10-API-GATEWAY.md`, `09-AUTHORIZATION.md`, `12-SECRETS-AND-KEYS.md`, `27-OBSERVABILITY.md`, `14-MULTI-TENANCY.md`, `21-INTEGRATIONS.md`, `19-WEBHOOKS.md`, `13-RATE-LIMITING.md`, `05-API-STANDARDS.md`, `08-AUTHENTICATION.md`, `18-ASYNCAPI-EVENTS.md` (all read this session or Wave 5's session) | Kong/OPA/OpenBao placement, no monitoring vendor named, RLS not a resolution of the shared-tier partitioning question, no numeric thresholds anywhere |
 | `docs/reuse/MASTER_ENGINE_CATALOG.md`, `MASTER_LICENSE_MATRIX.md`, `MASTER_DECISION_REGISTER.md`, plus per-Engine `05-architecture-review.md`/`04-license-review.md` for Keycloak, OPA, RabbitMQ, immudb, Novu, Portkey, Superset, Mirth Connect, ERPNext, openIMIS, Frappe HR/CRM/Helpdesk, Cal.com, Atlas CMMS, OpenBoxes, Kill Bill, Eramba, Alfresco, Documenso, Unleash (this session's delegated research) | Per-Engine runnable form, self-hostability, clustering/HA (mostly NOT STATED), license/AGPL status |
-| `docs/discovery/artifacts/09-tenancy-analysis.md`, `08-integration-inventory.md`, `EGYPT-REGULATORY-RESEARCH-REGISTER.md`, `W10-candidate-modules-platform-services.md`; `docs/discovery/diagrams/09-tenant-isolation.md`, `08-integrations.md` (this session's delegated research) | Confirms 2-tier isolation model only (no 5-tier taxonomy), Device Gateway shown cloud-side, Offline Mode still Open, no numeric scale/capacity anywhere |
+| `docs/discovery/artifacts/09-tenancy-analysis.md`, `08-integration-inventory.md`, `EGYPT-REGULATORY-RESEARCH-REGISTER.md`, `W10-candidate-modules-platform-services.md`; `docs/discovery/diagrams/09-tenant-isolation.md`, `08-integrations.md` (this session's delegated research) | Confirms 2-tier isolation model only (no 5-tier taxonomy), Device Gateway shown cloud-side, no numeric scale/capacity anywhere |
+| `docs/certification/20-OPEN-QUESTIONS-RESOLUTION.md` (fresh, this session), `docs/certification/12-OPEN-QUESTIONS-REGISTER.md` (fresh, this session), `.claude/context/open-questions.md` (fresh, this session) | Offline Mode (#6) **Resolved: Accepted with Constraints**, scoped to Home Collection Logistics only — corrects this Wave's own earlier stale "still Open" framing (§42) |
 | `docs/sad/01–05*.md` (this Wave's own direct dependencies, Accepted) | Every deployment unit traces to a Wave 4 block; every runtime scenario's own deferrals (Wave 5 §15, §16) are carried forward here |
 | `.claude/skills/c4-architecture/`, `mermaid-diagrams/`, `architecture-patterns/`, `architecture-decision-records/`, `domain-driven-design/`, `api-design-principles/`, `doc-coauthoring` | §5 (this section is renumbered from the template's own §5 slot — see Skills Utilization below, retained as its own numbered section 5 further down per the actual document flow) |
 
@@ -75,7 +76,7 @@ Applied per the governing instruction's order; higher wins on conflict: (1) Cons
 
 | Skill | File(s) read | Rule applied | Section affected | Resulting effect |
 |---|---|---|---|---|
-| `c4-architecture` | `SKILL.md`, `references/common-mistakes.md`, `references/advanced-patterns.md` (this session) | `C4Deployment` syntax; Deployment Node vs. Container Instance; "Confusing containers (deployable) vs components" anti-pattern | §30 Deployment Diagrams | Diagrams 1–6 use `C4Deployment` syntax with `Deployment_Node`/`Container`/`ContainerDb` elements; no Bounded Context is drawn as a node |
+| `c4-architecture` | `SKILL.md`, `references/common-mistakes.md`, `references/advanced-patterns.md` (this session, re-read for the Narrow Erratum, §42) | `C4Deployment` syntax; Deployment Node vs. Container Instance; "Confusing containers (deployable) vs components" anti-pattern; "one Container per independently runnable unit," never a list/group as one Container; correct relationship direction | §30 Deployment Diagrams | Diagrams 1–6 use `C4Deployment` syntax with `Deployment_Node`/`Container`/`ContainerDb` elements; no Bounded Context is drawn as a node. **Erratum correction**: the re-read found 5 genuine violations of this skill's own anti-pattern list in the original diagrams (multiple independent products lumped into one Container in Diagrams 1/2/4/5; Tenants modeled as Containers in Diagram 2; a reversed relationship direction in Diagram 6) — all corrected, see the updated C4 Deployment Audit in §40 |
 | `mermaid-diagrams` | Syntax conventions applied directly (consistent with Waves 4–5's own usage) | Valid `C4Deployment`/`flowchart` syntax, participant/node-count discipline | §30 | All diagrams checked for valid syntax before being embedded; Diagrams 7–8 use `flowchart`, explicitly labeled "topology sketch, not C4" per the governing instruction |
 | `architecture-patterns` | `SKILL.md`, `references/details.md` (Wave 3–5 session) | Deployment modularity, stateless/stateful separation, failure isolation, graceful degradation | §3 Deployment Principles, §27 Failure Domains | Every stateful Container is distinguished from the stateless application runtime; failure isolation stated per-dependency, not platform-wide |
 | `architecture-decision-records` (review only) | `SKILL.md` (Wave 3–5 session) | New-Decision Guard — no cloud/orchestrator/database/broker choice invented; no new deployable created | §37 Explicit Non-Decisions, §38 Open Deployment Decisions | No ADR is created by this Wave; every genuinely undecided deployment question is recorded as Open, not silently resolved |
@@ -105,7 +106,7 @@ Every deployment statement in this Wave carries one of these labels:
 
 Applied throughout: a block is drawn as its own deployable only when (a) an ADR specifically requires it (Device Integration Gateway, ADR-0006), (b) the underlying technology is itself an independently runnable product by vendor nature (Kong, Keycloak, OpenBao, RabbitMQ, PostgreSQL, immudb, and every adopted Business/Commercial Engine — ERPNext, openIMIS, Frappe family, Cal.com, Atlas CMMS, OpenBoxes, Kill Bill, Eramba, Alfresco, Documenso, Unleash, Novu, Portkey, Superset, Mirth Connect), (c) protocol/network isolation requires it (Device Integration Gateway's device-facing protocols), (d) a Dedicated tenant mode requires it (ADR-0005), or (e) a measured operational trigger justifies it later (Wave 4 §13's own "evidence-triggered" language, never a numeric threshold). Microservices preference alone is never used as a justification (Constitution §54, Hold-tier).
 
-**Consequence for this baseline**: the platform's own custom code (Core Platform + 21 ordinary Domain Modules + the Notification/AI-Operations/Analytics logical facades) forms **one** deployable — the Central Backend Modular Monolith (§10). Everything else that appears as a separate deployable in §8's matrix is either (i) a component-specific ADR requirement (1 item), (ii) Kong Gateway (1 item, itself independently runnable by product nature), (iii) Platform Infrastructure Services (6 items, all independently runnable products by nature), or (iv) adopted Business/Commercial Engines (many items — each a **Reuse/Build-vs-Buy** artifact, not a decomposition choice).
+**Consequence for this baseline**: the platform's own custom code (Core Platform + 21 ordinary Domain Modules + the Notification/AI-Operations/Analytics logical facades) forms **one** deployable — the Central Backend Modular Monolith (§10). Everything else that appears as a separate deployable in §8's matrix is either (i) a component-specific ADR requirement (1 item), (ii) Kong Gateway (1 item, itself independently runnable by product nature), (iii) Platform Infrastructure Services (7 items — Keycloak, OPA, OpenBao, RabbitMQ, PostgreSQL, immudb, Unleash; Kong Gateway is Edge, counted separately as (ii), not among these 7 — corrected, §42), or (iv) adopted Business/Commercial Engines (many items — each a **Reuse/Build-vs-Buy** artifact, not a decomposition choice).
 
 ## 8. Deployment Unit Classification Matrix
 
@@ -129,7 +130,7 @@ Applied throughout: a block is drawn as its own deployable only when (a) an ADR 
 | immudb (E4, Immutable Audit) | Platform Infrastructure | Yes, standalone deployed service (itself a database) | Separate deployable | Yes (audit immutability requires an independent store, Constitution §23) | — | No | Immutable Audit Events | Not specified | Its own | Reuse research | — | — |
 | Novu (E8, underlying Notification engine) | Business Engine | Yes — multiple services (Novu's own + MongoDB + Redis for self-hosted) | Separate deployable set | Yes (vendor product form) | — | No | Notification delivery state | Not specified | Its own | Reuse research | License `Requires Legal Verification` (R-07) | Legal review (R-07) |
 | Portkey Gateway (E9, underlying AI engine) | Business Engine | Yes, gateway product | Separate deployable | Yes (vendor product form) | — | No | Request/cost/provenance logs it manages | Not specified | Its own | Reuse research | — | — |
-| Apache Superset (E10, underlying Analytics engine) | Business Engine | Yes, standalone BI service | Separate deployable | Yes (vendor product form) | — | No | Dashboards/reports (reads platform PostgreSQL) | Not specified | Its own | Reuse research | — | — |
+| Apache Superset (E10, underlying Analytics engine) | Business Engine | Yes, standalone BI service | Separate deployable | Yes (vendor product form) | — | No | Dashboards/reports — reads only Analytics-owned derived/read-model schemas (corrected, §42; never source Module operational schemas, even where co-located in the same PostgreSQL Engine) | Not specified | Its own | Reuse research | — | — |
 | Mirth Connect (E6, underlying Device Gateway engine) | Business Engine | Yes, standalone integration-engine runtime | Deployed inside Device Integration Gateway's own boundary | Yes (part of ADR-0006's independent component) | — | No | In-flight message transformation state | Not specified | Device Integration Gateway's own | Reuse research | **Frozen at 4.5.2 — no free patches** (R-02) | Migration budget flagged (Wave 12) |
 | ERPNext (E16, Billing engine) | Business Engine | Yes, self-hostable Frappe app (MariaDB backend) | Separate deployable | Yes (vendor product form) | — | No | Financial records it owns | Not specified | Its own | Reuse research | — | — |
 | openIMIS (E17, Insurance engine) | Business Engine | Yes, modular platform (module-level adoption) | Separate deployable | Yes | — | No | Claims/adjudication data it owns | Not specified | Its own | Reuse research | AGPL-3.0, `Requires Legal Verification` (R-04) | Legal review (R-04) |
@@ -153,7 +154,7 @@ Minimal-deployable baseline: **Client Surfaces → Kong Gateway → Central Back
 
 Co-deployed within the Monolith by SAD-Level Baseline Design (extraction trigger: measured, sustained load specific to that facade, per Wave 4 §13's own evidence-triggered language — no number fixed): Notification Service facade, AI Operations Gateway facade, Analytics facade. Contract boundaries (Wave 4's Provided/Required interfaces) remain enforced in-process exactly as they would across a network.
 
-Required separate by ADR/product nature: Kong Gateway, Device Integration Gateway, Keycloak, OPA (topology open), OpenBao, RabbitMQ, PostgreSQL, immudb, Unleash, and every adopted Business/Commercial Engine.
+Required separate by ADR/product nature: Kong Gateway, Device Integration Gateway, Keycloak, OPA (topology open), OpenBao, RabbitMQ, PostgreSQL, immudb, Unleash, and every adopted Business/Commercial Engine. **Being a separate deployable is a placement fact, not a tenant-isolation claim** — per-Engine shared-instance tenant-isolation status is §13A's own matrix, not repeated here.
 
 ## 10. Central Backend Runnable Unit
 
@@ -188,12 +189,12 @@ No framework or language is named anywhere in this Wave (none is fixed by any so
 | Service | Runnable unit | Stateful? | Consumers | Availability expectation | Backup requirement | Deployment modes | Baseline status |
 |---|---|---|---|---|---|---|---|
 | Keycloak (Identity) | Standalone service, clusterable (stated) | Session/identity state | Every authenticated request path | Not numerically fixed (§27, §38) | Yes — identity data is Tier-1-adjacent (not itself classified by ADR-0014, which classifies business data, not IAM state — flagged as an open classification gap, §38) | SaaS/On-Prem/Hybrid (self-hosted, ADR-0009) | Frozen (Technology Baseline) |
-| OPA (Policy) | Sidecar, centralized service, or embedded library — **topology not fixed** | Policy bundles only (versioned, not runtime state) | Kong Gateway (coarse) + every Module's Application layer (fine) | Not fixed | Not applicable (bundles are versioned artifacts, not backed-up runtime state) | SaaS/On-Prem/Hybrid | Frozen; **topology Open (§38)** |
+| OPA (Policy) | Sidecar, centralized service, or embedded library — **topology not fixed** | Policy bundles only (versioned, not runtime state) | Kong Gateway (coarse) + every Module's Application layer (fine) | Not fixed | **Corrected (§42)**: policy bundles are operational configuration assets, not "not applicable" for recovery purposes — loss of the authoritative bundle source would affect authorization behavior platform-wide. An authoritative, recoverable source (e.g., version control) is required in principle; whether one is actually documented/operated is **not established by current evidence** — exact backup/recovery mechanism **Deferred** (§28) | SaaS/On-Prem/Hybrid | Frozen; **topology Open (§38)** |
 | OpenBao (Secrets) | Standalone service | Encrypted secret material | Every service needing a credential/key | Not fixed | Yes — secret material; encryption/access-control detail is Wave 7's territory | SaaS/On-Prem/Hybrid (self-hostable, Open Question #29) | Frozen |
 | RabbitMQ (Broker) | Standalone service | Queued messages (transient) | Every Integration Event publisher/subscriber | Not fixed; clustering/mirrored-queue configuration explicitly flagged unresolved | Not typically backed up (transient) — durability/persistence configuration Deferred | SaaS/On-Prem/Hybrid | Frozen; **clustering Open (§38)** |
 | PostgreSQL (Primary DB) | Self-hosted, managed-cloud, or on-prem instance — **hosting form deliberately not fixed** (ADR-0013) | All Module-owned schemas | Every Module | Not fixed | Yes — per §28 Backup and Restore Matrix | SaaS/On-Prem/Hybrid | Frozen; hosting form Deferred |
 | immudb (Audit) | Standalone service (itself a database) | Immutable Audit Events | Every Sensitive Operation's audit obligation | Not fixed | Yes — Tier-1-adjacent per Constitution §23's immutability requirement | SaaS/On-Prem/Hybrid | Frozen |
-| Unleash (Feature Flags) | Standalone flag server, self-hostable OSS edition | Flag/rollout configuration (not business runtime state) | Every Module reading a feature flag | Not fixed | Not applicable in the traditional sense — configuration, not business data; not designed further | SaaS/On-Prem/Hybrid | Frozen |
+| Unleash (Feature Flags) | Standalone flag server, self-hostable OSS edition | Flag/rollout configuration (not business runtime state) | Every Module reading a feature flag | Not fixed | **Corrected (§42)**: flag/rollout configuration is an operational configuration asset, not "not applicable" for recovery purposes — an incorrect or lost flag state can change feature behavior platform-wide even though it is not primary business data. An authoritative, recoverable source is required in principle; the exact backup/recovery mechanism is **Deferred** (§28), not asserted as unnecessary | SaaS/On-Prem/Hybrid | Frozen |
 
 No cluster topology, replica count, or specific HA mechanism is invented for any of the seven services above where the source does not state one.
 
@@ -201,7 +202,7 @@ No cluster topology, replica count, or specific HA mechanism is invented for any
 
 See §8's Deployment Unit Classification Matrix for the full per-Engine table (runnable form, separation status, license/legal status, failure effect). Summary by category:
 
-- **Platform Infrastructure Engines** (8): Keycloak, OPA, OpenBao, RabbitMQ, PostgreSQL, immudb (the 6 covered in §12's table), plus Unleash and Kong Gateway (covered in §8's matrix and §9/§11 respectively) — all self-hostable per ADR-0009's "cloud-replaceable" principle; none has an invented cluster topology.
+- **Platform Infrastructure Services** (7, per §12's table): Keycloak, OPA, OpenBao, RabbitMQ, PostgreSQL, immudb, Unleash — all self-hostable per ADR-0009's "cloud-replaceable" principle; none has an invented cluster topology. **Kong Gateway is Edge, not one of these 7** (corrected, §42) — it plays an Edge/Gateway role (§8's matrix, §9, §11), not a Platform Infrastructure Service role, and is counted separately throughout this Wave; it was never intended to be included in either the 6 or the 7, and any prior wording implying otherwise is corrected here.
 - **Independent-Component-owned Engines** (3): Novu, Portkey, Superset — each a separate deployable regardless of their platform-owned facade's co-deployment status.
 - **Business/Commercial Engines** (13): ERPNext, openIMIS, Frappe HR/CRM/Helpdesk, Cal.com, Atlas CMMS, OpenBoxes, Kill Bill, Eramba, Alfresco, Documenso, Mirth Connect — each a separate deployable, reached only through its owning Module's Adapter/ACL (never exposed natively, §23).
 - **Conditional/legal-gated placements** (do not proceed to production without resolution): Eramba (R-01, due diligence including deployment fit), the 5+ AGPL Engines — openIMIS, Frappe CRM, Frappe Helpdesk, Cal.com, Atlas CMMS (R-04) — and the unconfirmed-license Engines Novu, Documenso (R-07). This Wave places them in the baseline topology as **Conditional Technology Placement**, not as production-ready, per §6's classification labels.
@@ -209,13 +210,43 @@ See §8's Deployment Unit Classification Matrix for the full per-Engine table (r
 
 No Engine is treated as a Source of Truth beyond what the Technology Baseline/Reuse research documents.
 
+**Note on Engine-internal bundled dependencies (clarified, §42 verification pass)**: where an adopted Engine's own upstream deployment guidance bundles a specific internal dependency — Novu's own MongoDB/Redis, ERPNext's own MariaDB backend, Atlas CMMS's own optional MinIO — that dependency is the Engine's own vendor-internal implementation detail, cited from this session's Reuse research, not a platform-level technology decision and not a new item requiring its own Technology Baseline entry. This Wave's Explicit Non-Decisions (§37) and Frozen Technology Baseline (§4) govern platform-level choices; an Engine's own bundled runtime dependency, sitting entirely inside that Engine's own deployable boundary, is out of that scope by construction.
+
+## 13A. Engine Tenant-Isolation and Placement Matrix
+
+**New section, added in the Wave 6 Narrow Erratum (§42).** The prior draft asserted that all Business/Commercial Engine deployables "are scoped by Tenant/Organization/Branch at every layer" — unproven for most Engines and now corrected. This section separates two distinct facts that the prior draft conflated:
+
+- **Platform-owned PostgreSQL data** (Schema per Module, ADR-0003): Shared-tier RLS + tenant-ID discriminator is **Accepted** (ADR-0013); schema-per-Module ownership is **Accepted** (ADR-0003). This is not in question and is not re-litigated here.
+- **Third-party Engine data** (each Engine's own internal store, outside platform-owned schemas): native multi-tenancy is **not assumed** — it is evidenced per Engine below, via this session's delegated Reuse-research review. Passing an authenticated, Tenant-scoped context through a Module's Adapter/ACL (Constitution §19) secures the *call*; it does not by itself prove the Engine *isolates stored data* at its own layer. No Engine is placed as shared multi-tenant production infrastructure without either documented evidence or an explicit, unresolved due-diligence gate recorded below — a dedicated instance per Tenant is always an available containment option, never assumed the automatic default absent a specific requirement (§7).
+
+| Engine | Owning Module/Adoption Point | Native multi-tenancy evidence | Platform Adapter tenant-context responsibility | Engine-side isolation mechanism (if documented) | Shared-instance placement status | Dedicated-instance option | Data ownership | Administrative isolation | Backup/restore isolation | Required tenant-isolation test | Source | Residual deployment decision | Handoff |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Novu (E8) | Notification Service facade | Not established by current evidence | Adapter attaches authenticated Tenant context per request (Constitution §19); does not prove Engine-side data partitioning | None documented | Conditional — requires tenant-isolation due diligence before shared-tier production use | Available (separate Novu deployment per Tenant) | Novu's own delivery-state store, outside platform-owned schemas | Not documented — Deferred | Not documented — Deferred | Mandatory tenant-isolation test before shared-tier production use — not yet performed | Reuse research (no isolation evidence found) | Open | Wave 8 (isolation-test gate); Wave 7 (threat) |
+| Portkey Gateway (E9) | AI Operations Gateway facade | Not established by current evidence | Same pattern | None documented | Conditional | Available | Portkey's own request/cost/provenance logs | Not documented — Deferred | Not documented — Deferred | Same pattern | Reuse research (no isolation evidence found) | Open | Wave 8; Wave 7 |
+| Apache Superset (E10) | Analytics facade | **Partial** — Reuse research documents "Superset's own RBAC and row-level security features," referenced as "scoped per-tenant via Superset's own RLS features aligned to Module 2's `tenant_id` convention" | Same pattern; additionally, §42/§14 restrict Superset to Analytics-owned derived schemas only, never source Module operational schemas | Superset-native RBAC + Row-Level Security, aligned to the platform's `tenant_id` convention (Reuse research; mechanism configuration detail not further specified — Deferred) | Approved by evidence | Available | Analytics-owned derived/read-model schema only (§14/§42) | Not documented — Deferred | Not documented — Deferred | Recommended pre-production validation confirming the documented RLS/`tenant_id` alignment is actually configured per dashboard/dataset | `docs/reuse/analytics/bi-dashboards/05-architecture-review.md`, `06-security-review.md`, `09-integration-options.md` | Open (validation, not due-diligence-blocked) | Wave 8 (validation test); Wave 7 |
+| ERPNext (E16) | Billing Module | Not established by current evidence — runs on its own MariaDB backend, separate from platform PostgreSQL, so the platform's RLS mechanism cannot mechanically apply regardless of policy intent | Same pattern | None documented | Conditional | Available | ERPNext's own MariaDB-backed store | Not documented — Deferred | Not documented — Deferred | Same pattern | Reuse research (no isolation evidence found; distinct DB engine noted) | Open | Wave 8; Wave 7 |
+| openIMIS (E17) | Insurance and Corporate Contracts Module | Not established by current evidence — Reuse risk analysis additionally flags a context mismatch: "openIMIS's primary deployment model targets government/NGO health-financing schemes, a different operating context than a commercial multi-tenant SaaS lab platform" | Same pattern | None documented | Conditional — elevated scrutiny per the noted context-mismatch risk | Available | openIMIS's own store | Not documented — Deferred | Not documented — Deferred | Same pattern, plus explicit review of the context-mismatch risk before shared-tier adoption | `docs/reuse/insurance-and-corporate-contracts/eligibility-verification/12-risk-analysis.md` | Open | Wave 8; Wave 7; legal review (R-04, AGPL, separate concern) |
+| Frappe HR (E18) | HR/Payroll Module | Not established by current evidence | Same pattern | None documented | Conditional | Available | Frappe HR's own store | Not documented — Deferred | Not documented — Deferred | Same pattern | Reuse research (no isolation evidence found) | Open | Wave 8; Wave 7 |
+| Frappe CRM (E20) | CRM/Support Module | Not established by current evidence | Same pattern | None documented | Conditional | Available | Frappe CRM's own store | Not documented — Deferred | Not documented — Deferred | Same pattern | Reuse research (no isolation evidence found) | Open | Wave 8; Wave 7; legal review (R-04) |
+| Frappe Helpdesk (E19) | CRM/Support Module | Not established by current evidence | Same pattern | None documented | Conditional | Available | Frappe Helpdesk's own store | Not documented — Deferred | Not documented — Deferred | Same pattern | Reuse research (no isolation evidence found) | Open | Wave 8; Wave 7; legal review (R-04) |
+| Cal.com (E13) | Scheduling Module | Not established by current evidence | Same pattern | None documented | Conditional | Available | Cal.com's own store | Not documented — Deferred | Not documented — Deferred | Same pattern | Reuse research (no isolation evidence found) | Open | Wave 8; Wave 7; legal review (R-04) |
+| Atlas CMMS (E14) | Asset/Maintenance Module | Not established by current evidence | Same pattern | None documented | Conditional | Available | Atlas CMMS's own store (+ optional MinIO) | Not documented — Deferred | Not documented — Deferred | Same pattern | Reuse research (no isolation evidence found) | Open | Wave 8; Wave 7; legal review (R-04) |
+| OpenBoxes (E15) | Inventory Module | Not established by current evidence | Same pattern | None documented | Conditional | Available | OpenBoxes's own store | Not documented — Deferred | Not documented — Deferred | Same pattern | Reuse research (no isolation evidence found) | Open | Wave 8; Wave 7 |
+| Kill Bill (E21) | Subscription Billing (platform-commercial, not clinical) | **Confirmed** — Reuse research documents "battle-tested, explicit multi-tenant/white-label support" | Same pattern; Engine-native model reduces reliance on Adapter-only isolation | Native multi-tenant/account model (Reuse research; internal partitioning mechanism not further specified — Deferred) | Approved by evidence | Available | Kill Bill's own multi-tenant-aware store | Not documented — Deferred | Not documented — Deferred | Recommended pre-production validation that Kill Bill's native tenant/account model is actually mapped 1:1 to the platform's own Tenant identifier | `docs/reuse/saas-commercial-operations/subscription-plan-management/03-candidate-repositories.md`, `10-final-decision.md` | Open (validation, not due-diligence-blocked) | Wave 8 (validation test) |
+| Eramba Community (E5) | GRC/Compliance Module | Not established by current evidence — Eramba's own security review states isolation applies "if deployed multi-tenant-aware," a conditional statement, not a confirmed native capability | Same pattern | Conditional/undocumented — "if deployed multi-tenant-aware" (Reuse research, not asserted as a confirmed feature) | Conditional — compounds with the existing R-01 pre-production due-diligence gate already required before adoption | Available | Eramba's own store | Not documented — Deferred | Not documented — Deferred | Same pattern, combined with R-01's existing due-diligence scope | `docs/reuse/audit-and-compliance/compliance-tracking/06-security-review.md` | Open | Wave 8; Wave 7; R-01 due diligence |
+| Alfresco Community (E11) | Document Management Module | Not established by current evidence — security review states isolation "must extend to Alfresco's own folder/permission model" as a configuration requirement, not a confirmed native capability | Same pattern | Folder/permission model exists but tenant-alignment is a configuration obligation, not a documented default (Reuse research) | Conditional | Available | Alfresco's own document/workflow store | Not documented — Deferred | Not documented — Deferred | Mandatory validation that Alfresco's folder/permission model is actually configured per-Tenant before shared-tier production use | `docs/reuse/document-management/document-storage-versioning/06-security-review.md` | Open | Wave 8; Wave 7 |
+| Documenso (E12) | Document Management Module (e-signature) | Not established by current evidence | Same pattern | None documented | Conditional | Available | Documenso's own store | Not documented — Deferred | Not documented — Deferred | Same pattern | Reuse research (no isolation evidence found) | Open | Wave 8; Wave 7; legal review (R-07, license) |
+| Mirth Connect (E6) | Device Integration Gateway (ADR-0006) | Not established by current evidence; not evaluated for shared-tier placement — this Engine is **already Required separate** inside Device Integration Gateway's own isolated boundary (ADR-0006, Invariant 11), never offered as a shared multi-tenant placement option in the first place | Device Integration Gateway's own ACL, not a per-Tenant Adapter in the usual sense | None documented | Not applicable — Required separate by ADR-0006, not a shared-instance candidate | Not applicable (already separate) | In-flight message transformation state, within Device Integration Gateway's own boundary | Not documented — Deferred | Not documented — Deferred | Not applicable — isolation question is moot given required separation | Reuse research; ADR-0006 | Not applicable | Wave 9 (protocol detail) |
+
+**Summary**: 2 of 16 Engines with independent state (Superset, Kill Bill) have documented native multi-tenancy/RLS evidence and are classified **Approved by evidence** (pre-production validation still recommended, not a blocking gate). Mirth Connect is **Not applicable** — already required separate by ADR-0006, never a shared-tier candidate. The remaining 13 Engines are classified **Conditional — requires tenant-isolation due diligence before shared-tier production use**; this Wave places them in the baseline topology (§8, §9, consistent with §6's Conditional Technology Placement label) but does not clear them for shared-tier production without that due diligence. This due-diligence requirement is additive to, not a substitute for, the separate license/legal gates already tracked (R-01, R-04, R-07) — a license clearance does not imply a tenant-isolation clearance, and vice versa.
+
 ## 14. Data Deployment Topology
 
 - **PostgreSQL primary role**: every Module's owned schema (Schema per Module, ADR-0003) lives in PostgreSQL by default; hosting form (self-hosted/managed/on-prem) is a deployment-topology decision each environment makes independently (ADR-0013).
 - **Shared-tier partitioning**: Row-Level Security (RLS) plus a tenant-ID discriminator is the Technology Baseline's Reference Standard (R4) and is confirmed in ADR-0013 as "the ratified shared-tier partitioning mechanism for Hybrid Tenant Isolation" — this Wave treats it as **Accepted** (not merely a candidate), correcting `14-MULTI-TENANCY.md`'s own more hedged framing in favor of the higher-precedence ADR-0013 text.
 - **Dedicated database option**: a large/regulated Tenant may receive its own PostgreSQL instance, still consistent with ADR-0013 and ADR-0005.
 - **Dedicated deployment option**: a large/regulated Tenant may receive an isolated application-runtime deployment in addition to a dedicated database — ADR-0005's own text treats this as part of the same "dedicated" alternative, not a separately Accepted third tier (§3).
-- **Analytics/read-model stores**: Superset connects to the platform's own PostgreSQL via standard SQL (no separate analytical database engine adopted) — Analytics owns no primary schema (Wave 4 §17), consistent here.
+- **Analytics/read-model stores (corrected, §42)**: Analytics owns no primary operational source schema (Wave 4 §17) — source Modules remain the sole writers and owners of their own operational data (Constitution §16). Analytics receives data only via published Integration Events, approved analytical exports, or owning-Module-approved read models, materialized into Analytics-owned derived schemas. Superset connects only to these Analytics-owned derived schemas/read models — even though they are, as a hosting-form choice, physically co-located in the same PostgreSQL Engine (no separate analytical database engine adopted) — never to a source Module's own operational schema directly. Physical co-location in one PostgreSQL instance does not grant, and is never read as granting, cross-schema access; Schema per Module's ownership boundary (ADR-0003) applies identically regardless of which physical Engine instance hosts the schema. Analytics/Superset storage is not a Source of Truth for operational data.
 - **Immutable Audit Store**: immudb, separate from PostgreSQL, per Constitution §23.
 - **File/document storage**: Alfresco (Document Management's Engine) owns document/workflow data in its own store; Atlas CMMS optionally uses MinIO for object/document storage (Reuse research) — no other object-storage product is named anywhere.
 - **Backup domains**: per §28 — no retention numbers invented.
@@ -225,19 +256,19 @@ No table/schema DDL, replication factor, or storage size is invented anywhere in
 
 ## 15. SaaS Shared-Tier Archetype
 
-Shared application runtime (Central Backend Modular Monolith, horizontally scaled) + shared Platform Infrastructure Services (Keycloak, OPA, OpenBao, RabbitMQ, PostgreSQL with RLS, immudb) + shared Business/Commercial Engine deployables, all scoped by Tenant/Organization/Branch at every layer (Constitution §18/§19). Failure domain: shared — a Platform Infrastructure Service outage affects every Tenant in this tier (§27). Scaling unit: the Monolith and Kong Gateway scale horizontally; Platform Infrastructure Services scale per their own product's own mechanism (not fixed here). Ingress/egress: through Kong Gateway only for API traffic; Device Integration Gateway for device traffic; each Business Engine's Adapter for its own external-provider traffic. No legal-compliance claim is made by this archetype description (§6 classification labels apply per-item, not to the archetype as a whole).
+Shared application runtime (Central Backend Modular Monolith, horizontally scaled) + shared Platform Infrastructure Services (Keycloak, OPA, OpenBao, RabbitMQ, PostgreSQL with RLS, immudb, Unleash) + shared Business/Commercial Engine deployables. **Tenant scoping is Confirmed at the platform-owned layer, not automatically true at every Engine's own layer** (corrected, §42): every platform-owned PostgreSQL schema (Schema per Module, ADR-0003) is scoped by Tenant/Organization/Branch via RLS + tenant-ID discriminator (ADR-0013, Constitution §18/§19) — this is Accepted. Whether a given shared-instance Business/Commercial Engine's *own* internal data store natively enforces an equivalent tenant boundary is **not established by current evidence** for most Engines (§13A, Engine Tenant-Isolation and Placement Matrix) — this archetype description does not assert it. A shared-instance Engine placement in this archetype is valid only per §13A's per-Engine status (Approved by evidence, or Conditional pending a tenant-isolation due-diligence gate); it is never assumed by default. Failure domain: shared — a Platform Infrastructure Service outage affects every Tenant in this tier (§27). Scaling unit: the Monolith and Kong Gateway scale horizontally; Platform Infrastructure Services scale per their own product's own mechanism (not fixed here). Ingress/egress: through Kong Gateway only for API traffic; Device Integration Gateway for device traffic; each Business Engine's Adapter for its own external-provider traffic. No legal-compliance claim is made by this archetype description (§6 classification labels apply per-item, not to the archetype as a whole).
 
 ## 16. Dedicated Database Tenant Archetype
 
-Shared application runtime is **permitted** to continue serving a Dedicated-Database Tenant (ADR-0005 does not require the application layer itself to be duplicated for this option) while that Tenant's data lives in its own PostgreSQL instance. Routing/configuration responsibility: the shared application layer's persistence-layer configuration selects the correct database instance per Tenant (mechanism not designed here — implementation detail). Migration ownership: same per-Module migration discipline, applied against the dedicated instance. Backup/restore: separate, per that Tenant's own instance (§28). Promotion trigger: qualitative only — "sustained resource consumption beyond the shared tier's capacity envelope, or an explicit contractual/regulatory requirement" (Open Questions Resolution #16) — no hardcoded threshold.
+Shared application runtime is **permitted** to continue serving a Dedicated-Database Tenant (ADR-0005 does not require the application layer itself to be duplicated for this option) while that Tenant's data lives in its own PostgreSQL instance. Routing/configuration responsibility: the shared application layer's persistence-layer configuration selects the correct database instance per Tenant (mechanism not designed here — implementation detail). Migration ownership: same per-Module migration discipline, applied against the dedicated instance. Backup/restore: separate, per that Tenant's own instance (§28). Promotion trigger: qualitative only — "sustained resource consumption beyond the shared tier's capacity envelope, or an explicit contractual/regulatory requirement" (Open Questions Resolution #16) — no hardcoded threshold. A Tenant's own Business/Commercial Engine data (where that Tenant's shared-instance Engine placement is itself Conditional, §13A) is not automatically resolved by database dedication alone — dedicating the Tenant's PostgreSQL instance does not by itself clear a Conditional Engine for that Tenant; the Engine's own §13A due-diligence gate remains separate.
 
 ## 17. Dedicated Deployment Tenant Archetype
 
-Isolated application-runtime deployment (a separate instance of the Central Backend Modular Monolith) plus isolated data tier (its own PostgreSQL instance). Whether Platform Infrastructure Services (Keycloak, OPA, OpenBao, RabbitMQ, immudb) are also duplicated per Dedicated-Deployment Tenant, or remain shared, is **not decided by any source** — recorded as an Open Deployment Decision (§38), not invented here. Tenant-specific configuration and operational ownership follow the same externalized-configuration principle as the shared tier (§24). Update cadence and support boundary: not fixed by any source. This archetype does not duplicate every Engine "just in case" — duplication is justified per §7's Minimal-Deployable Baseline Rule only where the Tenant's own contractual/regulatory requirement demands it.
+Isolated application-runtime deployment (a separate instance of the Central Backend Modular Monolith) plus isolated data tier (its own PostgreSQL instance). Whether Platform Infrastructure Services (Keycloak, OPA, OpenBao, RabbitMQ, immudb) are also duplicated per Dedicated-Deployment Tenant, or remain shared, is **not decided by any source** — recorded as an Open Deployment Decision (§38), not invented here. Tenant-specific configuration and operational ownership follow the same externalized-configuration principle as the shared tier (§24). Update cadence and support boundary: not fixed by any source. This archetype does not duplicate every Engine "just in case" — duplication is justified per §7's Minimal-Deployable Baseline Rule only where the Tenant's own contractual/regulatory requirement demands it. As with §16, a dedicated application-runtime deployment does not by itself resolve a Conditional Engine's §13A due-diligence gate — a Dedicated-Deployment Tenant given exclusive use of an Engine instance still benefits from, but does not substitute for, that Engine's own isolation/configuration review.
 
 ## 18. On-Premise Archetype
 
-Customer-controlled environment running: the Central Backend Modular Monolith, Kong Gateway, Platform Infrastructure Services, and whichever Business/Commercial Engines the customer's deployment actually uses — all self-hostable per ADR-0009's "must not preclude on-premise" requirement and confirmed self-hostable per-Engine in §8/§13. External dependencies that must remain replaceable/self-hostable per ADR-0009's own "cloud-replaceable" constraint: none of the Platform Infrastructure Services requires a specific cloud provider (all are self-hostable products). Secrets/configuration ownership: the customer's own operations team, using OpenBao. Updates and support: not fixed by any source. Connectivity-degraded behavior: not designed beyond Wave 5's already-established Device Integration Gateway failure isolation (Wave 5 §11). Backup responsibility boundary: the customer's own operations team, per §28's matrix structure (not specific numbers). **No air-gapped support is claimed** — no source states the platform supports fully disconnected operation beyond the Home-Collection offline exception (§16 below is renumbered — see §19).
+Customer-controlled environment running: the Central Backend Modular Monolith, Kong Gateway, Platform Infrastructure Services, and whichever Business/Commercial Engines the customer's deployment actually uses — all self-hostable per ADR-0009's "must not preclude on-premise" requirement and confirmed self-hostable per-Engine in §8/§13. External dependencies that must remain replaceable/self-hostable per ADR-0009's own "cloud-replaceable" constraint: none of the Platform Infrastructure Services requires a specific cloud provider (all are self-hostable products). Secrets/configuration ownership: the customer's own operations team, using OpenBao. Updates and support: not fixed by any source. Connectivity-degraded behavior: not designed beyond Wave 5's already-established Device Integration Gateway failure isolation (Wave 5 §11). Backup responsibility boundary: the customer's own operations team, per §28's matrix structure (not specific numbers). **No air-gapped support is claimed** — no source states the platform supports fully disconnected operation beyond the Home-Collection offline exception (§16 below is renumbered — see §19). On-Premise is typically single-Tenant per customer environment, which removes the *cross-Tenant* leakage concern §13A addresses for the Shared tier — it does not remove the separate question of whether a given Engine correctly scopes data across that customer's own multiple Organizations/Branches (Constitution §18); that remains governed by the same Constitution §19 Data Scope discipline applied within the customer's own environment, not re-derived here.
 
 ## 19. Hybrid Archetype
 
@@ -245,16 +276,19 @@ Device Integration Gateway (with its Mirth Connect runtime) deployed near/on the
 
 ## 20. Home Collection Offline Deployment Handoff
 
-**Nothing about offline behavior is Accepted anywhere** — `open-questions.md` #6 remains Open (confirmed fresh this session via Discovery research). The only content that exists is a *proposed, unconfirmed design pattern* (`08-integration-inventory.md`): local-first capture by the Sample Collector/Home Visit App, with eventual sync once connectivity returns, explicitly caveated as "does not answer whether Offline Mode is actually required." This Wave states, consistent with that hedge:
+**Corrected in the Wave 6 Narrow Erratum (§42).** An earlier version of this section stated "Nothing about offline behavior is Accepted anywhere" and cited `open-questions.md` #6 as still Open. That was stale: the Open Questions Resolution phase (`docs/certification/20-OPEN-QUESTIONS-RESOLUTION.md`, #6, 2026-07-18) resolved this question. The governing text: *"**Required.** Local-first capture with eventual sync is adopted as an architectural requirement for the Home Collection Logistics feature specifically (not platform-wide)... **Classification**: Accepted with Constraints (scope: Home Collection Logistics workflow only, not a platform-wide offline requirement)."* `.claude/context/open-questions.md` itself carries a top-of-file notice that 18 of 31 questions (including #6) were resolved 2026-07-18, and question #6's own entry there is marked `RESOLVED`-equivalent by pointing to the Resolution document — the file's older inline text (preserved lower in that document as historical record, per that document's own stated policy of not deleting prior content) does not override the Resolution phase's authoritative outcome. Per the Source-of-Truth Hierarchy (§3), the Open Questions Resolution document (tier 3, Decision Register/Open Questions Resolution) outranks both the Discovery-phase hedge in `08-integration-inventory.md` (tier 8, Discovery/Reuse) and `.claude/context/open-questions.md`'s own preserved historical text (tier 9, lowest) — this section now states the corrected, higher-precedence status.
 
-- Mobile/local-first runtime boundary: the Collector App only, not the platform generally (§18's "no air-gapped support" statement applies to the platform at large).
-- Local device storage requirement: acknowledged at a general level only (some on-device persistence would be needed if this pattern is ever confirmed) — no specific mechanism, database, or retention window is stated by any source, so none is invented here.
-- Eventual synchronization: the pattern's own name ("eventual sync... once connectivity returns").
-- Conflict ownership: not specified by any source.
+**Requirement status: Accepted with Constraints.** **Scope: Home Collection Logistics workflow only** — the Sample Collector/Home Visit App, not the platform generally (§18's "no air-gapped support" statement continues to apply to the platform at large; this is a narrow, named exception, not a general-purpose offline capability). **Deployment detail status: Deferred** — the requirement itself is Accepted; the implementation mechanism is not chosen by this Wave or any prior source:
+
+- Mobile/local-first runtime boundary: the Collector App only.
+- Pattern (Accepted): local-first capture by the Collector App, with durable local persistence — required at the semantic level (data entered offline must not be lost) — and eventual synchronization once connectivity returns.
+- Local device storage mechanism: **Deferred** — no specific on-device database, encryption implementation, or retention window is stated by any source, so none is invented here; only the requirement that some durable local persistence exists is Accepted.
+- Sync protocol: **Deferred** — no specific mechanism is stated by any source.
+- Conflict resolution algorithm: **Deferred** — not specified by any source.
+- Remote wipe / device-loss handling: **Deferred** — not specified by any source (see also Wave 7, device-loss threat).
 - Server remains authoritative after reconciliation: consistent with Constitution §16 (owning Module is sole writer) — once synced, the same ownership rules apply as any other write.
-- Exact local database/sync protocol: **Deferred** (§37).
 
-This Wave does **not** extend offline-first behavior to any other client surface or workflow — it remains scoped exactly to what Discovery's own hedge covers, and no further.
+This Wave does **not** extend offline-first behavior to any other client surface or workflow — it remains scoped exactly to the Home Collection Logistics feature, and no further. This scope boundary is itself part of the Accepted-with-Constraints classification, not a separate hedge.
 
 ## 21. Client Surface Delivery
 
@@ -325,6 +359,8 @@ Applied per ADR-0014 exactly, with **no numeric value added beyond what ADR-0014
 | immudb (Audit) | Platform Operations | Tier-1-adjacent (immutability itself is the Constitution §23 requirement; not separately tiered by ADR-0014) | Same principles as above | Platform Operations | Immutability itself is the primary guarantee | Not specified | Not specified | Not set | Handoff to Wave 7 |
 | OpenBao (Secrets) | Platform Operations | Tier-1-adjacent (not separately classified by ADR-0014 — flagged, §38) | Not specified beyond general principles | Platform Operations | Not specified | Not specified | Not specified | Not set | Handoff to Wave 7 |
 | Keycloak (Identity/session state) | Platform Operations | Tier-1-adjacent (same open classification gap as OpenBao — identity/secret material is not itself placed in an ADR-0014 tier, flagged symmetrically, §38) | Not specified beyond general principles | Platform Operations | Not specified | Not specified | Not specified | Not set | Handoff to Wave 7 |
+| OPA (Policy bundles) | Platform Operations | Operational configuration asset, not business data — but not "not applicable" for recovery purposes (corrected, §42): loss affects authorization behavior platform-wide | Authoritative recoverable source required in principle (e.g., version control); whether one is actually documented/operated is not established by current evidence | Platform Operations | Not specified | Not specified | Not specified | Not set — mechanism Deferred, not asserted unnecessary | Handoff to Wave 7 |
+| Unleash (Feature-flag/rollout configuration) | Platform Operations | Operational configuration asset, not business data — but not "not applicable" for recovery purposes (corrected, §42): loss/incorrect state can change feature behavior platform-wide | Authoritative recoverable source required in principle; mechanism not documented | Platform Operations | Not specified | Not specified | Not specified | Not set — mechanism Deferred, not asserted unnecessary | Handoff to Wave 7 |
 | Business/Commercial Engine data stores (ERPNext, openIMIS, etc.) | Platform Operations (Shared) / Tenant+Platform (Dedicated) | Business/transactional | Same ADR-0014 principles, tier depends on the specific data | Same pattern as PostgreSQL | Not specified per-Engine | Not specified | Not specified | Not set | Handoff to Wave 7 |
 | RabbitMQ (transient) | Platform Operations | Transient — not a backup target in the traditional sense | Durability/persistence configuration Deferred | N/A | N/A | N/A | N/A | N/A | Handoff to Wave 7 |
 | Client device local storage (Home Collection) | End user / Collector | Transient, pending sync | Not specified — Deferred (§20) | Not specified | Not specified | N/A | Not specified | Not set | Handoff to Wave 7 |
@@ -362,14 +398,20 @@ C4Deployment
         Container(bao, "OpenBao", "Secrets")
         Container(mq, "RabbitMQ", "Event Bus")
         ContainerDb(audit, "immudb", "Immutable Audit Store")
+        Container(flags, "Unleash", "Feature Flags")
+        ContainerDb(aread, "Analytics Read Models", "Analytics-owned derived schema", "Co-located in PostgreSQL, own schema - S42")
     }
 
     Deployment_Node(dig, "Device/Site Boundary", "Near device or cloud-side (S19)") {
         Container(gw, "Device Integration Gateway", "Mirth Connect + ACL", "Required separate, ADR-0006")
     }
 
-    Deployment_Node(engines, "Business Engine Environment", "Reuse/Build-vs-Buy artifacts") {
-        Container(biz, "Business/Commercial Engines", "ERPNext, openIMIS, Novu, Portkey, Superset, etc.", "Each its own deployable")
+    Deployment_Node(engines, "Business Engine Environment (representative subset - S8/S13 list all 16; each is its own separate Container, not exhaustively diagrammed here for readability)", "Reuse/Build-vs-Buy artifacts") {
+        Container(erp, "ERPNext", "Billing Engine")
+        Container(imis, "openIMIS", "Insurance Engine")
+        Container(novu, "Novu", "Notification Engine")
+        Container(portkey, "Portkey Gateway", "AI Gateway Engine")
+        Container(superset, "Apache Superset", "Analytics/BI Engine")
     }
 
     Rel(cs, kong, "API calls", "HTTPS")
@@ -380,8 +422,13 @@ C4Deployment
     Rel(mono, bao, "Fetches secrets")
     Rel(mono, mq, "Publishes/consumes events")
     Rel(mono, audit, "Writes Audit Events")
+    Rel(mono, flags, "Reads feature flags")
     Rel(gw, mq, "Publishes normalized results")
-    Rel(mono, biz, "Adapter/ACL calls")
+    Rel(mono, erp, "Adapter/ACL calls")
+    Rel(mono, imis, "Adapter/ACL calls")
+    Rel(mono, novu, "Adapter/ACL calls")
+    Rel(mono, portkey, "Adapter/ACL calls")
+    Rel(superset, aread, "Reads Analytics-owned derived schema only (S42) - no edge drawn to the operational PG store, by design")
 ```
 
 ### Diagram 2 — SaaS Shared-Tier Deployment
@@ -390,24 +437,32 @@ C4Deployment
 C4Deployment
     title SaaS Shared-Tier Deployment
 
-    Deployment_Node(tenants, "Multiple Tenants (Small/Medium)", "Logical isolation, ADR-0005") {
-        Container(t1, "Tenant A requests")
-        Container(t2, "Tenant B requests")
-    }
+    Person_Ext(tenantA, "Tenant A Users", "Small/Medium Tenant - logical isolation, ADR-0005")
+    Person_Ext(tenantB, "Tenant B Users", "Small/Medium Tenant - logical isolation, ADR-0005")
 
     Deployment_Node(shared, "Shared Platform-Managed Environment") {
         Container(kong, "Kong Gateway", "Shared")
         Container(mono, "Central Backend Modular Monolith", "Shared, horizontally scaled")
-        ContainerDb(pg, "PostgreSQL (Shared)", "RLS + tenant-ID discriminator (ADR-0013)")
-        Container(infra, "Shared Platform Infrastructure Services", "Keycloak, OPA, OpenBao, RabbitMQ, immudb")
+        ContainerDb(pg, "PostgreSQL (Shared)", "RLS + tenant-ID discriminator (ADR-0013) - platform-owned schemas only")
+        Container(kc, "Keycloak", "Identity")
+        Container(opa, "OPA", "Policy")
+        Container(bao, "OpenBao", "Secrets")
+        Container(mq, "RabbitMQ", "Event Bus")
+        ContainerDb(audit, "immudb", "Audit")
     }
 
-    Rel(t1, kong, "Scoped by Tenant context")
-    Rel(t2, kong, "Scoped by Tenant context")
+    Rel(tenantA, kong, "Requests, scoped by Tenant context")
+    Rel(tenantB, kong, "Requests, scoped by Tenant context")
     Rel(kong, mono, "Routes")
     Rel(mono, pg, "RLS-enforced per-Tenant rows")
-    Rel(mono, infra, "Shared services")
+    Rel(mono, kc, "AuthN")
+    Rel(mono, opa, "AuthZ")
+    Rel(mono, bao, "Secrets")
+    Rel(mono, mq, "Events")
+    Rel(mono, audit, "Audit Events")
 ```
+
+Business/Commercial Engines and Unleash are omitted from this diagram for readability (see Diagram 1 for representative Engine placement, §8/§13 for the full list, §13A for per-Engine shared-instance tenant-isolation status — never assumed uniform across Engines).
 
 ### Diagram 3 — Dedicated Database Tenant Deployment
 
@@ -443,13 +498,21 @@ C4Deployment
         ContainerDb(pgd2, "PostgreSQL (Dedicated Instance)")
     }
 
-    Deployment_Node(infra_open, "Platform Infrastructure Services", "Shared vs. duplicated - Open Deployment Decision (S37)") {
-        Container(infra2, "Keycloak / OPA / OpenBao / RabbitMQ / immudb")
+    Deployment_Node(infra_open, "Platform Infrastructure Services (per-Tenant instance shown; shared-vs-duplicated across Tenants is Open, S38)", "Shared vs. duplicated - Open Deployment Decision (S38)") {
+        Container(kc2, "Keycloak")
+        Container(opa2, "OPA")
+        Container(bao2, "OpenBao")
+        Container(mq2, "RabbitMQ")
+        ContainerDb(audit2, "immudb")
     }
 
     Rel(kongd, monod, "Routes")
     Rel(monod, pgd2, "Reads/writes")
-    Rel(monod, infra2, "Shared or dedicated - not decided")
+    Rel(monod, kc2, "AuthN - shared or dedicated, not decided")
+    Rel(monod, opa2, "AuthZ - shared or dedicated, not decided")
+    Rel(monod, bao2, "Secrets - shared or dedicated, not decided")
+    Rel(monod, mq2, "Events - shared or dedicated, not decided")
+    Rel(monod, audit2, "Audit - shared or dedicated, not decided")
 ```
 
 ### Diagram 5 — On-Premise Deployment
@@ -462,14 +525,22 @@ C4Deployment
         Container(kongo, "Kong Gateway")
         Container(monoo, "Central Backend Modular Monolith")
         ContainerDb(pgo, "PostgreSQL")
-        Container(infraOnPrem, "Keycloak / OPA / OpenBao / RabbitMQ / immudb")
-        Container(bizo, "Selected Business/Commercial Engines", "Only those the customer's deployment uses")
+        Container(kco, "Keycloak")
+        Container(opao, "OPA")
+        Container(baoo, "OpenBao")
+        Container(mqo, "RabbitMQ")
+        ContainerDb(audito, "immudb")
+        Container(erpo, "ERPNext", "Illustrative - customer selects which Engines to run on-premise per S13; each remains its own separate Container, not exhaustively diagrammed here")
     }
 
     Rel(kongo, monoo, "Routes")
     Rel(monoo, pgo, "Reads/writes")
-    Rel(monoo, infraOnPrem, "Local platform infrastructure")
-    Rel(monoo, bizo, "Adapter/ACL calls")
+    Rel(monoo, kco, "AuthN")
+    Rel(monoo, opao, "AuthZ")
+    Rel(monoo, baoo, "Secrets")
+    Rel(monoo, mqo, "Events")
+    Rel(monoo, audito, "Audit Events")
+    Rel(monoo, erpo, "Adapter/ACL calls")
 ```
 
 ### Diagram 6 — Hybrid Device/SaaS Deployment
@@ -489,7 +560,7 @@ C4Deployment
     }
 
     Rel(gwsite, mqc, "Publishes normalized results", "Secure logical boundary - control design is Wave 7")
-    Rel(monoc, kongc, "Serves Portal/API traffic")
+    Rel(kongc, monoc, "Routes Portal/API traffic")
 ```
 
 ### Diagram 7 — Data Deployment (topology sketch, not C4)
@@ -511,6 +582,9 @@ flowchart LR
         MINIO[("MinIO - Atlas CMMS's own optional choice, not platform-wide")]
         ALF[("Alfresco document store")]
     end
+    subgraph AnalyticsData["Analytics-Owned Derived Schema"]
+        AREAD[("Analytics read models<br/>co-located in PostgreSQL, own schema - S42")]
+    end
 
     Modules["27 Modules/Facades<br/>(Central Backend)"] -->|owns schema| PG
     Modules -->|writes| IMMU
@@ -519,6 +593,9 @@ flowchart LR
     Modules -->|Adapter/ACL| OTHER
     Modules -->|Adapter/ACL| ALF
     Modules -.->|optional, Engine-internal| MINIO
+    Modules -->|publishes Integration Events / approved exports, never a direct schema link| AREAD
+    SUPERSET["Apache Superset"] -->|reads only| AREAD
+    SUPERSET -.->|no cross-schema access to source Module schemas, even though co-located in PG| PG
 ```
 
 ### Diagram 8 — Failure-Domain Overview (topology sketch, not C4)
@@ -592,7 +669,7 @@ Application release unit: the Central Backend Modular Monolith and Kong Gateway 
 | Site-to-cloud connectivity unavailable (Hybrid) | Sync between site-local Device Gateway and central platform | Local device ingestion continues locally (buffering, mechanism not designed) | Local writes only until reconnection | No partial/invalid Core Domain state (Invariant 11 extends here) | Local buffering, mechanism not designed | Not specified | Not designed |
 | Unleash (Feature Flags) unavailable | New flag reads (behavior depends on the SDK's own fail-open/fail-closed default, not fixed by any source) | Every capability not gated by a flag | Not specified | No business data touched — flags are configuration, not business state | N/A | Operational log | Not designed |
 | Background Workers (or its module-local equivalent) unavailable | The specific long-running/deferred job(s) affected | Every synchronous request path (Wave 5 R12, restated — job submission is only an acknowledgment) | Job status shows `failed`; retry/cancellation ownership not specified (Wave 5 R12) | No partial state in the owning Module's own Aggregate (jobs operate on already-committed data) | Job queue retains queued work, per whatever product eventually fills this role | Operational log | Not designed; tied to the same Open workload-placement decision (§38) |
-| Business/Commercial Engine unavailable (any of the 13 — ERPNext, openIMIS, Frappe HR/CRM/Helpdesk, Cal.com, Atlas CMMS, OpenBoxes, Kill Bill, Eramba, Alfresco, Documenso, Mirth Connect, and Novu/Portkey/Superset already covered above individually) | That Engine's own capability (e.g., Billing writes if ERPNext is down) | Every other Module/Engine — no cross-Engine dependency is asserted anywhere in this Wave | Owning Module's Adapter surfaces the failure; no direct client-visible Engine error (§23, no native exposure) | No partial state in the platform's own owned schemas (the Engine's own internal state is that Engine's own concern) | Not specified, per-Engine | Operational log | Not designed, per-Engine — consistent with §13's "no per-Engine clustering/HA statement" finding |
+| Business/Commercial Engine unavailable (any of the 13 — ERPNext, openIMIS, Frappe HR/CRM/Helpdesk, Cal.com, Atlas CMMS, OpenBoxes, Kill Bill, Eramba, Alfresco, Documenso, Mirth Connect, and Novu/Portkey/Superset already covered above individually) | That Engine's own capability (e.g., Billing writes if ERPNext is down) | Every other Module/Engine — no cross-Engine dependency is asserted anywhere in this Wave | Owning Module's Adapter surfaces the failure; no direct client-visible Engine error (§23, no native exposure) | No partial state in the platform's own owned schemas (the Engine's own internal state is that Engine's own concern) | Not specified, per-Engine | Operational log | Not designed, per-Engine — consistent with §13's "no per-Engine clustering/HA statement" finding. Blast radius note: for a shared-instance Engine classified Conditional (§13A), an outage or isolation incident affects every Tenant sharing that instance simultaneously — this is a distinct concern from the availability failure this row otherwise describes, and is tracked as part of §13A's own due-diligence gate, not resolved here |
 
 **No automatic failover is invented anywhere in this matrix.**
 
@@ -606,15 +683,17 @@ Direct link to Wave 5's own unassigned, non-deployable placeholder (Wave 5 §3, 
 
 ## 35. Deployment Responsibility Matrix
 
-| Mode | Platform owner | Tenant/customer owner | Shared responsibility |
-|---|---|---|---|
-| SaaS Shared | Deployment, patching, backup, restore, monitoring, secrets, data residency (within configured market), incident response | Data entered into the platform; user/access administration within their own tenant | None beyond standard SaaS boundary |
-| Dedicated Database | Deployment, patching (application layer), monitoring, incident response | Backup/restore for their dedicated database instance (not fixed which party executes this — **Open**, §38) | Secrets scoped per-Tenant; data residency for their instance |
-| Dedicated Deployment | Application-layer patching, incident response (unless contractually shifted — not fixed) | Backup/restore, monitoring for their isolated deployment (not fixed which party) | Secrets, data residency, connectivity |
-| On-Premise | Software updates (delivery mechanism not fixed), support (boundary not fixed) | Deployment, patching (infrastructure), backup, restore, monitoring, secrets, device connectivity, data residency, incident response | Update cadence coordination |
-| Hybrid | Central platform operations (SaaS-side responsibilities as above) | Site-local Device Gateway operation, device connectivity, local secrets for the site component | Reconciliation/sync boundary (mechanism not designed, §19) |
+**Restructured in the Wave 6 Narrow Erratum (§42)**: the prior version of this matrix both assigned Backup/Restore to a specific party's column *and* stated, in the same cell, that "not fixed which party executes this" — a direct contradiction, and in one row silently converted an expected operating model into what read as settled fact. Every cell below now carries an explicit status from §6's classification vocabulary, extended with the responsibility-specific labels the governing instruction requires: **Accepted Platform Responsibility**, **Accepted Customer Responsibility**, **Recommended Operational Default**, **Shared Responsibility**, **Contract-Dependent — Open**, or **Not Applicable**. No cell both assigns an owner and disclaims that assignment in the same breath.
 
-No contractual/legal term is invented anywhere in this matrix — every "not fixed" cell is an Open Deployment Decision (§38), not a silently-assumed default.
+| Mode | Deployment / Patching | Backup / Restore | Monitoring | Incident Response | Secrets | Data Residency |
+|---|---|---|---|---|---|---|
+| SaaS Shared | Platform Operations — **Accepted Platform Responsibility** (SAD-Level Baseline Deployment Design; this Wave's own reasoned default for the tier the platform itself operates end-to-end) | Platform Operations — **Accepted Platform Responsibility** (same basis) | Platform Operations — **Accepted Platform Responsibility** (same basis) | Platform Operations — **Accepted Platform Responsibility** (same basis) | Platform Operations, via OpenBao — **Accepted Platform Responsibility** | Platform Operations, configurable per market (ADR-0009) — **Accepted Platform Responsibility** for the mechanism; specific market posture is a **Legal/Regulatory Dependency** (§29) |
+| Dedicated Database | Platform Operations (application layer) — **Accepted Platform Responsibility** | Execution and ownership — **Contract-Dependent — Open** (§38): no governing source fixes whether Platform Operations or the Tenant executes backup/restore for the dedicated instance; this Wave does not assume a default | Platform Operations (application layer) — **Accepted Platform Responsibility**; database-instance-level monitoring — **Contract-Dependent — Open** | Platform Operations (application layer) — **Accepted Platform Responsibility**; database-instance-level incident response — **Contract-Dependent — Open** | Secrets scoped per-Tenant, Platform-operated — **Accepted Platform Responsibility** | For that instance's jurisdiction — **Shared Responsibility** (placement is a Platform Operations action; the residency requirement itself may be Tenant-driven) |
+| Dedicated Deployment | Application-layer patching — **Accepted Platform Responsibility** unless contractually shifted (**Contract-Dependent — Open** for the shift itself) | Execution and ownership — **Contract-Dependent — Open** (§38): same unresolved-party pattern as Dedicated Database, extended to the full isolated deployment | Isolated-deployment-level monitoring — **Contract-Dependent — Open** | Isolated-deployment-level incident response — **Contract-Dependent — Open** | Secrets — **Shared Responsibility** (Platform-operated mechanism, Tenant-specific scope) | **Shared Responsibility** (same pattern as Dedicated Database) |
+| On-Premise | Infrastructure deployment/patching — **Accepted Customer Responsibility** (the customer's own infrastructure, by the nature of On-Premise itself — ADR-0009; this is the one On-Premise cell that follows necessarily from environment ownership, not a separately negotiated split); software update *delivery mechanism* — **Contract-Dependent — Open** (not fixed by any source) | **Accepted Customer Responsibility** for execution (the customer's own environment) — but the specific support/patching/backup responsibility *split* with Platform Operations (e.g., whether Platform Operations provides tooling, remote assistance, or a managed-backup option) is **Contract-Dependent — Open**, not assumed | **Accepted Customer Responsibility** for execution; split with Platform Operations — **Contract-Dependent — Open** | **Accepted Customer Responsibility** for first-line response (the customer's own environment); Platform Operations escalation/support boundary — **Contract-Dependent — Open** | **Accepted Customer Responsibility** (OpenBao, customer-operated) | **Accepted Customer Responsibility** (the customer's own jurisdiction, by construction) |
+| Hybrid | Central SaaS-side: same as SaaS Shared row — **Accepted Platform Responsibility**. Site-local Device Gateway: **Accepted Customer Responsibility** (device connectivity and local Gateway operation, per §19) | Central SaaS-side: same as SaaS Shared — **Accepted Platform Responsibility**. Site-local component: **Accepted Customer Responsibility** | Central SaaS-side: **Accepted Platform Responsibility**. Site-local: **Accepted Customer Responsibility** | **Shared Responsibility** — reconciliation/sync boundary between site-local Gateway and central platform is not designed (mechanism not fixed, §19); each side handles incidents in its own domain | Central: **Accepted Platform Responsibility**. Site-local secrets: **Accepted Customer Responsibility** | Configurable by market (ADR-0009) for the central side — **Accepted Platform Responsibility** for the mechanism; site-local jurisdiction — **Accepted Customer Responsibility** by construction |
+
+No contractual/legal term is invented anywhere in this matrix — every **Contract-Dependent — Open** cell is also tracked as an Open Deployment Decision (§38), not a silently-assumed default; every **Accepted Customer/Platform Responsibility** label is either a direct logical consequence of the deployment mode's own definition (e.g., On-Premise infrastructure ownership) or this Wave's own SAD-Level Baseline Deployment Design for the tier the platform operates end-to-end (SaaS Shared) — neither is a fabricated contractual commitment.
 
 ## 36. New-Decision Audit
 
@@ -648,7 +727,7 @@ Checked every "Accepted"/"Required"/"Frozen" label in §8–§29 against its cit
 - Health/liveness/readiness probe mechanism.
 - Migration tool for schema changes.
 - CI/CD promotion-gate mechanism.
-- Home Collection local device storage/sync protocol (§20, Discovery's own unconfirmed design-pattern hedge).
+- Home Collection local device storage mechanism, encryption implementation, sync protocol, conflict-resolution algorithm, retention window, and remote-wipe mechanism (§20 — the *requirement* is Accepted with Constraints; these implementation details are Deferred, not the requirement itself).
 
 ## 38. Open Deployment Decisions
 
@@ -684,7 +763,8 @@ Checked every "Accepted"/"Required"/"Frozen" label in §8–§29 against its cit
 | RabbitMQ | Wave 4 §16 | Multiple (Event Bus) | §12, §34 | ADR-0004 | — | — | E7 | All | Confirmed (existence); Open (clustering) | Wave 6 revision |
 | PostgreSQL | Wave 4 §17 | Multiple | §16, §17 | ADR-0013 | D-42, D-56 | — | E24 | All | Confirmed (product); Open (hosting form) | Wave 6 revision |
 | immudb | Wave 4 §18 | R6, R7, R10 | §23 | — | — | — | E4 | All | Confirmed | Wave 7 |
-| Business/Commercial Engines (13) | Wave 4 §11, §17 | R9 (Billing/Insurance example) | — | — | Various | R-01, R-04, R-07, R-08 | E5, E11–E21 | All | Confirmed (placement); Conditional (several, legal) | Wave 12 (legal/exit-strategy) |
+| Business/Commercial Engines (13) | Wave 4 §11, §17 | R9 (Billing/Insurance example) | — | — | Various | R-01, R-04, R-07, R-08 | E5, E11–E21 | All | Confirmed (placement); Conditional (several, legal); Conditional (13 of 16 stateful Engines, tenant-isolation due diligence, §13A) | Wave 12 (legal/exit-strategy); Wave 8 (tenant-isolation validation, §13A) |
+| Engine Tenant-Isolation status (all 16 stateful Engines) | Wave 4 §11, §13, §17 | — | §18, §19 | ADR-0005, ADR-0013 | — | — | — | All | §13A: 2 Approved by evidence (Superset, Kill Bill); 13 Conditional; 1 Not applicable (Mirth Connect, already required separate) | Wave 8; Wave 7 |
 
 ## 40. Review Report
 
@@ -732,6 +812,10 @@ Every item in §8's matrix traces to a Wave 4 block, a Constitution/ADR requirem
 
 §8/§13's Engine rows were checked against the Technology Baseline (Frozen) and this session's Reuse research — no Engine's license, self-hostability, or clustering status is invented; every "NOT STATED" finding from the research pass is preserved as "not fixed by any source," not silently filled in.
 
+### Engine Tenant-Isolation Audit (new, Wave 6 Narrow Erratum, §42)
+
+A dedicated Reuse-research review was run this session for all 16 stateful Business/Commercial Engines (Novu, Portkey, Superset, ERPNext, openIMIS, Frappe HR/CRM/Helpdesk, Cal.com, Atlas CMMS, OpenBoxes, Kill Bill, Eramba, Alfresco, Documenso, Mirth Connect), specifically checking each Engine's own architecture-review/security-review documentation for native multi-tenancy or tenant-isolation evidence, as distinct from Adapter-level tenant-context passing. Result, recorded in full in §13A: 2 Engines (Superset, Kill Bill) have documented native evidence and are classified Approved by evidence; Mirth Connect is Not applicable (already Required separate, ADR-0006); the remaining 13 have no such evidence and are classified Conditional — requires tenant-isolation due diligence before shared-tier production use. §15 (SaaS Shared-Tier Archetype) is corrected to no longer assert uniform Engine-layer tenant scoping.
+
 ### Tenant Isolation Audit
 
 §3, §14–§17 checked against ADR-0005/ADR-0013/`14-MULTI-TENANCY.md`/Discovery's tenancy research — confirmed only a two-tier Shared/Dedicated model is Accepted, no five-tier taxonomy invented; the Shared-tier RLS mechanism correctly cited as Accepted via ADR-0013 (higher precedence than the API doc's own more hedged framing).
@@ -744,9 +828,9 @@ Every item in §8's matrix traces to a Wave 4 block, a Constitution/ADR requirem
 
 §27–§28 checked line-by-line against ADR-0014's own text — confirmed zero numeric RPO/RTO/availability/retention figures appear anywhere in this Wave.
 
-### Operational Responsibility Audit
+### Operational Responsibility Audit (corrected, Wave 6 Narrow Erratum, §42)
 
-§35's matrix checked for invented contractual terms — none found; every ambiguous cell is cross-referenced to an Open Deployment Decision (§38).
+**Original self-review claim (stale)**: "§35's matrix checked for invented contractual terms — none found." This missed a real defect: the original §35 both assigned Backup/Restore to the Tenant/customer column for Dedicated Database and Dedicated Deployment *and* stated in the same cell that "not fixed which party executes this" — an internal contradiction, not merely an invented term. §35 is restructured to use the explicit status vocabulary (Accepted Platform/Customer Responsibility, Recommended Operational Default, Shared Responsibility, Contract-Dependent — Open, Not Applicable) per-function rather than per-mode, so no cell both assigns and disclaims an owner. On-Premise's responsibility split is now correctly split into what follows necessarily from environment ownership (Accepted Customer Responsibility) versus what remains a negotiable support/patching/backup split (Contract-Dependent — Open), rather than one undifferentiated customer-owns-everything statement. Every Contract-Dependent — Open cell remains cross-referenced to §38.
 
 ### New-Decision Audit
 
@@ -756,9 +840,17 @@ See §36 in full — zero new architectural decisions found; two borderline item
 
 Checked every Engine's license/legal status (AGPL flags, Eramba conditional approval, Mirth Connect frozen-version risk, unconfirmed licenses) against the Risk Register — all preserved without softening or silently resolving.
 
-### C4 Deployment Audit
+### C4 Deployment Audit (updated — Wave 6 Narrow Erratum, §42)
 
-Diagrams 1–6 use `C4Deployment` syntax correctly: `Deployment_Node` for execution environments, `Container`/`ContainerDb` for runnable units/data stores, no Bounded Context drawn as a node, no Module treated as a Container unless it is independently runnable (Business/Commercial Engines only).
+**Original self-review claim (stale)**: "Diagrams 1–6 use `C4Deployment` syntax correctly... no Module treated as a Container unless it is independently runnable." This claim was too strong — a Mandatory Narrow Pre-Acceptance Erratum found and corrected 5 genuine C4 abstraction defects the original self-review did not catch:
+
+1. **Diagram 1**: the Business Engine boundary grouped ERPNext, openIMIS, Novu, Portkey, and Superset into a single `Container(biz, ...)` labeled "each its own deployable" — a self-contradiction (one Container cannot simultaneously be "each its own deployable"). **Fixed**: split into 5 separate, individually-named `Container` elements (a representative subset; §8/§13 remain the authoritative full 16-item list), each with its own `Rel` to the Monolith; Unleash added as its own `Container` in the infrastructure node (previously missing from this diagram).
+2. **Diagram 2**: `Tenant A requests` / `Tenant B requests` were modeled as C4 `Container` elements — a Tenant/actor is never a runnable software unit. **Fixed**: replaced with `Person_Ext` elements outside any `Deployment_Node`; the previously-lumped `Keycloak / OPA / OpenBao / RabbitMQ / immudb` single Container was split into 5 separate Containers.
+3. **Diagrams 4 and 5**: both lumped multiple independently-runnable Platform Infrastructure products into one `Container` (`"Keycloak / OPA / OpenBao / RabbitMQ / immudb"`); Diagram 5 additionally lumped an open-ended Business Engine list into one `Container`. **Fixed**: each product is now its own separate `Container`/`ContainerDb` element with its own `Rel`; Diagram 5's Engine node reduced to one explicitly-labeled illustrative example (ERPNext) with a note directing readers to §13 for the full customer-selectable list.
+4. **Diagram 6**: `Rel(monoc, kongc, "Serves Portal/API traffic")` stated the relationship backwards — Kong routes inbound Portal/API traffic to the Central Backend, not the reverse. **Fixed**: `Rel(kongc, monoc, "Routes Portal/API traffic")`.
+5. **Diagram 7**: did not show Analytics/Superset at all, leaving the corrected §14/§42 Analytics-derived-schema-only semantics undiagrammed. **Fixed**: added an "Analytics-Owned Derived Schema" data store, a `Superset --> AREAD` reads-only edge, and an explicit dotted no-cross-schema-access edge from Superset to the primary PostgreSQL store.
+
+Diagram 3 was independently re-checked and found to have no abstraction defect (single dedicated database instance, no grouping). Diagrams 7–8 (flowchart, explicitly labeled "not C4") were checked for the same defect classes where applicable (no Tenant/actor modeled as a data store) and found clean apart from item 5 above. Diagram syntax (valid `C4Deployment`/`flowchart` Mermaid) was re-verified for every changed diagram after the fix, per the `c4-architecture` and `mermaid-diagrams` skills — no syntax error found. This audit's own prior "no defect found" claim for Diagrams 1, 2, 4, 5, 6 was itself inaccurate and is superseded by this corrected version (see §42, C1/C2/C3 verification).
 
 ### Scope Leakage Audit
 
@@ -824,7 +916,7 @@ No further sub-agent pass was run — three passes (Blind Reader, Adversarial, F
 |---|---|---|---|
 | A | Wave 5 narrow erratum closed | **PASS** | Commit `38e1558`, verified pushed and matching `origin/main` |
 | B | Wave 5 formally Accepted in separate commit | **PASS** | Commit `0f028ff`, verified pushed and matching `origin/main` |
-| C | All required deployment sources read | **PASS** | §4 Source Coverage — Constitution, 9 full ADRs, Technology Baseline/Freeze docs, Decision/Risk Registers, Open Questions Resolution, API-platform docs, Reuse research, Discovery artifacts |
+| C | All required deployment sources read | **PASS (corrected, §42)** | §4 Source Coverage — Constitution, **all 14 ADRs full text** (corrected from the original draft's 9-ADR claim), Technology Baseline/Freeze docs, Decision/Risk Registers, Open Questions Resolution (incl. #6 fresh re-read), API-platform docs, Reuse research (incl. this erratum's 16-Engine tenant-isolation review), Discovery artifacts |
 | D | Source precedence applied; no stale Open Question | **PASS** | §3 — RLS correctly elevated to Accepted via ADR-0013 (higher precedence than `14-MULTI-TENANCY.md`'s own hedge); one genuine ambiguity (ADR-0005's combined dedicated phrasing) recorded, not silently resolved |
 | E | Every deployable distinguished from logical block/module/context | **PASS** | §2's terminology table; §10 keeps all 27 logical Modules/facades inside one runnable unit; verified by Pass 2's Module=deployable check (clean) |
 | F | No all-eight-independent-deployables claim | **PASS** | §8 line 148's own explicit refutation; verified independently by Pass 2 (clean) |
@@ -837,7 +929,7 @@ No further sub-agent pass was run — three passes (Blind Reader, Adversarial, F
 | M | Shared-tier RLS decision preserved | **PASS** | §14 — RLS Accepted via ADR-0013, consistent with Wave 4 §17/§18 |
 | N | Dedicated database and dedicated deployment variants distinguished | **PASS** | §16 vs. §17, with the honest disclosure (§3) that this is this Wave's own illustrative split of ADR-0005's one combined alternative, not two independently Accepted tiers |
 | O | SaaS/On-Prem/Hybrid all documented | **PASS** | §15, §18, §19 |
-| P | Offline requirement remains Home-Collection-specific | **PASS** | §20 — explicitly scoped to the Collector App only, not extended platform-wide; §18 explicitly disclaims general air-gapped support |
+| P | Offline requirement correctly stated as Accepted with Constraints, scoped to Home Collection only | **PASS (corrected, §42)** | §20 — Accepted with Constraints per Open Questions Resolution #6, explicitly scoped to the Collector App only, not extended platform-wide; §18 explicitly disclaims general air-gapped support |
 | Q | Data ownership unchanged by deployment | **PASS** | §2, §10 — co-deployment/separation never changes Module or data ownership, restated explicitly |
 | R | No native Engine exposure | **PASS** | §21, §23 — every Engine reached only via its owning Module's Adapter or the Edge Gateway; verified by Pass 2 (clean) |
 | S | Failure domains documented | **PASS** (after fix) | §32 — 15 rows, including the 3 added after Pass 2 found Unleash/Background Workers/Business-Engine coverage missing |
@@ -858,3 +950,52 @@ All 28 gates PASS. No gate is marked PASS on an unresolved finding — every PAS
 **PASS.**
 
 All 28 Validation Gates (A–AB) pass with direct evidence. Three genuine review cycles were run against the actually-saved file (Blind Platform/Operations Reader, Adversarial Deployment Reviewer, Final Verification), together finding and closing 13 real defects — 7 in Pass 1 (all cross-reference/labeling/completeness bugs introduced while inserting the Deployment Diagrams section and reconciling section numbering, none of them invented facts), 6 more in Pass 2 (2 genuine coverage gaps — missing failure domains, a missing backup owner — plus 4 further broken cross-references from the same renumbering root cause). No cloud provider, orchestrator, service mesh, region/AZ/replica count, sizing figure, RTO/RPO/availability number, or new infrastructure product was invented anywhere, confirmed independently by both Pass 1 and Pass 2's dedicated overreach checks. No claim asserts all 8 Independent Components are separately deployed; Device Integration Gateway's component-specific `Required` status remains distinct from the other 7's `Permitted` status; Webhook Delivery remains an unassigned, non-deployable placeholder, absent from every diagram; Background Workers' confirmed-component-existence-vs.-open-placement distinction is maintained everywhere it appears. This verdict is this Wave's own review conclusion — it is **not** project-owner Accepted approval. Wave 6 Document Status remains `Review`; Waves 1–5 remain `Accepted`, untouched in substance; Wave 7 has not been started.
+
+## 42. Post-Review Narrow Semantic Erratum
+
+An Independent Architecture Review of the self-reviewed Wave 6 draft returned verdict **PASS WITH MANDATORY NARROW PRE-ACCEPTANCE ERRATUM**. This section records the errors found, the governing sources used to correct them, and the corrections applied — all within this same file, before formal Project Owner acceptance (§43).
+
+### The prior errors
+
+1. **Offline source-precedence error.** §20 (Home Collection Offline Deployment Handoff) stated "Nothing about offline behavior is Accepted anywhere" and cited `open-questions.md` #6 as still Open. This was stale: the Open Questions Resolution phase (2026-07-18) had already resolved #6 as **Accepted with Constraints** (Home Collection Logistics workflow only). The original draft cited a lower-precedence source (`.claude/context/open-questions.md`'s own preserved historical text, and Discovery's own hedge) over a higher-precedence one (the Open Questions Resolution document) — a direct Source-of-Truth Hierarchy (§3) violation.
+2. **Missing per-Engine tenant-isolation proof.** §15 (SaaS Shared-Tier Archetype) asserted that shared Business/Commercial Engine deployables "are scoped by Tenant/Organization/Branch at every layer" — true for platform-owned PostgreSQL schemas (Accepted, ADR-0013) but unproven for the 16 stateful third-party Engines' own internal data layers, none of which had been individually checked for native multi-tenancy evidence.
+3. **Analytics direct-access wording.** §8 and §14 stated Superset "reads platform PostgreSQL" via "standard SQL," implying blanket cross-schema access. The corrected framing (Analytics-owned derived schemas/read-models only, never a source Module's own operational schema, physical co-location notwithstanding) was already implicit in Wave 4 §17's "Analytics owns no primary schema" finding but had not been carried through consistently into this Wave's own deployment-topology prose and diagrams.
+4. **C4 abstraction errors.** Diagrams 1, 2, 4, and 5 each lumped multiple independently-runnable products into a single `Container` element (violating "one Container = one independently runnable unit"); Diagram 2 additionally modeled Tenants as Containers; Diagram 6 stated the Kong-to-Backend relationship backwards; Diagram 7 omitted the Analytics-derived-schema correction entirely.
+5. **Responsibility-status contradiction.** §35 (Deployment Responsibility Matrix) assigned Backup/Restore to the Tenant/customer column for Dedicated Database and Dedicated Deployment tenants while simultaneously stating, in the same cell, that it was "not fixed which party executes this" — an internal self-contradiction, and in the On-Premise row, an undifferentiated "customer owns everything" statement that did not separate what follows necessarily from environment ownership from what remains a negotiable contractual split.
+6. **6/7 infrastructure count.** §13 stated "Platform Infrastructure Engines (8)... the 6 covered in §12's table, plus Unleash and Kong Gateway," while §12's own table already listed 7 rows including Unleash — an internal miscount, and an ambiguous treatment of whether Kong belongs among the Platform Infrastructure Services at all. The same stale "6 items" figure also appeared in §7.
+7. **Configuration-recovery clarification.** §12's OPA and Unleash rows stated their backup requirement as "Not applicable," treating configuration-not-business-data as equivalent to no-recovery-obligation. Policy bundles and feature-flag configuration are operational assets whose loss affects authorization and feature behavior platform-wide; "not applicable" overstated the case relative to what the evidence actually supports (silence on a documented recovery mechanism, not an absence of any recovery need).
+
+### The governing sources
+
+All 14 ADRs (full text), `docs/certification/20-OPEN-QUESTIONS-RESOLUTION.md`, `docs/certification/12-OPEN-QUESTIONS-REGISTER.md`, `.claude/context/open-questions.md`, the Technology Baseline, Wave 4 and Wave 5 (Accepted), Constitution §§16–19, 23, 28, 34, 48, this session's delegated Reuse-research review of all 16 stateful Business/Commercial Engines' own architecture-review/security-review documentation, and the `c4-architecture`/`mermaid-diagrams` skills' own anti-pattern references — all read or re-read fresh in this erratum pass (§4 Source Coverage, updated).
+
+### Corrections applied
+
+- §4, §20, §37, and the Gate P row: offline status corrected to Accepted with Constraints, scoped to Home Collection Logistics only, deployment mechanism Deferred.
+- New §13A (Engine Tenant-Isolation and Placement Matrix): all 16 stateful Engines individually evaluated; 2 Approved by evidence (Superset, Kill Bill), 13 Conditional (tenant-isolation due diligence required before shared-tier production use), 1 Not applicable (Mirth Connect, already required separate). §15, §9, §16, §17, §18, §32, §39, and the Engine Placement Audit updated to cross-reference it.
+- §8, §14, Diagram 1, Diagram 7: Analytics/Superset wording and diagrams corrected to derived-schema-only access.
+- Diagrams 1, 2, 4, 5, 6 and the C4 Deployment Audit: abstraction errors fixed (no product lumped into a shared Container; Tenants modeled as `Person_Ext`; Kong→Backend relationship direction corrected).
+- §35 fully restructured with explicit per-function responsibility status labels; no cell both assigns and disclaims an owner.
+- §7, §13: infrastructure count corrected to 7 Platform Infrastructure Services (Keycloak, OPA, OpenBao, RabbitMQ, PostgreSQL, immudb, Unleash), Kong explicitly stated as Edge, not one of the 7.
+- §12, §28: OPA and Unleash recoverability corrected from "Not applicable" to "operational configuration asset, recovery mechanism Deferred, not asserted unnecessary"; both added to the Backup and Restore Matrix.
+- §3, §40 (Review Report subsections): stale self-audit claims ("No conflict requiring resolution was found," the 9-ADR Source Coverage claim, the unqualified C4/Operational-Responsibility Audit claims) corrected to describe what was actually found and fixed.
+
+### Why this did not require re-authoring Wave 6
+
+Every correction above is a narrow, scoped fix to wording, a table cell, a diagram element, or a missing cross-check — none changes a Wave 4 block, a Constitution/ADR fact, or the overall deployment topology this Wave describes. The corrections make existing claims accurately reflect their own already-cited sources; they do not introduce new deployment facts.
+
+### No new ADR, Engine, or Independent Component
+
+This erratum creates no new ADR (§13A applies existing Constitution §19/§36-pattern isolation-testing discipline to Engines, a due-diligence gate, not a new architecture decision), adopts no new Engine or technology, and introduces no ninth Independent Component. Device Integration Gateway's ADR-0006 `Required` status, the 8-Independent-Component list, and Webhook Delivery's unassigned placeholder status are all unchanged.
+
+### Targeted independent verification
+
+This erratum was subjected to an automated text-check sweep (C1) and two independent reviewer sub-agent passes (C2, C3) before its corrective commit.
+
+**C1 (automated text-check sweep)**: searched for 15 forbidden phrase patterns from the governing instruction. All hits reviewed for meaning, not just presence — every live occurrence found was either already corrected in context or a legitimate historical quotation within this §42's own "prior errors" record (the same pattern Wave 5's own §19 established). No unaddressed live occurrence found.
+
+**C2 (independent reviewer, 12 required questions)**: a fresh sub-agent, given the corrected file and governing sources, answered all 12 questions YES/correct and found **1 residual defect**: Gate C in the (then-)§41 Final Gates table still read "9 full ADRs," contradicting §4's own corrected "all 14 ADRs" claim two sections earlier. **Fixed**: Gate C's evidence cell corrected to state all 14 ADRs, cross-referenced to §42.
+
+**C3 (adversarial verification pass, 12 defect classes)**: a second independent sub-agent adversarially searched for tenant-leakage, unevidenced shared-Engine defaults, Analytics cross-schema access, C4 container lumping, Tenant-as-Container modeling, reversed relationship directions, offline-status regression, invented contractual responsibility, flattened conditional/legal status, invented technology, a 9th Independent Component, and Wave 7 scope leakage. 9 of 12 categories came back clean; 3 low-severity clarifications were found and fixed: (1) Diagram 1's Superset relationship targeted the same `ContainerDb` as the primary operational PostgreSQL store, relying only on the edge label (not the model) to preserve the derived-schema-only caveat — fixed by adding a distinct "Analytics Read Models" `ContainerDb` and retargeting the relationship; (2) Engine-internal bundled dependencies (Novu's MongoDB/Redis, ERPNext's MariaDB, Atlas CMMS's optional MinIO) were not explicitly confirmed as out-of-scope for the Frozen Technology Baseline/Explicit Non-Decisions sections — a clarifying note was added to §13; (3) Diagram 1's `"HTTPS"` technology label on the client-to-Kong relationship was flagged as the sole transport-protocol mention in the document — reviewed and retained, since it is a standard C4 relationship technology label (matching the `c4-architecture` skill's own worked examples, e.g. "JSON/HTTPS"), not an invented security control or Wave 7 scope leakage.
+
+All findings from C1–C3 are closed. No blocking defect remained after this verification pass.
