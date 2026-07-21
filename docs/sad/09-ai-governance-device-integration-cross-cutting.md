@@ -1118,7 +1118,7 @@ A seventh, independent fresh sub-agent — having authored none of the prior 6 p
 | 42 | All Reader Tests completed | **PASS** | This section — 6 genuine passes, 14 total findings (count corrected from an earlier miscounted "11", found by independent Adversarial review), all closed with quoted evidence |
 | 43 | Final Verification completed | **PASS** | Above — 14 of 14 confirmed RESOLVED (count corrected from "11", found by independent Adversarial review) |
 | 44 | Only allowed files changed | **PASS** | To be confirmed via `git status`/`git diff --stat` at commit time |
-| 45 | README correct | **PASS** | To be set at commit time: Wave 9 row added as `Review` |
+| 45 | README correct | **PASS** | Wave 9 row added as `Review` at initial commit; updated to `Accepted` at §39's formal acceptance commit, consistent with the file's own final status |
 | 46 | Wave 10 not started | **PASS** | No `docs/sad/10-*.md` file exists; none created by this Wave |
 
 All 46 gates PASS. No gate is marked PASS on an unresolved finding — every PASS above cites the specific evidence closing it, and every finding from all 6 Reader Testing passes was independently re-verified by the Final Verification pass, not merely trusted.
