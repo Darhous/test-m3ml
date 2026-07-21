@@ -5,7 +5,7 @@
 | Field | Value |
 |---|---|
 | Wave number and title | 7 of 13 — Security, Privacy & Trust Boundaries (`docs/sad/README.md`) |
-| Document Status | **Review — Corrected, Pending Joint Review with Wave 8** (Constitution §59 Document Status Vocabulary — not `Accepted`). A Wave 7 Narrow Security Erratum (§36) was applied and independently re-verified (4 review passes) prior to Wave 8 authoring; a further narrow finalization correction (§38) was applied during the joint Wave 7/8 review-and-acceptance task. This is **not** a Project Owner acceptance — the final decision on Wave 7 (and Wave 8, together) is deferred to a joint review by the Project Owner and an Independent Architecture Lead. See §37 Correction Record and §38. |
+| Document Status | **Accepted** (Constitution §59 Document Status Vocabulary). A Wave 7 Narrow Security Erratum (§36) was applied and independently re-verified (4 review passes); a further finalization correction (§38) was applied and independently re-verified (4 reviewers + Final Verification, run jointly against Wave 8) during the joint Wave 7/8 review-and-acceptance task. All 10 joint-acceptance conditions were met. See §37 Correction Record and §39 Formal Acceptance Record. |
 | Owner | Author of this Wave (session author, 2026-07-21) |
 | Review authority | Project Owner, acting as Architecture Review Board (Constitution §57) |
 | Dependencies | Wave 1 — **Accepted**; Wave 2 — **Accepted**; Wave 3 — **Accepted**; Wave 4 — **Accepted**; Wave 5 — **Accepted** (commit `0f028ff`, following erratum closure `38e1558`); Wave 6 — **Accepted** (commit `96f9eb0`, following erratum closure `8db7341`) |
@@ -13,7 +13,7 @@
 | Superseded by | None |
 | Updated | 2026-07-21 |
 
-This Wave does not become `Accepted` in this pass, regardless of its own self-review verdict (§34 Review Report). Per the Inter-Wave Gate (`docs/sad/README.md`), only the Project Owner's explicit statement of acceptance changes this field.
+**Formally Accepted** — see §39 Formal Acceptance Record for the review basis, corrective/acceptance commits, and what this acceptance does and does not mean.
 
 ## 2. Purpose and Boundaries
 
@@ -1189,3 +1189,18 @@ Under the current governing instruction (re-verify Wave 7, correct Wave 8, joint
 2. **Found by the independent Adversarial Cross-Wave reviewer run against the corrected Wave 8 (§50)**: §8's TB-14 row and §9's Diagram 7 still framed Break-Glass as normally or inherently "cross-tenant" ("Break-Glass discipline where cross-tenant"; Diagram 7's `exceptional, cross-tenant` edge label), left over from before Wave 8 §49's B1 correction narrowed cross-tenant Break-Glass to a separate, exceptional, Open, production-blocking authorization rather than a routine condition. Corrected: TB-14's AuthZ requirement and Residual risk cells, and Diagram 7's Break-Glass edge, now match Wave 8 §49 B1's semantics exactly — Break-Glass stays within the underlying identity's own existing scope by default; cross-tenant access is a distinct, Open, production-blocking path, never implied as something "Break-Glass discipline" routinely handles.
 
 This is a narrow finalization pass, not a re-authoring pass; no other correction was required beyond these two items.
+
+## 39. Formal Acceptance Record
+
+This Wave, together with Wave 8, was formally accepted following a joint review under this task's own governing instruction. This record documents that acceptance.
+
+| Field | Value |
+|---|---|
+| Review basis | Original Wave 7 authoring (§1–§35, self-review PASS, 3 Reader Testing passes + Final Verification); Wave 7 Narrow Security Erratum (§36, 4 independent review passes); this task's Wave 7 finalization (§38, 2 defects found and fixed — New-Decision Audit precision, TB-14/Diagram 7 Break-Glass cross-tenant framing); joint review with Wave 8's own §49/§50 erratum and verification |
+| Corrective commits | `3c9bf5a` (Narrow Security Erratum), `e4921fe` (finalization corrections, this task) |
+| Independent verification | 4 passes on the original erratum (§36/§37); this task's finalization defects were found by an independent Adversarial Cross-Wave reviewer run against the corrected Wave 8, and confirmed resolved by direct quotation against the saved file (§38) |
+| Formal acceptance commit | `docs(sad): formally accept Waves 7 and 8` — see repository history for the exact SHA |
+| Date | 2026-07-21 |
+| Acceptance conditions satisfied | All 10: (1) all 7 Wave 8 erratum items closed; (2) the one Wave 7/8 contradiction found (Break-Glass cross-tenant framing) is fixed; (3) all 4 Wave 7/8 reviewers completed; (4) Final Verification confirmed closure; (5) no Recommendation promoted to Accepted; (6) no Open Decision hidden inside Accepted-labeled text (the 3 mislabeled "Accepted Rule" items in Wave 8 were relabeled); (7) no compliance overclaim; (8) no unjustified cross-tenant privilege (Break-Glass/Platform Administrator/Auditor/Regulator all corrected); (9) no Wave 9 implementation detail settled; (10) README and both Waves' statuses are consistent |
+| What this acceptance means | The Wave 7 architecture baseline — Security/Privacy Objectives, Asset Catalog, Trust-Zone Model, Trust Boundary Catalog, STRIDE Threat Model (THR-001–029), Tenant-Isolation Threat Analysis, Authentication/Authorization/API/Device/AI/Offline/Data-Store/Supply-Chain/Secrets/Event/Audit/Privacy security architecture, Deployment-Mode Security Variations, Security Responsibility Matrix, and Security Control Catalog — is accepted as the baseline for subsequent Waves |
+| What this acceptance does **not** mean | It does not resolve any of the 21 Open Security Decisions (§32) — Result Verifier eligibility, Break-Glass enforcement mechanism, incident-response process, 13-Engine due diligence, offline security mechanisms, and the rest remain genuinely Open. It does not certify legal/regulatory compliance (§24, no such claim is made). It does not authorize or pre-decide any Wave 9 protocol/device/AI-provider implementation detail — those remain Wave 9's own territory, to be authored fresh against this accepted baseline. |

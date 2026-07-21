@@ -5,15 +5,15 @@
 | Field | Value |
 |---|---|
 | Wave number and title | 8 of 13 — Identity, Access and Tenant Governance (`docs/sad/README.md`) |
-| Document Status | **Review** (Constitution §59 Document Status Vocabulary — not `Accepted`) |
+| Document Status | **Accepted** (Constitution §59 Document Status Vocabulary) |
 | Owner | Author of this Wave (session author, 2026-07-21) |
 | Review authority | Project Owner, jointly with an Independent Architecture Lead (per this Wave's own governing instruction) |
-| Dependencies | Waves 1–6 — **Accepted**; Wave 7 — **Review — Corrected, Pending Joint Review with Wave 8** (`07-security-privacy-trust-boundaries.md` §37 Correction Record) |
+| Dependencies | Waves 1–7 — **Accepted** (`07-security-privacy-trust-boundaries.md` §39 Formal Acceptance Record) |
 | Supersedes | None |
 | Superseded by | None |
 | Updated | 2026-07-21 |
 
-This Wave does not become `Accepted` in this pass. Per the explicit governing instruction for this task, the acceptance decision for both Wave 7 and Wave 8 is deferred to a joint Project Owner + Independent Architecture Lead review, performed together, after this Wave completes. Neither this Wave nor Wave 7 self-declares acceptance.
+**Formally Accepted**, jointly with Wave 7, following the governing instruction's own 10-condition joint-acceptance gate. See §51 Formal Acceptance Record for the review basis, corrective/acceptance commits, and what this acceptance does and does not mean.
 
 ## 2. Purpose and Scope
 
@@ -1301,3 +1301,18 @@ Four independent reviewer sub-agents were run in parallel against the file as sa
 ### Result
 
 All 7 items (B1–B7) closed with quoted evidence; 6 additional genuine defects were found by the 4 independent reviewers (none of which existed before the B1–B7 correction pass began — each was either a location the correction pass itself should have reached but didn't, or a precision gap the correction pass's own new text introduced) and all 6 are now closed and independently re-confirmed. This erratum, together with Wave 7 §38, is what the joint Wave 7/8 review below evaluates for formal acceptance.
+
+## 51. Formal Acceptance Record
+
+This Wave, together with Wave 7, was formally accepted following a joint review under this task's own governing instruction. This record documents that acceptance.
+
+| Field | Value |
+|---|---|
+| Review basis | Original Wave 8 authoring (§1–§48, self-review PASS, 4 Reader Testing passes + Final Verification, 38 Gates A–AL); Wave 8 Narrow IAM Erratum (§49, B1–B7, plus Phase C sweep); independent verification (§50, 4 reviewers + Final Verification, 6 additional defects found and closed); joint review confirming Wave 7's own §38 finalization closed the one cross-wave contradiction found |
+| Corrective commit | `bb9ff00` (`docs(sad): correct Wave 8 pre-acceptance IAM semantics`) |
+| Independent verification | 4 passes (Governance/Status, IAM/Tenant Isolation, Clinical/Privacy/AI Safety, Adversarial Cross-Wave) plus a Final Verification pass, all documented in §50 with quoted evidence for every finding's closure |
+| Formal acceptance commit | `docs(sad): formally accept Waves 7 and 8` — see repository history for the exact SHA |
+| Date | 2026-07-21 |
+| Acceptance conditions satisfied | Same 10 conditions listed in Wave 7 §39 — evaluated jointly, not independently, since this task's governing instruction requires a joint Wave 7/8 acceptance decision |
+| What this acceptance means | The Wave 8 architecture baseline — Identity Domain Model (14 Principal categories), Tenant/Organization/Branch Model, Authentication Architecture, the hybrid Policy-Based Authorization Model, Policy Enforcement Points (10-PEP inventory), Domain Invariant Separation, Role Architecture (families), Sensitive Operations Governance, Elevated Audit Model, Break-Glass Architecture (scope-corrected), Delegation, Identity Lifecycle, Service/Partner/Engine/Device/AI IAM boundaries, Deployment-Mode IAM Differences, and IAM Threat Traceability — is accepted as the baseline for subsequent Waves |
+| What this acceptance does **not** mean | It does not resolve any of the 18 Open IAM Decisions (§43) — Result Verifier eligibility, Break-Glass technical enforcement, cross-tenant emergency-access authorization workflow, RLS admin-bypass handling, AI HITL reviewer-eligibility Role, device operator attribution, Organization/Branch context-freshness cadence for ordinary requests, On-Prem realm topology, and the rest remain genuinely Open. It does not adopt impersonation (§22, explicitly not adopted). It does not authorize or pre-decide any Wave 9 device/protocol/offline-mechanism implementation detail — those remain Wave 9's own territory, to be authored fresh against this accepted baseline. It does not by itself resolve Separation-of-Duties as a Constitution-level rule (§43 item 11, still Recommended only). |
