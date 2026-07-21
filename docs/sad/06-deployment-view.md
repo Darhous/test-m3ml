@@ -5,15 +5,15 @@
 | Field | Value |
 |---|---|
 | Wave number and title | 6 of 13 — Deployment View (`docs/sad/README.md`) |
-| Document Status | **Review** (Constitution §59 Document Status Vocabulary — not `Accepted`); Independent Architecture Review verdict: **PASS WITH MANDATORY NARROW PRE-ACCEPTANCE ERRATUM** (see §42) — erratum applied in this same pass, prior to formal acceptance |
+| Document Status | **Accepted** — Project Owner acceptance registered 2026-07-21, following Independent Architecture Review verdict **PASS WITH MANDATORY NARROW PRE-ACCEPTANCE ERRATUM** (§42), erratum closure commit `8db7341`, and this Wave's own 28-Gate self-review (§41). See §43 Acceptance Record. |
 | Owner | Author of this Wave (session author, 2026-07-20/21) |
 | Review authority | Project Owner, acting as Architecture Review Board (Constitution §57) |
 | Dependencies | Wave 1 — **Accepted**; Wave 2 — **Accepted**; Wave 3 — **Accepted**; Wave 4 — **Accepted**; Wave 5 — **Accepted** (commit `0f028ff`, following erratum closure `38e1558`) |
 | Supersedes | None |
 | Superseded by | None |
-| Updated | 2026-07-21 (Narrow Pre-Acceptance Erratum) |
+| Updated | 2026-07-21 (Formal Acceptance) |
 
-This Wave does not become `Accepted` in this pass, regardless of its own self-review verdict (§40). Per the Inter-Wave Gate (`docs/sad/README.md`), only the Project Owner's explicit statement of acceptance changes this field.
+Per the Inter-Wave Gate (`docs/sad/README.md`), this Document Status field was changed only by the Project Owner's explicit statement of acceptance (§43) — the self-review verdict (§41) and the erratum closure (§42) were both, on their own, insufficient to change this field.
 
 ## 2. Purpose and Boundaries
 
@@ -999,3 +999,20 @@ This erratum was subjected to an automated text-check sweep (C1) and two indepen
 **C3 (adversarial verification pass, 12 defect classes)**: a second independent sub-agent adversarially searched for tenant-leakage, unevidenced shared-Engine defaults, Analytics cross-schema access, C4 container lumping, Tenant-as-Container modeling, reversed relationship directions, offline-status regression, invented contractual responsibility, flattened conditional/legal status, invented technology, a 9th Independent Component, and Wave 7 scope leakage. 9 of 12 categories came back clean; 3 low-severity clarifications were found and fixed: (1) Diagram 1's Superset relationship targeted the same `ContainerDb` as the primary operational PostgreSQL store, relying only on the edge label (not the model) to preserve the derived-schema-only caveat — fixed by adding a distinct "Analytics Read Models" `ContainerDb` and retargeting the relationship; (2) Engine-internal bundled dependencies (Novu's MongoDB/Redis, ERPNext's MariaDB, Atlas CMMS's optional MinIO) were not explicitly confirmed as out-of-scope for the Frozen Technology Baseline/Explicit Non-Decisions sections — a clarifying note was added to §13; (3) Diagram 1's `"HTTPS"` technology label on the client-to-Kong relationship was flagged as the sole transport-protocol mention in the document — reviewed and retained, since it is a standard C4 relationship technology label (matching the `c4-architecture` skill's own worked examples, e.g. "JSON/HTTPS"), not an invented security control or Wave 7 scope leakage.
 
 All findings from C1–C3 are closed. No blocking defect remained after this verification pass.
+
+## 43. Acceptance Record
+
+This section is added only after the Project Owner's explicit statement of acceptance, following the same administrative-only pattern established by Waves 1–5.
+
+| Field | Value |
+|---|---|
+| Acceptance status | **ACCEPTED** |
+| Accepted by | **Project Owner**, acting as Architecture Review Board (Constitution §57 — the ARB function is fulfilled entirely by the Project Owner today) |
+| Independent Architecture Review verdict | **PASS WITH MANDATORY NARROW PRE-ACCEPTANCE ERRATUM** (7 narrow semantic issues, §42 Post-Review Narrow Semantic Erratum) |
+| Erratum closure | Corrected and independently re-verified (C1 automated text-check sweep; C2 independent reviewer, 12 required questions, 1 residual defect found and closed; C3 adversarial verification, 12 defect classes, 3 low-severity clarifications found and closed) before acceptance was registered; correction commit `8db7341` (`docs(sad): correct Wave 6 pre-acceptance semantics`), pushed and verified matching `origin/main` before this Acceptance Record was added |
+| Date | 2026-07-21 |
+| Basis | The corrective commit `8db7341`, itself building on this Wave's own 3-pass Reader Testing and 28-Gate self-review (§41, Final Verdict: PASS) |
+| Scope of this acceptance commit | Administrative only — Document Status (§1) and this Acceptance Record (§43) added; no further substantive deployment-topology, matrix, or diagram content is altered by the acceptance commit itself (all substantive correction happened in the separate, prior erratum commit `8db7341`) |
+| Effect on Inter-Wave Gate | Satisfies condition 3 for Wave 6. Combined with conditions 1 (Completed), 2 (Reviewed — self-review §41 plus Independent Architecture Review and erratum §42), 4 (Committed), and 5 (Pushed, verified below), the Inter-Wave Gate is now satisfied for Wave 6, permitting Wave 7 (Security, Privacy & Trust Boundaries) to begin |
+| Precedent | Same acceptance pattern as Wave 1 (`20c3657`), Wave 2 (`02-context-and-scope.md` §20), Wave 3 (`03-solution-strategy.md` §27), Wave 4 (`04-building-block-view.md` §27), and Wave 5 (`05-runtime-view.md` §20) — a separate, subsequent Project Owner acceptance following a self-review verdict, here additionally preceded by an Independent Architecture Review and a closed erratum |
+| Explicit non-extension | This acceptance covers Wave 6 (Deployment View) only. It does not authorize, imply, or pre-approve any content for Wave 7. Wave 8 remains explicitly barred from starting under any circumstance until Wave 7 independently satisfies all five Inter-Wave Gate conditions. |
