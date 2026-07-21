@@ -752,7 +752,7 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    Partner2[Partner System - Client Credentials] -->|TB-11, contract-scoped| Kong5[Kong Gateway]
+    Partner2["Partner System - Client Credentials (Recommendation)"] -->|TB-11, contract-scoped| Kong5[Kong Gateway]
     Kong5 -->|coarse AuthZ| Mod2[Owning Module]
     Mod2 -->|FHIR R4 payload validated| Translate[Translate to internal canonical model]
     Translate --> Domain2[Domain Aggregate]
@@ -785,8 +785,8 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    Trigger[Domain Event] --> Worker[Background Worker - proposed owner, SS49]
-    Worker -->|HMAC-signed, eventId| Deliver[Deliver to Partner endpoint]
+    Trigger[Domain Event] --> Worker["Background Worker - proposed owner, S18"]
+    Worker -->|"HMAC-signed (Recommendation), eventId"| Deliver[Deliver to Partner endpoint]
     Deliver -->|2xx| Done[Delivered]
     Deliver -->|non-2xx/timeout| Retry2[Bounded exponential backoff]
     Retry2 -->|exhausted| DLQ2[Dead Letter Queue + mandatory Audit Event]
@@ -990,7 +990,7 @@ See §28 — every inherited Threat carries a disposition; 3 new Threats (THR-03
 
 ### Offline Review
 
-§19 — every Wave 7/8 Mandatory pre-production blocker given an explicit disposition: Resolved by SAD-Level Design (local confidentiality/integrity/replay/duplicate semantic requirements), Resolved by Accepted Rule (sync-time revalidation), or an explicit, owned pre-production Open Decision (§32 items 4–6, 9) — none left as a bare, unowned "Open" restatement.
+§19 — every Wave 7/8 Mandatory pre-production blocker given an explicit disposition: Resolved by SAD-Level Design (local confidentiality/integrity/replay/duplicate semantic requirements), Resolved by Accepted Rule (sync-time revalidation), or an explicit, owned pre-production Open Decision correctly carrying Mandatory status where inherited from Wave 7 §18 (§32 items 4, 5, 15, 20) and correctly non-Mandatory where genuinely new to this Wave (item 6) — none left as a bare, unowned "Open" restatement (corrected, §38).
 
 ### Partner/FHIR Review
 
@@ -1094,7 +1094,7 @@ A seventh, independent fresh sub-agent — having authored none of the prior 6 p
 | 20 | Partner access contract/tenant scoped | **PASS** | §17; VF13 |
 | 21 | FHIR R4 status preserved | **PASS** | §16 |
 | 22 | Webhook capability separated from mechanism status | **PASS** | §18 |
-| 23 | Offline production blockers resolved or explicitly blocking | **PASS (corrected)** | §19 — sync-time revalidation Accepted Rule; encryption/remote-wipe/conflict-resolution/partial-sync explicitly Open with owners (§32 items 4, 5, 6, 15) |
+| 23 | Offline production blockers resolved or explicitly blocking | **PASS (corrected, §38)** | §19 — sync-time revalidation Accepted Rule; encryption (item 4), conflict-resolution (item 5), remote-wipe (item 15), and retention/purge (item 20) all explicitly Mandatory pre-production blockers with owners, matching Wave 7 §18's own classification; partial-sync/ordering (item 6) correctly non-blocking as a genuinely new, not-inherited gap |
 | 24 | No long-lived privileged credential embedded offline | **PASS** | §19 |
 | 25 | Offline revocation/sync revalidation explicit | **PASS** | §19 |
 | 26 | Local confidentiality/integrity requirements explicit | **PASS** | §19 |
